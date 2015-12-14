@@ -25,10 +25,10 @@ public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
-   /* @Override
+   @Override
     protected Filter[] getServletFilters() {
         Filter [] singleton = { new CORSFilter()};
         return singleton;
-    }*/
+    }
  
 }
