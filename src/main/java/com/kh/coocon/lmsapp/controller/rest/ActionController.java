@@ -32,11 +32,11 @@ public class ActionController {
 	
 	
 	@Autowired
-	EntitleService userService;
+	EntitleService entitleService;
 	@Autowired
 	LeaveService leaveService;
-	// @Autowired
-	// UserService userService;
+	@Autowired
+	UserService userService;
 	
 	
 	
@@ -56,7 +56,7 @@ public class ActionController {
 			//List<Entitledays> Mylist = userService.list();
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("ENTITLE_REC", userService.getEntitiledList(empId, statId));
+			listData.put("ENTITLE_REC", entitleService.getEntitiledList(empId, statId));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
