@@ -23,14 +23,18 @@ $(document).ready(function() {
 				var res = data.RESP_DATA['ENTITLE_REC'];
 				console.log(res);
 				//$("#mytemplate").tmpl(res).appendTo("tbody#entitle");
-				$.each(res,function(i,v){
-					var data = {};
-					data['LA']  = res[i].leavesAvailable;
-					data['LE']  = res[i].leavesEntitled;
-					data['LT']  = res[i].leavesTaken;
-					data['LTY'] = res[i].leavesTypes;
-					$("#mytemplate").tmpl(data).appendTo("tbody#entitle");
-				})
+				if(res.length <=0) {
+					$("tfoot#entitleFooter").show();
+				} else {
+					$.each(res,function(i,v){
+						var data = {};
+						data['LA']  = res[i].leavesAvailable;
+						data['LE']  = res[i].leavesEntitled;
+						data['LT']  = res[i].leavesTaken;
+						data['LTY'] = res[i].leavesTypes;
+						$("#mytemplate").tmpl(data).appendTo("tbody#entitle");
+					})
+				}
 			},
 			error : function(data) {
 			//	console.log(data);

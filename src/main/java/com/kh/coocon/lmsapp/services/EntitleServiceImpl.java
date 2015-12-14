@@ -69,9 +69,9 @@ public class EntitleServiceImpl implements EntitleService{
 		
 	)
 	{
-		
 		ps.setInt(1, userId);
 		ps.setInt(2, statusId);
+		System.out.println(ps);
 		ResultSet rs = ps.executeQuery();
 		ArrayList<Entitledays> a = new ArrayList<Entitledays>();
 		Entitledays b = null;

@@ -67,15 +67,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
         .usernameParameter("ssoId").passwordParameter("password")
-        .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository())
+        //.and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository())
         .and().exceptionHandling().accessDeniedPage("/Access_Denied")
         .and().csrf().disable();
   
     }
-    @Bean
+    /*@Bean
     public PersistentTokenRepository persistentTokenRepository(){
     	JdbcTokenRepositoryImpl impl = new JdbcTokenRepositoryImpl();
     	impl.setDataSource(dataSource);
     	return impl;
-    }
+    }*/
 }

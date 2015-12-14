@@ -87,9 +87,11 @@
                                         <tbody id="leaveBalanced">
 											                                
                                         </tbody>
-										<!--<tfoot>
-											<div><span>There aren't any users</span></div>
-										</tfoot>-->
+										<tfoot id="leaveFooter" style="display:none;">
+										    <tr align="center">
+										      <td colspan="4">There aren't any leaves requested</td>
+										    </tr>
+									  </tfoot>
                                     </table>
                                     
 									<div id="example_length" class="dataTables_length"><label>Show <select size="1" style="width: 56px;padding: 6px;" name="example_length" aria-controls="example"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> </label></div>

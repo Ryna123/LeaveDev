@@ -98,29 +98,13 @@
                                             </tr>
                                         </thead>
                                         <tbody id="entitle">
-											<!-- <tr>                                             											
-                                                <td>Annual Leave</td>
-                                                <td>13</td>
-                                                <td>5</td>
-                                                <td>18</td>    
-                                            </tr>
-                                            <tr>                                             											
-                                                <td>Special Leave</td>
-                                                <td>5</td>
-                                                <td>2</td>
-                                                <td>7</td>    
-                                            </tr>
-                                            <tr>                                             											
-                                                <td>Sick Leave</td>
-                                                <td>7</td>
-                                                <td>0</td>
-                                                <td>7</td>    
-                                            </tr> -->
-                                              
+											
                                         </tbody>
-										<!--<tfoot>
-											<div><span>There aren't any users</span></div>
-										</tfoot>-->
+ 										<tfoot id="entitleFooter" style="display:none;">
+										    <tr align="center">
+										      <td colspan="4">There aren't any records</td>
+										    </tr>
+									  </tfoot>
                                     </table>
 
                                 </div>
