@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.coocon.lmsapp.entities.Entitledays;
+import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.UserService;
+import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
 @RestController
 @RequestMapping("/admin/action/service")
@@ -40,7 +42,11 @@ public class ActionController {
 	@Autowired
 	UserService userService;
 	
-	public int UserId = userService.findBySso(getPrincipal()).getId();
+	SSOIdUtil ssoidUtils = new SSOIdUtil();
+	
+	User user = userService.findBySso(ssoidUtils.getPrincipal());
+	//public int UserId = userService.findBySso(getPrincipal()).getId();
+	
 	
 	
 	
@@ -56,11 +62,11 @@ public class ActionController {
 		}*/
 	
 		@RequestMapping(value = { "/lms_adm_001"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> GetEntitledlist( int UserId /*@RequestParam("empId") int empId*/,@RequestParam("statId") int statId) {
+		public ResponseEntity<Map<String, Object>> GetEntitledlist( /*@RequestParam("empId") int empId*/@RequestParam("statId") int statId) {
 			//List<Entitledays> Mylist = userService.list();
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("ENTITLE_REC", entitleService.getEntitiledList(UserId, statId));
+			listData.put("ENTITLE_REC", entitleService.getEntitiledList(user.getId(), statId));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
