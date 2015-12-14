@@ -205,26 +205,5 @@ public class MainController {
         model.addAttribute("user", ssoidUtil.getPrincipal());
         return "accessDenied";
     }
-<<<<<<< HEAD
-     /*
-    private String getPrincipal(){
-=======
-     
-   private String getPrincipal(){
->>>>>>> c2fe336f823b7cdafa1873b74c8290b6e8f2e71a
-    	 String userName = null;
-         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-  
-         if (principal instanceof UserDetails) {
-             userName = ((UserDetails)principal).getUsername();
-         } else {
-             userName = principal.toString();
-         }
-         return userName;
-<<<<<<< HEAD
-     }*/
-=======
-     	}
->>>>>>> c2fe336f823b7cdafa1873b74c8290b6e8f2e71a
-    }
+}
 	
