@@ -25,7 +25,7 @@ public class MainController {
 	
 	@Autowired
 	UserService userService;
-
+	
 	@RequestMapping(value={"/","/admin/dashboard","/admin/home","/admin/index"} , method = RequestMethod.GET)
 	public String dasboardPage(ModelMap m){
 		m.addAttribute("message","Dashboard");
@@ -205,8 +205,13 @@ public class MainController {
         model.addAttribute("user", ssoidUtil.getPrincipal());
         return "accessDenied";
     }
+<<<<<<< HEAD
      /*
     private String getPrincipal(){
+=======
+     
+   private String getPrincipal(){
+>>>>>>> c2fe336f823b7cdafa1873b74c8290b6e8f2e71a
     	 String userName = null;
          Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
   
@@ -216,6 +221,10 @@ public class MainController {
              userName = principal.toString();
          }
          return userName;
+<<<<<<< HEAD
      }*/
+=======
+     	}
+>>>>>>> c2fe336f823b7cdafa1873b74c8290b6e8f2e71a
     }
 	

@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var empId = 2;
 	
 	
-	var a = {empId :2,statId : 2};
+	var a = {/*empId :2,*/statId : 2};
 	/*
 	a["ab"] = "hi";
 	a["bc"] = "oh";

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +40,8 @@ public class ActionController {
 	@Autowired
 	UserService userService;
 	
+	public int UserId = userService.findBySso(getPrincipal()).getId();
+	
 	
 	
 /*	@RequestMapping(value = { "/lms_adm_001/{field1}/{field2}"}, method = RequestMethod.POST)
@@ -52,11 +56,11 @@ public class ActionController {
 		}*/
 	
 		@RequestMapping(value = { "/lms_adm_001"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> GetEntitledlist(@RequestParam("empId") int empId,@RequestParam("statId") int statId) {
+		public ResponseEntity<Map<String, Object>> GetEntitledlist( int UserId /*@RequestParam("empId") int empId*/,@RequestParam("statId") int statId) {
 			//List<Entitledays> Mylist = userService.list();
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("ENTITLE_REC", entitleService.getEntitiledList(empId, statId));
+			listData.put("ENTITLE_REC", entitleService.getEntitiledList(UserId, statId));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
@@ -65,9 +69,10 @@ public class ActionController {
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			//System.out.println("console is "+ userService.findBySso(getPrincipal()).getId());
+			//return null;
 		}
-		
-		
+
 		@RequestMapping(value = { "/lms_adm_002"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeavesList(@RequestParam("empId") int empId) {
 			//List<Entitledays> Mylist = userService.list();
@@ -85,6 +90,17 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
+		private String getPrincipal(){
+	    	 String userName = null;
+	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	  
+	         if (principal instanceof UserDetails) {
+	             userName = ((UserDetails)principal).getUsername();
+	         } else {
+	             userName = principal.toString();
+	         }
+	         return userName;
+	   	}
 	}
 	
 
