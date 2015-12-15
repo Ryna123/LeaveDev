@@ -103,6 +103,7 @@ public class ActionController {
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			listData.put("LEAVETYPE_REC", leaveTypeService.getLeavesTypeList());
+			listData.put("LEAVESTATUS_REC", leaveTypeService.getLeavesStatus());
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);

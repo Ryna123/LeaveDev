@@ -72,12 +72,8 @@
                         class="control-label col-md-3 col-sm-3 col-xs-12">Leave
                         type:</label>
                       <div class="col-md-4 col-sm-3 col-xs-12">
-                        <select class="form-control">
-                          <option>Annual leave</option>
-                          <option>Option one</option>
-                          <option>Option two</option>
-                          <option>Option three</option>
-                          <option>Option four</option>
+                        <select class="form-control" id="selectLt">
+                         
                         </select>
                         <ul class="parsley-errors-list" id=""></ul>
                       </div>
@@ -195,3 +191,7 @@
   </div>
 
   <%@include file="/static/include/assetfooter.jsp"%>
+  <script src="<c:url value="/static/js/actionjs/lms_adm_003.js" />"></script>
+  <script id="mytemplate" type="text/html">
+    <option value="{{= TI}}">{{= TN}}</option>
+   </script>
