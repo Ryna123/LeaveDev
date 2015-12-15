@@ -89,7 +89,7 @@
                                         </tbody>
 										<tfoot id="leaveFooter" style="display:none;">
 										    <tr align="center">
-										      <td colspan="4">There aren't any leaves requested</td>
+										      <td colspan="8">There aren't any leaves requested</td>
 										    </tr>
 									  </tfoot>
                                     </table>
