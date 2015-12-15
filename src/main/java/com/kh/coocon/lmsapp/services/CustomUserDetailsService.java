@@ -40,7 +40,7 @@ public class CustomUserDetailsService implements UserDetailsService{
          
         for(UserProfile userProfile : user.getUserProfiles()){
             System.out.println("UserProfile : "+userProfile);
-            authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getName()));
         }
         System.out.print("authorities :"+authorities);
         return authorities;

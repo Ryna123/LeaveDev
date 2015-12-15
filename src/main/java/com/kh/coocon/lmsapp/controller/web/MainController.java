@@ -26,9 +26,16 @@ public class MainController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value={"/","/admin/dashboard","/admin/home","/admin/index"} , method = RequestMethod.GET)
-	public String dasboardPage(ModelMap m){
+	@RequestMapping(value={"/"} , method = RequestMethod.GET)
+	public String gotoLoginPage(ModelMap m){
 		m.addAttribute("message","Dashboard");
+		return "login";
+	}
+	
+	@RequestMapping(value={"/admin/dashboard","/admin/home","/admin/index"} , method = RequestMethod.GET)
+	public String dasboardPage(ModelMap m){
+		m.addAttribute("users", userService.findBySso(ssoidUtil.getPrincipal()));	
+		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_main";
 	}
 	

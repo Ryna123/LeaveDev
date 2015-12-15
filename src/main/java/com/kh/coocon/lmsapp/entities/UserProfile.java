@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
  
 @Entity
-@Table(name="USER_PROFILE")
+@Table(name="LMS_ROLES")
 public class UserProfile {
  
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id; 
  
-    @Column(name="TYPE", length=15, unique=true, nullable=false)
-    private String type = UserProfileType.USER.getUserProfileType();
+    @Column(name="NAME", length=15, unique=true, nullable=false)
+    private String name = UserProfileType.USER.getUserProfileType();
      
     public int getId() {
         return id;
@@ -25,12 +25,12 @@ public class UserProfile {
         this.id = id;
     }
  
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
  
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
  
  
@@ -39,7 +39,7 @@ public class UserProfile {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((type == null) ? 0 : type.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
         return result;
     }
  
@@ -54,17 +54,17 @@ public class UserProfile {
         UserProfile other = (UserProfile) obj;
         if (id != other.id)
             return false;
-        if (type == null) {
-            if (other.type != null)
+        if (name == null) {
+            if (other.name != null)
                 return false;
-        } else if (!type.equals(other.type))
+        } else if (!name.equals(other.name))
             return false;
         return true;
     }
  
     @Override
     public String toString() {
-        return "UserProfile [id=" + id + ",  type=" + type  + "]";
+        return "UserProfile [id=" + id + ",  type=" + name  + "]";
     }
      
  
