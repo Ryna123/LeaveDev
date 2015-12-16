@@ -149,12 +149,8 @@
                       <label
                         class="control-label col-md-3 col-sm-3 col-xs-12">Status:</label>
                       <div class="col-md-4 col-sm-3 col-xs-12">
-                        <select class="form-control">
-                          <option>Planned</option>
-                          <option>Option one</option>
-                          <option>Option two</option>
-                          <option>Option three</option>
-                          <option>Option four</option>
+                        <select class="form-control" id="selectSt">
+                          
                         </select>
                       </div>
                     </div>
@@ -194,4 +190,7 @@
   <script src="<c:url value="/static/js/actionjs/lms_adm_003.js" />"></script>
   <script id="mytemplate" type="text/html">
     <option value="{{= TI}}">{{= TN}}</option>
+   </script>
+    <script id="mytemplate1" type="text/html">
+    <option value="{{= SI}}">{{= SN}}</option>
    </script>

@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.coocon.lmsapp.entities.LeaveStaus;
 import com.kh.coocon.lmsapp.entities.LeaveType;
 @Service
 public class LeaveTypeServiceImpl implements LeaveTypeService  {
@@ -46,7 +47,7 @@ public class LeaveTypeServiceImpl implements LeaveTypeService  {
 		}
 
 	@Override
-	public List<LeaveType> getLeavesStatus() {
+	public List<LeaveStaus> getLeavesStatus() {
 		String sql	= "select status_id, name  from lms_status where status_id in(1,4) ORDER BY status_id"   ;	
 		try (
 			
@@ -56,10 +57,10 @@ public class LeaveTypeServiceImpl implements LeaveTypeService  {
 		)
 		{
 			ResultSet rs = ps.executeQuery();
-			ArrayList<LeaveType> ll = new ArrayList<LeaveType>();
-			LeaveType ls = null;
+			ArrayList<LeaveStaus> ll = new ArrayList<LeaveStaus>();
+			LeaveStaus ls = null;
 			while (rs.next()) {
-				ls = new LeaveType();				
+				ls = new LeaveStaus();				
 				ls.setStatusId(rs.getInt("status_id"));
 				ls.setStatusName(rs.getString("name"));
 				ll.add(ls);
@@ -69,6 +70,7 @@ public class LeaveTypeServiceImpl implements LeaveTypeService  {
 			System.out.println(e);
 		} 
 		return null;
-
 	}
+
+	
 }
