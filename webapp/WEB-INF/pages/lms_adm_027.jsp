@@ -54,19 +54,18 @@
 							</div>
 							<div class="x_content">
 								<br>
-								<form class="form-horizontal form-label-left">
+								<form class="form-horizontal form-label-left" method="GET">
 
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Leave Type:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-										 <select  data-parsley-id="4308" id=selectLt class="form-control" required="reguired">
+										 <select  data-parsley-id="4308" id=selectLt class="form-control" required="required">
                         
                        					 </select>
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
-											<input class="form-control"
-												data-inputmask="'mask': '99/99/9999'" type="text">
+											<input class="form-control"	data-inputmask="'mask': '99/99/9999'" required="required" type="text">
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align: left;">Day(s)</label>
 										
@@ -74,38 +73,31 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left"
-													id="" name="daterang1" aria-describedby="inputSuccess2Status">
-											<span class="fa fa-calendar-o form-control-feedback left"
-													aria-hidden="true"></span> <span id="" class="sr-only">(success)
-											</span>
+											<input type="text" class="form-control has-feedback-left" required="required" id="" name="daterang1" aria-describedby="inputSuccess2Status">
+												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
+											<span id="" class="sr-only">(success)</span>
 										</div>
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control"
-											required="">
-											<option value="am">Morning</option>
-											<option value="pm">Afternoon</option>
-											<option value="full">Full day</option>
-										</select>
+											<select data-parsley-id="4308" id="heard" class="form-control" required="required">
+												<option value="am">Morning</option>
+												<option value="pm">Afternoon</option>
+											</select>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left"
-													id="" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" id="" name="daterang1" aria-describedby="inputSuccess2Status">
 											<span class="fa fa-calendar-o form-control-feedback left"
 													aria-hidden="true"></span> <span id="" class="sr-only">(success)
 											</span>
 										</div>
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control"
-											required="">
+											<select data-parsley-id="4308" id="heard" class="form-control"	required="required">
 											<option value="am">Morning</option>
 											<option value="pm">Afternoon</option>
-											<option value="full">Full day</option>
 										</select>
 										</div>
 									</div>
@@ -115,14 +107,14 @@
 											<span class="required">*</span>
 										</label>
 										<div class="col-md-7 col-sm-7 col-xs-7">
-											<textarea class="form-control" rows="2"></textarea>
+											<textarea class="form-control" rows="2" required="required"></textarea>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Status:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select class="form-control" id="selectSt">
+											<select class="form-control" id="selectSt" required="required">
                           
                        						</select>
 										</div>
@@ -155,7 +147,7 @@
     </div>
 
 <%@include file="/static/include/assetfooter.jsp" %>
-<script src="<c:url value="/static/js/actionjs/lms_adm_003.js" />"></script>
+<script src="<c:url value="/static/js/actionjs/lms_adm_027.js" />"></script>
   <script id="mytemplate" type="text/html">
     <option value="{{= TI}}">{{= TN}}</option>
    </script>
