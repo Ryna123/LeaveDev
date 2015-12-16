@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$.ajax({
-		url : "../admin/action/service/lms_adm_003lt",
+		url : "../action/service/lms_adm_003lt",
 		dataType : "JSON",
 		type : "POST",
 		//data :a,

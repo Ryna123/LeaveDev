@@ -13,7 +13,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		//url : "../admin/action/service/lms_adm_001/1/2",
-		url : "../admin/action/service/lms_adm_001",
+		url : "../action/service/lms_adm_001",
 		dataType : "JSON",
 		type : "POST",
 		data :a,

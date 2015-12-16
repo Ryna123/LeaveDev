@@ -1,5 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<input type="hidden" value="${users.id }"/>
+<input type="hidden" value="${users}"/>
 <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
 
@@ -28,18 +28,18 @@
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
                         <div class="menu_section">
-                            <h3>General</h3>
+                            <h3>Admin</h3>
                             <ul class="nav side-menu">
                              <sec:authorize access="hasRole('HR') or hasRole('ADMIN')">
                                 <li><a  href="javascript:"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                     	<li><a href="#"><i class="fa fa-star-half-empty"></i> An Employee</a>
                                         </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_001" />">Leave Balances</a>
+                                        <li><a href="<c:url value="/users/lms_adm_001" />">Leave Balances</a>
                                         </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_002" />">List Leave Requested</a>
+                                        <li><a href="<c:url value="/users/lms_adm_002" />">List Leave Requested</a>
                                         </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_003" />">New Leaves</a>
+                                        <li><a href="<c:url value="/users/lms_adm_027" />">New Leaves</a>
                                         </li>
                                         <li><a href="#"><i class="fa fa-star-half-empty"></i> An Manager</a>
                                         </li>
@@ -93,13 +93,13 @@
 	                                    <ul class="nav child_menu" style="display: none">
 	                                    	<li><a href="javascript:"><i class="fa fa-star-half-empty"></i> Leaves</a>
 	                                        </li>
-	                                        <li><a href="<c:url value="/admin/lms_adm_027" />">Request leaves</a>
+	                                        <li><a href="<c:url value="/users/lms_adm_027" />">Request leaves</a>
 	                                        </li>
 	                                        <li><a href="javascript:"><i class="fa fa-star-half-empty"></i> OVERTIME</a>
 	                                        </li>
-	                                        <li><a href="<c:url value="/admin/lms_adm_028" />">List of OT </a>
+	                                        <li><a href="<c:url value="/users/lms_adm_028" />">List of OT </a>
 	                                        </li>
-	                                        <li><a href="<c:url value="/admin/lms_adm_029" />">Request OT </a>
+	                                        <li><a href="<c:url value="/users/lms_adm_029" />">Request OT </a>
 	                                        </li>
 	                                    </ul>
 	                                </li>

@@ -32,7 +32,7 @@ public class MainController {
 		return "login";
 	}
 	
-	@RequestMapping(value={"/admin/dashboard","/admin/home","/admin/index"} , method = RequestMethod.GET)
+	@RequestMapping(value={"/users/dashboard","/users/home"/*,"/admin/index"*/} , method = RequestMethod.GET)
 	public String dasboardPage(ModelMap m){
 		m.addAttribute("users", userService.findBySso(ssoidUtil.getPrincipal()));	
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
@@ -45,20 +45,20 @@ public class MainController {
 		return "user";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_001", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_001", method=RequestMethod.GET)
 	public String showLms_adm_001(ModelMap m){
 		m.addAttribute("users", userService.findBySso(ssoidUtil.getPrincipal()));	
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_001";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_002", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_002", method=RequestMethod.GET)
 	public String showLms_adm_002(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_002";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_003", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_003", method=RequestMethod.GET)
 	public String showLms_adm_003(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_003";
@@ -141,19 +141,19 @@ public class MainController {
 		return "lms_adm_024";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_027", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_027", method=RequestMethod.GET)
 	public String showLms_adm_027(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_027";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_028", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_028", method=RequestMethod.GET)
 	public String showLms_adm_028(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_028";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_029", method=RequestMethod.GET)
+	@RequestMapping(value="/users/lms_adm_029", method=RequestMethod.GET)
 	public String showLms_adm_029(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_029";

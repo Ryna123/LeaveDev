@@ -93,6 +93,8 @@
                                    
                                 </div>
                             </div>
+                            
+                             <sec:authorize access="hasRole('ADMIN')">
                             <div class="x_panel">
                                 <div class="x_title">
                                     <h2>If you are an manager, you here</h2>
@@ -125,6 +127,7 @@
                                 </div>
                                    
                                 </div>
+                                </sec:authorize>
                             </div>
                         </div>
                         <div class="clearfix"></div>

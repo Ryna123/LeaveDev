@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var a = {empId :2};
 	$.ajax({
-		url : "../admin/action/service/lms_adm_002",
+		url : "../action/service/lms_adm_002",
 		dataType : "JSON",
 		type : "POST",
 		data :a,

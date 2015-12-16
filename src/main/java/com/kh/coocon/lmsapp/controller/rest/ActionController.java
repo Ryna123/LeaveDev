@@ -26,7 +26,7 @@ import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
 @RestController
 @Controller
-@RequestMapping("/admin/action/service")
+@RequestMapping("/action/service")
 
 public class ActionController {
 	

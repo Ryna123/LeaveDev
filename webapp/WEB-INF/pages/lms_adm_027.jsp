@@ -59,12 +59,9 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Leave Type:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control"
-											required="">
-											<option value="annual">Annual Leave</option>
-											<option value="special">Special Leave</option>
-											<option value="sick">Sick Leave</option>
-										</select>
+										 <select  data-parsley-id="4308" id=selectLt class="form-control" required="reguired">
+                        
+                       					 </select>
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
@@ -125,11 +122,9 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Status:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard"
-												class="form-control" required="">
-												<option value="plan">Planned</option>
-												<option value="unplan">Unplanned</option>
-											</select>
+											<select class="form-control" id="selectSt">
+                          
+                       						</select>
 										</div>
 									</div>
 									<div class="ln_solid"></div>
@@ -160,4 +155,11 @@
     </div>
 
 <%@include file="/static/include/assetfooter.jsp" %>
+<script src="<c:url value="/static/js/actionjs/lms_adm_003.js" />"></script>
+  <script id="mytemplate" type="text/html">
+    <option value="{{= TI}}">{{= TN}}</option>
+   </script>
+    <script id="mytemplate1" type="text/html">
+    <option value="{{= SI}}">{{= SN}}</option>
+   </script>
    
