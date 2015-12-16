@@ -65,7 +65,7 @@
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
-											<input class="form-control"	data-inputmask="'mask': '99/99/9999'" required="required" type="text">
+											<input class="form-control" id="duration" required="required" type="text">
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align: left;">Day(s)</label>
 										
@@ -73,29 +73,29 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" required="required" id="" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
 												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
 											<span id="" class="sr-only">(success)</span>
 										</div>
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control" required="required">
+											<select data-parsley-id="4308" id="startdatetype" class="form-control" required="required">
 												<option value="am">Morning</option>
 												<option value="pm">Afternoon</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
+										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">End Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" required="required" id="" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" id="enddate" name="daterang1" aria-describedby="inputSuccess2Status">
 											<span class="fa fa-calendar-o form-control-feedback left"
 													aria-hidden="true"></span> <span id="" class="sr-only">(success)
 											</span>
 										</div>
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control"	required="required">
+											<select data-parsley-id="4308" id="endadatetype" class="form-control"	required="required">
 											<option value="am">Morning</option>
 											<option value="pm">Afternoon</option>
 										</select>
@@ -107,7 +107,7 @@
 											<span class="required">*</span>
 										</label>
 										<div class="col-md-7 col-sm-7 col-xs-7">
-											<textarea class="form-control" rows="2" required="required"></textarea>
+											<textarea class="form-control" rows="2" required="required" id="reason"></textarea>
 										</div>
 									</div>
 
@@ -123,7 +123,7 @@
 									<!-- Buttons -->
 									<div class="form-group">
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">
-											<button type="submit" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Leave</button>
+											<a href="javascript:" id="addLeave" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Leave</a>
 											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
 										</div>
 									</div>

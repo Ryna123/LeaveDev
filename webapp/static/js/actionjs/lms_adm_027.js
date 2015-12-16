@@ -29,5 +29,42 @@ $(document).ready(function() {
 
 	});
 	
-	
+	$("#addLeave").click(function() {
+		var lobj = {};
+		var lType = $("#selectLt").val();
+		var lDuration = $("#duration").val();
+		var lStartDate = $("#startdate").val();
+		var lEnddate = $("#enddate").val();
+		var lStartDateType = $("#startdatetype").val();
+		var lEndDateType = $("#startdatetype").val();
+		var lReason = $("#reason").val();
+		var lStatus = $("#selectSt").val();
+		
+		lobj.type = lType;
+		lobj.duration = lDuration;
+		lobj.startdate = lStartDate;
+		lobj.enddate = lEnddate;
+		lobj.startdatetype =lStartDateType
+		lobj.enddatetype =lEndDateType
+		lobj.reason = lReason;
+		lobj.status = lStatus;
+		console.log(lobj);
+		
+		$.ajax({
+			url : "../action/service/lms_adm_003lt",
+			dataType : "JSON",
+			type : "POST",
+			data :lobj,
+			success : function(data) {
+				//console.log(data.RESP_DATA);
+				
+			},
+			error : function(data) {
+				console.log(data);
+			}
+
+		});
+		
+		
+	})
 });
