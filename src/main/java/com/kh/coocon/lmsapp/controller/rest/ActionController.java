@@ -1,21 +1,21 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
@@ -25,7 +25,6 @@ import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
 @RestController
-@Controller
 @RequestMapping("/action/service")
 
 public class ActionController {
@@ -97,7 +96,7 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
-		@RequestMapping(value = { "/lms_adm_003lt"}, method = RequestMethod.POST)
+		@RequestMapping(value = { "/lms_adm_027lt"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeavesType() {
 			//List<Entitledays> Mylist = userService.list();
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -113,6 +112,20 @@ public class ActionController {
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
+		@RequestMapping(value = { "/lms_adm_027It"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE)
+		public String addLeave(@RequestBody Leaves p) throws Exception {
+			/*Map<String, Object> map = new HashMap<String, Object>();
+			if (leaveService.addLeaves(obj)==false) {
+				map.put("MESSAGE", "Insert leave failse");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);*/
+			//System.out.println(obj.getLeavesendDateType());
+			System.out.println("");
+			return null;
+		}
 		
 		private String getPrincipal(){
 	    	 String userName = null;
@@ -125,14 +138,7 @@ public class ActionController {
 	         }
 	         return userName;
 	   	}
+		
+		
+		
 	}
-	
-
-
-
-
-
-
-
-
-

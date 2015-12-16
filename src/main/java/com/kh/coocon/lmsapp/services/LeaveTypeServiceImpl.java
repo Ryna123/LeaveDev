@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.coocon.lmsapp.entities.LeaveStaus;
 import com.kh.coocon.lmsapp.entities.LeaveType;
+import com.kh.coocon.lmsapp.entities.Leaves;
 @Service
 public class LeaveTypeServiceImpl implements LeaveTypeService  {
 	@Autowired
@@ -70,6 +71,12 @@ public class LeaveTypeServiceImpl implements LeaveTypeService  {
 			System.out.println(e);
 		} 
 		return null;
+	}
+
+	@Override
+	public boolean addLeave(Leaves leaveObj) {
+		System.out.println(leaveObj.getLeavesType());
+		return true;
 	}
 
 	

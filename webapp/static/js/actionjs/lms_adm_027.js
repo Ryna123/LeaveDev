@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$.ajax({
-		url : "../action/service/lms_adm_003lt",
+		url : "../action/service/lms_adm_027lt",
 		dataType : "JSON",
 		type : "POST",
 		//data :a,
@@ -50,15 +50,20 @@ $(document).ready(function() {
 		lobj.status = lStatus;
 		console.log(lobj);
 		
+		var data = {};
+		data["fname"] = "Yon";
+		data["lname"] = "Ryna";
+		//data["as"] = "lasjdf";
 		$.ajax({
-			url : "../action/service/lms_adm_003lt",
+			url : "../action/service/lms_adm_027It",
+			//"Content-Type":" application/json",
 			dataType : "JSON",
 			type : "POST",
-			data :lobj,
-			success : function(data) {
+			data :data,
+			/*success : function(data) {
 				//console.log(data.RESP_DATA);
 				
-			},
+			},*/
 			error : function(data) {
 				console.log(data);
 			}
