@@ -61,9 +61,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   
       http.authorizeRequests()
         .antMatchers("/", "/home","/admin/**").permitAll()
-        .antMatchers("/account/**").access("hasRole('ACCOUNTANT') or hasRole('DIRECTOR')")
-        .antMatchers("/admin/**").access("hasRole('ADMIN')")
-        .antMatchers("/db/**").access("hasRole('DIRECTOR')")
+       // .antMatchers("/account/**").access("hasRole('ACCOUNTANT') or hasRole('DIRECTOR')")
+        .antMatchers("/admin/**").access("hasRole('ADMIN') or hasRole('USER') or hasRole('HR')")
+       // .antMatchers("/db/**").access("hasRole('DIRECTOR')")
         
         .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
         .usernameParameter("ssoId").passwordParameter("password")
