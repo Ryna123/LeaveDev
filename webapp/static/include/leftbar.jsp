@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <input type="hidden" value="${users.id }"/>
 <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
@@ -30,6 +30,7 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
+                                <sec:authorize access="hasRole('ADMIN') ">
                                 <li><a  href="javascript:"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                     	<li><a href="#"><i class="fa fa-star-half-empty"></i> An Employee</a>
@@ -86,36 +87,39 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="javascript:"><i class="fa fa-pencil-square-o"></i> Request <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                    	<li><a href="javascript:"><i class="fa fa-star-half-empty"></i> Leaves</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_027" />">Request leaves</a>
-                                        </li>
-                                        <li><a href="javascript:"><i class="fa fa-star-half-empty"></i> OVERTIME</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_028" />">List of OT </a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_029" />">Request OT </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:"><i class="fa fa-calendar"></i> Calendar <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="<c:url value="/admin/lms_adm_031"/> ">My Calendar</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_032"/> ">My workmate</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_033"/> ">My collaborators</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_034"/> ">Department</a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_035"/> ">Global </a>
-                                        </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_036"/> ">Tabular </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <sec:authorize access="hasRole('USER') or hasRole('ADMIN')">
+	                                <li><a href="javascript:"><i class="fa fa-pencil-square-o"></i> Request <span class="fa fa-chevron-down"></span></a>
+	                                    <ul class="nav child_menu" style="display: none">
+	                                    	<li><a href="javascript:"><i class="fa fa-star-half-empty"></i> Leaves</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_027" />">Request leaves</a>
+	                                        </li>
+	                                        <li><a href="javascript:"><i class="fa fa-star-half-empty"></i> OVERTIME</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_028" />">List of OT </a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_029" />">Request OT </a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li><a href="javascript:"><i class="fa fa-calendar"></i> Calendar <span class="fa fa-chevron-down"></span></a>
+	                                    <ul class="nav child_menu" style="display: none">
+	                                        <li><a href="<c:url value="/admin/lms_adm_031"/> ">My Calendar</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_032"/> ">My workmate</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_033"/> ">My collaborators</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_034"/> ">Department</a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_035"/> ">Global </a>
+	                                        </li>
+	                                        <li><a href="<c:url value="/admin/lms_adm_036"/> ">Tabular </a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                           </sec:authorize>
+	                           </sec:authorize>
                             </ul>
                         </div>
                         <!-- <div class="menu_section">
