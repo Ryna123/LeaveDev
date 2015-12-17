@@ -40,26 +40,29 @@ $(document).ready(function() {
 		var lReason = $("#reason").val();
 		var lStatus = $("#selectSt").val();
 		
-		lobj.type = lType;
-		lobj.duration = lDuration;
-		lobj.startdate = lStartDate;
-		lobj.enddate = lEnddate;
-		lobj.startdatetype =lStartDateType
-		lobj.enddatetype =lEndDateType
-		lobj.reason = lReason;
-		lobj.status = lStatus;
+		lobj.leavesType = lType;
+		lobj.leavesDuration = lDuration;
+		lobj.leavesStartdate = lStartDate;
+		lobj.leavesEnddate = lEnddate;
+		lobj.leavesStartDateType =lStartDateType
+		lobj.leavesendDateType =lEndDateType
+		lobj.leavesReason = lReason;
+		lobj.leavesStatus = lStatus;
 		console.log(lobj);
 		
 		var data = {};
 		data["fname"] = "Yon";
-		data["lname"] = "Ryna";
+		data["laname"] = "Ryna";
 		//data["as"] = "lasjdf";
 		$.ajax({
 			url : "../action/service/lms_adm_027It",
-			//"Content-Type":" application/json",
+			headers: { 
+		        'Accept': 'application/json',
+		        'Content-Type': 'application/json' 
+		    },
 			dataType : "JSON",
 			type : "POST",
-			data :data,
+			data :JSON.stringify(lobj),
 			/*success : function(data) {
 				//console.log(data.RESP_DATA);
 				

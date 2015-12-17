@@ -113,18 +113,18 @@ public class ActionController {
 		}
 		
 		@RequestMapping(value = { "/lms_adm_027It"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
-		public ResponseEntity<Map<String, Object>> addLeave(@RequestBody Leaves p) throws Exception {
-			/*Map<String, Object> map = new HashMap<String, Object>();
-			if (leaveService.addLeaves(obj)==false) {
+		public ResponseEntity<Map<String, Object>> addLeave(@RequestBody Leaves lobj) throws Exception {
+			User user = userService.findBySso(getPrincipal());
+			Map<String, Object> map = new HashMap<String, Object>();
+			if (leaveService.addLeaves(lobj, user.getId() )==false) {
 				map.put("MESSAGE", "Insert leave failse");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
 			}
 			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
-			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);*/
-			//System.out.println(obj.getLeavesendDateType());
-			System.out.println("");
-			return null;
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			//System.out.println(lobj.getId() + lobj.getLeavesDuration() + user.getId());
+			//return null;
 		}
 		
 		private String getPrincipal(){

@@ -61,9 +61,9 @@ public class LeaveServiceImpl implements LeaveService  {
 			leave.setLeavesReason(rs.getString("cause"));
 			leave.setLeavesStartDateType(rs.getString("startdatetype"));
 			leave.setLeavesendDateType(rs.getString("enddatetype"));
-			leave.setLeavesDuration(rs.getString("duration"));
-			leave.setLeavesStatus(rs.getString("leavesStatus"));
-			leave.setLeavesType(rs.getString("leavesType"));
+			leave.setLeavesDuration(rs.getDouble("duration"));
+			leave.setLeavesStatus(rs.getInt("leavesStatus"));
+			leave.setLeavesType(rs.getInt("leavesType"));
 			ll.add(leave);
 		}
 		return ll;
@@ -74,9 +74,49 @@ public class LeaveServiceImpl implements LeaveService  {
 	}
 
 	@Override
-	public boolean addLeaves(Leaves leavesObj) {
+	public boolean addLeaves(Leaves lo, int Userid) {
 		// TODO Auto-generated method stub
-		return false;
+		String sql = "INSERT INTO lms_leaves ( "
+				 + "ID,		   " 
+				 + "employee_id,   " 
+				 + "status_id,	   " 
+				 + "type_id,	   " 
+				 + "startdate,	   " 
+				 + "enddate,	   " 
+				 + "cause,	       " 
+				 + "startdatetype, " 
+				 + "enddatetype,   " 
+				 + "duration	   " 
+				 + ") "
+			+" VALUES "
+				 + "(   "
+				 + "nextval('lmsLeave_sequence') ,?,?,?,?,?,?,?,?,? "
+				 + ")";
+
+		try(
+				Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+			) 
+		{
+			ps.setInt(1, Userid);
+			ps.setInt(2, lo.getLeavesStatus());
+			ps.setInt(3, lo.getLeavesType());
+			ps.setDate(4, lo.getLeavesStartdate());
+			ps.setDate(5, lo.getLeavesEnddate());
+			ps.setString(6, lo.getLeavesReason());
+			ps.setString(7, lo.getLeavesStartDateType());
+			ps.setString(8, lo.getLeavesendDateType());
+			ps.setDouble(9, lo.getLeavesDuration());
+			
+			
+			if (ps.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return true;
 	}
 
 	@Override

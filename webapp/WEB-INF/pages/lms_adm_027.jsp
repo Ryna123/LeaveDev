@@ -80,8 +80,8 @@
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
 											<select data-parsley-id="4308" id="startdatetype" class="form-control" required="required">
-												<option value="am">Morning</option>
-												<option value="pm">Afternoon</option>
+												<option value="morning">Morning</option>
+												<option value="afternoon">Afternoon</option>
 											</select>
 										</div>
 									</div>
@@ -96,8 +96,8 @@
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
 											<select data-parsley-id="4308" id="endadatetype" class="form-control"	required="required">
-											<option value="am">Morning</option>
-											<option value="pm">Afternoon</option>
+											<option value="morning">Morning</option>
+											<option value="afternoon">Afternoon</option>
 										</select>
 										</div>
 									</div>
