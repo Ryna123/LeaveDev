@@ -29,7 +29,15 @@ $(document).ready(function() {
 
 	});
 	
+	$("#addleave").validationEngine(lms.ui.validationEngineOptions);
 	$("#addLeave").click(function() {
+		
+		if(!$("#addleave").validationEngine('validate')) {
+			return false;
+		}	
+		
+		
+		/*
 		var lobj = {};
 		var lType = $("#selectLt").val();
 		var lDuration = $("#duration").val();
@@ -50,10 +58,6 @@ $(document).ready(function() {
 		lobj.leavesStatus = lStatus;
 		console.log(lobj);
 		
-		var data = {};
-		data["fname"] = "Yon";
-		data["laname"] = "Ryna";
-		//data["as"] = "lasjdf";
 		$.ajax({
 			url : "../action/service/lms_adm_027It",
 			headers: { 
@@ -63,15 +67,15 @@ $(document).ready(function() {
 			dataType : "JSON",
 			type : "POST",
 			data :JSON.stringify(lobj),
-			/*success : function(data) {
+			success : function(data) {
 				//console.log(data.RESP_DATA);
 				
-			},*/
+			},
 			error : function(data) {
 				console.log(data);
 			}
 
-		});
+		});*/
 		
 		
 	})

@@ -54,7 +54,7 @@
 							</div>
 							<div class="x_content">
 								<br>
-								<form class="form-horizontal form-label-left" method="GET">
+								<form class="form-horizontal form-label-left" method="GET" id="addleave">
 
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Leave Type:</label>
@@ -65,7 +65,7 @@
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
-											<input class="form-control" id="duration" required="required" type="text">
+											<input class="form-control" id="duration" required="required" type="text" data-validation-engine="validate[required,minSize[10],maxSize[10],custom[onlyNumber]]">
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align: left;">Day(s)</label>
 										

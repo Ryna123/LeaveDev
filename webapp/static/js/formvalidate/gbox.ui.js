@@ -5,41 +5,6 @@ if(!gbox.ui) {
 	gbox.ui={};
 	gbox.ui.receiverData = [];
 	
-	$(function() {
-		$.datepicker.setDefaults({			
-			setDate: "-0d",
-			defaultDate: "-0d",
-			changeYear: true,
-			changeMonth: true,
-			//numberOfMonths: 1,
-			dateFormat: 'yy-mm-dd',
-			timeFormat: 'HH:mm'
-		});
-		
-		if(toastr) {
-			toastr.options = {
-				"closeButton": true,
-				"debug": false,
-				"positionClass": "toast-bottom-left",
-				"onclick": null,
-				"showDuration": "300",
-				"hideDuration": "1000",
-				"timeOut": "5000",
-				"extendedTimeOut": "1000",
-				"showEasing": "swing",
-				"hideEasing": "linear",
-				"showMethod": "fadeIn",
-				"hideMethod": "fadeOut"
-			};
-		};
-		
-		$.each($("[data-ui-component]"), function(i, v) {
-			gbox.ui.setUiComponent(v, {
-				"component":$(this).attr("data-ui-component")
-			});
-		});
-	});
-	
 	
 	//link append to show
 	gbox.ui.setappdenLink = function (target, appcdNo) {
