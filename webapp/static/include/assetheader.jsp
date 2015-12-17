@@ -29,8 +29,8 @@
     <link href="<c:url value='/static/css/calendar/fullcalendar.print.css' />" rel="stylesheet" media="print">  
     <link href="<c:url value='/static/css/lms_adm_031.css' />"rel="stylesheet">  
     
-    <link href="<c:url value='/static/js/formvalidate/jquery-ui-' />"rel="stylesheet"> 
-    <link href="<c:url value='/static/css/lms_adm_031.css' />"rel="stylesheet"> 
+    <link href="<c:url value='/static/js/formvalidate/jquery-ui-1.10.3.custom.min.css' />"rel="stylesheet"> 
+    <link href="<c:url value='/static/js/formvalidate/validationEngine.jquery.css' />"rel="stylesheet"> 
     <!-- That's all -->
     
     <!-- Borint -->

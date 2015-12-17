@@ -19,7 +19,10 @@
     <script type="text/javascript" src="<c:url value="/static/js/moment.min2.js" />"></script>
     <script type="text/javascript" src="<c:url value="/static/js/datepicker/daterangepicker.js" />"></script>
     <script type="text/javascript" src="<c:url value="/static/js/leave_form.js" />"></script>
-   
+    
+    <script type="text/javascript" src="<c:url value="/static/js/formvalidate/jquery.validationEngine.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/static/js/formvalidate/jquery.validationEngine-ko.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/static/js/formvalidate/lms.ui.js" />"></script>   
    <!-- Please adn end tage body and html on your own page because i need to include my oun js  -->
 <!-- </body>
 </html> -->
