@@ -1,11 +1,11 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +26,6 @@ import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
 @RestController
 @RequestMapping("/action/service")
-
 public class ActionController {
 	
 	
@@ -112,8 +111,9 @@ public class ActionController {
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
-		@RequestMapping(value = { "/lms_adm_027It"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE)
-		public String addLeave(@RequestBody Leaves p) throws Exception {
+		
+		@RequestMapping(value = { "/lms_adm_027It"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
+		public ResponseEntity<Map<String, Object>> addLeave(@RequestBody Leaves p) throws Exception {
 			/*Map<String, Object> map = new HashMap<String, Object>();
 			if (leaveService.addLeaves(obj)==false) {
 				map.put("MESSAGE", "Insert leave failse");
