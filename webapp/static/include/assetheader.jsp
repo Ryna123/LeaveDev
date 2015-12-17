@@ -29,6 +29,8 @@
     <link href="<c:url value='/static/css/calendar/fullcalendar.print.css' />" rel="stylesheet" media="print">  
     <link href="<c:url value='/static/css/lms_adm_031.css' />"rel="stylesheet">  
     
+    
+  
     <link href="<c:url value='/static/js/formvalidate/jquery-ui-1.10.3.custom.min.css' />"rel="stylesheet"> 
     <link href="<c:url value='/static/js/formvalidate/validationEngine.jquery.css' />"rel="stylesheet"> 
     <!-- That's all -->
@@ -37,7 +39,8 @@
     <!-- Include Date Range Picker -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-
+	 <script src="<c:url value="/static/js/jquery-1.8.1.min.js" />"></script>
+	 <script src="<c:url value="/static/js/jquery-ui-1.10.3.custom.min.js" />"></script>
      <script src="<c:url value="/static/js/jquery.min.js" />"> </script> 
 
     <!--[if lt IE 9]>

@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 	});
 	
-	$("#addleave").validationEngine(lms.ui.validationEngineOptions);
+	$("#addleave").validationEngine(gbox.ui.validationEngineOptions);
 	$("#addLeave").click(function() {
 		
 		if(!$("#addleave").validationEngine('validate')) {
