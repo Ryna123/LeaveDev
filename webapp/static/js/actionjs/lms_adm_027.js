@@ -37,14 +37,14 @@ $(document).ready(function() {
 		}	
 		
 		
-		/*
+		
 		var lobj = {};
 		var lType = $("#selectLt").val();
 		var lDuration = $("#duration").val();
 		var lStartDate = $("#startdate").val();
 		var lEnddate = $("#enddate").val();
 		var lStartDateType = $("#startdatetype").val();
-		var lEndDateType = $("#startdatetype").val();
+		var lEndDateType = $("#enddatetype").val();
 		var lReason = $("#reason").val();
 		var lStatus = $("#selectSt").val();
 		
@@ -68,14 +68,14 @@ $(document).ready(function() {
 			type : "POST",
 			data :JSON.stringify(lobj),
 			success : function(data) {
-				//console.log(data.RESP_DATA);
+				console.log(data.RESP_DATA);
 				
 			},
 			error : function(data) {
-				console.log(data);
+				//console.log(data);
 			}
 
-		});*/
+		});
 		
 		
 	})

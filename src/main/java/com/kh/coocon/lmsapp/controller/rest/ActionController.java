@@ -123,8 +123,12 @@ public class ActionController {
 			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
-			//System.out.println(lobj.getId() + lobj.getLeavesDuration() + user.getId());
-			//return null;
+			
+			/*System.out.println( lobj.getLeavesType() +lobj.getLeavesDuration() +lobj.getLeavesStartdate() +lobj.getLeavesEnddate()
+					+lobj.getLeavesStartDateType()+lobj.getLeavesStartdate()+lobj.getLeavesStatus()+lobj.getLeavesType()+lobj.getLeavesendDateType()
+					);
+			
+			return null;*/
 		}
 		
 		private String getPrincipal(){

@@ -7,8 +7,8 @@ public class Leaves {
 	private int leaveEmployeeId;
 	private String leavesStatus;
 	private String leavesType;
-	private Date leavesStartdate;
-	private Date leavesEnddate;
+	private String leavesStartdate;
+	private String leavesEnddate;
 	private String leavesReason;
 	private String leavesStartDateType;
 	private String leavesendDateType;
@@ -37,16 +37,16 @@ public class Leaves {
 	public void setLeavesType(String leavesType) {
 		this.leavesType = leavesType;
 	}
-	public Date getLeavesStartdate() {
+	public String getLeavesStartdate() {
 		return leavesStartdate;
 	}
-	public void setLeavesStartdate(Date leavesStartdate) {
+	public void setLeavesStartdate(String leavesStartdate) {
 		this.leavesStartdate = leavesStartdate;
 	}
-	public Date getLeavesEnddate() {
+	public String getLeavesEnddate() {
 		return leavesEnddate;
 	}
-	public void setLeavesEnddate(Date leavesEnddate) {
+	public void setLeavesEnddate(String leavesEnddate) {
 		this.leavesEnddate = leavesEnddate;
 	}
 	public String getLeavesReason() {

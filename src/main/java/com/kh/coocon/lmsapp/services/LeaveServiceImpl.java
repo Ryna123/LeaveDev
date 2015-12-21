@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -57,8 +59,8 @@ public class LeaveServiceImpl implements LeaveService  {
 		Leaves leave = null;
 		while (rs.next()) {
 			leave = new Leaves();				
-			leave.setLeavesStartdate(rs.getDate("startdate"));
-			leave.setLeavesEnddate(rs.getDate("enddate"));
+			leave.setLeavesStartdate(rs.getString("startdate"));
+			leave.setLeavesEnddate(rs.getString("enddate"));
 			leave.setLeavesReason(rs.getString("cause"));
 			leave.setLeavesStartDateType(rs.getString("startdatetype"));
 			leave.setLeavesendDateType(rs.getString("enddatetype"));
@@ -78,7 +80,7 @@ public class LeaveServiceImpl implements LeaveService  {
 	public boolean addLeaves(Leaves lo, int Userid) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO lms_leaves ( "
-				 + "ID,		   " 
+				/* + "ID,		   " */
 				 + "employee_id,   " 
 				 + "status_id,	   " 
 				 + "type_id,	   " 
@@ -91,7 +93,7 @@ public class LeaveServiceImpl implements LeaveService  {
 				 + ") "
 			+" VALUES "
 				 + "(   "
-				 + "nextval('lmsLeave_sequence') ,?,?,?,?,?,?,?,?,? "
+				 + /*"nextval('lmsLeave_sequence') ,*/"?,?,?,?,?,?,?,?,? "
 				 + ")";
 
 		try(
@@ -99,25 +101,26 @@ public class LeaveServiceImpl implements LeaveService  {
 				PreparedStatement ps = cnn.prepareStatement(sql);
 			) 
 		{
+			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 			ps.setInt(1, Userid);
-			ps.setString(2, lo.getLeavesStatus());
-			ps.setString(3, lo.getLeavesType());
-			ps.setDate(4, lo.getLeavesStartdate());
-			ps.setDate(5, lo.getLeavesEnddate());
+			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
+			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));
+			ps.setString(4, lo.getLeavesStartdate().replace("/", "-"));
+			ps.setString(5, lo.getLeavesEnddate().replace("/", "-"));
 			ps.setString(6, lo.getLeavesReason());
 			ps.setString(7, lo.getLeavesStartDateType());
 			ps.setString(8, lo.getLeavesendDateType());
 			ps.setDouble(9, lo.getLeavesDuration());
 			
-			
+			System.out.println(ps);
 			if (ps.executeUpdate() > 0) {
 				return true;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
 		
-		return true;
+		return false;
 	}
 
 	@Override

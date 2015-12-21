@@ -79,7 +79,7 @@
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
-											<input class="form-control" id="duration" required="required" type="text" data-validation-engine="validate[required,maxSize[2],number[]">
+											<input class="form-control" id="duration" required="required" type="text" data-validation-engine="validate[required,maxSize[2]" >
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align: left;">Day(s)</label>
 										
@@ -87,7 +87,7 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" required="required" id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" data-validation-engine="validate[required,maxSize[10]"  id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
 												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
 											<span id="" class="sr-only">(success)</span>
 										</div>
@@ -102,14 +102,14 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">End Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" required="required" id="enddate" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" data-validation-engine="validate[required,maxSize[10]"  id="enddate" name="daterang1" aria-describedby="inputSuccess2Status">
 											<span class="fa fa-calendar-o form-control-feedback left"
 													aria-hidden="true"></span> <span id="" class="sr-only">(success)
 											</span>
 										</div>
 										<span class="control-label col-md-1 col-sm-1 col-xs-1  "></span>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="endadatetype" class="form-control"	required="required">
+											<select data-parsley-id="4308" id="enddatetype" class="form-control"	required="required">
 											<option value="morning">Morning</option>
 											<option value="afternoon">Afternoon</option>
 										</select>
@@ -121,7 +121,7 @@
 											<span class="required">*</span>
 										</label>
 										<div class="col-md-7 col-sm-7 col-xs-7">
-											<textarea class="form-control" rows="2" required="required" id="reason"></textarea>
+											<textarea class="form-control" rows="2" required="required" id="reason" data-validation-engine="validate[required]" ></textarea>
 										</div>
 									</div>
 

@@ -1,0 +1,3 @@
+/* loading */
+#jloading-img {margin-left: 0 !important;position: fixed;text-align: center;top: 30%;width: 100%;z-index: 999999999;}
+#jloading-bag {z-index: 9999;position:absolute;width:100%;height:100%;background-color:#000000;filter:alpha(opacity=20); opacity:0.2; -moz-opacity:0.2;}
