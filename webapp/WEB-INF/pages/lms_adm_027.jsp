@@ -1,6 +1,6 @@
 <%@include file="/static/include/assetheader.jsp" %>
 
-<body class="nav-md">
+<body class="nav-md" >
 
     <div class="container body">
 
@@ -20,7 +20,7 @@
             <!-- /top navigation -->
 
             <!-- page content -->
-			<div class="right_col" role="main">
+			<div class="right_col" role="main" >
 				<div class="page-title">
 					<div class="title_left">
                             <h3><small>

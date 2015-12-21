@@ -39,9 +39,10 @@
     <!-- Include Date Range Picker -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-	 <script src="<c:url value="/static/js/jquery-1.8.1.min.js" />"></script>
+	 <script src="<c:url value="/static/js/jquery-1.10.2.min.js" />"></script>
 	 <script src="<c:url value="/static/js/jquery-ui-1.10.3.custom.min.js" />"></script>
      <script src="<c:url value="/static/js/jquery.min.js" />"> </script> 
+     <script src="<c:url value="/static/js/jquery-ui-1.10.2.nonwidget.min.js" />"> </script> 
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
