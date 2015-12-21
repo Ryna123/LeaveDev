@@ -13,6 +13,13 @@ public class Leaves {
 	private String leavesStartDateType;
 	private String leavesendDateType;
 	private double leavesDuration;
+	private String leavesEmpName;
+	public String getLeavesEmpName() {
+		return leavesEmpName;
+	}
+	public void setLeavesEmpName(String leavesEmpName) {
+		this.leavesEmpName = leavesEmpName;
+	}
 	public int getId() {
 		return id;
 	}

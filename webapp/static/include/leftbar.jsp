@@ -39,7 +39,7 @@
                                         </li>
                                         <li><a href="<c:url value="/users/lms_adm_002" />">List Leave Requested</a>
                                         </li>
-                                        <li><a href="<c:url value="/users/lms_adm_027" />">New Leaves</a>
+                                        <%-- <li><a href="<c:url value="/users/lms_adm_027" />">New Leaves</a> --%>
                                         </li>
                                         <li><a href="#"><i class="fa fa-star-half-empty"></i> An Manager</a>
                                         </li>
@@ -88,6 +88,22 @@
                                     </ul>
                                 </li>
                                 </sec:authorize>
+                                <sec:authorize access="hasRole('USER')">
+                                <li><a  href="javascript:"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                    	<li><a href="#"><i class="fa fa-star-half-empty"></i> An Employee</a>
+                                        </li>
+                                        <li><a href="<c:url value="/users/lms_adm_001" />">Leave Balances</a>
+                                        </li>
+                                        <li><a href="<c:url value="/users/lms_adm_002" />">List Leave Requested</a>
+                                        </li>
+                                       <%--  <li><a href="<c:url value="/users/lms_adm_027" />">New Leaves</a> --%>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                                </sec:authorize>
+                                
                                 <sec:authorize access="hasRole('USER') or hasRole('ADMIN')">
 	                                <li><a href="javascript:"><i class="fa fa-pencil-square-o"></i> Request <span class="fa fa-chevron-down"></span></a>
 	                                    <ul class="nav child_menu" style="display: none">

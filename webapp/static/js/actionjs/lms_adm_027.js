@@ -37,7 +37,7 @@ $(document).ready(function() {
 		}	
 		
 		
-		
+		loading(true);
 		var lobj = {};
 		var lType = $("#selectLt").val();
 		var lDuration = $("#duration").val();
@@ -68,7 +68,11 @@ $(document).ready(function() {
 			type : "POST",
 			data :JSON.stringify(lobj),
 			success : function(data) {
-				console.log(data.RESP_DATA);
+				console.log(data.CODE);
+				if(data.CODE =='000') {
+					loading(false);
+					maketoast();
+				}
 				
 			},
 			error : function(data) {

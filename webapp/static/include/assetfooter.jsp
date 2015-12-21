@@ -25,7 +25,14 @@
 	<script type="text/javascript" src="<c:url value="/static/js/formvalidate/jquery.validationEngine-en.js" />"></script>
 	<%-- <script type="text/javascript" src="<c:url value="/static/js/formvalidate/jex.input.js" />"></script> --%>
 	<script type="text/javascript" src="<c:url value="/static/js/formvalidate/gbox.ui.js" />"></script>   
+	<script type="text/javascript" src="<c:url value="/static/js/loading/loading.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/static/js/toas/toas.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/static/js/toas/jquery.toaster.js" />"></script>
    <!-- Please adn end tage body and html on your own page because i need to include my oun js  -->
 <!-- </body>
 </html> -->
     <script src="<c:url value="/static/js/jquery.tmpl.min.js" />"></script>
+    <script>
+    var interval;
+	var codetmpl = "<code>%codeobj%</code><br><code>%codestr%</code>";
+    </script>

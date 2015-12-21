@@ -1,36 +1,42 @@
 $(document).ready(function() {
-	var empId = 2;
-	
-	
-	var a = {empId :2,statId : 2};
-	/*
-	a["ab"] = "hi";
-	a["bc"] = "oh";
-	*/
-	/* {type:"Fiat", model:"500", color:"white"},*/
-
-	console.log(a);
-	
+	loading(true);
+	var a = {empId :2};
 	$.ajax({
-		//url : "../admin/action/service/lms_adm_001/1/2",
-		url : "../admin/action/service/lms_adm_001",
+		url : "../action/service/lms_adm_004",
 		dataType : "JSON",
 		type : "POST",
 		data :a,
 		success : function(data) {
 			console.log(data.RESP_DATA);
-			//console.log(data.RESP_DATA['ENTITLE_REC']);
-				var res = data.RESP_DATA['ENTITLE_REC'];
-				console.log(res);
-				//$("#mytemplate").tmpl(res).appendTo("tbody#entitle");
-				$.each(res,function(i,v){
-					var data = {};
-					data['LA']  = res[i].leavesAvailable;
-					data['LE']  = res[i].leavesEntitled;
-					data['LT']  = res[i].leavesTaken;
-					data['LTY'] = res[i].leavesTypes;
-					$("#mytemplate").tmpl(data).appendTo("tbody#entitle");
-				})
+				var res = data.RESP_DATA['LEAVES_REC'];
+				if(res.length<=0) {
+					$("tfoot#leaveFooter").show();
+				} else {
+					$.each(res,function(i,v){
+						
+						var data = {};
+						data['LD']  = res[i].leavesDuration;
+						data['LED']  = res[i].leavesEnddate;
+						data['LR']  = res[i].leavesReason;
+						data['LSD'] = res[i].leavesStartdate;
+						data['LS'] = res[i].leavesStatus;
+						data['LT'] = res[i].leavesType;
+						data['ID'] = i+1;
+						if((data['LS'])=='Approved') {
+							(data['LS'])='<span class="label label-success">Approve</span>';
+						} else if((data['LS'])=='Reject') {
+							(data['LS'])='<span class="label label-danger">Reject</span>';
+						} else if((data['LS'])=='Requested') {
+							(data['LS'])='<span class="label label-warning">Requested</span>';
+						}else {
+							(data['LS'])='<span class="label label-info">Plan</span>';
+						}
+						data['LEDT'] = res[i].leavesendDateType;
+						$("#lmsAdm002").tmpl(data).appendTo("tbody#leaveBalanced").html();
+					
+					})
+				}
+				loading(false);
 			},
 			error : function(data) {
 				console.log(data);

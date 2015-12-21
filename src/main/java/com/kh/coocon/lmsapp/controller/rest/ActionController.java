@@ -40,13 +40,6 @@ public class ActionController {
 	
 	SSOIdUtil ssoidUtils = new SSOIdUtil();
 	
-
-	
-	
-	
-	
-	
-	
 /*	@RequestMapping(value = { "/lms_adm_001/{field1}/{field2}"}, method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> GetEntitledlist(@PathVariable int field1 , @PathVariable int field2,@RequestBody String test) {
 		System.out.println("test"+field1+"test1"+field2 + " | " + test  );
@@ -124,12 +117,27 @@ public class ActionController {
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 			
-			/*System.out.println( lobj.getLeavesType() +lobj.getLeavesDuration() +lobj.getLeavesStartdate() +lobj.getLeavesEnddate()
-					+lobj.getLeavesStartDateType()+lobj.getLeavesStartdate()+lobj.getLeavesStatus()+lobj.getLeavesType()+lobj.getLeavesendDateType()
-					);
-			
-			return null;*/
 		}
+		
+		
+		//admin : get all list user request;
+		@RequestMapping(value = { "/lms_adm_004"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getLeavesListAdmin(@RequestParam("empId") int empId) {
+			//List<Entitledays> Mylist = userService.list();
+			User user = userService.findBySso(getPrincipal());		
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("LEAVES_REC", leaveService.getLeavesListAdmin(user.getId()));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");	
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
 		
 		private String getPrincipal(){
 	    	 String userName = null;
