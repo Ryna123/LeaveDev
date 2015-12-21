@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Leaves {
 	private int id;
 	private int leaveEmployeeId;
-	private int leavesStatus;
+	private String leavesStatus;
 	private int leavesType;
 	private Date leavesStartdate;
 	private Date leavesEnddate;
@@ -25,10 +25,10 @@ public class Leaves {
 	public void setLeaveEmployeeId(int leaveEmployeeId) {
 		this.leaveEmployeeId = leaveEmployeeId;
 	}
-	public int getLeavesStatus() {
+	public String getLeavesStatus() {
 		return leavesStatus;
 	}
-	public void setLeavesStatus(int leavesStatus) {
+	public void setLeavesStatus(String leavesStatus) {
 		this.leavesStatus = leavesStatus;
 	}
 	public int getLeavesType() {

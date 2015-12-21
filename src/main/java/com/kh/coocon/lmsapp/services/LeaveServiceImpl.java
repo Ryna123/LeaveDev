@@ -39,7 +39,7 @@ public class LeaveServiceImpl implements LeaveService  {
 					  + " 	lms_leaves A							      "   
 					  + " LEFT JOIN lms_status b ON A .status_id = b.status_id		      "   
 					  + " LEFT JOIN lms_types d ON A .type_id = d.type_id		      "   
-					  + " LEFT JOIN lms_users C ON A .employee_id = C .id where employee_id = ?     " ;  
+					  + " LEFT JOIN lms_users C ON A .employee_id = C .id where employee_id = 1     " ;  
 	
 
 	try (
@@ -50,7 +50,8 @@ public class LeaveServiceImpl implements LeaveService  {
 	)
 	{
 		
-		ps.setInt(1, userId);
+		//ps.setInt(1, userId);
+		System.out.println("sql  query " +ps);
 		ResultSet rs = ps.executeQuery();
 		ArrayList<Leaves> ll = new ArrayList<Leaves>();
 		Leaves leave = null;
@@ -62,7 +63,7 @@ public class LeaveServiceImpl implements LeaveService  {
 			leave.setLeavesStartDateType(rs.getString("startdatetype"));
 			leave.setLeavesendDateType(rs.getString("enddatetype"));
 			leave.setLeavesDuration(rs.getDouble("duration"));
-			leave.setLeavesStatus(rs.getInt("leavesStatus"));
+			leave.setLeavesStatus(rs.getString("leavesStatus"));
 			leave.setLeavesType(rs.getInt("leavesType"));
 			ll.add(leave);
 		}
@@ -99,7 +100,7 @@ public class LeaveServiceImpl implements LeaveService  {
 			) 
 		{
 			ps.setInt(1, Userid);
-			ps.setInt(2, lo.getLeavesStatus());
+			ps.setString(2, lo.getLeavesStatus());
 			ps.setInt(3, lo.getLeavesType());
 			ps.setDate(4, lo.getLeavesStartdate());
 			ps.setDate(5, lo.getLeavesEnddate());
