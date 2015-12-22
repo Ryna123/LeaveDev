@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class LeaveServiceImpl implements LeaveService  {
 					  + " 	A .startdate,							      "   
 					  + " 	A .enddate,							      "   
 					  + " 	A .cause,							      "   
-					  + " 	A .startdatetype,						      "   
+					  + " 	A .startdatetype,						      "   	
 					  + " 	A .enddatetype,							      "   
 					  + " 	A .duration,							      "   
 					  + " 	b. NAME	as leavesStatus	,						      "   
@@ -101,7 +100,6 @@ public class LeaveServiceImpl implements LeaveService  {
 				PreparedStatement ps = cnn.prepareStatement(sql);
 			) 
 		{
-			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 			ps.setInt(1, Userid);
 			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
 			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));
@@ -118,7 +116,7 @@ public class LeaveServiceImpl implements LeaveService  {
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}	
 		
 		return false;
 	}

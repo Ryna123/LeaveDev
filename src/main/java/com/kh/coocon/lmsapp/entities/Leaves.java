@@ -1,6 +1,5 @@
 package com.kh.coocon.lmsapp.entities;
 
-import java.sql.Date;
 
 public class Leaves {
 	private int id;
@@ -13,7 +12,7 @@ public class Leaves {
 	private String leavesStartDateType;
 	private String leavesendDateType;
 	private double leavesDuration;
-	private String leavesEmpName;
+	private String leavesEmpName;	
 	public String getLeavesEmpName() {
 		return leavesEmpName;
 	}
