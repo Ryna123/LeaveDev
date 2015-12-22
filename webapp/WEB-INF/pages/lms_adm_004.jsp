@@ -79,43 +79,23 @@
                       aria-describedby="example_info">
                       <thead>
                         <tr class="headings" role="row">
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1"
-                            style="width: 40px; text-align: center;">
-                            ID</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 133px;">Action</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 112px;">Full
-                            Name</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 134px;">Start
-                            Date</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 133px;">End
-                            Date</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1"
-                            style="width: 40px; text-align: center;">
-                            Duration</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 133px;">Type</th>
-                          <th class="" role="columnheader" tabindex="0"
-                            aria-controls="example" rowspan="1"
-                            colspan="1" style="width: 133px;">Status</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 40px; text-align: center;">
+                            ID
+                          </th>
+                            
+                          <th class="" role="columnheader" tabindex="0"  aria-controls="example" rowspan="1" colspan="1" style="width: 133px;">Action</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 112px;">Full Name</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 134px;">Start Date</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 133px;">EndDate</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 40px; text-align: center;">Duration</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 180px; text-align: center;">Reason</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 133px;">Type</th>
+                          <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1"colspan="1" style="width: 133px;">Status</th>
                         </tr>
                       </thead>
 
-                      <tbody role="alert" aria-live="polite"
-                        aria-relevant="all">
-                        <tr class="pointer odd">
+                      <tbody role="alert" aria-live="polite" id="leaveBalancedAdmin"  aria-relevant="all">
+                        <!-- <tr class="pointer odd">
                           <td id="">1</td>
                           <td id="">
                             <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
@@ -142,7 +122,7 @@
                           <td id="">2</td>
                           <td id="">Special Leave</td>
                           <td id="">Planed</td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>
@@ -209,3 +189,25 @@
   </div>
 
   <%@include file="/static/include/assetfooter.jsp"%>
+  <script src="<c:url value="/static/js/actionjs/lms_adm_004.js" />"></script>
+  <script type="text/x-jquery-tmpl" id="lmsAdm004">
+		<tr>   
+			<th>{{= ID}}</th>
+			<th scope="row">
+				<a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
+                <a href="javascrip:void(0)"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+                <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+            </th>  
+			<td>{{= LEN}}</td>
+			<td>{{= LSD}}</td>
+   			<td>{{= LED}}</td>
+   			<td>{{= LD}}</td>
+			<td>{{= LR}}</td>
+   			<td>{{= LT}}</td>
+   			<td>
+				{{html LS }}
+			</td>
+   			   
+		</tr>
+	</script>
+     

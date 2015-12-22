@@ -41,7 +41,7 @@ public class LeaveServiceImpl implements LeaveService  {
 					  + " 	lms_leaves A							      "   
 					  + " LEFT JOIN lms_status b ON A .status_id = b.status_id		      "   
 					  + " LEFT JOIN lms_types d ON A .type_id = d.type_id		      "   
-					  + " LEFT JOIN lms_users C ON A .employee_id = C .id where employee_id =  ?    " ;  
+					  + " LEFT JOIN lms_users C ON A .employee_id = C .id where employee_id =  ?  ORDER BY id DESC " ;  
 	
 
 	try (

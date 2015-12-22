@@ -8,7 +8,7 @@ $(document).ready(function() {
 		data :a,
 		success : function(data) {
 			console.log(data.RESP_DATA);
-				var res = data.RESP_DATA['LEAVES_REC'];
+			var res = data.RESP_DATA['LEAVES_REC'];
 				if(res.length<=0) {
 					$("tfoot#leaveFooter").show();
 				} else {
@@ -21,7 +21,11 @@ $(document).ready(function() {
 						data['LSD'] = res[i].leavesStartdate;
 						data['LS'] = res[i].leavesStatus;
 						data['LT'] = res[i].leavesType;
+						data['LEN'] = res[i].leavesEmpName;
 						data['ID'] = i+1;
+						if(data['LT'] =="Annual leave") {
+							/*data['LT']= "AL";*/
+						}
 						if((data['LS'])=='Approved') {
 							(data['LS'])='<span class="label label-success">Approve</span>';
 						} else if((data['LS'])=='Reject') {
@@ -32,7 +36,7 @@ $(document).ready(function() {
 							(data['LS'])='<span class="label label-info">Plan</span>';
 						}
 						data['LEDT'] = res[i].leavesendDateType;
-						$("#lmsAdm002").tmpl(data).appendTo("tbody#leaveBalanced").html();
+						$("#lmsAdm004").tmpl(data).appendTo("tbody#leaveBalancedAdmin").html();
 					
 					})
 				}
