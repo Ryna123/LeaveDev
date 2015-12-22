@@ -187,7 +187,7 @@ public class LeaveServiceImpl implements LeaveService  {
 	}
 
 	@Override
-	public boolean updateLeavesAdmin(int id) {
+	public boolean updateLeavesAdmin(int lid, String lact) {
 		// TODO Auto-generated method stub
 		return false;
 	}

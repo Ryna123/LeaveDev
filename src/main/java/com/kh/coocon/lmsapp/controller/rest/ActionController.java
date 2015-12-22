@@ -141,12 +141,12 @@ public class ActionController {
 		
 		//admin : get all list user request;
 		@RequestMapping(value = { "/lms_adm_004UA"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> UpdateAdminApprove(@RequestParam("lId") int lId) {
+		public ResponseEntity<Map<String, Object>> UpdateAdminApprove(@RequestParam("lId") int lId ,@RequestParam("lAct") String lAct) {
 			//List<Entitledays> Mylist = userService.list();
 			User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("LEAVES_REC", leaveService.updateLeavesAdmin(lId));
+			listData.put("LEAVES_REC", leaveService.updateLeavesAdmin(lId, lAct));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");	
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);

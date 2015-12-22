@@ -80,8 +80,8 @@ lms_adm_004.ClickUpdateLeave =function() {
 }
 lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
 	var data = {lId : LeaveId , lAct : LeaveAct};
-	console.log(LeaveId + LeaveAct);
-	/*$.ajax({
+	//console.log(LeaveId + LeaveAct);
+	$.ajax({
 		url : "../action/service/lms_adm_004UA",
 		dataType : "JSON",
 		type : "POST",
@@ -89,5 +89,5 @@ lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
 		success : function(data) {
 			console.log(data.RESP_DATA);
 		}
-	})*/
+	})
 }
