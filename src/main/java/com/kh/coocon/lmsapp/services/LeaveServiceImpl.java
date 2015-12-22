@@ -181,6 +181,7 @@ public class LeaveServiceImpl implements LeaveService  {
 				leave.setLeavesStatus(rs.getString("leavesStatus"));
 				leave.setLeavesType(rs.getString("leavesType"));
 				leave.setLeavesEmpName(rs.getString("employee_name"));;
+				leave.setId(rs.getInt("id"));
 				ll.add(leave);
 			}
 			return ll;

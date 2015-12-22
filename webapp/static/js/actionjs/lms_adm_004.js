@@ -22,6 +22,7 @@ $(document).ready(function() {
 						data['LS'] = res[i].leavesStatus;
 						data['LT'] = res[i].leavesType;
 						data['LEN'] = res[i].leavesEmpName;
+						data['LID'] = res[i].id;
 						data['ID'] = i+1;
 						if(data['LT'] =="Annual leave") {
 							/*data['LT']= "AL";*/
@@ -47,4 +48,9 @@ $(document).ready(function() {
 			}
 
 		});
+	
+	
+	$("#lesaveReject").on("click",function() {
+		alert('welcome');
+	})
 });

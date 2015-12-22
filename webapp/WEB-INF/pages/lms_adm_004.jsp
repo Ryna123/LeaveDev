@@ -194,9 +194,9 @@
 		<tr>   
 			<th>{{= ID}}</th>
 			<th scope="row">
-				<a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                <a href="javascrip:void(0)"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-                <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+				<a href="javascrip:void(0)" id=""><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
+                <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+                <a href="javascrip:void(0)" id="lesaveReject"><span class="glyphicon glyphicon-trash" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
             </th>  
 			<td>{{= LEN}}</td>
 			<td>{{= LSD}}</td>

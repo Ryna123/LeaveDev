@@ -13,6 +13,7 @@ public class Leaves {
 	private String leavesendDateType;
 	private double leavesDuration;
 	private String leavesEmpName;	
+	
 	public String getLeavesEmpName() {
 		return leavesEmpName;
 	}
