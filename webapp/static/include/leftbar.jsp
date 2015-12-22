@@ -10,7 +10,7 @@
 
                     <!-- menu prile quick info -->
                     <div class="profile">
-                    	<a hreft="lms_profile.jsp">
+                    	<a href="lms_profile.jsp">
 	                        <div class="profile_pic">
 	                            <img src="<c:url value="/static/images/img.jpg" />"alt="${user}" class="img-circle profile_img">
 	                        </div>
