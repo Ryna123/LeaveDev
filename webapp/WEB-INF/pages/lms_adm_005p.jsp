@@ -31,7 +31,7 @@
 	     			</div>
 				    <div class="modal-body">
 				        
-				        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+				        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" >
 							<div class="form-group">
 	                    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Start date: </label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
@@ -53,7 +53,7 @@
 			                <div class="form-group">
 			                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Status: </label>
 			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                     	<select id="heard" class="form-control" required="" data-parsley-id="0188">
+			                     	<select id="heard" class="form-control" required="required" data-parsley-id="0188">
 			                               <option value="">Requesteds</option>
 			                        </select>
 			                    </div>
@@ -61,7 +61,7 @@
         				</form>
 				    
 				    </div>
-					<div class="modal-footer">
+					<div class="modal-footer">	
 					    <div class="form-group">
 			                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 			                       <button type="submit" class="btn btn-primary">Back to list</button>
