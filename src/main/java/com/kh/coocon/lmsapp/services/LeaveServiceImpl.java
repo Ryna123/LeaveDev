@@ -127,11 +127,6 @@ public class LeaveServiceImpl implements LeaveService  {
 		return false;
 	}
 
-	@Override
-	public boolean updateLeaves(Leaves leavesObj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public List<Leaves> getLeavesListAdmin(int userId) {
@@ -189,6 +184,12 @@ public class LeaveServiceImpl implements LeaveService  {
 			System.out.println(e);
 		} 
 		return null;
+	}
+
+	@Override
+	public boolean updateLeavesAdmin(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

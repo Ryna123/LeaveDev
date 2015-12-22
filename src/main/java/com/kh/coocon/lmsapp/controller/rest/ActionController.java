@@ -139,6 +139,25 @@ public class ActionController {
 		}
 		
 		
+		//admin : get all list user request;
+		@RequestMapping(value = { "/lms_adm_004UA"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> UpdateAdminApprove(@RequestParam("lId") int lId) {
+			//List<Entitledays> Mylist = userService.list();
+			User user = userService.findBySso(getPrincipal());		
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("LEAVES_REC", leaveService.updateLeavesAdmin(lId));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");	
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+				
+		
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

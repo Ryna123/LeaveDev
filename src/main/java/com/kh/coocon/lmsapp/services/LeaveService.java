@@ -9,5 +9,5 @@ public interface LeaveService {
 	public List<Leaves> getLeavesListAdmin(int userId);
 	public boolean addLeaves(Leaves leavesObj, int Userid);
 	public boolean deleteLeaves(int id);
-	public boolean updateLeaves(Leaves leavesObj);
+	public boolean updateLeavesAdmin(int id);
 }

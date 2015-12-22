@@ -1,4 +1,17 @@
+var lms_adm_004={};
 $(document).ready(function() {
+	lms_adm_004.listAdmin();
+	
+	$("tbody#leaveBalancedAdmin tr a#testaa").click(function() {
+		alert($(this).find('input#input').val());
+	});
+	
+});
+
+
+
+lms_adm_004.listAdmin = function () {
+	
 	loading(true);
 	var a = {empId :2};
 	$.ajax({
@@ -7,7 +20,6 @@ $(document).ready(function() {
 		type : "POST",
 		data :a,
 		success : function(data) {
-			console.log(data.RESP_DATA);
 			var res = data.RESP_DATA['LEAVES_REC'];
 				if(res.length<=0) {
 					$("tfoot#leaveFooter").show();
@@ -24,9 +36,6 @@ $(document).ready(function() {
 						data['LEN'] = res[i].leavesEmpName;
 						data['LID'] = res[i].id;
 						data['ID'] = i+1;
-						if(data['LT'] =="Annual leave") {
-							/*data['LT']= "AL";*/
-						}
 						if((data['LS'])=='Approved') {
 							(data['LS'])='<span class="label label-success">Approve</span>';
 						} else if((data['LS'])=='Reject') {
@@ -41,16 +50,44 @@ $(document).ready(function() {
 					
 					})
 				}
+				
+				lms_adm_004.ClickUpdateLeave();
 				loading(false);
 			},
 			error : function(data) {
 				console.log(data);
 			}
-
+	
 		});
+		
+	}
+
+
+
+lms_adm_004.ClickUpdateLeave =function() {
+	$("tbody#leaveBalancedAdmin tr a#leaveReject").click(function() {
+		var lId = ($(this).find('input#input').val());
+		var act = 'AP';
+		lms_adm_004.updateLeave(lId, act);
+	});
 	
-	
-	$("#lesaveReject").on("click",function() {
-		alert('welcome');
-	})
-});
+	$("tbody#leaveBalancedAdmin tr a#leaveApprove").click(function() {
+		var lId = ($(this).find('input#input').val());
+		var act = 'RJ';
+		lms_adm_004.updateLeave(lId, act);
+		
+	});
+}
+lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
+	var data = {lId : LeaveId , lAct : LeaveAct};
+	console.log(LeaveId + LeaveAct);
+	/*$.ajax({
+		url : "../action/service/lms_adm_004UA",
+		dataType : "JSON",
+		type : "POST",
+		data :a,
+		success : function(data) {
+			console.log(data.RESP_DATA);
+		}
+	})*/
+}

@@ -74,7 +74,7 @@
                 <!-- Table and button -->
                 <form class="form-horizontal form-label-left">
                   <div>
-                    <table id=""
+                    <table id="leaveAdmin"
                       class=" table table-bordered table-striped responsive-utilities jambo_table dataTable"
                       aria-describedby="example_info">
                       <thead>
@@ -95,11 +95,11 @@
                       </thead>
 
                       <tbody role="alert" aria-live="polite" id="leaveBalancedAdmin"  aria-relevant="all">
-                        <!-- <tr class="pointer odd">
+                       <!--  <tr class="pointer odd">
                           <td id="">1</td>
                           <td id="">
                             <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+                            <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
                             <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
                           </td>
                           <td id="">Yon Ryna</td>
@@ -113,7 +113,7 @@
                           <td id="">1</td>
                           <td id="">
                             <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+                            <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
                             <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
                           </td>
                           <td id="">Yon Ryna</td>
@@ -136,21 +136,17 @@
                       </select>
                     </div>
                     <!-- Pagination -->
-                    <div class="dataTables_paginate paging_full_numbers"
-                      style="margin-left: 23%; float: left;"
-                      id="example_paginate">
-                      <a tabindex="0"
-                        class="first paginate_button paginate_button_disabled"
-                        id="example_first">First</a> <a tabindex="0"
-                        class="previous paginate_button paginate_button_disabled"
-                        id="example_previous">Previous</a> <span>
-                        <a tabindex="0" class="paginate_active">1</a> <a
-                        tabindex="0" class="paginate_button">2</a> <a
-                        tabindex="0" class="paginate_button">3</a> <a
-                        tabindex="0" class="paginate_button">4</a>
-                      </span> <a tabindex="0" class="next paginate_button"
-                        id="">Next</a> <a tabindex="0"
-                        class="last paginate_button" id="">Last</a>
+                    <div class="dataTables_paginate paging_full_numbers" style="margin-left: 23%; float: left;" id="example_paginate">
+                      <a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a> 
+                      <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a> 
+	                      <span>
+	                      	<a tabindex="0" class="paginate_active">1</a> 
+	                      	<a tabindex="0" class="paginate_button">2</a> 
+	                      	<a tabindex="0" class="paginate_button">3</a> 
+	                      	<a tabindex="0" class="paginate_button">4</a>
+	                      </span> 
+                      <a tabindex="0" class="next paginate_button" id="">Next</a> 
+                      <a tabindex="0" class="last paginate_button" id="">Last</a>
                     </div>
                     <!-- End Pagination -->
                   </div>
@@ -158,12 +154,9 @@
                   <!-- Buttons -->
                   <div class="form-group pull-right">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <a class="btn btn-default"
-                        style="border-radius: 15px; !important">Export</a>
-                      <a class="btn btn-default"
-                        style="border-radius: 15px; !important">All
-                        requests</a> <a class="btn btn-default"
-                        style="border-radius: 15px; !important">Pending
+                      <a class="btn btn-default" id="test" style="border-radius: 15px; !important">Export</a>
+                      <a class="btn btn-default" style="border-radius: 15px; !important">All Requests</a> 
+                      <a class="btn btn-default" style="border-radius: 15px; !important">Pending
                         requests</a>
                     </div>
                   </div>
@@ -190,14 +183,14 @@
 
   <%@include file="/static/include/assetfooter.jsp"%>
   <script src="<c:url value="/static/js/actionjs/lms_adm_004.js" />"></script>
-  <script type="text/x-jquery-tmpl" id="lmsAdm004">
-		<tr>   
-			<th>{{= ID}}</th>
-			<th scope="row">
-				<a href="javascrip:void(0)" id=""><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-                <a href="javascrip:void(0)" id="lesaveReject"><span class="glyphicon glyphicon-trash" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
-            </th>  
+  <script type="text/x-jquery-tmpl" id="lmsAdm004" >
+		<tr class="pointer odd">   
+			<td>{{= ID}}</td>
+			<td scope="row">
+				<a href="javascript:" id=""><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
+       		 	<a href="javascript:" id="leaveApprove"><input type="hidden" id='input' value="{{= LID}}"><span class="glyphicon glyphicon-ok" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+               	<a href="javascript:" id="leaveReject"><input type="hidden" id='input' value="{{= LID}}"><span class="glyphicon glyphicon-trash" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+           	</t>
 			<td>{{= LEN}}</td>
 			<td>{{= LSD}}</td>
    			<td>{{= LED}}</td>
@@ -205,7 +198,7 @@
 			<td>{{= LR}}</td>
    			<td>{{= LT}}</td>
    			<td>
-				{{html LS }}
+				{{html LS}}
 			</td>
    			   
 		</tr>
