@@ -21,6 +21,7 @@ import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
+import com.kh.coocon.lmsapp.services.ListUserService;
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
@@ -38,6 +39,8 @@ public class ActionController {
 	@Autowired
 	LeaveTypeService leaveTypeService;
 	
+	@Autowired
+	ListUserService listuserservice;
 	SSOIdUtil ssoidUtils = new SSOIdUtil();
 	
 /*	@RequestMapping(value = { "/lms_adm_001/{field1}/{field2}"}, method = RequestMethod.POST)
@@ -87,6 +90,27 @@ public class ActionController {
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
+		
+		// list all user
+		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getEntity() {
+			
+			//List<Entitledays> Mylist = userService.list();
+			//User user = userService.findBySso(getPrincipal());		
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("USER_REC", listuserservice.getListUsers());
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
+		
 		
 		@RequestMapping(value = { "/lms_adm_027lt"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeavesType() {

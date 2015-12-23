@@ -109,39 +109,40 @@
                                                 <th>Last Name</th>
                                                 <th>Login</th>
                                                 <th>Email</th>
+                                                <th>Phone</th>
                                                 <th>Role</th>
                                                 <th>Manager</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                        	<tr>
-                                        		<th scope="row">1</th>
-                                            	<td>
-													<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> | 
-													<a href="javascrip:void(0)" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
-													<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a> 
-												</td>												
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>rara</td>
-                                                <td>rara@gmail.com</td>
-                                                <td>User</td>
-                                                <td>Kim Wansu</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>
-													<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> | 
-													<a href="javascrip:void(0)" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
-													<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
-												</td>												
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>otto</td>
-                                                <td>mark@gmail.com</td>
-                                                <td>HR Admin</td>
-                                                <td>Kim Wansu</td>
-                                            </tr>                                   
+                                        <tbody id="listUser">
+<!--                                         	<tr> -->
+<!--                                         		<th scope="row">1</th> -->
+<!--                                             	<td> -->
+<!-- 													<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |  -->
+<!-- 													<a href="javascrip:void(0)" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> |  -->
+<!-- 													<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>  -->
+<!-- 												</td>												 -->
+<!--                                                 <td>Mark</td> -->
+<!--                                                 <td>Otto</td> -->
+<!--                                                 <td>rara</td> -->
+<!--                                                 <td>rara@gmail.com</td> -->
+<!--                                                 <td>User</td> -->
+<!--                                                 <td>Kim Wansu</td> -->
+<!--                                             </tr> -->
+<!--                                             <tr> -->
+<!--                                                 <th scope="row">2</th> -->
+<!--                                                 <td> -->
+<!-- 													<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |  -->
+<!-- 													<a href="javascrip:void(0)" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> |  -->
+<!-- 													<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a> -->
+<!-- 												</td>												 -->
+<!--                                                 <td>Mark</td> -->
+<!--                                                 <td>Otto</td> -->
+<!--                                                 <td>otto</td> -->
+<!--                                                 <td>mark@gmail.com</td> -->
+<!--                                                 <td>HR Admin</td> -->
+<!--                                                 <td>Kim Wansu</td> -->
+<!--                                             </tr>                                    -->
                                         </tbody>
 										<!--<tfoot>
 											<div><span>There aren't any users</span></div>
@@ -199,7 +200,26 @@
     </div>
     
 <%@include file="/static/include/assetfooter.jsp" %>
-   <script src="<c:url value="/static/js/actionjs/lms_adm_006.js" />"></script>
+   <script src="<c:url value="../static/js/actionjs/lms_adm_006.js" />"></script>
+    <script type="text/x-jquery-tmpl" id="lmsAdm006">
+		<tr>
+             <th scope="row">{{= ID}}</th>
+                   <td>
+						<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> | 
+						<a href="javascrip:void(0)" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
+						<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a> 
+					</td>												
+                    <td>{{= FIRSTNAME}}</td>
+                    <td>{{= LASTNAME}}</td> 
+					<td>{{= LOGIN}}</td>
+					<td>{{= EMAIL}}</td>
+                    <td>{{= PHONE}}</td>
+					<td>{{= ROLE}}</td>
+					<td>{{= MANAGERNAME}}</td>
+					
+                   
+        </tr>
+	</script>
    
 
 
