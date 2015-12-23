@@ -199,6 +199,8 @@
     </div>
     
 <%@include file="/static/include/assetfooter.jsp" %>
+   <script src="<c:url value="/static/js/actionjs/lms_adm_006.js" />"></script>
+   
 
 
 
