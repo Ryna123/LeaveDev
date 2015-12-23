@@ -159,7 +159,7 @@
 							              <option value="50">50</option>
 							              <option value="100">100</option>
 					                </select> entries</label>
-					
+											
 					                <span class="dataTables_paginate paging_full_numbers">
 					                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
 					                	<a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a>

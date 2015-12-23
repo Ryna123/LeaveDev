@@ -99,7 +99,9 @@ public class ActionController {
 			//User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
+			
 			listData.put("USER_REC", listuserservice.getListUsers());
+			
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
