@@ -1,14 +1,17 @@
 $(document).ready(function() {
 	//loading(true);
-	alert(1);
+	
 //	var a = {/*empId :2,*/statId : 2};
 	$.ajax({
 		//url : "../admin/action/service/lms_adm_001/1/2",
-		url : "../action/service/lms_adm_006",
+		url : "../action/service/lms_adm_001",
+		
 		dataType : "JSON",
 		type : "POST",
-	//	data :a,
+		data :a,
+		
 		success : function(data) {
+			consol.log(url);
 			console.log(data);
 			//console.log(data.RESP_DATA['ENTITLE_REC']);
 //				var res = data.RESP_DATA['ENTITLE_REC'];
