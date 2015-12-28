@@ -44,19 +44,19 @@ public  class ListUserServiceImpl implements ListUserService{
 					
 					ResultSet rs = ps.executeQuery();
 					ArrayList<ListUser> ll = new ArrayList<ListUser>();
-					ListUser lt = null;
+					ListUser lu = null;
 					while (rs.next()) {
-						lt = new ListUser();
-						lt.setId(rs.getInt("id"));
-						lt.setFirstname(rs.getString("firstname"));
-						lt.setLastname(rs.getString("lastname"));
-						lt.setEmail(rs.getString("email"));
-						lt.setLogin(rs.getString("login"));
-						lt.setRole(rs.getString("role"));
-						lt.setPhone(rs.getInt("phone"));
-						lt.setManagername(rs.getString("manager_name"));
+						lu = new ListUser();
+						lu.setId(rs.getInt("id"));
+						lu.setFirstname(rs.getString("firstname"));
+						lu.setLastname(rs.getString("lastname"));
+						lu.setEmail(rs.getString("email"));
+						lu.setLogin(rs.getString("login"));
+						lu.setRole(rs.getString("role"));
+						lu.setPhone(rs.getInt("phone"));
+						lu.setManagername(rs.getString("manager_name"));
 						
-						ll.add(lt);
+						ll.add(lu);
 					}
 					return ll;
 				} catch (SQLException e) {
