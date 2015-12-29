@@ -77,7 +77,7 @@ public class EntitleServiceImpl implements EntitleService{
 		Entitledays b = null;
 		while (rs.next()) {
 			b = new Entitledays();				
-			b.setLeavesAvailable(rs.getInt("available"));
+			b.setLeavesAvailable(rs.getDouble("available"));
 			b.setLeavesTypes(rs.getString("leaveType"));
 			b.setLeavesTaken(rs.getFloat("taken"));
 			b.setLeavesEntitled(rs.getFloat("entitled"));

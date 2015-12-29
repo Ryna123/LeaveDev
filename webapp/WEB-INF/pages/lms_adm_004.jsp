@@ -95,34 +95,7 @@
                       </thead>
 
                       <tbody role="alert" aria-live="polite" id="leaveBalancedAdmin"  aria-relevant="all">
-                       <!--  <tr class="pointer odd">
-                          <td id="">1</td>
-                          <td id="">
-                            <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                            <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
-                          </td>
-                          <td id="">Yon Ryna</td>
-                          <td id="">10/16/2015 (Morning)</td>
-                          <td id="">10/16/2015 (Afternoon)</td>
-                          <td id="">2</td>
-                          <td id="">Special Leave</td>
-                          <td id="">Planed</td>
-                        </tr>
-                        <tr class="pointer odd">
-                          <td id="">1</td>
-                          <td id="">
-                            <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a> |
-                            <a href="javascrip:void(0)" id="leaveApprove"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
-                          </td>
-                          <td id="">Yon Ryna</td>
-                          <td id="">10/16/2015 (Morning)</td>
-                          <td id="">10/16/2015 (Afternoon)</td>
-                          <td id="">2</td>
-                          <td id="">Special Leave</td>
-                          <td id="">Planed</td>
-                        </tr> -->
+                      
                       </tbody>
                     </table>
                   </div>

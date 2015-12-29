@@ -4,7 +4,7 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="<c:url value="home"/>" class="site_title"><i class="fa fa-paw"></i> <span>Leave Management</span></a>
+                        <a href="<c:url value="/users/home"/>" class="site_title"><i class="fa fa-paw"></i> <span>Leave Management</span></a>
                     </div>
                     <div class="clearfix"></div>
 

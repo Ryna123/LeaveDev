@@ -188,7 +188,33 @@ public class LeaveServiceImpl implements LeaveService  {
 
 	@Override
 	public boolean updateLeavesAdmin(int lid, String lact) {
-		// TODO Auto-generated method stub
+		String sql =   "UPDATE lms_leaves	    " 
+					 + "SET status_id = ?	    " 
+					 + "WHERE		    		" 
+					 + "	ID = ?		    	" ;
+
+		try(
+				Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+			) 
+		{
+			if(lact.endsWith("AP")) {
+				ps.setInt(1, 2);
+			} else {
+				ps.setInt(1, 3);
+			}
+			
+			ps.setInt(2, lid);
+			
+			
+			System.out.println(ps);
+			if (ps.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}	
+		
 		return false;
 	}
 

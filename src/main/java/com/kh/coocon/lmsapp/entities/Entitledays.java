@@ -2,7 +2,7 @@ package com.kh.coocon.lmsapp.entities;
 
 public class Entitledays {
 	private String leavesTypes;
-	private float leavesAvailable;
+	private Double leavesAvailable;
 	private float leavesTaken;
 	private float leavesEntitled;
 	public String getLeavesTypes() {
@@ -11,10 +11,10 @@ public class Entitledays {
 	public void setLeavesTypes(String leavesTypes) {
 		this.leavesTypes = leavesTypes;
 	}
-	public float getLeavesAvailable() {
+	public Double getLeavesAvailable() {
 		return leavesAvailable;
 	}
-	public void setLeavesAvailable(float leavesAvailable) {
+	public void setLeavesAvailable(Double leavesAvailable) {
 		this.leavesAvailable = leavesAvailable;
 	}
 	public float getLeavesTaken() {

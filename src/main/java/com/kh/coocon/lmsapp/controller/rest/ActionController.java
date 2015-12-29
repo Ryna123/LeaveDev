@@ -169,7 +169,7 @@ public class ActionController {
 		@RequestMapping(value = { "/lms_adm_004UA"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> UpdateAdminApprove(@RequestParam("lId") int lId ,@RequestParam("lAct") String lAct) {
 			//List<Entitledays> Mylist = userService.list();
-			User user = userService.findBySso(getPrincipal());		
+			//User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			listData.put("LEAVES_REC", leaveService.updateLeavesAdmin(lId, lAct));
@@ -179,7 +179,7 @@ public class ActionController {
 			}
 			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
-			map.put("RESP_DATA", listData);
+			map.put("RESP_DATA", "Update Success");
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 				

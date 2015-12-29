@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 
 lms_adm_004.listAdmin = function () {
-	
+	$("tbody#leaveBalancedAdmin").find("tr").remove();
 	loading(true);
 	var a = {empId :2};
 	$.ajax({
@@ -46,6 +46,7 @@ lms_adm_004.listAdmin = function () {
 							(data['LS'])='<span class="label label-info">Plan</span>';
 						}
 						data['LEDT'] = res[i].leavesendDateType;
+						
 						$("#lmsAdm004").tmpl(data).appendTo("tbody#leaveBalancedAdmin").html();
 					
 					})
@@ -67,27 +68,30 @@ lms_adm_004.listAdmin = function () {
 lms_adm_004.ClickUpdateLeave =function() {
 	$("tbody#leaveBalancedAdmin tr a#leaveReject").click(function() {
 		var lId = ($(this).find('input#input').val());
-		var act = 'AP';
+		var act = 'RJ';
 		lms_adm_004.updateLeave(lId, act);
 	});
 	
 	$("tbody#leaveBalancedAdmin tr a#leaveApprove").click(function() {
 		var lId = ($(this).find('input#input').val());
-		var act = 'RJ';
+		var act = 'AP';
 		lms_adm_004.updateLeave(lId, act);
 		
 	});
 }
 lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
-	var data = {lId : LeaveId , lAct : LeaveAct};
-	//console.log(LeaveId + LeaveAct);
+	loading(true);
+	var aa = {lId : LeaveId , lAct : LeaveAct};
+	console.log(aa);
 	$.ajax({
 		url : "../action/service/lms_adm_004UA",
 		dataType : "JSON",
 		type : "POST",
-		data :a,
+		data :aa,
 		success : function(data) {
 			console.log(data.RESP_DATA);
+			lms_adm_004.listAdmin();
 		}
 	})
+	loading(false);
 }
