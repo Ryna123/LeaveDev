@@ -219,8 +219,61 @@ public class LeaveServiceImpl implements LeaveService  {
 	}
 
 	@Override
-	public List<Leaves> selectOneRecord(int lid) {
-		// TODO Auto-generated method stub
+	public List<Leaves> selectOneRecord(int lid , int userId) {
+		String sql	= " SELECT								      "   
+				  + " 	A . ID,								      "   
+				  + " 	A .employee_id,							      "   
+				  + " 	A .status_id,							      "   
+				  + " 	A .type_id,							      "   
+				  + " 	A .startdate,							      "   
+				  + " 	A .enddate,							      "   
+				  + " 	A .cause,							      "   
+				  + " 	A .startdatetype,						      "   
+				  + " 	A .enddatetype,							      "   
+				  + " 	A .duration,							      "   
+				  + " 	b. NAME	as leavesStatus	,						      "   
+				  + " 	CONCAT_WS(' ',c.first_name,c.last_name) as employee_name,"   
+				  + " 	d. NAME AS leavesType							      "   
+				  + " FROM								      "   
+				  + " 	lms_leaves A							      "   
+				  + " LEFT JOIN lms_status b ON A .status_id = b.status_id		      "   
+				  + " LEFT JOIN lms_types d ON A .type_id = d.type_id		      "   
+				  + " LEFT JOIN lms_users C ON A .employee_id = C .id where manager_id =  ? and employee_id != ? AND A.id = ? ORDER BY id DESC   " ;  
+
+
+		try (
+			
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement ps = cnn.prepareStatement(sql);
+			
+		)
+		{
+			
+			ps.setInt(1, userId);
+			ps.setInt(2, userId);
+			ps.setInt(3, lid);
+			System.out.println("sql  query " +ps);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Leaves> ll = new ArrayList<Leaves>();
+			Leaves leave = null;
+			while (rs.next()) {
+				leave = new Leaves();				
+				leave.setLeavesStartdate(rs.getString("startdate"));
+				leave.setLeavesEnddate(rs.getString("enddate"));
+				leave.setLeavesReason(rs.getString("cause"));
+				leave.setLeavesStartDateType(rs.getString("startdatetype"));
+				leave.setLeavesendDateType(rs.getString("enddatetype"));
+				leave.setLeavesDuration(rs.getDouble("duration"));
+				leave.setLeavesStatus(rs.getString("leavesStatus"));
+				leave.setLeavesType(rs.getString("leavesType"));
+				leave.setLeavesEmpName(rs.getString("employee_name"));;
+				leave.setId(rs.getInt("id"));
+				ll.add(leave);
+			}
+			return ll;
+		} catch (SQLException e) {
+			System.out.println(e);
+		} 
 		return null;
 	}
 

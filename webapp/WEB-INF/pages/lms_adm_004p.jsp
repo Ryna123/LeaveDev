@@ -56,7 +56,7 @@
               <div class="col-md-2 col-sm-2">
                 <select data-parsley-id="4308" id="heard"
                   class="form-control" required="">
-                  <option value="plan">Afternoon</option>
+                  <option value="plan">Afternoon</option>		
                   <option value="unplan">Morning</option>
                 </select>
               </div>
