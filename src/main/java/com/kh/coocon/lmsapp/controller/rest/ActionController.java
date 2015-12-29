@@ -1,8 +1,7 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import org.codehaus.jackson.node.NodeCursor.Object;
+import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -216,7 +215,7 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 				
-		
+			
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
