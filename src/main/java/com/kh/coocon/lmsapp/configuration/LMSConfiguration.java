@@ -52,8 +52,8 @@ public class LMSConfiguration extends WebMvcConfigurerAdapter{
 //		dataSource.setUrl("jdbc:postgresql://ec2-54-83-202-64.compute-1.amazonaws.com:5432/d52hue0higch0t?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");
 //		dataSource.setUsername("jvqiqzwlgblztv");
 		dataSource.setPassword("f_j9jAsT9C_WzHwVDrGYj1_3op");
-		dataSource.setUrl("jdbc:postgresql://192.168.178.30:5432/lmsdb");
-		//dataSource.setUrl("jdbc:postgresql://localhost:5432/lms");
+		//dataSource.setUrl("jdbc:postgresql://192.168.178.30:5432/lmsdb");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/lms");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("admin");
 		return dataSource;
