@@ -6,6 +6,11 @@ $(document).ready(function() {
 		alert($(this).find('input#input').val());
 	});
 	
+	
+	$("#leaveView").click(function () {
+		alert('test');
+	});
+	
 });
 
 
@@ -53,6 +58,8 @@ lms_adm_004.listAdmin = function () {
 				}
 				
 				lms_adm_004.ClickUpdateLeave();
+				lms_adm_004.CallListId ();
+				
 				loading(false);
 			},
 			error : function(data) {
@@ -62,6 +69,18 @@ lms_adm_004.listAdmin = function () {
 		});
 		
 	}
+
+
+
+lms_adm_004.CallListId = function () {
+	$("tbody#leaveBalancedAdmin tr a#leaveView").click(function() {
+		var lId = ($(this).find('input#input').val());
+		//var act = 'RJ';
+		//lms_adm_004.updateLeave(lId, act);
+		$('#myModal').modal('toggle');
+		//alert(lId);
+	});
+}
 
 
 
@@ -79,6 +98,9 @@ lms_adm_004.ClickUpdateLeave =function() {
 		
 	});
 }
+
+
+
 lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
 	loading(true);
 	var aa = {lId : LeaveId , lAct : LeaveAct};
