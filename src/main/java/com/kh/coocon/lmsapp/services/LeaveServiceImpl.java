@@ -218,5 +218,11 @@ public class LeaveServiceImpl implements LeaveService  {
 		return false;
 	}
 
+	@Override
+	public List<Leaves> selectOneRecord(int lid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }	

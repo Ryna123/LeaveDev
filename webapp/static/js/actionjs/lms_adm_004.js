@@ -75,10 +75,8 @@ lms_adm_004.listAdmin = function () {
 lms_adm_004.CallListId = function () {
 	$("tbody#leaveBalancedAdmin tr a#leaveView").click(function() {
 		var lId = ($(this).find('input#input').val());
-		//var act = 'RJ';
-		//lms_adm_004.updateLeave(lId, act);
+		lms_adm_004.readLeaveRecord (lId);
 		$('#myModal').modal('toggle');
-		//alert(lId);
 	});
 }
 
@@ -99,7 +97,22 @@ lms_adm_004.ClickUpdateLeave =function() {
 	});
 }
 
-
+lms_adm_004.readLeaveRecord = function (LeaveId) {
+	loading(true);
+	var aa = {lId : LeaveId };
+	console.log(aa);
+	$.ajax({
+		url : "../action/service/lms_adm_004LR",
+		dataType : "JSON",
+		type : "POST",
+		data :aa,
+		success : function(data) {
+			console.log(data.RESP_DATA);
+			//lms_adm_004.listAdmin();
+		}
+	})
+	loading(false);
+}
 
 lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
 	loading(true);

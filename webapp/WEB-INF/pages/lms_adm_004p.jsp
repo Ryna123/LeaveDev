@@ -9,7 +9,7 @@
             aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="">View Overtime Request</h4>
+          <h4 class="modal-title" id="">View Leave Requested</h4>
         </div>
         <div class="modal-body">
           <form class="form-horizontal form-label-left">
