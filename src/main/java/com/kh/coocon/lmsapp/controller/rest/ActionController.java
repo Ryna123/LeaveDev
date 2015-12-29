@@ -1,7 +1,8 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import org.codehaus.jackson.node.NodeCursor.Object;
-import org.hibernate.mapping.Map;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -111,21 +112,7 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
-		@RequestMapping(value = { "/lms_adm_011"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> getListLeavesType() {
-			//List<Entitledays> Mylist = userService.list();
-			Map<String, Object> map = new HashMap<String, Object>();
-			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("LEAVETYPE_REC", leaveTypeService.getLeavesTypeList());
-			if (listData.isEmpty()) {
-				map.put("MESSAGE", "No data");
-				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
-			}
-			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
-			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
-			map.put("RESP_DATA", listData);
-			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
-		}
+		
 		
 		@RequestMapping(value = { "/lms_adm_027lt"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeavesType() {
@@ -215,7 +202,7 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 				
-			
+		
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
