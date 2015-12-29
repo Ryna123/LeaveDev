@@ -22,7 +22,7 @@ public class LeaveTypeServiceImpl implements LeaveTypeService  {
 	
 	@Override
 	public List<LeaveType> getLeavesTypeList() {
-		String sql	= "SELECT	type_id,	NAME FROM	lms_types"   ;	
+		String sql	= "SELECT	type_id,	NAME FROM	lms_types ORDER BY type_id"   ;	
 				try (
 					
 					Connection cnn = dataSource.getConnection();
