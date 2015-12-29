@@ -201,7 +201,7 @@ public class ActionController {
 		
 		
 		//admin : get list user request by Request ID;
-		/*@RequestMapping(value = { "/lms_adm_004UA"}, method = RequestMethod.POST)
+		@RequestMapping(value = { "/lms_adm_004B"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> UpdateAdminApprove(@RequestParam("lId") int lId ) {
 			//List<Entitledays> Mylist = userService.list();
 			//User user = userService.findBySso(getPrincipal());		
@@ -217,7 +217,7 @@ public class ActionController {
 			map.put("RESP_DATA", "Update Success");
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
-			*/	
+				
 		
 		private String getPrincipal(){
 	    	 String userName = null;
