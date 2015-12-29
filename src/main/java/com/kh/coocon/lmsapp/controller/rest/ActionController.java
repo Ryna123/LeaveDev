@@ -73,7 +73,23 @@ public class ActionController {
 			//System.out.println("console is "+ userService.findBySso(getPrincipal()).getId());
 			//return null;
 		}
-
+		
+		@RequestMapping(value = { "/lms_adm_011"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getListLeavesType() {
+			//List<Entitledays> Mylist = userService.list();
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("LEAVETYPE_REC", leaveTypeService.getLeavesTypeList());
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
 		@RequestMapping(value = { "/lms_adm_002"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeavesList(@RequestParam("empId") int empId) {
 			//List<Entitledays> Mylist = userService.list();
