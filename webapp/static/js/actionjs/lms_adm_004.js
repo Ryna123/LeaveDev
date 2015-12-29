@@ -108,7 +108,15 @@ lms_adm_004.readLeaveRecord = function (LeaveId) {
 		data :aa,
 		success : function(data) {
 			console.log(data.RESP_DATA);
-			//lms_adm_004.listAdmin();
+			var res = data.RESP_DATA['LEAVES_REC'];
+			$.each(res,function(i,v){ 
+				$("#duration").val(res[i].leavesDuration);
+				$("#reason").val(res[i].leavesReason);
+				$("#startdate").val((res[i].leavesStartdate).replace(/\-/g,"/"));
+				$("#enddate").val((res[i].leavesEnddate).replace(/\-/g,"/"));
+				$("#enddate").val(res[i].leavesReason);
+				
+			});
 		}
 	})
 	loading(false);
@@ -130,3 +138,4 @@ lms_adm_004.updateLeave = function(LeaveId, LeaveAct) {
 	})
 	loading(false);
 }
+
