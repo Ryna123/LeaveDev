@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	
+	
+	
+	
 	$.ajax({
 		url : "../action/service/lms_adm_027lt",
 		dataType : "JSON",

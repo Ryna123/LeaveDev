@@ -1,5 +1,6 @@
 var lms_adm_004={};
 $(document).ready(function() {
+	
 	lms_adm_004.listAdmin();
 	
 	$("tbody#leaveBalancedAdmin tr a#testaa").click(function() {
@@ -10,6 +11,26 @@ $(document).ready(function() {
 	$("#leaveView").click(function () {
 		alert('test');
 	});
+	
+	
+	
+	
+	$("#startdate").datepicker({
+        numberOfMonths: 2,
+        onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() + 1);
+            $("#startdate").datepicker("option", "minDate", dt);
+        }
+    });
+    $("#enddate").datepicker({
+        numberOfMonths: 2,
+        onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() - 1);
+            $("#enddate").datepicker("option", "maxDate", dt);
+        }
+    });
 	
 });
 
@@ -114,7 +135,7 @@ lms_adm_004.readLeaveRecord = function (LeaveId) {
 				$("#reason").val(res[i].leavesReason);
 				$("#startdate").val((res[i].leavesStartdate).replace(/\-/g,"/"));
 				$("#enddate").val((res[i].leavesEnddate).replace(/\-/g,"/"));
-				$("#enddate").val(res[i].leavesReason);
+//				$("#enddate").val(res[i].leavesReason);
 				
 			});
 		}
