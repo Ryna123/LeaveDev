@@ -162,7 +162,7 @@
 			<td scope="row">
 				<a href="javascript:" id="leaveView"><input type="hidden" id='input' value="{{= LID}}"><span class="fa fa-eye" ></span></a> |
        		 	<a href="javascript:" id="leaveApprove"><input type="hidden" id='input' value="{{= LID}}"><span class="glyphicon glyphicon-ok" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-               	<a href="javascript:" id="leaveReject"><input type="hidden" id='input' value="{{= LID}}"><span class="fa fa-close" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+               	<a href="javascript:" id="leaveReject"><input type="hidden" id='input' value="{{= LID}}"><span class="fa fa-close fa-lg" id="{{= LID}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
            	</t>
 			<td>{{= LEN}}</td>
 			<td>{{= LSD}}</td>
