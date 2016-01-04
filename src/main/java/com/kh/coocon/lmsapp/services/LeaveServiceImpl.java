@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -88,11 +91,12 @@ public class LeaveServiceImpl implements LeaveService  {
 				 + "cause,	       " 
 				 + "startdatetype, " 
 				 + "enddatetype,   " 
-				 + "duration	   " 
+				 + "duration,	   " 
+				 + "requested_date	   " 
 				 + ") "
 			+" VALUES "
 				 + "(   "
-				 + /*"nextval('lmsLeave_sequence') ,*/"?,?,?,?,?,?,?,?,? "
+				 + /*"nextval('lmsLeave_sequence') ,*/"?,?,?,?,?,?,?,?,?,?"
 				 + ")";
 
 		try(
@@ -100,6 +104,9 @@ public class LeaveServiceImpl implements LeaveService  {
 				PreparedStatement ps = cnn.prepareStatement(sql);
 			) 
 		{
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Date date = new Date();
+			ps.setString(2, dateFormat.format(date));
 			ps.setInt(1, Userid);
 			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
 			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));
@@ -109,7 +116,7 @@ public class LeaveServiceImpl implements LeaveService  {
 			ps.setString(7, lo.getLeavesStartDateType());
 			ps.setString(8, lo.getLeavesendDateType());
 			ps.setDouble(9, lo.getLeavesDuration());
-			
+			ps.setString(10, dateFormat.format(date));
 			System.out.println(ps);
 			if (ps.executeUpdate() > 0) {
 				return true;
@@ -189,7 +196,8 @@ public class LeaveServiceImpl implements LeaveService  {
 	@Override
 	public boolean updateLeavesAdmin(int lid, String lact) {
 		String sql =   "UPDATE lms_leaves	    " 
-					 + "SET status_id = ?	    " 
+					 + "SET status_id = ?	,    " 
+					 + "edited_date = ?	    " 
 					 + "WHERE		    		" 
 					 + "	ID = ?		    	" ;
 
@@ -203,8 +211,12 @@ public class LeaveServiceImpl implements LeaveService  {
 			} else {
 				ps.setInt(1, 3);
 			}
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Date date = new Date();
+			//System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+			ps.setString(2, dateFormat.format(date));
+			ps.setInt(3, lid);
 			
-			ps.setInt(2, lid);
 			
 			
 			System.out.println(ps);
