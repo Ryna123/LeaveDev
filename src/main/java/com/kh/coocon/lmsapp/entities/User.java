@@ -17,7 +17,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="LMS_USERS")
 public class User {
- 
+	
+	private int contractId ;
+	private int organizationId;
+	private int positionId;
+	private int role;
+	private int managerId;
+	private String dateHired;
+	private String identifirer;
+	private String phone;
+	private String emergency;
+	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
  
@@ -102,7 +112,79 @@ public class User {
         return state;
     }
  
-    public void setState(String state) {
+    public int getContractId() {
+		return contractId;
+	}
+
+	public void setContractId(int contractId) {
+		this.contractId = contractId;
+	}
+
+	public int getOrganizationId() {
+		return organizationId;
+	}
+
+	public void setOrganizationId(int organizationId) {
+		this.organizationId = organizationId;
+	}
+
+	public int getPositionId() {
+		return positionId;
+	}
+
+	public void setPositionId(int positionId) {
+		this.positionId = positionId;
+	}
+
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+
+	public String getDateHired() {
+		return dateHired;
+	}
+
+	public void setDateHired(String dateHired) {
+		this.dateHired = dateHired;
+	}
+
+	public String getIdentifirer() {
+		return identifirer;
+	}
+
+	public void setIdentifirer(String identifirer) {
+		this.identifirer = identifirer;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmergency() {
+		return emergency;
+	}
+
+	public void setEmergency(String emergency) {
+		this.emergency = emergency;
+	}
+
+	public void setState(String state) {
         this.state = state;
     }
  
@@ -113,7 +195,7 @@ public class User {
     public void setUserProfiles(Set<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
     }
- 
+    
     @Override
     public int hashCode() {
         final int prime = 31;
