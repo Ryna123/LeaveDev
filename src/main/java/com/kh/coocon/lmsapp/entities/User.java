@@ -27,6 +27,9 @@ public class User {
 	private String identifirer;
 	private String phone;
 	private String emergency;
+	private String login;
+	private String country;
+	private String calendar;
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
@@ -182,6 +185,30 @@ public class User {
 
 	public void setEmergency(String emergency) {
 		this.emergency = emergency;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(String calendar) {
+		this.calendar = calendar;
 	}
 
 	public void setState(String state) {
