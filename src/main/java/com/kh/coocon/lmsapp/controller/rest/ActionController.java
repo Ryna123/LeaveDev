@@ -217,7 +217,22 @@ public class ActionController {
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
-				
+			
+		//admin : Insert users to lms_user
+		
+		@RequestMapping(value = { "/lms_adm_008"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
+		public ResponseEntity<Map<String, Object>> addUsers(@RequestBody User uobj) throws Exception {
+			User userAuth = userService.findBySso(getPrincipal());
+			Map<String, Object> map = new HashMap<String, Object>();
+			if (userService.addUsers(uobj, userAuth.getId() )==false) {
+				map.put("MESSAGE", "Insert leave failse");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}
 		
 		private String getPrincipal(){
 	    	 String userName = null;

@@ -45,11 +45,12 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	
 	@Override
-	public boolean addUsers(User userObj, int Userid) {
+	public boolean addUsers(User UserObj, int Userid) {
 		String sql=	"INSERT INTO lms_users (    "
 				+ "contract_id,		    " 
-				+ "oraganization_id,	    " 
+				+ "organization_id,	    " 
 				+ "position_id,       	    " 
 				+ "first_name,		    " 
 				+ "last_name,		    " 
@@ -79,23 +80,27 @@ public class UserServiceImpl implements UserService{
 		{
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			Date date = new Date();
-			ps.setString(2, dateFormat.format(date));
-			ps.setInt(1, Userid);
+			//ps.setString(2, dateFormat.format(date));
+			ps.setInt(1, UserObj.getContractId());
+			ps.setInt(2, UserObj.getOrganizationId());
+			ps.setInt(3, UserObj.getPositionId());
+			ps.setString(4, UserObj.getFirstName());
+			ps.setString(5,UserObj.getLastName());
+			ps.setString(6,UserObj.getLogin());
+			ps.setString(7,UserObj.getEmail());
+			ps.setString(8,UserObj.getPassword());
+			ps.setInt(9,UserObj.getRole());
+			ps.setInt(10, UserObj.getManagerId());
+			ps.setString(11, UserObj.getCountry());
+			ps.setString(12, UserObj.getDateHired());
+			ps.setString(13, UserObj.getIdentifirer());
+			ps.setString(14, UserObj.getState());
+			ps.setString(15, UserObj.getCalendar());
+			ps.setString(16, UserObj.getPhone());
+			ps.setString(17, UserObj.getEmergency());
+			ps.setString(18, UserObj.getState());
+			ps.setString(19, UserObj.getSsoId());
 			
-			
-			
-			
-			
-			
-			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
-			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));
-			ps.setString(4, lo.getLeavesStartdate().replace("/", "-"));
-			ps.setString(5, lo.getLeavesEnddate().replace("/", "-"));
-			ps.setString(6, lo.getLeavesReason());
-			ps.setString(7, lo.getLeavesStartDateType());
-			ps.setString(8, lo.getLeavesendDateType());
-			ps.setDouble(9, lo.getLeavesDuration());
-			ps.setString(10, dateFormat.format(date));
 			System.out.println(ps);
 			if (ps.executeUpdate() > 0) {
 				return true;
