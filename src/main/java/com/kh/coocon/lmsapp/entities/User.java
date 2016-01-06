@@ -18,11 +18,11 @@ import javax.persistence.Table;
 @Table(name="LMS_USERS")
 public class User {
 	
-	private int contractId ;
-	private int organizationId;
-	private int positionId;
+	private int contract_Id ;
+	private int organization_Id;
+	private int position_Id;
 	private int role;
-	private int managerId;
+	private int manager_Id;
 	private String dateHired;
 	private String identifirer;
 	private String phone;
@@ -116,27 +116,27 @@ public class User {
     }
  
     public int getContractId() {
-		return contractId;
+		return contract_Id;
 	}
 
-	public void setContractId(int contractId) {
-		this.contractId = contractId;
+	public void setContractId(int contract_Id) {
+		this.contract_Id = contract_Id;
 	}
 
 	public int getOrganizationId() {
-		return organizationId;
+		return organization_Id;
 	}
 
-	public void setOrganizationId(int organizationId) {
-		this.organizationId = organizationId;
+	public void setOrganizationId(int organization_Id) {
+		this.organization_Id = organization_Id;
 	}
 
 	public int getPositionId() {
-		return positionId;
+		return position_Id;
 	}
 
-	public void setPositionId(int positionId) {
-		this.positionId = positionId;
+	public void setPositionId(int position_Id) {
+		this.position_Id = position_Id;
 	}
 
 	public int getRole() {
@@ -148,11 +148,11 @@ public class User {
 	}
 
 	public int getManagerId() {
-		return managerId;
+		return manager_Id;
 	}
 
-	public void setManagerId(int managerId) {
-		this.managerId = managerId;
+	public void setManagerId(int manager_Id) {
+		this.manager_Id = manager_Id;
 	}
 
 	public String getDateHired() {

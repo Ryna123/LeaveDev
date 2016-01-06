@@ -76,6 +76,7 @@ $(document).ready(function() {
 				if(data.CODE =='000') {
 					loading(false);
 					maketoast();
+					location.href= "lms_adm_002"; // link to list all requested
 				}
 				
 			},

@@ -106,7 +106,7 @@ public class LeaveServiceImpl implements LeaveService  {
 		{
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			Date date = new Date();
-			ps.setString(2, dateFormat.format(date));
+			ps.setString(10, dateFormat.format(date));
 			ps.setInt(1, Userid);
 			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
 			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));

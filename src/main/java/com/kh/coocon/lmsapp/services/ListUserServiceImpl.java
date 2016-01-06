@@ -33,7 +33,7 @@ public  class ListUserServiceImpl implements ListUserService{
 				+ "		LEFT JOIN lms_users c on c.id = a.manager_id" 
 				+ "		ORDER BY id asc"  ;	
 				
-	
+				System.out.println(sql);
 				try (
 					
 					Connection cnn = dataSource.getConnection();

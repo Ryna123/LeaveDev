@@ -31,6 +31,7 @@ $(document).ready(function() {
             $("#enddate").datepicker("option", "maxDate", dt);
         }
     });
+
 	
 });
 
@@ -117,6 +118,8 @@ lms_adm_004.ClickUpdateLeave =function() {
 		
 	});
 }
+
+
 
 lms_adm_004.readLeaveRecord = function (LeaveId) {
 	loading(true);

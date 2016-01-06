@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	loading(true);
 	
-	var a = {/*empId :2,*/statId : 2};
+//	var a = {/*empId :2,*/statId : 2};
 	$.ajax({
 		//url : "../admin/action/service/lms_adm_001/1/2",
 		url : "../action/service/lms_adm_006",
@@ -36,4 +36,12 @@ $(document).ready(function() {
 //			}
 
 		});
+	
+	$("#btn_search").click(function(){
+		var SearchVal= $("#text_search").val();
+		alert(SearchVal);
+	});
+	
+	
+	
 });
