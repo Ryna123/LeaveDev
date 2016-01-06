@@ -120,7 +120,16 @@
 											class="next paginate_button" id="example_next">Next</a><a
 											tabindex="0" class="last paginate_button" id="example_last">Last</a>
 									</div>
-									<div class="clearfix"></div>
+									<!-- End Pagination -->
+									<!-- <div class="clearfix"></div> -->
+									<div class="ln_solid"></div>
+									<!-- Buttons -->
+									<div class="form-group">
+										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-9">
+											<a class="btn btn-success"> <i class="fa fa-send" ></i> Export</a> 
+											<a class="btn btn-primary"  href="lms_adm_029.jsp"><i class="fa fa-file"></i> New Request	</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
