@@ -13,7 +13,7 @@ $(document).ready(function(){
 		}else{
 			$("#lblUserName").text("");
 		}
-		register.
+		
 	});
 	
 });

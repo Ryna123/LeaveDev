@@ -356,6 +356,6 @@
 			});
 			
 		</script>
-		<script type="text/javascript" src="<c:url value="/static/kms/js/login.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/static/js/login.js" />"></script>
 	</body>
 </html>
