@@ -1,6 +1,7 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
+import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
 import com.kh.coocon.lmsapp.services.ListUserService;
@@ -40,6 +44,10 @@ public class ActionController {
 	LeaveTypeService leaveTypeService;
 	
 	@Autowired
+	private HumanResurceService humanResourceService;
+	
+	@Autowired 
+	
 	ListUserService listuserservice;
 	SSOIdUtil ssoidUtils = new SSOIdUtil();
 	
@@ -232,6 +240,25 @@ public class ActionController {
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 			
+		}
+		
+		//List all employee in human resource menu
+		@RequestMapping(value={"/lms_adm_014"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String, Object> hrListAllEmp(){
+			
+			Map<String, Object> map = new HashMap<>();
+			try{
+				List<HrManagement> hrManagements = humanResourceService.getAllEmp();
+				if(hrManagements.isEmpty() || hrManagements == null){
+					map.put("Message", "Empty");
+				}else{
+					map.put("Message", "Exist");
+					map.put("List", hrManagements);
+				}
+			}catch(Exception e){
+				map.put("Message", e.getMessage());
+			}
+			return map;
 		}
 		
 		private String getPrincipal(){

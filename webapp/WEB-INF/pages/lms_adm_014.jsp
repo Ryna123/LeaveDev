@@ -1,6 +1,7 @@
 
 <%@include file="/static/include/assetheader.jsp" %>
-
+	<%-- <link href="<c:url value='/static/css/datatables/css/jquery.dataTables.css' />"rel="stylesheet"> --%>
+	<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 	<style type="text/css">
 		#create_new_type_btn{
 			text-align: right;
@@ -43,7 +44,9 @@
 			padding: 6px;
 		}
 	</style>
-
+	
+	<script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_014.js" />"></script>
+	
 <body class="nav-md">
 
     <div class="container body">
@@ -114,7 +117,7 @@
 									<span><input type="checkbox">include sub-department</span>
 	                			</div>
                                 <div class="x_content">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="hrTable">
                                         <thead>
                                             <tr>
 												<th>ID</th>
@@ -153,20 +156,21 @@
 											<div><span>There aren't any users</span></div>
 										</tfoot>-->
                                     </table>
+                                    
 
-                                </div>
+								</div>
                                 
                                 <!-- Pagination block -->
-                                <div class="dataTables_length">
+                                <!-- <div class="dataTables_length">
 	                                <label>Show <select size="1">
 	                                <option value="10">10</option>
 	                                <option value="25">25</option>
 	                                <option value="50">50</option>
 	                                <option value="100">100</option>
 	                                </select> entries</label>
-                                </div>
+                                </div> -->
                                 
-				                <div id="pagination">
+				                <!-- <div id="hrTable_paginate" class="dataTable_info">
 					                <span class="dataTables_paginate paging_full_numbers">
 					                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
 					                	<a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a>
@@ -177,13 +181,13 @@
 					                	<a tabindex="0" class="next paginate_button" id="example_next">Next</a>
 					                	<a tabindex="0" class="last paginate_button" id="example_last">Last</a>
 					                </span> 
-				                </div>
+				                </div> -->
 				                <!-- End Pagination block -->
                 
 				                <!-- button -->
 								<div id="create_new_type_btn">
 									<a class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
-									<a class="btn btn btn-primary" href="lms_adm_008.jsp"><i class="fa fa-plus-circle"></i>Create a new</a>
+									<a class="btn btn btn-primary" href="lms_adm_008"><i class="fa fa-plus-circle"></i>Create a new</a>
 								</div>
 				                <!-- End button -->                
                             </div>

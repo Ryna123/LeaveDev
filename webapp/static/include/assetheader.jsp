@@ -35,7 +35,7 @@
     <link href="<c:url value='/static/js/formvalidate/validationEngine.jquery.css' />"rel="stylesheet"> 
     <link href="<c:url value='/static/js/loading/loading.css' />"rel="stylesheet"> 
     <!-- That's all -->
-    
+	
     <!-- Borint -->
     <!-- Include Date Range Picker -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
