@@ -8,11 +8,13 @@ $(document).ready(function(){
 	});
 	$("#inputUserName").keyup(function(){
 		var userName = $(this).val();
+		userInfo["userName"] = userName;
 		if(userName.length<3){
 			$("#lblUserName").text("Username must be greater than or equal three characters")
 		}else{
 			$("#lblUserName").text("");
 		}
+		register.availableUserName();
 		
 	});
 	
@@ -28,8 +30,10 @@ var register = {
 	availableUserName: function(){
 		$.ajax({
 			type: "GET",
-			url: "dashboard/service/availableUser",
+			data: userInfo,
+			url: "http://localhost:8080/LMSAPP/action/service/checkUsername",
 			success: function(resp){
+				console.log(resp)
 				
 			}
 		});
