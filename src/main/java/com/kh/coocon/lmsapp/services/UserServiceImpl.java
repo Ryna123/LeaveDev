@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.coocon.lmsapp.dao.UserDao;
-import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.User;
  
 

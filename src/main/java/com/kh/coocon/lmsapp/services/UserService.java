@@ -1,6 +1,5 @@
 package com.kh.coocon.lmsapp.services;
 
-import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.User;
 
 public interface UserService {
