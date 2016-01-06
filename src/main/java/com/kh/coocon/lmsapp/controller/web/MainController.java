@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
@@ -24,11 +25,7 @@ public class MainController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value={"/"} , method = RequestMethod.GET)
-	public String gotoLoginPage(ModelMap m){
-		m.addAttribute("message","Dashboard");
-		return "login";
-	}
+	
 	
 	@RequestMapping(value={"/users/dashboard","/users/home"/*,"/admin/index"*/} , method = RequestMethod.GET)
 	public String dasboardPage(ModelMap m){
