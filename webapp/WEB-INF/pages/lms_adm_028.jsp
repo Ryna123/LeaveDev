@@ -127,7 +127,7 @@
 									<div class="form-group">
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-9">
 											<a class="btn btn-success"> <i class="fa fa-send" ></i> Export</a> 
-											<a class="btn btn-primary"  href="lms_adm_029.jsp"><i class="fa fa-file"></i> New Request	</a>
+											<a class="btn btn-primary"  href="${pageContext.request.contextPath}/users/lms_adm_029"><i class="fa fa-plus"></i> New Request	</a>
 										</div>
 									</div>
 								</div>
