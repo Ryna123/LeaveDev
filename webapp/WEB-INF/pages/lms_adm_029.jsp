@@ -74,12 +74,10 @@
 									</div>
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Duration:</label>
-										<div class="col-md-2 col-sm-2 col-xs-2">
+										<div class="col-md-3 col-sm-3 col-xs-3">
 											<input class="form-control"
 												data-inputmask="'mask': '99/99/9999'" type="text" id="otDuration" required="required" data-validation-engine="validate[required,maxSize[10]">
 										</div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1"
-											style="text-align: left;">Day(s)</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
 											<select data-parsley-id="4308" class="form-control" required="" id="otType">
 												<option value="1">Days</option>
