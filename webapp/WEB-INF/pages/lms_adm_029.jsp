@@ -131,12 +131,12 @@
 			data-tabbed_notifications="notif-group">
 		</ul>
 		<div class="clearfix"></div>
-		<div id="notif-group" class="tabbed_notifications"></div>
+		<div id="notif-group" class="tabbed_notifications"></div> 
 	</div>
 
 	<%@include file="/static/include/assetfooter.jsp"%>
 
 	<script src="<c:url value="/static/js/actionjs/lms_adm_029.js" />"></script>
 	<script id="selectStTmpl" type="text/html">
-    	<option value="{{= statusID}}">{{= statusName}}</option>
+    	<option value="{{= statusID}}">{{= statusName}}</option> 
    	</script>

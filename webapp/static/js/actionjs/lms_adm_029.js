@@ -26,7 +26,7 @@ $(document).ready(function() {
 	$("#addOTForm").validationEngine(gbox.ui.validationEngineOptions);
 	$("#addOT").click(function() {
 		
-		if(!$("#addOTForm").validationEngine('validate')) {
+		if(!$("#addOTForm").validationEngine('validate')) { 
 			return false;
 		}	
 		

@@ -27,7 +27,7 @@ $(document).ready(function() {
 						if((data['otType'])=='1') {
 							(data['otType'])='<span class="label label-success">Days</span>';
 						} else if((data['otType'])=='2') {
-							(data['otType'])='<span class="label label-danger">Hours</span>';
+							(data['otType'])='<span class="label label-danger">Hours</span>'; 
 						}
 						
 						if((data['otStatus'])=='1') {

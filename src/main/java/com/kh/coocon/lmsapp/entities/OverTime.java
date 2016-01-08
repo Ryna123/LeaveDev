@@ -21,7 +21,7 @@ public class OverTime {
 		this.oTEmployeeId = oTEmployeeId;
 	}
 	public int getoTStatus_id() {
-		return oTStatus_id;
+		return oTStatus_id; 
 	}
 	public void setoTStatus_id(int oTStatus_id) {
 		this.oTStatus_id = oTStatus_id;
