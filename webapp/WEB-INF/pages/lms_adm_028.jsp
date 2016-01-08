@@ -161,7 +161,7 @@
 			</td>  
 			<td>{{= otID}}</td>                            											
 			<td>{{= otDate}}</td>
-   			<td>{{= otDuration}}</td>
+   			<td>{{= otDuration}}&nbsp;&nbsp;{{= otType}}</td>
    			<td>{{= otReason}}</td>
    			<td>{{= otStatus}}</td> 			   
 		</tr>

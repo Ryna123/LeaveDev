@@ -24,10 +24,16 @@ $(document).ready(function() {
 						data['otReason']  = res[i].oTReason;
 						data['otStatus'] = res[i].oTStatus_id;
 						data['otType'] = res[i].oTType;
-						if((data['otType'])=='1') {
+						/*if((data['otType'])=='1') {
 							(data['otType'])='<span class="label label-success">Days</span>';
 						} else if((data['otType'])=='2') {
 							(data['otType'])='<span class="label label-danger">Hours</span>'; 
+						}*/
+						
+						if((data['otType'])=='1') {
+							(data['otType'])='Day(s)';
+						} else if((data['otType'])=='2') {
+							(data['otType'])='Hour(s)';
 						}
 						
 						if((data['otStatus'])=='1') {
