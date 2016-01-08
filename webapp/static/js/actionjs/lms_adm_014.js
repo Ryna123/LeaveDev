@@ -8,7 +8,7 @@ $(document).ready(function(){
 			//alert(JSON.stringify(data.List));
 			var listData=data.List;
 			//var count = Object.keys(listData).length;
-			//console.log(count);
+			console.log(data.List);
 			var values={"data":listData};
 			//Covert json to String 
 			//var dataSet=JSON.stringify(values);
@@ -22,6 +22,7 @@ $(document).ready(function(){
 				data:values["data"],
 				columns:[
 				        {"data":"id"},
+				        {"data":"active"},
 				        {"data":"firstName"},
 				        {"data":"lastName"},
 				        {"data":"phone"},

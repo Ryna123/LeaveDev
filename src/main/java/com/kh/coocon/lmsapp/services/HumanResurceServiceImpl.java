@@ -23,10 +23,11 @@ public class HumanResurceServiceImpl implements HumanResurceService {
 	@Override
 	public List<HrManagement> getAllEmp() {
 		// TODO Auto-generated method stub
-		String sql = "select u.id, u.first_name, u.last_name, u.phone, u.email, "
-				+ "org.name as department, ct.contract_name as contrast, u.manager_id from lms_users u "
+		String sql = "select u.id, u.first_name, u.last_name, u.phone, u.email,u.active, "
+				+ "org.name as department, ct.contract_name as contrast, concat_ws(' ',m.first_name,m.last_name) as manager_name from lms_users u "
 				+ "JOIN lms_organization org on (u.organization_id = org.organization_id) "
-				+ "JOIN lms_contracts ct on (u.contract_id = ct.contract_id) ORDER BY u.id ASC";
+				+ "JOIN lms_contracts ct on (u.contract_id = ct.contract_id)"
+				+ "LEFT OUTER JOIN lms_users m on (m.id=u.manager_id) ORDER BY u.id ASC";
 		
 		try {
 			Connection cnn = dataSource.getConnection();
@@ -37,13 +38,14 @@ public class HumanResurceServiceImpl implements HumanResurceService {
 			while (rs.next()) {
 				hrmng= new HrManagement();
 				hrmng.setId(rs.getInt("id"));
+				hrmng.setActive(rs.getInt("active"));
 				hrmng.setFirstName(rs.getString("first_name"));
 				hrmng.setLastName(rs.getString("last_name"));
 				hrmng.setPhone(rs.getString("phone"));
 				hrmng.setEmail(rs.getString("email"));
 				hrmng.setDepartment(rs.getString("department"));
 				hrmng.setContract(rs.getString("contrast"));
-				hrmng.setManager(rs.getInt("manager_id"));
+				hrmng.setManager(rs.getString("manager_name"));
 				list.add(hrmng);
 			}
 			return (List<HrManagement>)list;
