@@ -78,7 +78,7 @@
 											<input class="form-control"
 												data-inputmask="'mask': '99/99/9999'" type="text" id="otDuration" required="required" data-validation-engine="validate[required,maxSize[10]">
 										</div>
-										<div class="col-md-3 col-sm-3 col-xs-3">
+										<div class="col-md-3 col-sm-3 col-xs-3"> 
 											<select data-parsley-id="4308" class="form-control" required="" id="otType">
 												<option value="1">Days</option>
 												<option value="2">Hours</option>
