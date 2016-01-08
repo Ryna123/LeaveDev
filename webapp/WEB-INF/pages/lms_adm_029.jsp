@@ -64,12 +64,13 @@
 											Date:</label>
 										<div
 											class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left"
-												id="otDate" name="daterang1"
-												aria-describedby="inputSuccess2Status" required="required"> <span
-												class="fa fa-calendar-o form-control-feedback right"
+											<span
+												class="fa fa-calendar-o form-control-feedback left"
 												aria-hidden="true"></span> <span id="" class="sr-only">(success)
 											</span>
+											<input type="text" class="form-control has-feedback-left"
+												id="otDate" name="daterang1"
+												aria-describedby="inputSuccess2Status" required="required">
 										</div>
 									</div>
 									<div class="form-group">
@@ -109,7 +110,7 @@
 									<div class="form-group">
 										<div class="col-md-9 col-md-offset-3">
 											<a href="javascript:" id="addOT" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Overtime</a>
-											<button type="submit" class="btn btn-primary">Cancel</button>
+											<!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
 										</div>
 									</div>
 
