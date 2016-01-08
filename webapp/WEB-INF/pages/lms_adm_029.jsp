@@ -28,7 +28,7 @@
 								<ol class="breadcrumb">
 									<li><a href="#">Request</a></li>
 									<li><a href="#">Overtime</a></li>
-									<li><a href="#">Request an Ex</a></li>
+									<li><a href="#">Request an Extra</a></li>
 									<!--<li class="active">Data</li>-->
 								</ol>
 							</small>
@@ -57,7 +57,7 @@
 							</div>
 							<div class="x_content">
 								<br>
-								<form class="form-horizontal form-label-left">
+								<form class="form-horizontal form-label-left" method="GET" id="addOTForm">
 									<div class="form-group">
 										<label
 											class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start
@@ -65,8 +65,8 @@
 										<div
 											class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
 											<input type="text" class="form-control has-feedback-left"
-												id="" name="daterang1"
-												aria-describedby="inputSuccess2Status"> <span
+												id="otDate" name="daterang1"
+												aria-describedby="inputSuccess2Status" required="required"> <span
 												class="fa fa-calendar-o form-control-feedback right"
 												aria-hidden="true"></span> <span id="" class="sr-only">(success)
 											</span>
@@ -76,15 +76,14 @@
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Duration:</label>
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<input class="form-control"
-												data-inputmask="'mask': '99/99/9999'" type="text">
+												data-inputmask="'mask': '99/99/9999'" type="text" id="otDuration" required="required" data-validation-engine="validate[required,maxSize[10]">
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1"
 											style="text-align: left;">Day(s)</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard"
-												class="form-control" required="">
-												<option value="day">Days</option>
-												<option value="hour">Hours</option>
+											<select data-parsley-id="4308" class="form-control" required="" id="otType">
+												<option value="1">Days</option>
+												<option value="2">Hours</option>
 											</select>
 										</div>
 									</div>
@@ -94,7 +93,7 @@
 											<span class="required">*</span>
 										</label>
 										<div class="col-md-6 col-sm-6 col-xs-6">
-											<textarea class="form-control" rows="2"></textarea>
+											<textarea class="form-control" rows="2" id="otReason" required="required" data-validation-engine="validate[required]"></textarea>
 										</div>
 									</div>
 
@@ -111,8 +110,7 @@
 									<!-- Buttons -->
 									<div class="form-group">
 										<div class="col-md-9 col-md-offset-3">
-											<button type="submit" class="btn btn-success">Request
-												Overtime</button>
+											<a href="javascript:" id="addOT" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Overtime</a>
 											<button type="submit" class="btn btn-primary">Cancel</button>
 										</div>
 									</div>
