@@ -116,13 +116,7 @@
 	            						end:  data.RESP_DATA['LEAVES_REC'][i].leavesEnddate
             						}];
 	            					
-//            						title: [i].leavesStatus,
-//                					start: [i].leavesStartdate,
-//                					end:[i].leavesEnddate
-//                					
-            					
-            					
-            					 $('#calendar').fullCalendar('addEventSource', events,event);
+            					 $('#calendar').fullCalendar('addEventSource', events);
             					
             				});
             				
