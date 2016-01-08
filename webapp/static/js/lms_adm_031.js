@@ -62,40 +62,75 @@
                         calendar.fullCalendar('unselect');
                     },
                     editable: true,
-                    events: [
-                        {
-                            title: 'Special Leave',
-                            start: new Date(y, m, d - 5),
-                            end: new Date(y, m, d - 2),
-                        	color: '#337ab7',
-                        },
-                        {
-                        	title: 'Sick hay',
-                        	start: new Date(y, m, d),
-                    		start: new Date(y, m, d+4),
-                    		color: '#337ab7',
-                        },
-                        {
-                        	title: 'Annual leave',
-                        	start: new Date(y, m, d - 4),
-                            color: '#f0ad4e'
-                        },
-                        {
-                        	title: 'Annual leave',
-                        	start: new Date(y, m, d - 4),
-                            color: '#f0ad4e'
-                        },
-                        {
-                        	title: 'Annual leave',
-                        	start: new Date(y, m, d - 4),
-                            color: '#f0ad4e'
-                        },
-                        {
-                        	title: 'Annual leave',
-                        	start: new Date(y, m, d - 9),
-                            color: '#d9534f'
-                        }
-                       
-                    ]
+//                    events: [
+//                        {
+//                            title: 'Special Leave',
+//                            start: new Date(y, m, d - 5),
+//                            end: new Date(y, m, d - 2),
+//                        	color: '#337ab7',
+//                        },
+//                        {
+//                        	title: 'Sick hay',
+//                        	start: new Date(y, m, d),
+//                    		start: new Date(y, m, d+4),
+//                    		color: '#337ab7',
+//                        },
+//                        {
+//                        	title: 'Annual leave',
+//                        	start: new Date(y, m, d - 4),
+//                            color: '#f0ad4e'
+//                        },
+//                        {
+//                        	title: 'Annual leave',
+//                        	start: new Date(y, m, d - 4),
+//                            color: '#f0ad4e'
+//                        },
+//                        {
+//                        	title: 'Annual leave',
+//                        	start: new Date(y, m, d - 4),
+//                            color: '#f0ad4e'
+//                        },
+//                        {
+//                        	title: 'Annual leave',
+//                        	start: new Date(y, m, d - 9),
+//                            color: '#d9534f'
+//                        }
+//                       
+//                    ]
                 });
+                loading(true);
+            	var a = {empId :2};
+            	$.ajax({
+            		url : "../action/service/lms_adm_002",
+            		dataType : "JSON",
+            		type : "POST",
+            		data :a,
+            		success : function(data) {
+            			console.log(data.RESP_DATA);
+            				var res = data.RESP_DATA['LEAVES_REC'];
+            				$.each(data.RESP_DATA['LEAVES_REC'],function(i){
+            						
+            					var events=[{
+            							title: data.RESP_DATA['LEAVES_REC'][i].leavesStatus,
+	            						start: data.RESP_DATA['LEAVES_REC'][i].leavesStartdate,
+	            						end:  data.RESP_DATA['LEAVES_REC'][i].leavesEnddate
+            						}];
+	            					
+//            						title: [i].leavesStatus,
+//                					start: [i].leavesStartdate,
+//                					end:[i].leavesEnddate
+//                					
+            					
+            					
+            					 $('#calendar').fullCalendar('addEventSource', events,event);
+            					
+            				});
+            				
+            				loading(false);
+            			},
+            			
+            		});
+                
+                
+                
             });
