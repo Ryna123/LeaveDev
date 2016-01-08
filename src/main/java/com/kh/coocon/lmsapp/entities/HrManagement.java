@@ -2,13 +2,14 @@ package com.kh.coocon.lmsapp.entities;
 
 public class HrManagement {
 	private int id;
+	private int active;
 	private String firstName;
 	private String lastName;
 	private String phone;
 	private String email;
 	private String department;
 	private String contract;
-	private int Manager;
+	private String Manager;
 	public int getId() {
 		return id;
 	}
@@ -51,10 +52,16 @@ public class HrManagement {
 	public void setContract(String contract) {
 		this.contract = contract;
 	}
-	public int getManager() {
+	public String getManager() {
 		return Manager;
 	}
-	public void setManager(int manager) {
+	public void setManager(String manager) {
 		Manager = manager;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
 	}
 }

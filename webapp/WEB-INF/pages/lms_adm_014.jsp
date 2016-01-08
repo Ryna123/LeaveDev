@@ -121,6 +121,7 @@
                                         <thead>
                                             <tr>
 												<th>ID</th>
+												<th>Ative</th>
                                                 <th>First Name</th>
 												<th>Last Name</th>
 												<th>Contact number</th>
@@ -130,10 +131,10 @@
 												<th>Manager</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <!-- <tbody>
 											<tr>
                                                 <th scope="row">1</th>	
-                                                <td>First</td>											
+                                                <td>First</td>										
                                                 <td>Last</td>
                                                 <td>012 366 399</td>
                                                 <td>name@gmail.com</td>
@@ -151,7 +152,7 @@
                                                 <td>Hr Manager</td>
                                                 <td>1</td>
                                             </tr>                                   
-                                        </tbody>
+                                        </tbody> -->
 										<!--<tfoot>
 											<div><span>There aren't any users</span></div>
 										</tfoot>-->
