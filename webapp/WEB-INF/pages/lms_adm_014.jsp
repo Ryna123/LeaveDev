@@ -1,9 +1,10 @@
 
 <%@include file="/static/include/assetheader.jsp" %>
-	<script src="<c:url value="/static/js/jquery.2.1.1.min.js" />"></script>
+	<%-- <script src="<c:url value="/static/js/jquery.2.1.1.min.js" />"></script> --%>
 	<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 	<script src="<c:url value="/static/js/datatables/js/dataTables.jqueryui.js" />"></script>
 	<link href="<c:url value='/static/css/datatables/css/dataTables.jqueryui.css' />"rel="stylesheet">
+	<link href="<c:url value='/static/css/datatables/css/jquery-ui.css' />"rel="stylesheet">
 	<style type="text/css">
 		#create_new_type_btn{
 			text-align: right;
