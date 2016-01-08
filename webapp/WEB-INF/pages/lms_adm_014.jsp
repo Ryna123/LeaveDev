@@ -1,7 +1,9 @@
 
 <%@include file="/static/include/assetheader.jsp" %>
-	<%-- <link href="<c:url value='/static/css/datatables/css/jquery.dataTables.css' />"rel="stylesheet"> --%>
+	<script src="<c:url value="/static/js/jquery.2.1.1.min.js" />"></script>
 	<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
+	<script src="<c:url value="/static/js/datatables/js/dataTables.jqueryui.js" />"></script>
+	<link href="<c:url value='/static/css/datatables/css/dataTables.jqueryui.css' />"rel="stylesheet">
 	<style type="text/css">
 		#create_new_type_btn{
 			text-align: right;
@@ -42,6 +44,20 @@
 		}
 		.dataTables_length select{
 			padding: 6px;
+		}
+		.dataTables_wrapper .dataTables_paginate {
+    		float: left;
+    		margin-top: 1%;
+    		margin-left: 20%;
+		}
+		.dataTables_length{
+			margin-top: 1%;
+		}
+		.display thead th{
+			text-align: center;
+		}
+		.display tbody tr{
+			text-align: center;
 		}
 	</style>
 	
@@ -117,7 +133,7 @@
 									<span><input type="checkbox">include sub-department</span>
 	                			</div>
                                 <div class="x_content">
-                                    <table class="table table-bordered" id="hrTable">
+                                    <table class="table table-bordered display" id="hrTable">
                                         <thead>
                                             <tr>
 												<th>ID</th>
@@ -131,9 +147,10 @@
 												<th>Manager</th>
                                             </tr>
                                         </thead>
-                                        <!-- <tbody>
+                                        <tbody>
 											<tr>
-                                                <th scope="row">1</th>	
+                                                <th scope="row">1</th>
+                                                <td><a>link</a></td>	
                                                 <td>First</td>										
                                                 <td>Last</td>
                                                 <td>012 366 399</td>
@@ -141,18 +158,8 @@
                                                 <td>Manager</td>
                                                 <td>User</td>
                                                 <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>First</td>												
-                                                <td>bensteav</td>
-                                                <td>010 555 888</td>
-                                                <td>ben@gmail.com</td>
-                                                <td>Employee</td>
-                                                <td>Hr Manager</td>
-                                                <td>1</td>
-                                            </tr>                                   
-                                        </tbody> -->
+                                            </tr>                                 
+                                        </tbody>
 										<!--<tfoot>
 											<div><span>There aren't any users</span></div>
 										</tfoot>-->

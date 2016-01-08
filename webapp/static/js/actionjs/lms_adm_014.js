@@ -20,9 +20,20 @@ $(document).ready(function(){
 			$('#hrTable').DataTable({
 				"pagingType": "full_numbers",
 				data:values["data"],
+				 "dom": '<"top"if>rt<"bottom"lp>',
 				columns:[
 				        {"data":"id"},
-				        {"data":"active"},
+				        {"data":"active",
+				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		 if(oData.active==1){
+				        			 $(nTd).html("<a href='/lms_adm_014active'><span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active'></span></a>");
+				        		 }else{
+				        			 $(nTd).html("<a href='/lms_adm_014active'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active'></span></a>");
+				        		 }
+				             }
+				        },
 				        {"data":"firstName"},
 				        {"data":"lastName"},
 				        {"data":"phone"},
@@ -30,7 +41,7 @@ $(document).ready(function(){
 				        {"data":"department"},
 				        {"data":"contract"},
 				        {"data":"manager"}
-				]
+				],
 				//"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
 			});
 		}
