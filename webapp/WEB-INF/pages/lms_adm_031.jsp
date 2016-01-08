@@ -1,5 +1,9 @@
 <%@include file="/static/include/assetheader.jsp" %>
-
+<style>
+ .sm2{
+ 		padding: 1px 67px !important; 
+ }
+</style>
 <body class="nav-md">
 
     <div class="container body">
@@ -54,16 +58,16 @@
                                     <div class="x_title">                                    
                                     	<div class="group">
                                     		<div class="col-sm-2">
-                                    	 		<h3 class="btn-sm btn-primary status_space">Planed</h3>
+                                    	 		<h3 class="btn-sm btn-primary status_space sm2">Planed</h3>
                                     		</div>
                                     		<div class="col-sm-2">
-	                                     		<h3 class="btn-sm btn-warning">Requested</h3>
+	                                     		<h3 class="btn-sm btn-warning sm2">Requested</h3>
                                     		</div>
                                     		<div class="col-sm-2">
-	                                        	<h3 class="btn-sm btn-success">Accepted</h3>
+	                                        	<h3 class="btn-sm btn-success sm2">Approved</h3>
                                     		</div>
                                     		<div class="col-sm-2">
-	                                        <h3 class="btn-sm btn-danger">Rejected</h3>
+	                                        <h3 class="btn-sm btn-danger sm2">Rejected</h3>
                                     		</div>
                                     	</div>
                                         <!-- <ul class="nav navbar-right panel_toolbox">

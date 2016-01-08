@@ -13,6 +13,13 @@
                         center: 'title',
                         right: 'month,agendaWeek,agendaDay'
                     },
+              //      eventLimit: true,
+                    views:{
+                    	agenda:{
+                    		eventLimit:4
+                    	}
+                    },
+                    
                     selectable: true,
                     selectHelper: true,
                     select: function (start, end, allDay) {
@@ -33,7 +40,7 @@
                                         title: title,
                                         start: started,
                                         end: end,
-                                        allDay: allDay                                        
+                                        allDay: false                                        
                                     },
                                     true // make the event "stick"
                                 );
@@ -61,7 +68,9 @@
                         });
                         calendar.fullCalendar('unselect');
                     },
-                    editable: true,
+                    timezone :  'Local'
+                	
+         //           editable: true,
 //                    events: [
 //                        {
 //                            title: 'Special Leave',
@@ -109,13 +118,39 @@
             			console.log(data.RESP_DATA);
             				var res = data.RESP_DATA['LEAVES_REC'];
             				$.each(data.RESP_DATA['LEAVES_REC'],function(i){
-            						
-            					var events=[{
-            							title: data.RESP_DATA['LEAVES_REC'][i].leavesStatus,
-	            						start: data.RESP_DATA['LEAVES_REC'][i].leavesStartdate,
-	            						end:  data.RESP_DATA['LEAVES_REC'][i].leavesEnddate
-            						}];
-	            					
+            					var thisStatus = data.RESP_DATA['LEAVES_REC'][i];
+            					if(thisStatus.leavesStatus=='Approved'){
+            						var events=[{
+            							title:thisStatus.leavesStatus,
+	            						start:thisStatus.leavesStartdate,
+	            						end:  thisStatus.leavesEnddate,
+	            						color:'#26B99A'
+	            						
+            						}];	
+        						}else if(thisStatus.leavesStatus=='Planned'){
+        							var events=[{
+            							title: thisStatus.leavesStatus,
+	            						start: thisStatus.leavesStartdate,
+	            						end:  thisStatus.leavesEnddate,
+	            						color:'#5bc0de'
+        							}];	
+        						}else if(thisStatus.leavesStatus=='Requested'){
+        							var events=[{
+            							title: thisStatus.leavesStatus,
+	            						start:thisStatus.leavesStartdate,
+	            						end:  thisStatus.leavesEnddate,
+	            						color:'#f0ad4e'
+	            						
+        							}];	
+        						}else if(thisStatus.leavesStatus=='Rejected'){
+        							var events=[{
+            							title: thisStatus.leavesStatus,
+	            						start: thisStatus.leavesStartdate,
+	            						end:  thisStatus.leavesEnddate,
+	            						color:'#d9534f'
+        							}];	
+        						}
+            					
             					 $('#calendar').fullCalendar('addEventSource', events);
             					
             				});
