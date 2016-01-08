@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
+import com.kh.coocon.lmsapp.entities.OverTime;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
@@ -26,6 +27,7 @@ import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
 import com.kh.coocon.lmsapp.services.ListUserService;
+import com.kh.coocon.lmsapp.services.OverTimeService;
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
@@ -42,6 +44,9 @@ public class ActionController {
 	UserService userService;
 	@Autowired
 	LeaveTypeService leaveTypeService;
+	
+	@Autowired
+	OverTimeService overTimeService;
 	
 	@Autowired
 	private HumanResurceService humanResourceService;
@@ -166,9 +171,54 @@ public class ActionController {
 			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
-			
 		}
 		
+		//List over time list
+		@RequestMapping(value = { "/lms_adm_028"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getOverTimeList(@RequestParam("empId") int empId) {
+			User user = userService.findBySso(getPrincipal());		
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("OVERTIME_REC", overTimeService.getOTList(user.getId()));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
+		//get Leave status
+		@RequestMapping(value = { "/lms_adm_029"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getLeaveStatus() {
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("LEAVESTATUS_REC", leaveTypeService.getLeavesStatus());
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
+		//Insert Over Time
+		@RequestMapping(value = { "/lms_adm_029I"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
+		public ResponseEntity<Map<String, Object>> addOT(@RequestBody OverTime otobj) throws Exception {
+			User user = userService.findBySso(getPrincipal());
+			Map<String, Object> map = new HashMap<String, Object>();
+			if (overTimeService.insertOT(otobj, user.getId())==false) {
+				map.put("MESSAGE", "Insert over time failse");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);	
+		}
 		
 		//admin : get all list user request;
 		@RequestMapping(value = { "/lms_adm_004"}, method = RequestMethod.POST)
