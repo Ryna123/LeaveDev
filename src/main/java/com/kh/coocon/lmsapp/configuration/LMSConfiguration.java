@@ -54,6 +54,7 @@ public class LMSConfiguration extends WebMvcConfigurerAdapter{
 		dataSource.setPassword("f_j9jAsT9C_WzHwVDrGYj1_3op");
 //		dataSource.setUrl("jdbc:postgresql://192.168.178.30:5432/lmsdb");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/lmsdb");
+		
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres");
 		return dataSource;
