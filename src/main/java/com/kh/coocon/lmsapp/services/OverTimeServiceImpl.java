@@ -32,7 +32,7 @@ public  class OverTimeServiceImpl implements OverTimeService {
 				PreparedStatement ps = cnn.prepareStatement(sql);) {
 			ps.setInt(1, Userid);
 			ps.setInt(2, OTObj.getoTStatus_id());
-			ps.setString(3, OTObj.getoTType());
+			ps.setInt(3, OTObj.getoTType());
 			ps.setString(4, OTObj.getoTDate());
 			ps.setDouble(5, OTObj.getoTDuration());
 			ps.setString(6, OTObj.getoTReason());
@@ -81,7 +81,7 @@ public  class OverTimeServiceImpl implements OverTimeService {
 				ot.setoTReason(rs.getString("cause"));
 				ot.setoTStatus_id(rs.getInt("status_id"));
 				ot.setoTDuration(rs.getDouble("duration"));
-				ot.setoTType(rs.getString("ot_type"));
+				ot.setoTType(rs.getInt("ot_type"));
 				lot.add(ot);
 			}
 			return lot;
@@ -128,7 +128,7 @@ public  class OverTimeServiceImpl implements OverTimeService {
 				ot.setoTReason(rs.getString("cause"));
 				ot.setoTEmpName(rs.getString("full_name"));
 				ot.setStatusNm(rs.getString("status"));
-				ot.setoTType(rs.getString("ot_type"));
+				ot.setoTType(rs.getInt("ot_type"));
 				lot.add(ot);
 			}
 			return lot;
