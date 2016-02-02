@@ -1,4 +1,5 @@
 <%@include file="/static/include/assetheader.jsp"%>
+	
 <%@include file="lms_adm_005p.jsp"%>
 
 <body class="nav-md">
@@ -19,7 +20,7 @@
       <%@include file="/static/include/topNav.jsp"%>
 
       <!-- /top navigation -->
-
+	<script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_005.js" />"></script>
       <!-- page content -->
       <div class="right_col" role="main">
         <div class="page-title">
@@ -109,8 +110,8 @@
                       </thead>
 
                       <tbody role="alert" aria-live="polite"
-                        aria-relevant="all">
-                        <tr class="pointer odd">
+                        aria-relevant="all" id="overTime">
+                        <!-- <tr class="pointer odd">
                           <td id="">1</td>
                           <td id="">
                             <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#lms_adm_005p" data-placement="top" title="" data-original-title="View"></span></a> |
@@ -135,7 +136,7 @@
                           <td id="">2</td>
                           <td id="">Urgent working</td>
                           <td id="">Requested</td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>
@@ -202,3 +203,23 @@
   </div>
 
   <%@include file="/static/include/assetfooter.jsp"%>
+  
+  
+  
+   <script type="text/x-jquery-tmpl" id="lmsAdm005" >
+   <tr class="pointer odd">
+                          <td id="">{{= ID}}</td>
+                          <td id="">
+                            <a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#lms_adm_005p" data-placement="top" title="" data-original-title="View"></span></a> |
+                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
+                            <a href="javascrip:void(0)"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+                          </td>
+                          <td id="">{{= FULLNAME}}</td>
+                          <td id="">{{= DATE}}</td>
+                          <td id="">{{= DURATION}}&nbsp;&nbsp;{{= TYPE}}</td>
+                          <td id="">{{= CAUSE}}</td>
+                          <td>
+				              {{html STATUSNAME}}
+			              </td>
+                        </tr>
+   </script>

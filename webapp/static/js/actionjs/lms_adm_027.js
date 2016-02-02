@@ -72,7 +72,7 @@ $(document).ready(function() {
 			type : "POST",
 			data :JSON.stringify(lobj),
 			success : function(data) {
-				console.log(data.CODE);
+			//	console.log(data.CODE);
 				if(data.CODE =='000') {
 					loading(false);
 					maketoast();

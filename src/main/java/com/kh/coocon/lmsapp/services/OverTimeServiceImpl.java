@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import com.kh.coocon.lmsapp.entities.OverTime;
 
 @Service
-public class OverTimeServiceImpl implements OverTimeService {
+public  class OverTimeServiceImpl implements OverTimeService {
 	@Autowired
 	private DataSource dataSource;
  
@@ -91,4 +91,50 @@ public class OverTimeServiceImpl implements OverTimeService {
 		return null;
 	}
 
+	@Override
+	public List<OverTime> getAllOverTimeAdmin(int empId) {
+		String sql = " SELECT								      "
+				+ "  a.id,"
+				+ "	CONCAT_WS(' ',b.first_name,b.last_name) as full_name,"
+				+ "	a.date as startdate,"
+				+ "	a.duration,"
+				+ " a.ot_type,"
+				+ "	a.cause,"
+				+ "	c.name as status"
+				+ "	from  lms_overtime a"
+				+ "	left join lms_users b on a.employee_id = b.id"
+				+ "	left join lms_status c on a.status_id =  c.status_id"
+				+ "	where manager_id = ?" 
+				+ "	order by startdate desc";
+		
+	
+		try (
+
+		Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+		) {
+            
+			ps.setInt(1,empId);
+			System.out.println("sql  query " + ps);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<OverTime> lot = new ArrayList<OverTime>();
+			OverTime ot = null;
+			while (rs.next()) {
+				ot = new OverTime();
+				
+				ot.setoTDate(rs.getString("startdate"));
+				ot.setoTEmployeeId(rs.getInt("id"));
+				ot.setoTDuration(rs.getInt("duration"));
+				ot.setoTReason(rs.getString("cause"));
+				ot.setoTEmpName(rs.getString("full_name"));
+				ot.setStatusNm(rs.getString("status"));
+				ot.setoTType(rs.getString("ot_type"));
+				lot.add(ot);
+			}
+			return lot;
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return null;
+	}
 }
