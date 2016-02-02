@@ -1,5 +1,6 @@
 package com.kh.coocon.lmsapp.entities;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
  
 @Entity
 @Table(name="LMS_USERS")
@@ -23,10 +26,44 @@ public class User {
 	private int position_Id;
 	private int role;
 	private int manager_Id;
-	private String dateHired;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateHired;
 	private String identifirer;
 	private String phone;
 	private String emergency;
+	public int getContract_Id() {
+		return contract_Id;
+	}
+
+	public void setContract_Id(int contract_Id) {
+		this.contract_Id = contract_Id;
+	}
+
+	public int getOrganization_Id() {
+		return organization_Id;
+	}
+
+	public void setOrganization_Id(int organization_Id) {
+		this.organization_Id = organization_Id;
+	}
+
+	public int getPosition_Id() {
+		return position_Id;
+	}
+
+	public void setPosition_Id(int position_Id) {
+		this.position_Id = position_Id;
+	}
+
+	public int getManager_Id() {
+		return manager_Id;
+	}
+
+	public void setManager_Id(int manager_Id) {
+		this.manager_Id = manager_Id;
+	}
+
 	private String login;
 	private String country;
 	private String calendar;
@@ -42,11 +79,11 @@ public class User {
     @Column(name="PASSWORD", nullable=false)
     private String password;
          
-    @Column(name="FIRST_NAME", nullable=false)
+    @Column(name="FIRST_NAME" )
     private String firstName;
  
    
-    @Column(name="LAST_NAME", nullable=false)
+    @Column(name="LAST_NAME")
     private String lastName;
  
    
@@ -155,11 +192,11 @@ public class User {
 		this.manager_Id = manager_Id;
 	}
 
-	public String getDateHired() {
+	public Date getDateHired() {
 		return dateHired;
 	}
 
-	public void setDateHired(String dateHired) {
+	public void setDateHired(Date dateHired) {
 		this.dateHired = dateHired;
 	}
 
