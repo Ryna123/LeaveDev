@@ -40,6 +40,7 @@ public class UserController {
 			map.put("error", e.getMessage());
 		}
 		
+		
 		return map;
 	}
 	@RequestMapping(value="/newUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
