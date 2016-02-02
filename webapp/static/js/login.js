@@ -85,7 +85,7 @@ var register = {
 			success : function(resp){
 				console.log(resp);
 				
-				//window.location.href = "../home/success_add";
+				window.location.href = "../home/success_add";
 			}
 		});
 	}	
