@@ -74,10 +74,12 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">Duration:</label>
+										<label class="control-label col-md-3 col-sm-3 col-xs-3">Duration
+											<span class="required">*</span>
+										</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
 											<input class="form-control"
-												data-inputmask="'mask': '99/99/9999'" type="text" id="otDuration" required="required" data-validation-engine="validate[required,maxSize[10]">
+												data-inputmask="'mask': '99/99/9999'" type="text" id="otDuration" required="required" data-validation-engine="validate[required,custom[integer],maxSize[1]">
 										</div>
 										<div class="col-md-3 col-sm-3 col-xs-3"> 
 											<select data-parsley-id="4308" class="form-control" required="" id="otType">
