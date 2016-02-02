@@ -7,7 +7,25 @@ public class OverTime {
 	private String oTType; //day or hour
 	private String oTReason;
 	private String oTDate;
+	private String oTEmpName;
+	private String statusNm;
 	private double oTDuration;
+	
+	
+	public String getStatusNm() {
+		return statusNm;
+	}
+	public void setStatusNm(String statusNm) {
+		this.statusNm = statusNm;
+	}
+	
+	public String getoTEmpName() {
+		return oTEmpName;
+	}
+	public void setoTEmpName(String oTEmpName) {
+		this.oTEmpName = oTEmpName;
+	}
+	
 	public int getId() {
 		return id;
 	}
