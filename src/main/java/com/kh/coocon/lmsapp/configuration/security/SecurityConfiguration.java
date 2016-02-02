@@ -15,6 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
  
 @Configuration
 @EnableWebSecurity
@@ -59,22 +61,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   
       http.authorizeRequests()
         .antMatchers("/", "/home","/admin/**").permitAll()
-//        .antMatchers("/account/**").access("hasRole('ACCOUNTANT') or hasRole('DIRECTOR')")
         .antMatchers("/users/**").access("hasRole('ADMIN') or hasRole('USER') or hasRole('HR')")
         .antMatchers("/admin/**").access("hasRole('ADMIN') or hasRole('HR')")
         .antMatchers("/db/**").access("hasRole('DIRECTOR')")
         
         .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
         .usernameParameter("ssoId").passwordParameter("password")
-        //.and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository())
+        .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository())
         .and().exceptionHandling().accessDeniedPage("/Access_Denied")
         .and().csrf().disable();
   
     }
-    /*@Bean
+    @Bean
     public PersistentTokenRepository persistentTokenRepository(){
     	JdbcTokenRepositoryImpl impl = new JdbcTokenRepositoryImpl();
     	impl.setDataSource(dataSource);
     	return impl;
-    }*/
+    }
 }
