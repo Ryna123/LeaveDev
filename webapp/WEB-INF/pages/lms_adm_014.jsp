@@ -60,6 +60,9 @@
 		.display tbody tr{
 			text-align: center;
 		}
+		.dataTables_scroll{
+			min-height: 500px;
+		}
 	</style>
 	
 	<script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_014.js" />"></script>
