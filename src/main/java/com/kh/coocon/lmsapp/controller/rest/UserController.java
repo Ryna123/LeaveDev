@@ -1,7 +1,9 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
+import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.services.UserService;
 
 @RequestMapping("/action/service")
@@ -66,6 +69,11 @@ public class UserController {
 		user.setState(State.ACTIVE.getState());
 		try{
 			service.save(user);
+			if(user.getUserProfiles()!=null){
+	    		for(UserProfile profile : user.getUserProfiles()){
+	    			System.out.println("Profile"+ profile.getName());;
+	    		}
+	    	}
 			map.put("Message", "User "+user.getSsoId()+ " added successfully!");
 		}catch(Exception e){
 			map.put("Message", e.getMessage());
