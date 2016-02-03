@@ -80,14 +80,15 @@ public class OvertimeExport extends AbstractExcelView{
 			header.createCell(1).setCellValue("Date");
 			header.getCell(1).setCellStyle(style);
 			
+			sheet.addMergedRegion(new CellRangeAddress(3,3,2,3));
 			header.createCell(2).setCellValue("Duration");
 			header.getCell(2).setCellStyle(style);
 
-			header.createCell(3).setCellValue("Reason");
-			header.getCell(3).setCellStyle(style);
-			
-			header.createCell(4).setCellValue("Status");
+			header.createCell(4).setCellValue("Reason");
 			header.getCell(4).setCellStyle(style);
+			
+			header.createCell(5).setCellValue("Status");
+			header.getCell(5).setCellStyle(style);
 
 			// create style for each row
 			CellStyle rowStyle= workbook.createCellStyle();
@@ -108,24 +109,27 @@ public class OvertimeExport extends AbstractExcelView{
 				aRow.createCell(1).setCellValue(aot.getoTDate());
 				aRow.getCell(1).setCellStyle(rowStyle);
 				
+				aRow.createCell(2).setCellValue(aot.getoTDuration());
+				aRow.getCell(2).setCellStyle(rowStyle);
+				
 				if((aot.getoTType())==1) {
 					ottype="Day(s)";
 				} else if((aot.getoTType())==2) {
 					ottype="Hour(s)";
 				}
-				aRow.createCell(2).setCellValue(aot.getoTDuration()+"  "+ottype);
-				aRow.getCell(2).setCellStyle(rowStyle);
-				
-				aRow.createCell(3).setCellValue(aot.getoTReason());
+				aRow.createCell(3).setCellValue(ottype);
 				aRow.getCell(3).setCellStyle(rowStyle);
+				
+				aRow.createCell(4).setCellValue(aot.getoTReason());
+				aRow.getCell(4).setCellStyle(rowStyle);
 				
 				if((aot.getoTStatus_id())==1) {
 					otStatus="Planned";
 				} else if((aot.getoTStatus_id())==4) {
 					otStatus="Requested";
 				}
-				aRow.createCell(4).setCellValue(otStatus);
-				aRow.getCell(4).setCellStyle(rowStyle);
+				aRow.createCell(5).setCellValue(otStatus);
+				aRow.getCell(5).setCellStyle(rowStyle);
 			}
 			
 			/*
