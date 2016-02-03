@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 
 import com.kh.coocon.lmsapp.configuration.security.RoleToUserProfileConverter;
 
@@ -24,10 +25,19 @@ public class LMSConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Autowired
 	RoleToUserProfileConverter roleToUserProfileConverter;
-
+	
+	@Bean
+	public ResourceBundleViewResolver bundleResolver(){
+		ResourceBundleViewResolver resolver = new ResourceBundleViewResolver();
+		resolver.setOrder(1);
+		resolver.setBasename("file");
+		return resolver;
+	}
+	
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setOrder(2);
 		resolver.setPrefix("/WEB-INF/pages/");
 		resolver.setSuffix(".jsp");
 		return resolver;

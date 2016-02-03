@@ -4,7 +4,7 @@ public class OverTime {
 	private int id;
 	private int oTEmployeeId;
 	private int oTStatus_id;
-	private String oTType; //day or hour
+	private int oTType; //day or hour
 	private String oTReason;
 	private String oTDate;
 	private String oTEmpName;
@@ -44,10 +44,10 @@ public class OverTime {
 	public void setoTStatus_id(int oTStatus_id) {
 		this.oTStatus_id = oTStatus_id;
 	}
-	public String getoTType() {
+	public int getoTType() {
 		return oTType;
 	}
-	public void setoTType(String oTType) {
+	public void setoTType(int oTType) {
 		this.oTType = oTType;
 	}
 	public String getoTReason() {

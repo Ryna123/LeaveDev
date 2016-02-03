@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kh.coocon.lmsapp.entities.HrManagement;
@@ -66,6 +69,14 @@ public class ActionController {
 			System.out.println(ab+bc);
 			
 		}*/
+		@RequestMapping(value = { "/export"}, method = RequestMethod.GET)
+		public ModelAndView getOverTimeViewForResourceBundle(HttpServletResponse response) {
+			User user = userService.findBySso(getPrincipal());
+			response.setHeader("Content-Disposition",
+					"attachment; filename=\"ExportData.xls\"");
+			List<OverTime> listOT = overTimeService.getOTList(user.getId());
+			return new ModelAndView("overtimeExport", "listOT", listOT);
+		}
 	
 		@RequestMapping(value = { "/lms_adm_001"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> GetEntitledlist(@RequestParam("statId") int statId) {
