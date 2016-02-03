@@ -73,7 +73,7 @@ public class ActionController {
 		public ModelAndView getOverTimeViewForResourceBundle(HttpServletResponse response) {
 			User user = userService.findBySso(getPrincipal());
 			response.setHeader("Content-Disposition",
-					"attachment; filename=\"ExportData.xls\"");
+					"attachment; filename=\"Export_my_overtime.xls\"");
 			List<OverTime> listOT = overTimeService.getOTList(user.getId());
 			return new ModelAndView("overtimeExport", "listOT", listOT);
 		}
