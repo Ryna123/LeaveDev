@@ -33,6 +33,7 @@ public class UserProfileRestController {
 			}
 		}catch(Exception e){
 			map.put("MESSAGE", e.getMessage());
+			e.printStackTrace();
 		}
 		
 		return map;

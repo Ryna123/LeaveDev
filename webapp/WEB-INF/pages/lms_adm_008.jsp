@@ -103,11 +103,11 @@
 									
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Role :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3">
+										<div id="userRole" class="col-md-3 col-sm-3 col-xs-3">
 											<select data-parsley-id="4308" id="heard" class="form-control">
-											<option value="">User</option>
-											<option value="">HR Admin</option>
-										</select>
+												<option value="">User</option>
+												<option value="">HR Admin</option>
+											</select>
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Position :</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
@@ -169,7 +169,7 @@
 									<!-- Buttons -->
 									<div class="form-group">
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3" style="margin-left:63%;">
-											<button type="submit" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Leave</button>
+											<button id="btnCreate" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span>Create User</button>
 											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
 										</div>
 									</div>
@@ -202,3 +202,7 @@
     </div>
     
 <%@include file="/static/include/assetfooter.jsp" %> 
+<script src="<c:url value="../static/js/actionjs/lms_adm_008.js" />"></script>
+ 
+ 
+ 

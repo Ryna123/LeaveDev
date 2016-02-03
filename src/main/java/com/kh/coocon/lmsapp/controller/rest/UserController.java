@@ -43,10 +43,27 @@ public class UserController {
 		
 		return map;
 	}
+	//For simple user
 	@RequestMapping(value="/newUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> addNew(@RequestBody() User user){
+	public Map<String, Object> newUser(@RequestBody() User user){
 		Map<String,Object> map = new HashMap<String, Object>();
 		user.setState(State.INACTIVE.getState());
+		try{
+			service.save(user);
+			map.put("Message", "User "+user.getSsoId()+ " added successfully!");
+		}catch(Exception e){
+			map.put("Message", e.getMessage());
+			e.printStackTrace();
+			
+		}	
+		
+		return map;
+	}
+	//For manager creating user
+	@RequestMapping(value="/addUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> addNew(@RequestBody() User user){
+		Map<String,Object> map = new HashMap<String, Object>();
+		user.setState(State.ACTIVE.getState());
 		try{
 			service.save(user);
 			map.put("Message", "User "+user.getSsoId()+ " added successfully!");

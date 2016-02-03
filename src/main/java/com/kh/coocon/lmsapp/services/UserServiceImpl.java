@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService{
 			ps.setInt(9,UserObj.getRole());
 			ps.setInt(10, UserObj.getManagerId());
 			ps.setString(11, UserObj.getCountry());
-			ps.setString(12, UserObj.getDateHired());
+			//ps.setDate(12, UserObj.getDateHired());
 			ps.setString(13, UserObj.getIdentifirer());
 			ps.setString(14, UserObj.getState());
 			ps.setString(15, UserObj.getCalendar());
