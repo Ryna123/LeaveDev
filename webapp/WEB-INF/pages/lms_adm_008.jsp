@@ -104,7 +104,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Role :</label>
 										<div id="userRole" class="col-md-3 col-sm-3 col-xs-3">
-											<select data-parsley-id="4308" id="heard" class="form-control">
+											<select data-parsley-id="4308" class="form-control">
 												<option value="">User</option>
 												<option value="">HR Admin</option>
 											</select>
@@ -119,14 +119,14 @@
 									</div>
 									
 									<div class="form-group">
-										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Login :</label>
+										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Username :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input id="userName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         </div>
                                         <label class="control-label col-md-1 col-sm-1 col-xs-1">Start Date :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" id="" name="daterang1" aria-describedby="inputSuccess2Status">
-											<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span> <span id="" class="sr-only">(success)
+											<input type="text" class="form-control has-feedback-left"  aria-describedby="inputSuccess2Status">
+											<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span> <span class="sr-only">(success)
 											</span>
 										</div>
 									</div>
@@ -169,7 +169,7 @@
 									<!-- Buttons -->
 									<div class="form-group">
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3" style="margin-left:63%;">
-											<button id="btnCreate" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span>Create User</button>
+											<button id="btnCreate" class="btn btn-info"><span class="fa fa-check-circle" aria-hidden="true"></span>Create User</button>
 											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
 										</div>
 									</div>
