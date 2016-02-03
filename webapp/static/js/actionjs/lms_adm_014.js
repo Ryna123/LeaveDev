@@ -21,7 +21,7 @@ $(document).ready(function(){
 			table = $('#hrTable').DataTable({
 				"pagingType": "full_numbers",
 				data:values["data"],
-				 "dom": '<"top"if>rt<"bottom"lp>',
+				 "dom": '<"top"i>rt<"bottom"lp>',
 				 "scrollY":"400px",
 				"scrollCollapse":true,
 				columns:[
@@ -50,6 +50,10 @@ $(document).ready(function(){
 		}
 	});
 	loading(false);
+	
+	$('#txtSearch').keyup(function(){
+	      table.search($(this).val()).draw() ;
+	})
 	$('#hrTable tbody').on( 'click', 'tr', function () {
 	    var data = table.row( this ).data();
 	    var myData = {
