@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	loading(true);
+	var table;
 	$.ajax({
 		url:"../action/service/lms_adm_014",
 		dataType: "JSON",
@@ -17,20 +18,22 @@ $(document).ready(function(){
 			//console.log(dd);
 			//console.log(dataSet["data"]);
 			//$('#hrTable tbody tr').remove();
-			$('#hrTable').DataTable({
+			table = $('#hrTable').DataTable({
 				"pagingType": "full_numbers",
 				data:values["data"],
 				 "dom": '<"top"if>rt<"bottom"lp>',
+				 "scrollY":"400px",
+				"scrollCollapse":true,
 				columns:[
 				        {"data":"id"},
-				        {"data":"active",
+				        {"data":"active",className:"btnStatus",
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        		 if(oData.active==1){
-				        			 $(nTd).html("<a href='/lms_adm_014active'><span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
-				                 		"data-placement='top' title='' data-original-title='Active'></span></a>");
+				        			 $(nTd).html("<a href='#'><span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active' value='1'></span></a>");
 				        		 }else{
-				        			 $(nTd).html("<a href='/lms_adm_014active'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' " +
-				                 		"data-placement='top' title='' data-original-title='Active'></span></a>");
+				        			 $(nTd).html("<a href='#'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active' value='0'></span></a>");
 				        		 }
 				             }
 				        },
@@ -47,4 +50,22 @@ $(document).ready(function(){
 		}
 	});
 	loading(false);
+	$('#hrTable tbody').on( 'click', 'tr', function () {
+	    var data = table.row( this ).data();
+	    var myData = {
+	    		'id': data['id'],
+	    		'status': data['active']
+	    		
+	    }
+	    console.log(data.active);
+	    console.log(myData);
+	    //var values={"data":data};
+	    console.log(data);
+	  /*  $.ajax({
+	    	type: "PUT",
+	    	url:"../action/service/lms_adm_014active",
+	    	data: myData
+	    });*/
+	} );
+	
 });
