@@ -25,8 +25,8 @@ $(document).ready(function(){
 				 "scrollY":"400px",
 				"scrollCollapse":true,
 				columns:[
-				        {"data":"id"},
-				        {"data":"active",className:"btnStatus",
+				        {"data":"id","bSearchable": false},
+				        {"data":"active",className:"btnStatus","bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        		 if(oData.active==1){
 				        			 $(nTd).html("<a href='#'><span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
@@ -39,11 +39,11 @@ $(document).ready(function(){
 				        },
 				        {"data":"firstName"},
 				        {"data":"lastName"},
-				        {"data":"phone"},
-				        {"data":"email"},
+				        {"data":"phone","bSearchable": false},
+				        {"data":"email","bSearchable": false},
 				        {"data":"department"},
-				        {"data":"contract"},
-				        {"data":"manager"}
+				        {"data":"contract","bSearchable": false},
+				        {"data":"manager","bSearchable": false}
 				],
 				//"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
 			});
