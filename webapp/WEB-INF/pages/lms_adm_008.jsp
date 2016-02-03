@@ -77,7 +77,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">First Name :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Contract :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
@@ -90,7 +90,7 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Last Name :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
                                         <label class="control-label col-md-1 col-sm-1 col-xs-1">Department :</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
@@ -134,7 +134,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
                                         </div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Identifier :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
@@ -157,7 +157,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Password :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
                                         </div>
 									</div>
 									

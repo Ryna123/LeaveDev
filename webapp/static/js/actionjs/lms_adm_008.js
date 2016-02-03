@@ -2,19 +2,19 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
+	console.log(userInfo);
 
 	userProfile.listUserProfiles();
 
 	$("#btnCreate").click(function(){
-		userInfo.firstName 		= $("#firstName").val();
-		userInfo.lastName 		= $("#lastName").val();
-		userInfo.ssoId 			= $("#userName").val();
-		userInfo.email 			= $("#email").val();
-		userInfo.password		= $("#password").val();
-		userInfo.userProfiles	= $("#userProfile").val();
-		console.log(userInfo.userProfiles);
-		alert(userInfo.userProfiles);
-		//user.createUser();
+		userInfo.firstName 			= $("#firstName").val();
+		userInfo.lastName 			= $("#lastName").val();
+		userInfo.ssoId 				= $("#userName").val();
+		userInfo.email 				= $("#email").val();
+		userInfo.password			= $("#password").val()
+		userInfo.userProfiles[0].id	= $("#userProfile").val();
+		
+		user.createUser();
 	});
 	
 });

@@ -24,7 +24,6 @@ public class User {
 	private int contract_Id ;
 	private int organization_Id;
 	private int position_Id;
-	private int role;
 	private int manager_Id;
 	
 	@Temporal(TemporalType.DATE)
@@ -176,13 +175,7 @@ public class User {
 		this.position_Id = position_Id;
 	}
 
-	public int getRole() {
-		return role;
-	}
-
-	public void setRole(int role) {
-		this.role = role;
-	}
+	
 
 	public int getManagerId() {
 		return manager_Id;
