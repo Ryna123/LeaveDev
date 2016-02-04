@@ -4,17 +4,24 @@
 var lms_adm_005 ={};
 $(document).ready(function() {
 	lms_adm_005.listOverTime();
+	
+	$("#srchBtn").click(function(){
+		lms_adm_005.listOverTime();
+		
+		
+	});
 });
 
-lms_adm_005.listOverTime = function(){
+lms_adm_005.listOverTime = function(input){
 //	loading(true);
-	var a = {empId :1};
+	var a = {empId :1,frstNm:'%'+$("#srchTxt").val()+'%',lstNm:'%'+$("#srchTxt").val()+'%'};
 	$.ajax({
 		url : "../action/service/lms_adm_005",
 		dataType : "JSON",
 		type : "POST",
 		data :a,
 		success : function(data) {
+			$("#overTime").empty();
 			console.log(data.RESP_DATA['OVERTIME_LIST']);
 			var res = data.RESP_DATA['OVERTIME_LIST'];
 			if(res.length<=0) {
