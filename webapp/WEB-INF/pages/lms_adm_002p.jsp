@@ -1,6 +1,6 @@
 
 <!-- page content -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="otModal" tabindex="-1" role="dialog">
   <div class="AddDelegate">
     <div class="modal-dialog modal-lg" style="width: 60%">
       <div class="modal-content">
