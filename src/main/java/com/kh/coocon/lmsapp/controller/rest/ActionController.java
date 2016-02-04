@@ -23,7 +23,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.OverTime;
+import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
+import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
@@ -308,17 +310,24 @@ public class ActionController {
 		//admin : Insert users to lms_user
 		
 		@RequestMapping(value = { "/lms_adm_008"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
-		public ResponseEntity<Map<String, Object>> addUsers(@RequestBody User uobj) throws Exception {
-			User userAuth = userService.findBySso(getPrincipal());
-			Map<String, Object> map = new HashMap<String, Object>();
-			if (userService.addUsers(uobj, userAuth.getId() )==false) {
-				map.put("MESSAGE", "Insert leave failse");
-				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
-			}
-			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
-			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
-			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		public Map<String, Object> addNew(@RequestBody() User user){
+			Map<String,Object> map = new HashMap<String, Object>();
+			user.setState(State.ACTIVE.getState());
+			try{
+				userService.save(user);
+				if(user.getUserProfiles()!=null){
+		    		for(UserProfile profile : user.getUserProfiles()){
+		    			System.out.println("Profile"+ profile.getName());;
+		    		}
+		    	}
+				map.put("Message", "User "+user.getSsoId()+ " added successfully!");
+			}catch(Exception e){
+				map.put("Message", e.getMessage());
+				e.printStackTrace();
+				
+			}	
 			
+			return map;
 		}
 		
 		//List all employee in human resource menu

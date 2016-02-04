@@ -8,7 +8,6 @@ public interface UserService {
      
     User findBySso(String sso);
     
-    void save(User user);
-    
-    public boolean addUsers(User UserObj, int Userid);
+    void save(User user);    
+   
 }
