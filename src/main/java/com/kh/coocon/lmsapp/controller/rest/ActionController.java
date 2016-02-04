@@ -309,7 +309,7 @@ public class ActionController {
 			
 		//admin : Insert users to lms_user
 		
-		@RequestMapping(value = { "/lms_adm_008"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
+		@RequestMapping(value = { "/lms_adm_c008"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
 		public Map<String, Object> addNew(@RequestBody() User user){
 			Map<String,Object> map = new HashMap<String, Object>();
 			user.setState(State.ACTIVE.getState());

@@ -37,7 +37,7 @@ var user = {
 				},
 				type: "POST",
 				data: JSON.stringify(userInfo), 
-				url: "../action/service/addUser",
+				url: "../action/service/lms_adm_c008",
 				success: function(resp){
 					console.log(resp);
 					alert("Success!")
