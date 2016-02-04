@@ -80,7 +80,7 @@
                                         	<input id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Contract :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3">
+										<div class="col-md-3 col-sm-3 col-xs-3" id="selectContract">
 											<select data-parsley-id="4308" id="heard" class="form-control">
 											<option value="">Employee Term</option>
 										</select>

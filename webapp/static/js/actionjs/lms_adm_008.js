@@ -2,9 +2,9 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
-	console.log(userInfo);
 
 	userProfile.listUserProfiles();
+	
 
 	$("#btnCreate").click(function(){
 		userInfo.firstName 			= $("#firstName").val();
@@ -45,13 +45,26 @@ var user = {
 			});
 		}
 }
+var contract = {
+		listContrac: function(){
+			$.ajax({
+				type: "GET", 
+				url: "../action/service/listContract",
+				success: function(resp){
+					optionSelection.createContract(resp);
+					
+				}
+				
+			});
+		}
+};
 var userProfile = {
 		listUserProfiles: function(){
 			$.ajax({
 				type: "GET",
 				url: "../action/service/userProfiles",
 				success: function(resp){
-					optionSelection.creating(resp);
+					optionSelection.createRoles(resp);
 				}
 			});
 		}
@@ -59,11 +72,25 @@ var userProfile = {
 
 var optionSelection = {
 
-		
-		creating: function(data){
+		createContract: function(data){
+			var selectionOption = "<select data-parsley-id='4308' id='contract' class='form-control'>";
+			for(i=0; i< data['LIST'].length; i++){
+				selectionOption += "<option value='"+
+										data.LIST[i].id+"'>"+
+										data.LIST[i].contractName+
+									"</option>";
+			}
+			selectionOption +="</select>";
+			$("#selectContract").html(selectionOption);
+			
+		},
+		createRoles: function(data){
 			var selectionOption = "<select data-parsley-id='4308' id='userProfile' class='form-control'>";
 			for(i=0; i< data['LIST'].length; i++){
-				selectionOption += "<option value='"+data.LIST[i].id+"'>"+data.LIST[i].name+"</option>";
+				selectionOption += "<option value='"+
+										data.LIST[i].id+"'>"+
+										data.LIST[i].name+
+									"</option>";
 			}
 			selectionOption +="</select>";
 			$("#userRole").html(selectionOption);
