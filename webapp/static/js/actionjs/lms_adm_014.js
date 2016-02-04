@@ -2,7 +2,7 @@ $(document).ready(function(){
 	loading(true);
 	var table;
 	$.ajax({
-		url:"../action/service/lms_adm_014",
+		url:"../action/service/lms_adm_r014",
 		dataType: "JSON",
 		type:"GET",
 		success:function(data){
