@@ -91,7 +91,7 @@ public class MainController {
 		return "lms_adm_011";
 	}
 	
-	@RequestMapping(value="/admin/lms_adm_r014", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/lms_adm_014", method=RequestMethod.GET)
 	public String showLms_adm_014(ModelMap m){
 		m.addAttribute("user", ssoidUtil.getPrincipal());		
 		return "lms_adm_014";
