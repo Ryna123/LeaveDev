@@ -331,7 +331,7 @@ public class ActionController {
 		}
 		
 		//List all employee in human resource menu
-		@RequestMapping(value={"/lms_adm_014"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+		@RequestMapping(value={"/lms_adm_r014"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String, Object> hrListAllEmp(){
 			
 			Map<String, Object> map = new HashMap<>();
