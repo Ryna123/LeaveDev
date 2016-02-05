@@ -65,8 +65,8 @@ lms_adm_004.listAdmin = function () {
 						data['ID'] = i+1;
 						if((data['LS'])=='Approved') {
 							(data['LS'])='<span class="label label-success">Approve</span>';
-						} else if((data['LS'])=='Reject') {
-							(data['LS'])='<span class="label label-danger">Reject</span>';
+						} else if((data['LS'])=='Rejected') {
+							(data['LS'])='<span class="label label-danger">Rejected</span>';
 						} else if((data['LS'])=='Requested') {
 							(data['LS'])='<span class="label label-warning">Requested</span>';
 						}else {

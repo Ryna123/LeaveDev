@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -139,4 +142,42 @@ public  class OverTimeServiceImpl implements OverTimeService {
 		}
 		return null;
 	}
+	
+	@Override
+	public boolean updateStatusOvertime(int otId, String OtAct) {
+		String sql =   "UPDATE lms_overtime    " 
+					 + "SET status_id = ?     " 
+					 
+					 + "WHERE		    	  " 
+					 + "	id = ?		      " ;
+			System.out.println("HELLO " +sql);
+		try(
+				Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+			) 
+		{
+			if(OtAct.endsWith("AP")) {
+				ps.setInt(1, 2);
+			} else {
+				ps.setInt(1, 3);
+			}
+//			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//			Date date = new Date();
+//			//System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+//			ps.setString(2, dateFormat.format(date));
+			ps.setInt(2, otId);
+			
+			
+			
+			System.out.println(ps);
+			if (ps.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}	
+		
+		return false;
+	}
+	
 }

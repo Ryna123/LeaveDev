@@ -204,7 +204,7 @@ public class ActionController {
 		}
 		
 		//List overTime for manager
-		@RequestMapping(value = { "/lms_adm_005"}, method = RequestMethod.POST)
+		@RequestMapping(value = { "/lms_adm_r005"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getAllOverTimeAdmin(@RequestParam("empId") int empId,@RequestParam("frstNm") String frstNm,@RequestParam("lstNm") String lstNm ) {
 			User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -218,6 +218,24 @@ public class ActionController {
 			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
 			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
 			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
+		
+		
+		//admin : Update status of overtime
+		@RequestMapping(value = { "/lms_adm_u005"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> updateStatusOvertime(@RequestParam("otId") int otId ,@RequestParam("otAct") String otAct) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("UPDATE_STS", overTimeService.updateStatusOvertime(otId, otAct));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");	
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", "Update Success");
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		

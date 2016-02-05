@@ -27,7 +27,7 @@
 	    		<div class="modal-content">
 	      			<div class="modal-header">
 	        			<button type="button" class="close" data-dismiss="modal">&times;</button>
-	       				<h4 class="modal-title">View list request <small>#1 (Long Bunna)</small></h4>
+	       				<h4 class="modal-title">View list request <small id="unserNm"></small></h4>
 	     			</div>
 				    <div class="modal-body">
 				        
@@ -35,26 +35,26 @@
 							<div class="form-group">
 	                    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Start date: </label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
-	                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
+	                                <input type="text" id="startDate" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
 	                            </div>
 	                		</div>
-			                <div class="form-group">
-			                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Duration </label>
-			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="3556"><small>(days)</small><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
-			                    </div>
+			                <div class="form-group" id="divDuration">
+			                    
 			                </div>
 			                <div class="form-group">
 	                    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Reason: </label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
-	                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
+	                                <textarea type="text" id="reason" style="width:262px;height: 91px;"></textarea>
 	                            </div>
 	                		</div>
 			                <div class="form-group">
 			                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Status: </label>
 			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                     	<select id="heard" class="form-control" required="required" data-parsley-id="0188">
-			                               <option value="">Requesteds</option>
+			                     	<select id="status" class="form-control" required="required" data-parsley-id="0188">
+			                     			<option value="1">Planned</option>
+			                                <option value="2">Approved</option>
+			                                <option value="3">Rejected</option>
+			                                <option value="4">Requested</option>
 			                        </select>
 			                    </div>
 			               </div> 
@@ -71,5 +71,13 @@
 	    		</div>
   			</div>
 		</div>
+		
+		<script type="text/x-jquery-tmpl" id="templateDuration" >
+							<label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Duration </label>
+			                    <div class="col-md-6 col-sm-6 col-xs-12">
+			                        <input type="text"  name="last-name" required="required" id="duration" value = "{{= DURATION}}" class="form-control col-md-7 col-xs-12" data-parsley-id="3556"><small>({{= TYPE}})</small><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
+			                    </div>
+
+		</script>
 	</body>	
 </html>
