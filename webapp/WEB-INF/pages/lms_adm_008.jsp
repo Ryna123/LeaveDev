@@ -110,7 +110,7 @@
 											</select>
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Position :</label>
-										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
+										<div id="selectPosition" class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
                                             	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#select_position">Select</button> 
