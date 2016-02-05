@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,39 +32,12 @@ public class User {
 	private String identifirer;
 	private String phone;
 	private String emergency;
-	public int getContract_Id() {
-		return contract_Id;
-	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="position_id")
+	private Position position;
 
-	public void setContract_Id(int contract_Id) {
-		this.contract_Id = contract_Id;
-	}
-
-	public int getOrganization_Id() {
-		return organization_Id;
-	}
-
-	public void setOrganization_Id(int organization_Id) {
-		this.organization_Id = organization_Id;
-	}
-
-	public int getPosition_Id() {
-		return position_Id;
-	}
-
-	public void setPosition_Id(int position_Id) {
-		this.position_Id = position_Id;
-	}
-
-	public int getManager_Id() {
-		return manager_Id;
-	}
-
-	public void setManager_Id(int manager_Id) {
-		this.manager_Id = manager_Id;
-	}
-
-	private String login;
+	
 	private String country;
 	private String calendar;
 	
@@ -99,6 +73,46 @@ public class User {
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
     private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
  
+    
+    public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public int getContract_Id() {
+		return contract_Id;
+	}
+
+	public void setContract_Id(int contract_Id) {
+		this.contract_Id = contract_Id;
+	}
+
+	public int getOrganization_Id() {
+		return organization_Id;
+	}
+
+	public void setOrganization_Id(int organization_Id) {
+		this.organization_Id = organization_Id;
+	}
+
+	public int getPosition_Id() {
+		return position_Id;
+	}
+
+	public void setPosition_Id(int position_Id) {
+		this.position_Id = position_Id;
+	}
+
+	public int getManager_Id() {
+		return manager_Id;
+	}
+
+	public void setManager_Id(int manager_Id) {
+		this.manager_Id = manager_Id;
+	}
     public int getId() {
         return id;
     }
@@ -215,14 +229,6 @@ public class User {
 
 	public void setEmergency(String emergency) {
 		this.emergency = emergency;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getCountry() {
