@@ -21,6 +21,13 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
  
     public User findBySSO(String sso) {
         Criteria crit = createEntityCriteria();
+    	/*Criteria crit = getSession()
+    			.createCriteria(User.class,"u");
+    	crit.setProjection(Projections.projectionList()
+    			.add(Projections.property("u.ssoid"),"ssoId")
+    			.add(Projections.property("u.password"),"password")
+    			);*/
+    	
         crit.add(Restrictions.eq("ssoId", sso));
         return (User) crit.uniqueResult();
     }
@@ -32,16 +39,17 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<User> findByProfile() {
+	public List<User> findByPosition() {
 		Criteria crit = getSession()
-				.createCriteria("User","u");
+				.createCriteria(User.class,"u");
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("u.id"),"id")
 				.add(Projections.property("u.firstName"),"firstName")
 				.add(Projections.property("u.lastName"), "lastName")
 				.add(Projections.property("u.email"),"email")
+				.add(Projections.property("u.position.name"),"position.name")
 				);
-		crit.add(Restrictions.eq("u.position", "Manager"));
+		//crit.add(Restrictions.eq("u.position.name", "Manager"));
 		
 		// Convert to User Object
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));

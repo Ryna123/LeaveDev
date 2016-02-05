@@ -24,8 +24,8 @@ public class User {
 	
 	private int contract_Id ;
 	private int organization_Id;
-	private int position_Id;
 	private int manager_Id;
+	
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateHired;
@@ -33,7 +33,7 @@ public class User {
 	private String phone;
 	private String emergency;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(optional = false)
 	@JoinColumn(name="position_id")
 	private Position position;
 
@@ -98,13 +98,7 @@ public class User {
 		this.organization_Id = organization_Id;
 	}
 
-	public int getPosition_Id() {
-		return position_Id;
-	}
-
-	public void setPosition_Id(int position_Id) {
-		this.position_Id = position_Id;
-	}
+	
 
 	public int getManager_Id() {
 		return manager_Id;
@@ -181,13 +175,7 @@ public class User {
 		this.organization_Id = organization_Id;
 	}
 
-	public int getPositionId() {
-		return position_Id;
-	}
-
-	public void setPositionId(int position_Id) {
-		this.position_Id = position_Id;
-	}
+	
 
 	
 

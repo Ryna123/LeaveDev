@@ -1,9 +1,8 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,6 +24,23 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
+
+	@RequestMapping(value="listUserByPosition", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> listUserByPosition(){
+		Map<String, Object> map = new HashMap<>();
+		try{
+			List<User> users = service.listUserByPosition();
+			map.put("MESSAGE", "SUCCESS");
+			map.put("LIST", users);
+		}catch(Exception e){
+			map.put("MESSAGE", "ERROR");
+			map.put("ERROR", e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return map;	
+		
+	}
 	@RequestMapping(value="checkUsername", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> getUserName(@RequestParam("ssoId") String userName
 			){

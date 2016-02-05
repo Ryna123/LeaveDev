@@ -10,7 +10,7 @@ public interface UserDao {
      
     User findBySSO(String sso);
     
-    List<User> findByProfile();
+    List<User> findByPosition();
     
     void save(User user);
      

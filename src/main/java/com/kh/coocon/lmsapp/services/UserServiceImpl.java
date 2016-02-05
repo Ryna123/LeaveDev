@@ -1,5 +1,7 @@
 package com.kh.coocon.lmsapp.services;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,11 @@ public class UserServiceImpl implements UserService{
 		dao.save(user);
 		
 		
+	}
+
+	@Override
+	public List<User> listUserByPosition() {
+		return this.dao.findByPosition();
 	}
  
 }
