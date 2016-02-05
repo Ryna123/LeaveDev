@@ -2,7 +2,7 @@ package com.kh.coocon.lmsapp.entities;
 
 public class HrManagement {
 	private int id;
-	private int active;
+	private String status;
 	private String firstName;
 	private String lastName;
 	private String phone;
@@ -58,10 +58,10 @@ public class HrManagement {
 	public void setManager(String manager) {
 		Manager = manager;
 	}
-	public int getActive() {
-		return active;
+	public String getStatus() {
+		return status;
 	}
-	public void setActive(int active) {
-		this.active = active;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }
