@@ -151,6 +151,8 @@ lms_adm_005.readOtOfUser  = function (input) {
 					$("#reason").val(res[i].oTReason);
 					$("#status").val(res[i].oTStatus_id);
 					$("#overtimeId").val(res[i].id);
+					$("#userNm").text("( # "+res[i].oTEmpName+")");
+					
 					if((data['TYPE'])=='1') {
 						(data['TYPE'])='Day(s)';
 					} else if((data['TYPE'])=='2') {
