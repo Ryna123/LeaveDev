@@ -1,10 +1,12 @@
 
 <%@include file="/static/include/assetheader.jsp" %>
+
 	<%-- <script src="<c:url value="/static/js/jquery.2.1.1.min.js" />"></script> --%>
 	<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
-	<script src="<c:url value="/static/js/datatables/js/dataTables.jqueryui.js" />"></script>
-	<link href="<c:url value='/static/css/datatables/css/dataTables.jqueryui.css' />"rel="stylesheet">
-	<link href="<c:url value='/static/css/datatables/css/jquery-ui.css' />"rel="stylesheet">
+	<%-- <script src="<c:url value="/static/js/datatables/js/dataTables.jqueryui.js" />"></script> --%>
+	<%-- <link href="<c:url value='/static/css/datatables/css/dataTables.jqueryui.css' />"rel="stylesheet"> --%>
+	<%-- <link href="<c:url value='/static/css/datatables/css/jquery-ui.css' />"rel="stylesheet"> --%>
+	
 	<style type="text/css">
 		#create_new_type_btn{
 			text-align: right;
@@ -48,8 +50,8 @@
 		}
 		.dataTables_wrapper .dataTables_paginate {
     		float: left;
-    		margin-top: 1%;
-    		margin-left: 20%;
+    		margin-top: 1.5%;
+    		margin-left: 25%;
 		}
 		.dataTables_length{
 			margin-top: 1%;
@@ -62,6 +64,13 @@
 		}
 		.dataTables_scroll{
 			min-height: 500px;
+		}
+		/* .paginate_button:hover{
+		    background-color: #99B3FF !important;
+		} */
+		.paginate_button.current{
+		    background-color: rgba(38, 185, 154, 0.59) !important;
+    border-color: rgba(38, 185, 154, 0.59) !important;
 		}
 	</style>
 	
@@ -134,11 +143,11 @@
 									<span><input type="checkbox">include sub-department</span>
 	                			</div>
                                 <div class="x_content">
-                                    <table class="table table-bordered display" id="hrTable">
+                                    <table class="table table-bordered display jambo_table table-striped responsive-utilities" id="hrTable">
                                         <thead>
-                                            <tr>
+                                        	<tr class="headings" role="row">
 												<th>ID</th>
-												<th>Ative</th>
+												<th>Status</th>
                                                 <th>First Name</th>
 												<th>Last Name</th>
 												<th>Contact number</th>
@@ -179,7 +188,7 @@
 	                                </select> entries</label>
                                 </div> -->
                                 
-				                <!-- <div id="hrTable_paginate" class="dataTable_info">
+				               <!--  <div id="hrTable_paginate" class="dataTable_info">
 					                <span class="dataTables_paginate paging_full_numbers">
 					                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
 					                	<a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a>
@@ -195,7 +204,7 @@
                 
 				                <!-- button -->
 								<div id="create_new_type_btn">
-									<a class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
+									<a id="btnExport" class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
 									<a class="btn btn btn-primary" href="lms_adm_008"><i class="fa fa-plus-circle"></i>Create a new</a>
 								</div>
 				                <!-- End button -->                
