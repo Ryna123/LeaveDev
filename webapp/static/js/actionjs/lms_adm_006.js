@@ -3,9 +3,7 @@ $(document).ready(function() {
 	
 //	var a = {/*empId :2,*/statId : 2};
 	$.ajax({
-		//url : "../admin/action/service/lms_adm_001/1/2",
-		url : "../action/service/lms_adm_006",
-		
+		url : "../action/service/lms_adm_006",		
 		dataType : "JSON",
 		type : "POST",
 	//	data :a,

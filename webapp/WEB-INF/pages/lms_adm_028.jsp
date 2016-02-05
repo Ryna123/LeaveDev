@@ -139,7 +139,7 @@
 				</div>
 			</div>
 			<!-- /page content -->
-			<%@include file="lms_adm_002p.jsp"%><!--  -->
+			<%@include file="lms_adm_030p.jsp"%><!--  -->
 		</div>
 
 	</div>
@@ -156,13 +156,13 @@
 	<script src="<c:url value="/static/js/actionjs/lms_adm_028.js" />"></script>
 	<script type="text/x-jquery-tmpl" id="lmsAdm028">
 		<tr class="pointer odd">   
-			<td id="" style="width: 40px; text-align: center;">
+			<td>
 				<a class="fa fa-eye" data-toggle="modal" data-target="#otModal"></a>
 			</td>  
 			<td>{{= otID}}</td>                            											
 			<td>{{= otDate}}</td>
    			<td>{{= otDuration}}&nbsp;&nbsp;{{= otType}}</td>
-   			<td>{{= otReason}}</td>
+   			<td><div style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis; width:100px;">{{= otReason}}</div></td>
    			<td>{{= otStatus}}</td> 			   
 		</tr>
 
