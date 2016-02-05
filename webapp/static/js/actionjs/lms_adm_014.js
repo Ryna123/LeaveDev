@@ -26,14 +26,14 @@ $(document).ready(function(){
 				"scrollCollapse":true,
 				columns:[
 				        {"data":"id","bSearchable": false},
-				        {"data":"active",className:"btnStatus","bSearchable": false,
+				        {"data":"status",className:"btnStatus","bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-				        		 if(oData.active==1){
-				        			 $(nTd).html("<a href='#'><span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
-				                 		"data-placement='top' title='' data-original-title='Active' value='1'></span></a>");
+				        		 if(oData.status.toLowerCase()=='active'){
+				        			 $(nTd).html("<span class='glyphicon glyphicon-ok' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active' value='1'></span>");
 				        		 }else{
-				        			 $(nTd).html("<a href='#'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' " +
-				                 		"data-placement='top' title='' data-original-title='Active' value='0'></span></a>");
+				        			 $(nTd).html("<span class='glyphicon glyphicon-remove' data-toggle='tooltip' " +
+				                 		"data-placement='top' title='' data-original-title='Active' value='0'></span>");
 				        		 }
 				             }
 				        },
@@ -54,7 +54,10 @@ $(document).ready(function(){
 	$('#txtSearch').keyup(function(){
 	      table.search($(this).val()).draw() ;
 	})
-	$('#hrTable tbody').on( 'click', 'tr', function () {
+	$('#btnExport').on('click',function(){
+		alert('export fail');
+	});
+	/*$('#hrTable tbody').on( 'click', 'tr', function () {
 	    var data = table.row( this ).data();
 	    var myData = {
 	    		'id': data['id'],
@@ -65,11 +68,11 @@ $(document).ready(function(){
 	    console.log(myData);
 	    //var values={"data":data};
 	    console.log(data);
-	  /*  $.ajax({
+	    $.ajax({
 	    	type: "PUT",
 	    	url:"../action/service/lms_adm_014active",
 	    	data: myData
-	    });*/
-	} );
+	    });
+	} );*/
 	
 });
