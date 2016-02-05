@@ -70,7 +70,7 @@
 		} */
 		.paginate_button.current{
 		    background-color: rgba(38, 185, 154, 0.59) !important;
-    border-color: rgba(38, 185, 154, 0.59) !important;
+    		border-color: rgba(38, 185, 154, 0.59) !important;
 		}
 	</style>
 	
