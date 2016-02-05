@@ -210,9 +210,9 @@
    <tr class="pointer odd">
                           <td id="">{{= ID}}</td>
                           <td id="">
-                            <a href="javascrip:" id="viewBtn"><input type="hidden" value= ""><span class="fa fa-eye" data-toggle="modal" data-target="#lms_adm_005p" data-placement="top" title="" data-original-title="View"></span></a> |
-                            <a href="javascrip:" id="approveBtn"><input type="hidden" value= "{{= OTID}}"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> |
-                            <a href="javascrip:" id="rejectBtn"><input type="hidden" value= "{{= OTID}}"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a>
+                            <a href="javascrip:" id="viewBtn"><input type="hidden" data-empid= "{{= EMPID}}" value= "{{= OTID}}"><span class="fa fa-eye" data-toggle="modal" data-target="#lms_adm_005p" data-placement="top" title="View" data-original-title="View"></span></a> |
+                            <a href="javascrip:" id="approveBtn"><input type="hidden" value= "{{= OTID}}"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Approve" data-original-title="Active"></span></a> |
+                            <a href="javascrip:" id="rejectBtn"><input type="hidden" value= "{{= OTID}}"><span class="fa fa-close fa-lg" data-toggle="tooltip" data-placement="top" title="Reject" data-original-title="Delete"></span></a>
                           </td>
                           <td id="">{{= FULLNAME}}</td>
                           <td id="">{{= DATE}}</td>

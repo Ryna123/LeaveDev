@@ -33,9 +33,10 @@
 				        
 				        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" >
 							<div class="form-group">
+							  
 	                    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Start date: </label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
-	                                <input type="text" id="startDate" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
+	                                <input type="text" id="startDate" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224" disabled ="disabled"><ul class="parsley-errors-list" id="parsley-id-1224"  ></ul>
 	                            </div>
 	                		</div>
 			                <div class="form-group" id="divDuration">
@@ -44,13 +45,13 @@
 			                <div class="form-group">
 	                    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Reason: </label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
-	                                <textarea type="text" id="reason" style="width:262px;height: 91px;"></textarea>
+	                                <textarea type="text" id="reason" style="width:262px;height: 91px;" disabled ="disabled"></textarea>
 	                            </div>
 	                		</div>
 			                <div class="form-group">
 			                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Status: </label>
 			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                     	<select id="status" class="form-control" required="required" data-parsley-id="0188">
+			                     	<select id="status" class="form-control" required="required" data-parsley-id="0188" disabled ="disabled">
 			                     			<option value="1">Planned</option>
 			                                <option value="2">Approved</option>
 			                                <option value="3">Rejected</option>
@@ -63,8 +64,12 @@
 				    </div>
 					<div class="modal-footer">	
 					    <div class="form-group">
-			                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-			                       <button type="submit" class="btn btn-primary">Back to list</button>
+			                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="width: 363px;margin-left: 71px;">
+			                  	  <button type="button" id="appBtn" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check"></i>&nbsp;&nbsp;Approved</button>
+			                  	  <button type="button"id="rejBtn" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;&nbsp;Rejected</button>
+			                  	  <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;&nbsp;Cancel</button>
+			                  	    <input type="hidden" id="overtimeId">
+			                       <!-- <button type="submit" class="btn btn-primary" id="backBtn">Back to list</button> -->
 			                   </div>
 		               	</div>
 					</div>
@@ -75,7 +80,7 @@
 		<script type="text/x-jquery-tmpl" id="templateDuration" >
 							<label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Duration </label>
 			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                        <input type="text"  name="last-name" required="required" id="duration" value = "{{= DURATION}}" class="form-control col-md-7 col-xs-12" data-parsley-id="3556"><small>({{= TYPE}})</small><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
+			                        <input type="text"  name="last-name" required="required" id="duration" value = "{{= DURATION}}" class="form-control col-md-7 col-xs-12" data-parsley-id="3556"  disabled ="disabled"><small>({{= TYPE}})</small><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
 			                    </div>
 
 		</script>

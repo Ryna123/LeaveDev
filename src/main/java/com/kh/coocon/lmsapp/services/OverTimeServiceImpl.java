@@ -97,12 +97,13 @@ public  class OverTimeServiceImpl implements OverTimeService {
 	@Override
 	public List<OverTime> getAllOverTimeAdmin(int empId, String frstNm, String lstNm) {
 		String sql = " SELECT								      "
-				+ "  a.id,"
+				+ "  a.id as otId,"
 				+ "	CONCAT_WS(' ',b.first_name,b.last_name) as full_name,"
 				+ "	a.date as startdate,"
 				+ "	a.duration,"
 				+ " a.ot_type,"
 				+ "	a.cause,"
+				+ "	b.id as empId,"
 				+ "	c.name as status"
 				+ "	from  lms_overtime a"
 				+ "	left join lms_users b on a.employee_id = b.id"
@@ -126,9 +127,9 @@ public  class OverTimeServiceImpl implements OverTimeService {
 			OverTime ot = null;
 			while (rs.next()) {
 				ot = new OverTime();
-				
+				ot.setId(rs.getInt("otId"));
 				ot.setoTDate(rs.getString("startdate"));
-				ot.setoTEmployeeId(rs.getInt("id"));
+				ot.setoTEmployeeId(rs.getInt("empId"));
 				ot.setoTDuration(rs.getInt("duration"));
 				ot.setoTReason(rs.getString("cause"));
 				ot.setoTEmpName(rs.getString("full_name"));
@@ -150,7 +151,6 @@ public  class OverTimeServiceImpl implements OverTimeService {
 					 
 					 + "WHERE		    	  " 
 					 + "	id = ?		      " ;
-			System.out.println("HELLO " +sql);
 		try(
 				Connection cnn = dataSource.getConnection();
 				PreparedStatement ps = cnn.prepareStatement(sql);
@@ -178,6 +178,59 @@ public  class OverTimeServiceImpl implements OverTimeService {
 		}	
 		
 		return false;
+	}
+	
+	
+	
+	
+	@Override
+	public List<OverTime> getOtOneRecord(int otId, int empId) {
+		String sql = " SELECT								      "
+				+ "  a.id as otId,"
+				+ "	CONCAT_WS(' ',b.first_name,b.last_name) as full_name,"
+				+ "	a.date as startdate,"
+				+ "	a.duration,"
+				+ " a.ot_type,"
+				+ " a.status_id,"
+				+ "	a.cause,"
+				+ "	b.id as empId,"
+				+ "	c.name as status"
+				+ "	from  lms_overtime a"
+				+ "	left join lms_users b on a.employee_id = b.id"
+				+ "	left join lms_status c on a.status_id =  c.status_id"
+				+ "	where a.id= ? and b.id = ? ";
+		
+	    System.out.println("@@@@@@@@@@@ " +sql);
+		try (
+
+		Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+		) {
+            
+			ps.setInt(1,otId);
+			ps.setInt(2, empId);
+			System.out.println("sql  query " + ps);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<OverTime> lot = new ArrayList<OverTime>();
+			OverTime ot = null;
+			while (rs.next()) {
+				ot = new OverTime();
+				ot.setId(rs.getInt("otId"));
+				ot.setoTDate(rs.getString("startdate"));
+				ot.setoTEmployeeId(rs.getInt("empId"));
+				ot.setoTDuration(rs.getInt("duration"));
+				ot.setoTReason(rs.getString("cause"));
+				ot.setoTEmpName(rs.getString("full_name"));
+				ot.setoTStatus_id(rs.getInt("status_id"));
+				ot.setStatusNm(rs.getString("status"));
+				ot.setoTType(rs.getInt("ot_type"));
+				lot.add(ot);
+			}
+			return lot;
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 	
 }

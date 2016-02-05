@@ -239,6 +239,26 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
+
+		//admin : View overtime 
+		@RequestMapping(value = { "/lms_adm_005p"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getOtOneRecord(@RequestParam("otId") int otId,@RequestParam("empId") int empId ) {
+			//List<Entitledays> Mylist = userService.list();
+			User user = userService.findBySso(getPrincipal());		
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("OVERTIME_REC", overTimeService.getOtOneRecord(otId, empId));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");	
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
+		
 		//get Leave status
 		@RequestMapping(value = { "/lms_adm_029"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getLeaveStatus() {
