@@ -157,7 +157,11 @@
 	<script type="text/x-jquery-tmpl" id="lmsAdm028">
 		<tr class="pointer odd">   
 			<td>
-				<a class="fa fa-eye" data-toggle="modal" data-target="#otModal"></a>
+				<a href="javascrip:" id="viewBtn">
+					<input type="hidden" value= "{{= id}}">
+					<span class="fa fa-eye" title="View" data-original-title="View">
+					</span>
+				</a>
 			</td>  
 			<td>{{= otID}}</td>                            											
 			<td>{{= otDate}}</td>
