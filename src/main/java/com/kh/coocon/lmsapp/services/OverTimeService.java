@@ -9,6 +9,7 @@ public interface OverTimeService {
 	public boolean insertOT(OverTime OTObj, int Userid); 
 	public List<OverTime> getAllOverTimeAdmin(int empId, String frstNm, String lstNm);
 	public List<OverTime> getOtOneRecord(int otId,int empId);
+	public List<OverTime> getOtOneRecordUser(int otId,int uId);
 	public boolean updateStatusOvertime(int otId, String otAct );
 	
 	
