@@ -2,15 +2,23 @@ package com.kh.coocon.lmsapp.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="lms_organization")
 public class Organization {
-	@Column(name="organization_id")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="organization_id", nullable=false, unique=true)
 	private int id;
+	@Column(name="name")
 	private String name;
+	@Column(name="parent_id")
 	private int parent_id;
+	@Column(name="supervisor")
 	private int supervisor;
 	public int getId() {
 		return id;
