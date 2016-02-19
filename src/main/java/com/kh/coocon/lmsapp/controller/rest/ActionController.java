@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kh.coocon.lmsapp.entities.Contract;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.OverTime;
@@ -28,6 +29,8 @@ import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
+import com.kh.coocon.lmsapp.services.ContractService;
+import com.kh.coocon.lmsapp.services.ContractServiceImpl;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
@@ -56,6 +59,8 @@ public class ActionController {
 	
 	@Autowired
 	private HumanResurceService humanResourceService;
+	@Autowired
+	private ContractService contractService;
 	
 	@Autowired 
 	
@@ -418,6 +423,24 @@ public class ActionController {
 				map.put("Message", e.getMessage());
 			}
 			return map;
+		}
+		
+		@RequestMapping(value={"/lms_adm_r017"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> listContract(){
+			Map<String,Object> map = new HashMap<>();
+			try {
+				List<Contract> contractList = contractService.listContract();
+				if(contractList.isEmpty() || contractList == null){
+					map.put("Message","Ëmpty");
+				}else{
+					map.put("Message", "Exist");
+					map.put("contractList", contractList);
+				}
+			} catch (Exception e) {
+				map.put("Message", e.getMessage());
+				e.printStackTrace();
+			}
+			return map;	
 		}
 		
 		private String getPrincipal(){

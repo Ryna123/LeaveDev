@@ -1,7 +1,8 @@
 
 <%@include file="/static/include/assetheader.jsp" %>
+<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 
-
+<script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_017.js" />"></script>
 <body class="nav-md">
 
     <div class="container body">
@@ -57,7 +58,7 @@
                             	</div>
                                                               
                                  <!-- table  -->                                
-                                 	<table id="example" class="table table-striped responsive-utilities jambo_table dataTable" aria-describedby="example_info">
+                                 	<table id="ctTable" class="table table-striped responsive-utilities jambo_table dataTable" aria-describedby="example_info">
                                         <thead>
                                             <tr class="headings" role="row">                                            
                                                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Invoice : activate to sort column ascending" style="width: 150px;">Action </th>
@@ -130,23 +131,23 @@
                                   </table>
                                     
                                      <!-- Combo  -->
-                                  <div id="example_length" class="dataTables_length"><label>Show <select size="1" style="width: 60px;padding: 5px;" name="example_length" aria-controls="example">
+                                 <!--  <div id="example_length" class="dataTables_length"><label>Show <select size="1" style="width: 60px;padding: 5px;" name="example_length" aria-controls="example">
 	                                  <option value="10">10</option>
 	                                  <option value="25">25</option>
 	                                  <option value="50">50</option>
 	                                  <option value="100">100</option>
 	                                  </select> entries</label>
-                                  </div>
+                                  </div> -->
                                   <!-- /Combo  -->
                                   
                                   <!--   Pagination  -->
-                                  <div class="dataTables_paginate paging_full_numbers" id="example_paginate" style="float: right;">
+                                  <!-- <div class="dataTables_paginate paging_full_numbers" id="example_paginate" style="float: right;">
 	                                  <a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
 	                                  <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a>
 	                                  <span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a>
 	                                  <a tabindex="0" class="paginate_button">3</a></span><a tabindex="0" class="next paginate_button" id="example_next">Next</a>
 	                                  <a tabindex="0" class="last paginate_button" id="example_last">Last</a>
-                                  </div>
+                                  </div> -->
                                   
                                   <!--  / Pagination  -->
                                  <br/><br/><br/>

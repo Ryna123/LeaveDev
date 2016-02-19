@@ -71,7 +71,7 @@
                                         </li>
                                         <li><a href="javascript:"><i class="fa fa-star-half-empty"></i> CONTRACTS</a>
                                         </li>
-                                        <li><a href="<c:url value="/admin/lms_adm_019" />">List of Contracts</a>
+                                        <li><a href="<c:url value="/admin/lms_adm_017" />">List of Contracts</a>
                                         </li>
                                         <li><a href="<c:url value="/admin/lms_adm_021" />">List of Positions</a>
                                         </li>

@@ -5,6 +5,8 @@ import java.util.List;
 import com.kh.coocon.lmsapp.entities.Contract;
 
 public interface ContractService {
-	public List<Contract> listContract();
-
+	List<Contract> listContract();
+	void addContract(Contract contrast);
+	void deleteContract(int id);
+	void editContract(Contract contrast);
 }

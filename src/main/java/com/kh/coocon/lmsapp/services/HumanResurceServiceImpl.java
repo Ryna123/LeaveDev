@@ -35,7 +35,7 @@ public class HumanResurceServiceImpl implements HumanResurceService {
 			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
 			ResultSet rs = preparedStatement.executeQuery();
 			List <HrManagement> list= new ArrayList<HrManagement>();
-			HrManagement hrmng = null;
+			HrManagement hrmng = new HrManagement();
 			while (rs.next()) {
 				hrmng= new HrManagement();
 				hrmng.setId(rs.getInt("id"));
