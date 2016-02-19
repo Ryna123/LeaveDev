@@ -2,6 +2,12 @@
  * 
  */
 $(document).ready(function() {
+	$("#otDate").daterangepicker({
+		singleDatePicker: true,
+        showDropdowns: true,
+        format:'DD/MM/YYYY'
+	});
+	
 	$.ajax({
 		url : "../action/service/lms_adm_029",
 		dataType : "JSON",
