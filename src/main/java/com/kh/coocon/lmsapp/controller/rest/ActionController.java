@@ -1,5 +1,6 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
+import java.io.Console;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +72,21 @@ public class ActionController {
 			System.out.println(ab+bc);
 			
 		}*/
+	
+		@RequestMapping(value={"/hrListExport"},method=RequestMethod.GET)
+		public ModelAndView getHrListExport(HttpServletResponse response){
+			Map<String, Object> hrMap = new HashMap<>();
+				List<HrManagement> hrManagements = humanResourceService.getAllEmp();
+				if(hrManagements.isEmpty() || hrManagements == null){
+					hrMap.put("Message","Empty");
+				}else{
+					hrMap.put("Message","Exist");
+					//hrMap.put("hrListExport", hrManagements);
+					System.out.println("jlkdfjlkdsjfaflkfsdafjsdkfsdfjkdsjlfjsdkjflkjfasdkj"+hrManagements);
+				}
+			return new ModelAndView("hrExcelView","hrListExports",hrManagements);	
+		}
+	
 		@RequestMapping(value = { "/export"}, method = RequestMethod.GET)
 		public ModelAndView getOverTimeViewForResourceBundle(HttpServletResponse response) {
 			User user = userService.findBySso(getPrincipal());

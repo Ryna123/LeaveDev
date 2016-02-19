@@ -15,8 +15,7 @@ $(document).ready(function(){
 			//var dataSet=JSON.stringify(values);
 			//covert String to json
 			//var dd=JSON.parse(dataSet);
-			//console.log(dd);
-			//console.log(dataSet["data"]);
+			//console.log(values);
 			//$('#hrTable tbody tr').remove();
 			table = $('#hrTable').DataTable({
 				"pagingType": "full_numbers",
@@ -54,10 +53,11 @@ $(document).ready(function(){
 	$('#txtSearch').keyup(function(){
 	      table.search($(this).val()).draw() ;
 	})
-	$('#btnExport').on('click',function(){
+	/*$('#btnExport').on('click',function(){
 		alert('export fail');
-	});
+	});*/
 	/*$('#hrTable tbody').on( 'click', 'tr', function () {
+		alert(1);
 	    var data = table.row( this ).data();
 	    var myData = {
 	    		'id': data['id'],
@@ -73,6 +73,8 @@ $(document).ready(function(){
 	    	url:"../action/service/lms_adm_014active",
 	    	data: myData
 	    });
-	} );*/
-	
+	} );
+	$('#hrTable tbody tr td span').on('click',function(){
+		alert(1);
+	});*/
 });
