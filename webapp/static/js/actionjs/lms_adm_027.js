@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	
-	
+	$("#startdate,#enddate").daterangepicker({
+		singleDatePicker: true,
+        showDropdowns: true,
+        format:'DD/MM/YYYY'
+	});
 	
 	
 	$.ajax({
