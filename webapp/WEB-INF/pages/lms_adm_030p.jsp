@@ -67,9 +67,8 @@
 				</form>
 				<!-- end modal body -->
 				<div class="modal-footer">
-					<div class="col-md-9 col-sm-9 col-xs-9">
-						<button type="submit" class="btn btn-success">Accept</button>
-						<button type="submit" class="btn btn-primary">Edit</button>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<button type="submit" class="btn btn-primary" style="display:none">Edit</button>
 						<button type="submit" class="btn btn-danger" data-dismiss="modal">Back	to List</button>
 					</div>
 				</div>
