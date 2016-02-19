@@ -20,58 +20,78 @@ lms_adm_028.listOverTime = function() {
 		data : a,
 		success : function(data) {
 			console.log(data.RESP_DATA);
-			var res = data.RESP_DATA['OVERTIME_REC'];
-			if (res.length <= 0) {
-				$("tfoot#otFooter").show();
-			} else {
-				$.each(res, function(i, v) {
-
-					var data = {};
-					data['otID'] = i + 1;
-					data['otDuration'] = res[i].oTDuration;
-					data['otDate'] = res[i].oTDate;
-					data['otReason'] = res[i].oTReason;
-					data['otStatus'] = res[i].oTStatus_id;
-					data['otType'] = res[i].oTType;
-					data['id'] = res[i].id;
-					/*
-					 * if((data['otType'])=='1') { (data['otType'])='<span
-					 * class="label label-success">Days</span>'; } else
-					 * if((data['otType'])=='2') { (data['otType'])='<span
-					 * class="label label-danger">Hours</span>'; }
-					 */
-
-					if ((data['otType']) == '1') {
-						(data['otType']) = 'Day(s)';
-					} else if ((data['otType']) == '2') {
-						(data['otType']) = 'Hour(s)';
-					}
-
-					if ((data['otStatus']) == '1') {
-						(data['otStatus']) = 'Planned';
-					} else if ((data['otStatus']) == '4') {
-						(data['otStatus']) = 'Requested';
-					} else if ((data['otStatus']) == '2') {
-						(data['otStatus']) = 'Approved';
-					} else if ((data['otStatus']) == '3') {
-						(data['otStatus']) = 'Rejected';
-					}
-					$("#lmsAdm028").tmpl(data).appendTo("tbody#listOT").html();
-
-				})
-			}
+			var listData = data.RESP_DATA['OVERTIME_REC'];
+			//var count = Object.keys(listData).length;
+			
+			var values={"data":listData};
+			console.log(values);
+			var count = Object.keys(listData).length;
+			console.log(count);
+				table = $('#otDataTable').DataTable({
+					"pagingType": "full_numbers",
+					data:values["data"],
+					 "dom": '<"top"i>rt<"bottom"lp>',
+					columns:[
+					        {"data":"id","bSearchable": false,
+					        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					        		$(nTd).html("<a href='javascrip:' id='viewBtn'>" +
+					        				"<input type='hidden' value="+sData+">"+
+					        				"<span class='fa fa-eye' title='View' data-original-title='View'>" +
+					        				"</span>" +
+					        				"</a>");
+					             }
+					        },
+					        {"data":"id","bSearchable": false,
+					        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					        		 $(nTd).html("<span>"+(count--)+
+						        				"</span>");
+						             }
+					        },
+					        {"data":"oTDate","bSearchable": false},
+					        {"data":"oTDuration",
+					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					        		if((oData.oTType)==1){
+					        			$(nTd).html("<span>" +oData.oTDuration+"</span>" +
+						        				"&nbsp;&nbsp;"+
+						        				"<span>Day(s)</span>");
+					        		}else{$(nTd).html("<span>" +oData.oTDuration+"</span>" +
+					        				"&nbsp;&nbsp;"+
+					        				"<span>Hour(s)</span>");}
+					             }
+					        },
+					        {"data":"oTReason",className:"clnReason",
+					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					        		$(nTd).html("<div style='white-space: nowrap;overflow: hidden; text-overflow: ellipsis; width:100px;'>" + sData +
+					        				"</div>");
+					             }
+					        },
+					        {"data":"oTStatus_id","bSearchable": false,
+					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					        		if ((oData.oTStatus_id) == '1') {
+					        			$(nTd).html('<span class="label label-info">Planned</span>');
+									} else if ((oData.oTStatus_id) == '4') {
+										$(nTd).html('<span class="label label-warning">Requested</span>');
+									} else if ((oData.oTStatus_id) == '2') {
+										$(nTd).html('<span class="label label-success">Approved</span>');
+									} else if ((oData.oTStatus_id) == '3') {
+										$(nTd).html('<span class="label label-danger">Rejected</span>');
+									}
+					             }
+					        },
+					        
+					],
+				});
 			lms_adm_028.CallOtOneRecord();
 			loading(false);
 		},
 		error : function(data) {
 			console.log(data);
 		}
-
 	});
 }
 
 lms_adm_028.CallOtOneRecord = function() {
-	$("#listOT tr a#viewBtn").click(function() {
+	$("#otDataTable tr a#viewBtn").click(function() {
 		var otId = ($(this).find('input').val());
 		lms_adm_028.getOtOneRecord(otId);
 		$('#otModal').modal('toggle');

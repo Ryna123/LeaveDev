@@ -1,6 +1,18 @@
 <%@include file="/static/include/assetheader.jsp"%>
+<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
+<style type="text/css">
 
-
+/* 		.dataTables_scroll{
+			min-height: 500px;
+		} */
+		#otDataTable_length select{
+			min-height: 30px;
+		}
+		.paginate_button.current{
+		    background-color: rgba(38, 185, 154, 0.59) !important;
+    		border-color: rgba(38, 185, 154, 0.59) !important;
+		}
+</style>
 <body class="nav-md">
 
 	<div class="container body">
@@ -76,7 +88,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-									<table class="table table-bordered">
+									<table class="table table-bordered" id="otDataTable">
 										<thead>
 											<tr>
 												<th>View</th>
@@ -88,16 +100,16 @@
 											</tr>
 										</thead>
 										<tbody id="listOT">
-
+											
 										</tbody>
-										<tfoot id="otFooter" style="display: none;">
+										<!-- <tfoot id="otFooter" style="display: none;">
 											<tr align="center">
 												<td colspan="8">There aren't any leaves requested</td>
 											</tr>
-										</tfoot>
+										</tfoot> -->
 									</table>
 
-									<div id="example_length" class="dataTables_length">
+									<!-- <div id="example_length" class="dataTables_length">
 										<label>Show <select size="1"
 											style="width: 56px; padding: 6px;" name="example_length"
 											aria-controls="example"><option value="10">10</option>
@@ -119,7 +131,7 @@
 											class="paginate_button">4</a></span><a tabindex="0"
 											class="next paginate_button" id="example_next">Next</a><a
 											tabindex="0" class="last paginate_button" id="example_last">Last</a>
-									</div>
+									</div> -->
 									<!-- End Pagination -->
 									<!-- <div class="clearfix"></div> -->
 									<div class="ln_solid"></div>
@@ -154,7 +166,7 @@
 
 	<%@include file="/static/include/assetfooter.jsp"%>
 	<script src="<c:url value="/static/js/actionjs/lms_adm_028.js" />"></script>
-	<script type="text/x-jquery-tmpl" id="lmsAdm028">
+	<!-- <script type="text/x-jquery-tmpl" id="lmsAdm028">
 		<tr class="pointer odd">   
 			<td>
 				<a href="javascrip:" id="viewBtn">
@@ -167,8 +179,8 @@
 			<td>{{= otDate}}</td>
    			<td>{{= otDuration}}&nbsp;&nbsp;{{= otType}}</td>
    			<td><div style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis; width:100px;">{{= otReason}}</div></td>
-   			<td>{{= otStatus}}</td> 			   
+   			<td>{{html otStatus}}</td> 			   
 		</tr>
 
 
-	</script>
+	</script> -->
