@@ -26,10 +26,10 @@ public  class ListUserServiceImpl implements ListUserService{
 				+ "		a.sso_id as login," 
 				+ "		a.email as email," 
 				+ "		a.phone as phone," 
-				+ "		b.name as role," 
+				/*+ "		b.name as role," */
 				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name" 
 				+ "		from lms_users a" 
-				+ "		LEFT JOIN lms_roles b on a.role =b.id" 
+			/*	+ "		LEFT JOIN lms_roles b on a.role =b.id" */
 				+ "		LEFT JOIN lms_users c on c.id = a.manager_id" 
 				+ "		ORDER BY id asc"  ;	
 				
@@ -52,7 +52,7 @@ public  class ListUserServiceImpl implements ListUserService{
 						lu.setLastname(rs.getString("lastname"));
 						lu.setEmail(rs.getString("email"));
 						lu.setLogin(rs.getString("login"));
-						lu.setRole(rs.getString("role"));
+						/*lu.setRole(rs.getString("role"));*/
 						lu.setPhone(rs.getInt("phone"));
 						lu.setManagername(rs.getString("manager_name"));
 						
