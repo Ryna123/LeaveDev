@@ -21,17 +21,22 @@ public  class ListUserServiceImpl implements ListUserService{
 	public List<ListUser> getListUsers() {
 		String sql	= "SELECT "
 				+ " 	this_.id as id,  " 
-				+ "		this_.first_name as firstname," 
-				+ "		this_.last_name as lastname," 
-				+ "		this_.sso_id as login," 
+				+ "		this_.first_name as firstName," 
+				+ "		this_.last_name as lastName," 
+				+ "		this_.sso_id as username," 
 				+ "		this_.email as email," 
-				+ "		this_.phone as phone," 
-				/*+ "		b.name as role," */
-				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name" 
-				+ "		from lms_users this_" 
-			/*	+ "		LEFT JOIN lms_roles b on a.role =b.id" */
-				+ "		LEFT JOIN lms_users c on c.id = a.manager_id" 
-				+ "		ORDER BY id asc"  ;	
+				+ "		this_.phone as phone," 				
+				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name,"
+				+ "		profile1_.NAME as role"				
+				+ "		from lms_users this_" 					
+				+ "		LEFT JOIN lms_users c on c.id = this_.manager_id"
+				+ "		LEFT OUTER JOIN"
+				+ "		LMS_USER_ROLES userprofil3_"
+				+ "			on this_.id=userprofil3_.USER_ID"
+				+ "		left outer join"
+				+ "		LMS_ROLES profile1_"
+				+ "		on userprofil3_.USER_PROFILE_ID=profile1_.id"				
+				+ "		ORDER BY id DESC" ;	
 				
 				System.out.println(sql);
 				try (
@@ -48,11 +53,11 @@ public  class ListUserServiceImpl implements ListUserService{
 					while (rs.next()) {
 						lu = new ListUser();
 						lu.setId(rs.getInt("id"));
-						lu.setFirstname(rs.getString("firstname"));
-						lu.setLastname(rs.getString("lastname"));
+						lu.setFirstName(rs.getString("firstName"));
+						lu.setLastName(rs.getString("lastName"));
 						lu.setEmail(rs.getString("email"));
-						lu.setLogin(rs.getString("login"));
-						/*lu.setRole(rs.getString("role"));*/
+						lu.setUsername(rs.getString("username"));
+						lu.setRole(rs.getString("role"));
 						lu.setPhone(rs.getInt("phone"));
 						lu.setManagername(rs.getString("manager_name"));
 						

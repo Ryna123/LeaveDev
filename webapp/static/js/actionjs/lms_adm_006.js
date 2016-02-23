@@ -20,8 +20,8 @@ $(document).ready(function() {
 						data['FIRSTNAME']  = res[i].firstName;
 						data['LASTNAME']  = res[i].lastName;
 						data['EMAIL']  = res[i].email;
-						data['USERNAME']  = res[i].ssoId;
-						data['ROLE']  = res[i].userProfiles;
+						data['USERNAME']  = res[i].username;
+						data['ROLE']  = res[i].role;
 						data['MANAGERNAME']  = res[i].managername;
 						data['PHONE'] = res[i].phone;
 						$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");

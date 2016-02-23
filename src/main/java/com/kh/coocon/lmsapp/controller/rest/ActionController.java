@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.coocon.lmsapp.entities.Contract;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
+import com.kh.coocon.lmsapp.entities.ListUser;
 import com.kh.coocon.lmsapp.entities.OverTime;
 import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
@@ -161,9 +162,10 @@ public class ActionController {
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			
-			//listData.put("USER_REC", listuserservice.getListUsers());
+			
 			try{
-				List<User> user = userService.findAllUser();
+				List<ListUser> user = listuserservice.getListUsers();
+				//List<User> user = userService.findAllUser();
 				listData.put("USER_REC", user);
 			}catch(Exception e){
 				listData.put("USER_REC", e.getMessage());
