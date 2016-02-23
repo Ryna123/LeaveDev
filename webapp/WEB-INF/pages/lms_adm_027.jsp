@@ -138,7 +138,7 @@
 									<div class="form-group">
 										<div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-3">
 											<a href="javascript:" id="addLeave" class="btn btn-success"><span class="fa fa-check-circle" aria-hidden="true"></span> Request Leave</a>
-											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
+											<!-- <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button> -->
 										</div>
 									</div>
 
