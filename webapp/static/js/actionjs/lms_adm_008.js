@@ -145,7 +145,7 @@ var optionSelection = {
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
-										data.LIST[i].name+
+										data.LIST[i].type+
 									"</option>";
 			}
 			selectionOption +="</select>";

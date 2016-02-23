@@ -73,9 +73,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 				.add(Projections.property("u.ssoId"),"ssoId")
 				.add(Projections.property("u.email"),"email")
 				.add(Projections.property("u.phone"),"phone")
-				.add(Projections.property("profile.type"))
+				.add(Projections.property("profile.type"),"position")
 				);
-		// crit.add(Restrictions.eq("profile.name", "ADMIN"));
+		 crit.add(Restrictions.eq("profile.type", "ADMIN"));
 		 
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
 		return (List<User>)crit.list();

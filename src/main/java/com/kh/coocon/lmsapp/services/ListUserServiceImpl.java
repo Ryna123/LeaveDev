@@ -20,15 +20,15 @@ public  class ListUserServiceImpl implements ListUserService{
 	
 	public List<ListUser> getListUsers() {
 		String sql	= "SELECT "
-				+ " 	a.id as id,  " 
-				+ "		a.first_name as firstname," 
-				+ "		a.last_name as lastname," 
-				+ "		a.sso_id as login," 
-				+ "		a.email as email," 
-				+ "		a.phone as phone," 
+				+ " 	this_.id as id,  " 
+				+ "		this_.first_name as firstname," 
+				+ "		this_.last_name as lastname," 
+				+ "		this_.sso_id as login," 
+				+ "		this_.email as email," 
+				+ "		this_.phone as phone," 
 				/*+ "		b.name as role," */
 				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name" 
-				+ "		from lms_users a" 
+				+ "		from lms_users this_" 
 			/*	+ "		LEFT JOIN lms_roles b on a.role =b.id" */
 				+ "		LEFT JOIN lms_users c on c.id = a.manager_id" 
 				+ "		ORDER BY id asc"  ;	

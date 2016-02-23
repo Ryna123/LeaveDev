@@ -25,18 +25,16 @@ public class UserProfile {
         this.id = id;
     }
  
-   
- 
- 
     public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	@Override
+        return type;
+    }
+ 
+    public void setType(String type) {
+        this.type = type;
+    }
+ 
+ 
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
