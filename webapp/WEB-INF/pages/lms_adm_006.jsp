@@ -153,12 +153,17 @@
                                 
                                 <!-- Pagination block -->
 				                <div id="pagination">
-					                <label>Show <select size="1" name="" aria-controls="">
-							              <option value="10">10</option>
-							              <option value="25">25</option>
-							              <option value="50">50</option>
-							              <option value="100">100</option>
-					                </select> entries</label>
+					                <label>Show 
+					                	<select id="numberOfRecord" size="1" name="" aria-controls="">
+								              <option value="10">10</option>
+								              <option value="25">25</option>
+								              <option value="50">50</option>
+								              <option value="100">100</option>
+						                </select> entries
+					                </label>
+					                <div id="paging">
+					                
+					                </div>
 											
 					                <span class="dataTables_paginate paging_full_numbers">
 					                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
