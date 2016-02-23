@@ -5,6 +5,12 @@
 var lms_adm_028 = {};
 $(document).ready(function() {
 	lms_adm_028.listOverTime();
+	
+	$("#otDate").daterangepicker({ 
+		singleDatePicker: true,
+        showDropdowns: true,
+        format:'DD/MM/YYYY'
+	});
 });
 
 // list all overtime request
@@ -112,12 +118,29 @@ lms_adm_028.getOtOneRecord = function(input) {
 			console.log(data.RESP_DATA);
 			var res = data.RESP_DATA['OVERTIME_REC'];
 			$.each(res, function(i, v) {
-				var data = {};
+				//var data = {};
 				$("#otType").val(res[i].oTType);
 				$("#otDuration").val(res[i].oTDuration);
 				$("#otDate").val((res[i].oTDate).replace(/\-/g, "/"));
 				$("#otReason").val(res[i].oTReason);
 				$("#otStatus").val(res[i].oTStatus_id);
+
+				//visible for user input when status="planned" || ="Requested"
+				if (($("#otStatus").val())== '1' || ($("#otStatus").val())=='4') {
+					$("#oTEditBtn").show();
+					$("#otType").removeAttr("disabled");
+					$("#otDuration").removeAttr("disabled");
+					$("#otDate").removeAttr("disabled");
+					$("#otReason").removeAttr("disabled");
+					$("#otStatus").removeAttr("disabled");
+				} else {
+					$("#oTEditBtn").hide();
+					$("#otType").attr("disabled", "disabled");
+					$("#otDuration").attr("disabled", "disabled");
+					$("#otDate").attr("disabled", "disabled");
+					$("#otReason").attr("disabled", "disabled");
+					$("#otStatus").attr("disabled", "disabled");
+				}
 			});
 		}
 	})
