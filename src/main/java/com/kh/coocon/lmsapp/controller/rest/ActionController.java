@@ -1,6 +1,5 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import java.io.Console;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kh.coocon.lmsapp.entities.Contract;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
@@ -30,7 +28,6 @@ import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
-import com.kh.coocon.lmsapp.services.ContractServiceImpl;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
