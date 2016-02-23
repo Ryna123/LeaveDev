@@ -153,8 +153,12 @@ public class ActionController {
 		}
 		
 		// list all user
-		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> getEntity() {
+		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.GET)
+		public ResponseEntity<Map<String, Object>> getEntity(
+				@RequestParam("pageCount") int pageCount,
+				@RequestParam("numberOfRecord") int numberOfRecord
+				) {
+			int offset = (pageCount-1)*numberOfRecord;
 			
 			//List<Entitledays> Mylist = userService.list();
 			//User user = userService.findBySso(getPrincipal());
@@ -164,8 +168,10 @@ public class ActionController {
 			
 			
 			try{
-				List<ListUser> user = listuserservice.getListUsers();
+				List<ListUser> user = listuserservice.getListUsers(numberOfRecord,offset);
 				//List<User> user = userService.findAllUser();
+				//long totalRecord = user.size();
+				
 				listData.put("USER_REC", user);
 			}catch(Exception e){
 				listData.put("USER_REC", e.getMessage());

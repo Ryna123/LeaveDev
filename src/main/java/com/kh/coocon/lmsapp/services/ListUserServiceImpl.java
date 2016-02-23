@@ -18,7 +18,7 @@ public  class ListUserServiceImpl implements ListUserService{
 	@Autowired
 	private DataSource dataSource;
 	
-	public List<ListUser> getListUsers() {
+	public List<ListUser> getListUsers(int offset, int limit) {
 		String sql	= "SELECT "
 				+ " 	this_.id as id,  " 
 				+ "		this_.first_name as firstName," 
@@ -35,8 +35,11 @@ public  class ListUserServiceImpl implements ListUserService{
 				+ "			on this_.id=userprofil3_.USER_ID"
 				+ "		left outer join"
 				+ "		LMS_ROLES profile1_"
-				+ "		on userprofil3_.USER_PROFILE_ID=profile1_.id"				
-				+ "		ORDER BY id DESC" ;	
+				+ "			on userprofil3_.USER_PROFILE_ID=profile1_.id"
+				+ "		ORDER BY id DESC"
+				+ "		LIMIT ?"
+				+ "		OFFSET ?"				
+				+ "		" ;	
 				
 				System.out.println(sql);
 				try (
@@ -46,7 +49,8 @@ public  class ListUserServiceImpl implements ListUserService{
 					
 				)
 				{
-					
+					ps.setInt(1, offset);
+					ps.setInt(2, limit);
 					ResultSet rs = ps.executeQuery();
 					ArrayList<ListUser> ll = new ArrayList<ListUser>();
 					ListUser lu = null;

@@ -1,11 +1,17 @@
 $(document).ready(function() {
 	loading(true);
 	
+	myData = {
+		'numberOfRecord': 5,
+		'pageCount':1
+	};
+	
 //	var a = {/*empId :2,*/statId : 2};
 	$.ajax({
 		url : "../action/service/lms_adm_006",		
 		dataType : "JSON",
-		type : "POST",
+		data: myData,
+		type : "GET",
 	//	data :a,
 		
 		success : function(data) {
