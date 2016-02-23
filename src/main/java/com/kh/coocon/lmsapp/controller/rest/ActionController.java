@@ -166,8 +166,8 @@ public class ActionController {
 				List<User> user = userService.findAllUser();
 				listData.put("USER_REC", user);
 			}catch(Exception e){
-				listData.put("USER_REC", "ERROR");
-				e.getSuppressed();
+				listData.put("USER_REC", e.getMessage());
+				e.printStackTrace();
 			}
 			
 			if (listData.isEmpty()) {
@@ -398,7 +398,7 @@ public class ActionController {
 				userService.save(user);
 				if(user.getUserProfiles()!=null){
 		    		for(UserProfile profile : user.getUserProfiles()){
-		    			System.out.println("Profile"+ profile.getName());;
+		    			System.out.println("Profile"+ profile.getType());;
 		    		}
 		    	}
 				map.put("Message", "User "+user.getSsoId()+ " added successfully!");

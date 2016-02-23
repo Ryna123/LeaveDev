@@ -21,7 +21,7 @@ $(document).ready(function() {
 						data['LASTNAME']  = res[i].lastName;
 						data['EMAIL']  = res[i].email;
 						data['USERNAME']  = res[i].ssoId;
-						data['ROLE']  = res[i].role;
+						data['ROLE']  = res[i].userProfiles;
 						data['MANAGERNAME']  = res[i].managername;
 						data['PHONE'] = res[i].phone;
 						$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");

@@ -87,7 +87,7 @@ public class UserController {
 			service.save(user);
 			if(user.getUserProfiles()!=null){
 	    		for(UserProfile profile : user.getUserProfiles()){
-	    			System.out.println("Profile"+ profile.getName());;
+	    			System.out.println("Profile"+ profile.getType());;
 	    		}
 	    	}
 			map.put("Message", "User "+user.getSsoId()+ " added successfully!");
