@@ -156,7 +156,8 @@ public class ActionController {
 		public ResponseEntity<Map<String, Object>> getEntity() {
 			
 			//List<Entitledays> Mylist = userService.list();
-			//User user = userService.findBySso(getPrincipal());		
+			//User user = userService.findBySso(getPrincipal());
+			
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			
