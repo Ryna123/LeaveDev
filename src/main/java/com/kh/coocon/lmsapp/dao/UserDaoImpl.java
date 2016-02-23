@@ -57,12 +57,18 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		return (List<User>)crit.list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> findAllUser() {
 		Criteria crit = getSession()
 				.createCriteria(User.class,"u");
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("u.id"),"id")
+				.add(Projections.property("u.firstName"),"firstName")
+				.add(Projections.property("u.lastName"),"lastName")
+				.add(Projections.property("u.ssoId"),"ssoId")
+				.add(Projections.property("u.email"),"email")
+				.add(Projections.property("u.phone"),"phone")
 				);
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
 		return (List<User>)crit.list();

@@ -17,10 +17,10 @@ $(document).ready(function() {
 					$.each(res,function(i){
 						var data = {};
 						data['ID'] = i+1; // show auto number on screen
-						data['FIRSTNAME']  = res[i].firstname;
-						data['LASTNAME']  = res[i].lastname;
+						data['FIRSTNAME']  = res[i].firstName;
+						data['LASTNAME']  = res[i].lastName;
 						data['EMAIL']  = res[i].email;
-						data['LOGIN']  = res[i].login;
+						data['USERNAME']  = res[i].ssoId;
 						data['ROLE']  = res[i].role;
 						data['MANAGERNAME']  = res[i].managername;
 						data['PHONE'] = res[i].phone;

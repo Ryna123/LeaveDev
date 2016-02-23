@@ -161,7 +161,14 @@ public class ActionController {
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			
-			listData.put("USER_REC", listuserservice.getListUsers());
+			//listData.put("USER_REC", listuserservice.getListUsers());
+			try{
+				List<User> user = userService.findAllUser();
+				listData.put("USER_REC", user);
+			}catch(Exception e){
+				listData.put("USER_REC", "ERROR");
+				e.getSuppressed();
+			}
 			
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");

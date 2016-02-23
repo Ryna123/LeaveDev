@@ -211,7 +211,7 @@
 					</td>												
                     <td>{{= FIRSTNAME}}</td>
                     <td>{{= LASTNAME}}</td> 
-					<td>{{= LOGIN}}</td>
+					<td>{{= USERNAME}}</td>
 					<td>{{= EMAIL}}</td>
                     <td>{{= PHONE}}</td>
 					<td>{{= ROLE}}</td>
