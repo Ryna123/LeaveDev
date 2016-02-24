@@ -34,8 +34,8 @@ public class User {
 	private String phone;
 	private String emergency;
 	
-	@ManyToOne(optional = false)
-	@JoinColumn(name="position_id")
+	@ManyToOne(optional = true)
+	@JoinColumn(name="position_id", nullable=true)
 	private Position position;
 
 	

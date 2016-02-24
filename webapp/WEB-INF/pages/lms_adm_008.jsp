@@ -150,7 +150,7 @@
                                             	<button type="button" class="btn btn-primary">Self</button> 
                                         	</span>
                                         	<span class="input-group-btn">
-                                            	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#select_manager">Select</button> 
+                                            	<button id="btnManager" type="button" class="btn btn-primary" data-toggle="modal" data-target="#select_manager">Select</button> 
                                         	</span>
                                         </div>
 									</div>

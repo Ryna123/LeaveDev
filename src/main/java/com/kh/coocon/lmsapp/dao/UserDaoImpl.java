@@ -10,6 +10,8 @@ import org.hibernate.sql.JoinType;
 import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.springframework.stereotype.Repository;
 
+import com.kh.coocon.lmsapp.entities.Position;
+import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
  
 
@@ -35,7 +37,8 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
 	public void save(User user) {
-		 persist(user);
+		user.setState(State.INACTIVE.getState());
+		persist(user);
 	}
 
 	
@@ -44,14 +47,16 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	public List<User> findByPosition() {
 		Criteria crit = getSession()
 				.createCriteria(User.class,"u");
+		crit.createAlias("u.position", "position");
+		crit.setProjection(Projections.property("position.name"));
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("u.id"),"id")
 				.add(Projections.property("u.firstName"),"firstName")
 				.add(Projections.property("u.lastName"), "lastName")
 				.add(Projections.property("u.email"),"email")
-				.add(Projections.property("u.position.name"),"position.name")
+				.add(Projections.property("position"),"position")
 				);
-		//crit.add(Restrictions.eq("u.position.name", "Manager"));
+		crit.add(Restrictions.eq("position.name", "Manager"));
 		
 		// Convert to User Object
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));

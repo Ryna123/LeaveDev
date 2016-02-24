@@ -1,3 +1,4 @@
+
 $(window).load(function(){
 });
 
@@ -150,6 +151,5 @@ var optionSelection = {
 			}
 			selectionOption +="</select>";
 			$("#userRole").html(selectionOption);
-		}
-		
+		}	
 }
