@@ -87,12 +87,17 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	}
 
 	@Override
-	public long countRecord() {
+	public long countRecord(String position) {
+
 		Criteria crit = getSession()
 				.createCriteria(User.class,"u");
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.rowCount())
 				);		
+		if(position.equalsIgnoreCase("Manager")){
+			crit.createAlias("u.position", "position");
+			crit.add(Restrictions.eq("position.name", position));
+		}
 		return (long)crit.uniqueResult();
 	}
  
