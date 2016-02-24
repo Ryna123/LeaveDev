@@ -58,8 +58,8 @@
 							<select data-parsley-id="4308" disabled="disabled"
 								class="form-control" required="" id="otStatus">
 								<option value="1">Planned</option>
-								<option value="2">Approved</option>
-								<option value="3">Rejected</option>
+								<option value="2" style="display:none">Approved</option>
+								<option value="3" style="display:none">Rejected</option>
 								<option value="4">Requested</option>
 							</select>
 						</div>
@@ -68,8 +68,8 @@
 				<!-- end modal body -->
 				<div class="modal-footer">
 					<div class="col-md-12 col-sm-12 col-xs-12"> 
-						<button type="submit" class="btn btn-primary" style="display:none" id="oTEditBtn">Edit</button>
-						<button type="submit" class="btn btn-danger" data-dismiss="modal">Back	to List</button>
+						<button type="submit" class="btn btn-primary" style="display:none" id="oTEditBtn">Update</button>
+						<button type="submit" class="btn btn-danger" data-dismiss="modal">Back to List</button>
 					</div>
 				</div>
 			</div>
