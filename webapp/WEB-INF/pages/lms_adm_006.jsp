@@ -107,7 +107,7 @@
                                                 <th>Actions</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
-                                                <th>Login</th>
+                                                <th>Username</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Role</th>
@@ -153,12 +153,17 @@
                                 
                                 <!-- Pagination block -->
 				                <div id="pagination">
-					                <label>Show <select size="1" name="" aria-controls="">
-							              <option value="10">10</option>
-							              <option value="25">25</option>
-							              <option value="50">50</option>
-							              <option value="100">100</option>
-					                </select> entries</label>
+					                <label>Show 
+					                	<select id="numberOfRecord" size="1" name="" aria-controls="">
+								              <option value="10">10</option>
+								              <option value="25">25</option>
+								              <option value="50">50</option>
+								              <option value="100">100</option>
+						                </select> entries
+					                </label>
+					                <div id="paging">
+					                
+					                </div>
 											
 					                <span class="dataTables_paginate paging_full_numbers">
 					                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
@@ -211,7 +216,7 @@
 					</td>												
                     <td>{{= FIRSTNAME}}</td>
                     <td>{{= LASTNAME}}</td> 
-					<td>{{= LOGIN}}</td>
+					<td>{{= USERNAME}}</td>
 					<td>{{= EMAIL}}</td>
                     <td>{{= PHONE}}</td>
 					<td>{{= ROLE}}</td>

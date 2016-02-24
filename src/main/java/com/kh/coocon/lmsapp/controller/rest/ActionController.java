@@ -1,6 +1,5 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import java.io.Console;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,17 +19,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kh.coocon.lmsapp.entities.Contract;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
+import com.kh.coocon.lmsapp.entities.ListUser;
 import com.kh.coocon.lmsapp.entities.OverTime;
 import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
-import com.kh.coocon.lmsapp.services.ContractServiceImpl;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
@@ -155,15 +153,30 @@ public class ActionController {
 		}
 		
 		// list all user
-		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> getEntity() {
+		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.GET)
+		public ResponseEntity<Map<String, Object>> getEntity(
+				@RequestParam("pageCount") int pageCount,
+				@RequestParam("numberOfRecord") int numberOfRecord
+				) {
+			int offset = (pageCount-1)*numberOfRecord;
 			
 			//List<Entitledays> Mylist = userService.list();
-			//User user = userService.findBySso(getPrincipal());		
+			//User user = userService.findBySso(getPrincipal());
+			
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			
-			listData.put("USER_REC", listuserservice.getListUsers());
+			
+			try{
+				List<ListUser> user = listuserservice.getListUsers(numberOfRecord,offset);
+				//List<User> user = userService.findAllUser();
+				//long totalRecord = user.size();
+				
+				listData.put("USER_REC", user);
+			}catch(Exception e){
+				listData.put("USER_REC", e.getMessage());
+				e.printStackTrace();
+			}
 			
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
@@ -393,7 +406,7 @@ public class ActionController {
 				userService.save(user);
 				if(user.getUserProfiles()!=null){
 		    		for(UserProfile profile : user.getUserProfiles()){
-		    			System.out.println("Profile"+ profile.getName());;
+		    			System.out.println("Profile"+ profile.getType());;
 		    		}
 		    	}
 				map.put("Message", "User "+user.getSsoId()+ " added successfully!");

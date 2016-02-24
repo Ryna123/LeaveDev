@@ -11,6 +11,7 @@ public interface UserService {
     User findBySso(String sso);
     
     List<User> listUserByPosition();
+    List<User> findAllUser();
     
     void save(User user);    
    

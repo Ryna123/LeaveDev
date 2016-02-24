@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -67,14 +68,22 @@ public class User {
     @Column(name="STATE", nullable=false)
     private String state=State.ACTIVE.getState();
  
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "LMS_USER_ROLES", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
     private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
  
     
-    public Position getPosition() {
+    public Set<UserProfile> getUserProfiles() {
+		return userProfiles;
+	}
+
+	public void setUserProfiles(Set<UserProfile> userProfiles) {
+		this.userProfiles = userProfiles;
+	}
+
+	public Position getPosition() {
 		return position;
 	}
 
@@ -239,13 +248,7 @@ public class User {
         this.state = state;
     }
  
-    public Set<UserProfile> getUserProfiles() {
-        return userProfiles;
-    }
- 
-    public void setUserProfiles(Set<UserProfile> userProfiles) {
-        this.userProfiles = userProfiles;
-    }
+  
     
     @Override
     public int hashCode() {

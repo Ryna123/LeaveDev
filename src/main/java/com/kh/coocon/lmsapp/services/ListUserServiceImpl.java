@@ -18,20 +18,28 @@ public  class ListUserServiceImpl implements ListUserService{
 	@Autowired
 	private DataSource dataSource;
 	
-	public List<ListUser> getListUsers() {
+	public List<ListUser> getListUsers(int offset, int limit) {
 		String sql	= "SELECT "
-				+ " 	a.id as id,  " 
-				+ "		a.first_name as firstname," 
-				+ "		a.last_name as lastname," 
-				+ "		a.sso_id as login," 
-				+ "		a.email as email," 
-				+ "		a.phone as phone," 
-				+ "		b.name as role," 
-				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name" 
-				+ "		from lms_users a" 
-				+ "		LEFT JOIN lms_roles b on a.role =b.id" 
-				+ "		LEFT JOIN lms_users c on c.id = a.manager_id" 
-				+ "		ORDER BY id asc"  ;	
+				+ " 	this_.id as id,  " 
+				+ "		this_.first_name as firstName," 
+				+ "		this_.last_name as lastName," 
+				+ "		this_.sso_id as username," 
+				+ "		this_.email as email," 
+				+ "		this_.phone as phone," 				
+				+ "		CONCAT_WS(' ',c.first_name,c.last_name) as manager_name,"
+				+ "		profile1_.NAME as role"				
+				+ "		from lms_users this_" 					
+				+ "		LEFT JOIN lms_users c on c.id = this_.manager_id"
+				+ "		LEFT OUTER JOIN"
+				+ "		LMS_USER_ROLES userprofil3_"
+				+ "			on this_.id=userprofil3_.USER_ID"
+				+ "		left outer join"
+				+ "		LMS_ROLES profile1_"
+				+ "			on userprofil3_.USER_PROFILE_ID=profile1_.id"
+				+ "		ORDER BY id DESC"
+				+ "		LIMIT ?"
+				+ "		OFFSET ?"				
+				+ "		" ;	
 				
 				System.out.println(sql);
 				try (
@@ -41,17 +49,18 @@ public  class ListUserServiceImpl implements ListUserService{
 					
 				)
 				{
-					
+					ps.setInt(1, offset);
+					ps.setInt(2, limit);
 					ResultSet rs = ps.executeQuery();
 					ArrayList<ListUser> ll = new ArrayList<ListUser>();
 					ListUser lu = null;
 					while (rs.next()) {
 						lu = new ListUser();
 						lu.setId(rs.getInt("id"));
-						lu.setFirstname(rs.getString("firstname"));
-						lu.setLastname(rs.getString("lastname"));
+						lu.setFirstName(rs.getString("firstName"));
+						lu.setLastName(rs.getString("lastName"));
 						lu.setEmail(rs.getString("email"));
-						lu.setLogin(rs.getString("login"));
+						lu.setUsername(rs.getString("username"));
 						lu.setRole(rs.getString("role"));
 						lu.setPhone(rs.getInt("phone"));
 						lu.setManagername(rs.getString("manager_name"));

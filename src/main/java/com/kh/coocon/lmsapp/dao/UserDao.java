@@ -11,6 +11,7 @@ public interface UserDao {
     User findBySSO(String sso);
     
     List<User> findByPosition();
+    List<User> findAllUser();
     
     void save(User user);
      
