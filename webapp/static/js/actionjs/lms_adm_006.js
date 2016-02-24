@@ -69,7 +69,7 @@ var paging = {
 					numberOfPaging += 1;			
 				}
 				var paging = "<span class='dataTables_paginate paging_full_numbers'>" +
-								"<a tabindex='0' class='first paginate_button paginate_button_disabled' id='example_first'>First</a>" +
+								"<a tabindex='0' class='first paginate_button paginate_button_disabled' href='javascript:' id='paging_first'>First</a>" +
 								"<a tabindex='0' class='previous paginate_button paginate_button_disabled' id='page_previous' href='javascript:'>Previous</a>" +
 								"<span>";				
 				for(var i=1; i<(numberOfPaging+1);i++){
@@ -103,23 +103,33 @@ var paging = {
 				});
 				$("#page_previous").on("click", function(){
 					if(myData['pageCount'] == 1){
+						alert("This is the first page");
 						return false;
 					}else{
 						myData['pageCount'] -= 1;
 						user.loadData();
 					}
 				});
+				$("#paging_first").on("click", function(){
+					if(myData.pageCount==1){
+						alert("already in the first page")
+						return false;
+					}else{
+						myData.pageCount = 1;
+						user.loadData();
+					}
+				});
 				$("#paging_next").on("click", function(){
 					if(numberOfPaging == myData['pageCount']){
+						alert("This is the last page");
 						return false;
 					}else{
 						myData['pageCount'] += 1;
-						//student.list_all_students();
 						user.loadData();
 					}
 				});
 				$("#paging_last").on("click", function(){
-					if(numberOfPagin == myData.pageCount){
+					if(numberOfPaging == myData.pageCount){
 						alert("already in the last page");
 						return false;
 					}else{
