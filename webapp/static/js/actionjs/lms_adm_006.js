@@ -10,6 +10,7 @@ $(document).ready(function() {
 	 */
 	$("#numberOfRecord").change(function(){
 		myData.numberOfRecord = $(this).val();
+		myData.pageCount = 1;
 		user.loadData();
 	});
 	
