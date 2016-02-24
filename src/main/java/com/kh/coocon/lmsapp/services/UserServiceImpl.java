@@ -45,5 +45,11 @@ public class UserServiceImpl implements UserService{
 	public List<User> findAllUser() {
 		return this.dao.findAllUser();
 	}
+
+	@Override
+	public long countRecord() {
+		// TODO Auto-generated method stub
+		return this.dao.countRecord();
+	}
  
 }

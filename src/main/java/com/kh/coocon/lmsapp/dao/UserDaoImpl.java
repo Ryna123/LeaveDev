@@ -80,6 +80,16 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
 		return (List<User>)crit.list();
 	}
+
+	@Override
+	public long countRecord() {
+		Criteria crit = getSession()
+				.createCriteria(User.class,"u");
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.rowCount())
+				);		
+		return (long)crit.uniqueResult();
+	}
  
      
 }

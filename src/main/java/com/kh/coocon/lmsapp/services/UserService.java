@@ -12,6 +12,7 @@ public interface UserService {
     
     List<User> listUserByPosition();
     List<User> findAllUser();
+    long countRecord();
     
     void save(User user);    
    

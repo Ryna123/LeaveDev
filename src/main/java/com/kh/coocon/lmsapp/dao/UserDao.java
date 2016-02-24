@@ -12,6 +12,7 @@ public interface UserDao {
     
     List<User> findByPosition();
     List<User> findAllUser();
+    long countRecord();
     
     void save(User user);
      
