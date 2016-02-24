@@ -28,12 +28,10 @@ var user = {
 				url : "../action/service/lms_adm_006",		
 				dataType : "JSON",
 				data: myData,
-				type : "GET",
-			//	data :a,
-				
+				type : "GET",				
 				success : function(data) {
 					var res = data.RESP_DATA['USER_REC'];
-					console.log(data.RESP_DATA['USER_REC']);
+					console.log(data);
 						if(res.length <=0) {
 							$("tfoot#entitleFooter").show();
 						} else {
@@ -48,8 +46,9 @@ var user = {
 								data['MANAGERNAME']  = res[i].managername;
 								data['PHONE'] = res[i].phone;
 								$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");
-								paging.createPagination(23);
+								console.log(data)
 							})
+							paging.createPagination(data.RESP_DATA['TOTAL_REC']);
 						}
 						loading(false);
 					}
