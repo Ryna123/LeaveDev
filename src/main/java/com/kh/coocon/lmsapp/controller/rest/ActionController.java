@@ -444,7 +444,7 @@ public class ActionController {
 			try {
 				List<Contract> contractList = contractService.listContract();
 				if(contractList.isEmpty() || contractList == null){
-					map.put("Message","Ëmpty");
+					map.put("Message","Empty");
 				}else{
 					map.put("Message", "Exist");
 					map.put("contractList", contractList);
