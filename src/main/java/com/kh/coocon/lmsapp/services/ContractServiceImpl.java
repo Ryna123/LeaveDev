@@ -35,8 +35,9 @@ public class ContractServiceImpl implements ContractService {
 			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
 			ResultSet rs = preparedStatement.executeQuery();
 			List<Contract> contractList = new ArrayList<Contract>();
-			Contract contract= new Contract();
+			Contract contract= null;
 			while (rs.next()) {
+				contract= new Contract();
 				contract.setId(rs.getInt("contract_id"));
 				contract.setContractName(rs.getString("contract_name"));
 				contract.setWeeklyDuration(rs.getString("weekly_duration"));
