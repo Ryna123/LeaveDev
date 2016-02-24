@@ -86,7 +86,7 @@ var paging = {
 						'</span>';			
 				$("#paging").html(paging);
 				
-				if(myData['pageCount'] == 1){
+				/*if(myData['pageCount'] == 1){
 					$("#page_previous").addClass("disabled");
 				}else{
 					$("#page_previous").removeClass("disabled");
@@ -95,7 +95,7 @@ var paging = {
 					$("#paging_next").addClass("disabled");
 				}else{
 					$("#paging_next").removeClass("disabled");
-				}		
+				}*/		
 				
 
 				$("#paging span a.numberOfPage").on("click", function(){ 
