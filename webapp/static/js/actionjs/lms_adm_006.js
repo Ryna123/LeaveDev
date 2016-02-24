@@ -68,38 +68,40 @@ var paging = {
 				if(a>0){			
 					numberOfPaging += 1;			
 				}
-				var paging = "<ul class='pagination'>"+
-								"<li class='pagePrevious disabled'><a href='javascript:' aria-label='Previous'>" +
-									"<span aria-hidden='true'>&laquo;</span></a></li>";
-				
+				var paging = "<span class='dataTables_paginate paging_full_numbers'>" +
+								"<a tabindex='0' class='first paginate_button paginate_button_disabled' id='example_first'>First</a>" +
+								"<a tabindex='0' class='previous paginate_button paginate_button_disabled' id='page_previous' href='javascript:'>Previous</a>" +
+								"<span>";				
 				for(var i=1; i<(numberOfPaging+1);i++){
 					if(i == myData.pageCount) {
-						paging += "<li class='active'><a class='numberOfPage' href='javascript:'>"+i+"</a></li>";
+						paging += "<a class='numberOfPage paginate_active' href='javascript:'>"+i+"</a>";
 						continue;
 					}
-					paging += "<li><a class='numberOfPage' href='javascript:'>"+i+"</a></li>";			
+					paging += "<a class='numberOfPage paginate_button' href='javascript:'>"+i+"</a>";			
 				}
-				paging +='<li class="pageNext disabled"><a href="javascript:" aria-label="Next"><span aria-hidden="true">&laquo;</span></a></li>';
-				paging += "</u>";			
+				paging 		+='</span>'+
+							'<a tabindex="0" class="next paginate_button" href="javascript:" id="paging_next">Next</a>'+
+							'<a tabindex="0" class="last paginate_button" href="javascript:" id="paging_last">Last</a>'+
+						'</span>';			
 				$("#paging").html(paging);
 				
 				if(myData['pageCount'] == 1){
-					$("ul.pagination li.pagePrevious").addClass("disabled");
+					$("#page_previous").addClass("disabled");
 				}else{
-					$("ul.pagination li.pagePrevious").removeClass("disabled");
+					$("#page_previous").removeClass("disabled");
 				}
 				if(myData['pageCount'] == numberOfPaging){
-					$("ul.pagination li.pageNext").addClass("disabled");
+					$("#paging_next").addClass("disabled");
 				}else{
-					$("ul.pagination li.pageNext").removeClass("disabled");
+					$("#paging_next").removeClass("disabled");
 				}		
 				
 
-				$("#pagination li a.numberOfPage").on("click", function(){ 
+				$("#paging span a.numberOfPage").on("click", function(){ 
 						myData['pageCount'] = Number($(this).text());
 						user.loadData();
 				});
-				$("ul.pagination li.pagePrevious").on("click", function(){
+				$("#page_previous").on("click", function(){
 					if(myData['pageCount'] == 1){
 						return false;
 					}else{
@@ -107,12 +109,21 @@ var paging = {
 						user.loadData();
 					}
 				});
-				$("ul.pagination li.pageNext").on("click", function(){
+				$("#paging_next").on("click", function(){
 					if(numberOfPaging == myData['pageCount']){
 						return false;
 					}else{
 						myData['pageCount'] += 1;
 						//student.list_all_students();
+						user.loadData();
+					}
+				});
+				$("#paging_last").on("click", function(){
+					if(numberOfPagin == myData.pageCount){
+						alert("already in the last page");
+						return false;
+					}else{
+						myData.pageCount = numberOfPaging;
 						user.loadData();
 					}
 				});
