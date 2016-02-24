@@ -12,7 +12,7 @@ public interface UserService {
     
     List<User> listUserByPosition();
     List<User> findAllUser();
-    long countRecord();
+    long countRecord(String position);
     
     void save(User user);    
    

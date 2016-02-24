@@ -173,7 +173,7 @@ public class ActionController {
 				//long totalRecord = user.size();
 				
 				listData.put("USER_REC", user);
-				listData.put("TOTAL_REC", userService.countRecord());
+				listData.put("TOTAL_REC", userService.countRecord("All user"));
 			}catch(Exception e){
 				listData.put("USER_REC", e.getMessage());
 				e.printStackTrace();

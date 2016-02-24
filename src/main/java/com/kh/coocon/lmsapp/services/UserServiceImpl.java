@@ -47,9 +47,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public long countRecord() {
+	public long countRecord(String position) {
 		// TODO Auto-generated method stub
-		return this.dao.countRecord();
+		return this.dao.countRecord(position);
 	}
  
 }

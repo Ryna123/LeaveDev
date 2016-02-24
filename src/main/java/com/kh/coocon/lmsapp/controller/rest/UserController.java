@@ -32,6 +32,7 @@ public class UserController {
 			List<User> users = service.listUserByPosition();
 			map.put("MESSAGE", "SUCCESS");
 			map.put("LIST", users);
+			map.put("TOTAL_REC", service.countRecord("Manager"));
 		}catch(Exception e){
 			map.put("MESSAGE", "ERROR");
 			map.put("ERROR", e.getMessage());
