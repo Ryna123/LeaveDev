@@ -88,6 +88,7 @@ lms_adm_028.listOverTime = function() {
 					],
 				});
 			lms_adm_028.CallOtOneRecord();
+			lms_adm_028.callUpdateOt();
 			loading(false);
 		},
 		error : function(data) {
@@ -101,6 +102,12 @@ lms_adm_028.CallOtOneRecord = function() {
 		var otId = ($(this).find('input').val());
 		lms_adm_028.getOtOneRecord(otId);
 		$('#otModal').modal('toggle');
+	});
+}
+
+lms_adm_028.callUpdateOt = function() {
+	$("#oTEditBtn").click(function() {
+		lms_adm_028.updateOt();
 	});
 }
 
@@ -124,6 +131,7 @@ lms_adm_028.getOtOneRecord = function(input) {
 				$("#otDate").val((res[i].oTDate).replace(/\-/g, "/"));
 				$("#otReason").val(res[i].oTReason);
 				$("#otStatus").val(res[i].oTStatus_id);
+				$("#otId").val(res[i].id);
 
 				//visible for user input when status="planned" || ="Requested"
 				if (($("#otStatus").val())== '1' || ($("#otStatus").val())=='4') {
@@ -142,6 +150,45 @@ lms_adm_028.getOtOneRecord = function(input) {
 					$("#otStatus").attr("disabled", "disabled");
 				}
 			});
+		}
+	})
+	loading(false);
+}
+
+
+lms_adm_028.updateOt=function(){
+	if(!$("#otModalForm").validationEngine('validate')) { 
+		return false;
+	}	
+
+	loading(true);
+	var otid=($("#otModal").find('#otId').val());
+	
+	var ot = {};
+	var otType = $("#otType").val();
+	var otDuration = $("#otDuration").val();
+	var otDate = $("#otDate").val();
+	var otReason = $("#otReason").val();
+	var otStatusId = $("#otStatus").val();
+	
+	ot.oTType = otType;
+	ot.oTDuration = otDuration;
+	ot.oTDate = otDate;
+	ot.oTReason = otReason;
+	ot.oTStatus_id =otStatusId;
+	ot.id=otid;
+	
+	$.ajax({
+		url : "../action/service/lms_adm_u030p",
+		headers: { 
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json' 
+	    },
+		dataType : "JSON",
+		type : "PUT",
+		data :JSON.stringify(ot),
+		success : function(data) {
+			location.href= "lms_adm_028";
 		}
 	})
 	loading(false);

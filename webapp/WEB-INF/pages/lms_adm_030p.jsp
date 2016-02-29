@@ -8,6 +8,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal form-label-left" id="otModalForm">
+					<input type="hidden" id="otId">
 					<div class="form-group">
 						<label
 							class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start
