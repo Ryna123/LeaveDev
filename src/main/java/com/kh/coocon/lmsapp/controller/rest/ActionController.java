@@ -158,14 +158,11 @@ public class ActionController {
 				@RequestParam("pageCount") int pageCount,
 				@RequestParam("numberOfRecord") int numberOfRecord
 				) {
-			int offset = (pageCount-1)*numberOfRecord;
-			
+			int offset = (pageCount-1)*numberOfRecord;			
 			//List<Entitledays> Mylist = userService.list();
-			//User user = userService.findBySso(getPrincipal());
-			
+			//User user = userService.findBySso(getPrincipal());			
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			
 			
 			try{
 				List<ListUser> user = listuserservice.getListUsers(numberOfRecord,offset);
