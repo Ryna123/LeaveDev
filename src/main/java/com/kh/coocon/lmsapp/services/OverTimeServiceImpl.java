@@ -279,5 +279,31 @@ public  class OverTimeServiceImpl implements OverTimeService {
 		}
 		return null;
 	}
+
+	@Override
+	public boolean updateOvertime(OverTime OTObj, int otId, int uId) {
+		String sql="UPDATE lms_overtime "
+				+ "SET status_id=?, ot_type=?, date=?, duration=?, cause=? "
+				+ "WHERE employee_id=? AND id=? ";
+		try (
+				Connection cnn = dataSource.getConnection();
+				PreparedStatement ps = cnn.prepareStatement(sql);
+			) {
+				ps.setInt(1, OTObj.getoTStatus_id());
+				ps.setInt(2, OTObj.getoTType());
+				ps.setString(3, OTObj.getoTDate());
+				ps.setDouble(4, OTObj.getoTDuration());
+				ps.setString(5, OTObj.getoTReason());
+				ps.setInt(6, uId);
+				ps.setInt(7, otId);
+				System.out.println("***sql update: " + ps);
+				if (ps.executeUpdate() > 0) {
+					return true;
+				}
+			} catch (SQLException e) {
+				System.out.println(e);
+			}
+		return false;
+	}
 	
 }

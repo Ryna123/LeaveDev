@@ -11,6 +11,6 @@ public interface OverTimeService {
 	public List<OverTime> getOtOneRecord(int otId,int empId);
 	public List<OverTime> getOtOneRecordUser(int otId,int uId);
 	public boolean updateStatusOvertime(int otId, String otAct );
-	
+	public boolean updateOvertime(OverTime OTObj, int otId, int uId);
 	
 }
