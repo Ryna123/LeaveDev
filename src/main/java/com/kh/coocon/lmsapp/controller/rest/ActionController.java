@@ -252,6 +252,21 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
+		//update overtime
+		@RequestMapping(value = { "/lms_adm_u030p"},method = RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<Map<String, Object>> updateOvertime(@RequestBody OverTime otobj
+				/*,@RequestParam("otId") int otId*/) throws Exception {
+			User user = userService.findBySso(getPrincipal());
+			Map<String, Object> map = new HashMap<String, Object>();
+			if (overTimeService.updateOvertime(otobj,otobj.getId(),user.getId())==false) {
+				map.put("MESSAGE", "update over time failse");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);	
+		}
+		
 		//List overTime for manager
 		@RequestMapping(value = { "/lms_adm_r005"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> getAllOverTimeAdmin(@RequestParam("empId") int empId,@RequestParam("frstNm") String frstNm,@RequestParam("lstNm") String lstNm ) {
