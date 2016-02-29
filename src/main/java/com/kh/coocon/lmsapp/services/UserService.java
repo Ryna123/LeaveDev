@@ -10,7 +10,7 @@ public interface UserService {
      
     User findBySso(String sso);
     
-    List<User> listUserByPosition();
+    List<User> listUserByPosition(int limit, int offset);
     List<User> findAllUser();
     long countRecord(String position);
     

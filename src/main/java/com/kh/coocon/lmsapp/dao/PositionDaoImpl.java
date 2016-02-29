@@ -18,10 +18,19 @@ public class PositionDaoImpl extends AbstractDao<Integer, Position> implements P
 		Criteria crit = getSession().createCriteria(Position.class,"p");
 		crit.setProjection(Projections.projectionList()
 				.add(Projections.property("p.id"),"id")
-				.add(Projections.property("p.name"),"name"));
-		
+				.add(Projections.property("p.name"),"name"));		
 		crit.setResultTransformer(new AliasToBeanResultTransformer(Position.class));
 		return (List<Position>)crit.list();
+	}
+
+	@Override
+	public long countPositionRecord() {
+
+		Criteria crit = getSession().createCriteria(Position.class,"p");
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.rowCount()));		
+		//crit.setResultTransformer(new AliasToBeanResultTransformer(Position.class));
+		return (long) crit.uniqueResult();
 	}
 
 }

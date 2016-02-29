@@ -44,7 +44,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<User> findByPosition() {
+	public List<User> findByPosition(int limit, int offset) {
 		Criteria crit = getSession()
 				.createCriteria(User.class,"u");
 		crit.createAlias("u.position", "position");
@@ -59,6 +59,8 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		crit.add(Restrictions.eq("position.name", "Manager"));
 		
 		// Convert to User Object
+		crit.setMaxResults(limit);
+		crit.setFirstResult(offset);
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
 		
 		return (List<User>)crit.list();

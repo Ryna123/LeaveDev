@@ -26,10 +26,15 @@ public class UserController {
 	
 
 	@RequestMapping(value="listUserByPosition", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> listUserByPosition(){
+	public Map<String, Object> listUserByPosition(
+			@RequestParam("pageCount") int pageCount,
+			@RequestParam("numberOfRecord") int numberOfRecord){
+		
+		int offset = (pageCount-1)*numberOfRecord;
+		
 		Map<String, Object> map = new HashMap<>();
 		try{
-			List<User> users = service.listUserByPosition();
+			List<User> users = service.listUserByPosition(numberOfRecord, offset);
 			map.put("MESSAGE", "SUCCESS");
 			map.put("LIST", users);
 			map.put("TOTAL_REC", service.countRecord("Manager"));

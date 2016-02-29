@@ -37,8 +37,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> listUserByPosition() {
-		return this.dao.findByPosition();
+	public List<User> listUserByPosition(int limit, int offset) {
+		return this.dao.findByPosition(limit, offset);
 	}
 
 	@Override

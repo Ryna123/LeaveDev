@@ -46,7 +46,6 @@ var user = {
 								data['MANAGERNAME']  = res[i].managername;
 								data['PHONE'] = res[i].phone;
 								$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");
-								console.log(data)
 							})
 							paging.createPagination(data.RESP_DATA['TOTAL_REC']);
 						}

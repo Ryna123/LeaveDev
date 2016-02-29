@@ -5,7 +5,7 @@
 		<div class="modal-dialog">
 		<!-- pop up form--edit user-->
 			<div class="modal-content">
-				<div class="main_container" style="height:420px;">
+				<div class="main_container" s>
 
     <!-- page content -->
             <div class="right_col" role="main">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <!-- Pagination block -->
-                <div id="pagination">
+                <div id="paging">
 	
 	                <span class="dataTables_paginate paging_full_numbers">
 	                	<a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
@@ -109,6 +109,13 @@
         </tr>
 	</script>
 	<script>
+	
+	myData = {
+			'numberOfRecord':5,
+			'pageCount':1
+		};
+	
+	
 	$(document).ready(function(){
 		/************************************************************************************************
 		 * Select Manger
@@ -123,11 +130,11 @@
 			loadManager: function(){
 				$("tbody#userPosition").empty();
 				$.ajax({
+					data: myData,
 					url: "../action/service/listUserByPosition",
 					type: "GET",
 					success: function(data){
 						var res = data['LIST'];
-						console.log(data);
 							if(res.length <=0) {
 								$("tfoot#entitleFooter").show();
 							} else {
@@ -138,9 +145,9 @@
 									data['LASTNAME']  = res[i].lastName;
 									data['EMAIL']  = res[i].email;
 									$("#lmsAdm006p").tmpl(data).appendTo("tbody#userPosition");
-									console.log(data)
+									
 								})
-								//paging.createPagination(data.RESP_DATA['TOTAL_REC']);
+								paging.createPagination(data['TOTAL_REC']);
 							}
 							loading(false);
 					}					
@@ -148,6 +155,80 @@
 				});
 			}
 	};
+	var paging = {
+			createPagination : function(totalRecord)
+			{
+				
+				if(totalRecord==0){
+					$("#pagination").html("");
+				}else{
+					var a = totalRecord % myData.numberOfRecord; // 5				
+					var numberOfPaging = Math.floor(totalRecord / myData.numberOfRecord);
+				
+					if(a>0){			
+						numberOfPaging += 1;			
+					}
+					var paging = "<span class='dataTables_paginate paging_full_numbers'>" +
+									"<a tabindex='0' class='first paginate_button paginate_button_disabled' href='javascript:' id='paging_first'>First</a>" +
+									"<a tabindex='0' class='previous paginate_button paginate_button_disabled' id='page_previous' href='javascript:'>Previous</a>" +
+									"<span>";				
+					for(var i=1; i<(numberOfPaging+1);i++){
+						if(i == myData.pageCount) {
+							paging += "<a class='numberOfPage paginate_active' href='javascript:'>"+i+"</a>";
+							continue;
+						}
+						paging += "<a class='numberOfPage paginate_button' href='javascript:'>"+i+"</a>";			
+					}
+					paging 		+='</span>'+
+								'<a tabindex="0" class="next paginate_button" href="javascript:" id="paging_next">Next</a>'+
+								'<a tabindex="0" class="last paginate_button" href="javascript:" id="paging_last">Last</a>'+
+							'</span>';			
+					$("#paging").html(paging);
+
+					$("#paging span a.numberOfPage").on("click", function(){ 
+							myData['pageCount'] = Number($(this).text());
+							manager.loadManager();
+					});
+					$("#page_previous").on("click", function(){
+						if(myData['pageCount'] == 1){
+							alert("This is the first page");
+							return false;
+						}else{
+							myData['pageCount'] -= 1;
+							manager.loadManager();
+						}
+					});
+					$("#paging_first").on("click", function(){
+						if(myData.pageCount==1){
+							alert("already in the first page")
+							return false;
+						}else{
+							myData.pageCount = 1;
+							manager.loadManager();
+						}
+					});
+					$("#paging_next").on("click", function(){
+						if(numberOfPaging == myData['pageCount']){
+							alert("This is the last page");
+							return false;
+						}else{
+							myData['pageCount'] += 1;
+							manager.loadManager();
+						}
+					});
+					$("#paging_last").on("click", function(){
+						if(numberOfPaging == myData.pageCount){
+							alert("already in the last page");
+							return false;
+						}else{
+							myData.pageCount = numberOfPaging;
+							manager.loadManager();
+						}
+					});
+				}
+				
+			},
+	}
 	</script>
 	
 

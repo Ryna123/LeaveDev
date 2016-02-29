@@ -10,7 +10,7 @@ public interface UserDao {
      
     User findBySSO(String sso);
     
-    List<User> findByPosition();
+    List<User> findByPosition(int limit, int offset);
     List<User> findAllUser();
     long countRecord(String position);
     
