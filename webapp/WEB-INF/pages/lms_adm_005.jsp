@@ -214,7 +214,7 @@
                             <a href="javascrip:" id="approveBtn"><input type="hidden" value= "{{= OTID}}"><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Approve" data-original-title="Active"></span></a> |
                             <a href="javascrip:" id="rejectBtn"><input type="hidden" value= "{{= OTID}}"><span class="fa fa-close fa-lg" data-toggle="tooltip" data-placement="top" title="Reject" data-original-title="Delete"></span></a>
                           </td>
-                          <td id="">{{= FULLNAME}}</td>
+                          <td style='width:300px' id="">{{= FULLNAME}}</td>
                           <td id="">{{= DATE}}</td>
                           <td id="">{{= DURATION}}&nbsp;&nbsp;{{= TYPE}}</td>
                           <td id=""><div style="text-overflow:ellipsis;overflow:hidden;width:360px;">{{= CAUSE}}</div></td>
