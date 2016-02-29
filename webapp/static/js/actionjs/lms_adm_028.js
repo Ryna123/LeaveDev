@@ -36,7 +36,7 @@ lms_adm_028.listOverTime = function() {
 				table = $('#otDataTable').DataTable({
 					"pagingType": "full_numbers",
 					data:values["data"],
-					 "dom": '<"top"i>rt<"bottom"lp>',
+					 "dom": 'rt<"bottom"lp>',//"dom": '<"top"i>rt<"bottom"lp>',
 					columns:[
 					        {"data":"id","bSearchable": false,
 					        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {

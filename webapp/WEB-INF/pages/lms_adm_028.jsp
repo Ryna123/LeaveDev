@@ -2,7 +2,7 @@
 <script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 <style type="text/css">
 
-/* 		.dataTables_scroll{
+/* .dataTables_scroll{
 			min-height: 500px;
 		} */
 		#otDataTable_length select{
@@ -87,7 +87,7 @@
 									</ul>
 									<div class="clearfix"></div>
 								</div>
-								<div class="x_content">
+								<div class="x_content" >
 									<table class="table table-bordered" id="otDataTable">
 										<thead>
 											<tr>
@@ -108,7 +108,6 @@
 											</tr>
 										</tfoot> -->
 									</table>
-
 									<!-- <div id="example_length" class="dataTables_length">
 										<label>Show <select size="1"
 											style="width: 56px; padding: 6px;" name="example_length"
