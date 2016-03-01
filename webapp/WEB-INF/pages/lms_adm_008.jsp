@@ -145,9 +145,9 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Manager :</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input id="txtManager" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
-                                            	<button type="button" class="btn btn-primary">Self</button> 
+                                            	<button id="btnSelf" type="button" class="btn btn-primary">Self</button> 
                                         	</span>
                                         	<span class="input-group-btn">
                                             	<button id="btnManager" type="button" class="btn btn-primary" data-toggle="modal" data-target="#select_manager">Select</button> 

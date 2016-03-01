@@ -5,7 +5,7 @@
 		<div class="modal-dialog">
 		<!-- pop up form--edit user-->
 			<div class="modal-content">
-				<div class="main_container" s>
+				<div class="main_container" style="height: 500px">
 
     <!-- page content -->
             <div class="right_col" role="main">
@@ -36,7 +36,7 @@
                                     <table class="table table-hover table-bordered projects responsive-utilities bulk_action"><!-- responsive-utilities jambo_table bulk_action -->
                                         <thead>
                                              <tr class="headings">
-                                             	<th><input type="checkbox" id="check-all" class="flat"/></th>
+                                             	<th>Select<!-- <input type="checkbox" id="check-all" class="flat"/> --></th>
                                                 <th>ID</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
@@ -98,15 +98,13 @@
 	</div>
 	<!-- End Modal select Manager-->
 	 <script type="text/x-jquery-tmpl" id="lmsAdm006p">
-		<tr>
-			
-			<td class="a-center "><input type="checkbox" class="flat" name="table_records"/></td>
-			
-             <th scope="row">{{= ID}}</th>												
-                    <td>{{= FIRSTNAME}}</td>
-                    <td>{{= LASTNAME}}</td> 
-					<td>{{= EMAIL}}</td>
-        </tr>
+		<tr>			
+			<td class="a-center "><input type="radio" class="flat" name="table_records"/></td>			
+             <td scope="row">{{= ID}}</th>												
+             <td>{{= FIRSTNAME}}</td>
+             <td>{{= LASTNAME}}</td> 
+			 <td>{{= EMAIL}}</td>
+       	</tr>
 	</script>
 	<script>
 	
@@ -140,7 +138,7 @@
 							} else {
 								$.each(res,function(i){
 									var data = {};
-									data['ID'] = i+1; // show auto number on screen
+									data['ID'] = res[i].id; // show auto number on screen
 									data['FIRSTNAME']  = res[i].firstName;
 									data['LASTNAME']  = res[i].lastName;
 									data['EMAIL']  = res[i].email;

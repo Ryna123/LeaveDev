@@ -8,7 +8,9 @@ $(document).ready(function(){
 	contract.listContrac();
 	position.listPosition();
 	
-
+	/**
+	 * When user click the create button
+	 */
 	$("#btnCreate").click(function(){
 		userInfo.firstName 			= $("#firstName").val();
 		userInfo.lastName 			= $("#lastName").val();
@@ -18,6 +20,14 @@ $(document).ready(function(){
 		userInfo.userProfiles[0].id	= $("#userProfile").val();
 		
 		user.createUser();
+	});
+	/**
+	 * 
+	 */
+	$("#btnSelf").click(function(){
+		alert($(this).text());
+		$("#txtManager").val($("#firstName").val()+" "+$("#lastName").val());
+		
 	});
 	
 });
