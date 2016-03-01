@@ -2,9 +2,9 @@
 <script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 <style type="text/css">
 
-/* .dataTables_scroll{
-			min-height: 500px;
-		} */
+		#SearchBox{
+			border-radius: 25px 25px 25px 25px;
+		} 
 		#otDataTable_length select{
 			min-height: 30px;
 		}
@@ -52,11 +52,11 @@
 						<div class="title_right">
 							<div
 								class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-								<div class="input-group">
+								<div class="col-md-12 col-sm-12 col-xs-12 input-group">
 									<input type="text" class="form-control"
-										placeholder="Search for..."> <span
+										placeholder="Search reasons..." id="SearchBox"> <span
 										class="input-group-btn">
-										<button class="btn btn-default" type="button">Go!</button>
+										<!-- <button class="btn btn-default" type="button">Go!</button> -->
 									</span>
 								</div>
 							</div>

@@ -54,7 +54,7 @@ lms_adm_028.listOverTime = function() {
 						             }
 					        },
 					        {"data":"oTDate","bSearchable": false},
-					        {"data":"oTDuration",
+					        {"data":"oTDuration","bSearchable": false,
 					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 					        		if((oData.oTType)==1){
 					        			$(nTd).html("<span>" +oData.oTDuration+"</span>" +
@@ -71,16 +71,16 @@ lms_adm_028.listOverTime = function() {
 					        				"</div>");
 					             }
 					        },
-					        {"data":"oTStatus_id","bSearchable": false,
+					        {"data":"oTStatus_id",
 					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 					        		if ((oData.oTStatus_id) == '1') {
-					        			$(nTd).html('<span class="label label-info">Planned</span>');
+					        			$(nTd).html('<span class="label label-info" class="search" value="planned">Planned</span>');
 									} else if ((oData.oTStatus_id) == '4') {
-										$(nTd).html('<span class="label label-warning">Requested</span>');
+										$(nTd).html('<span class="label label-warning" class="search" value="Requested">Requested</span>');
 									} else if ((oData.oTStatus_id) == '2') {
-										$(nTd).html('<span class="label label-success">Approved</span>');
+										$(nTd).html('<span class="label label-success" class="search">Approved</span>');
 									} else if ((oData.oTStatus_id) == '3') {
-										$(nTd).html('<span class="label label-danger">Rejected</span>');
+										$(nTd).html('<span class="label label-danger" class="search">Rejected</span>');
 									}
 					             }
 					        },
@@ -96,6 +96,10 @@ lms_adm_028.listOverTime = function() {
 		}
 	});
 }
+
+$('#SearchBox').keyup(function(){
+	table.search($(this).val()).draw() ;
+})
 
 lms_adm_028.CallOtOneRecord = function() {
 	$("#otDataTable tr a#viewBtn").click(function() {
