@@ -74,13 +74,17 @@ lms_adm_028.listOverTime = function() {
 					        {"data":"oTStatus_id",
 					        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 					        		if ((oData.oTStatus_id) == '1') {
-					        			$(nTd).html('<span class="label label-info" class="search" value="planned">Planned</span>');
+					        			oData.oTStatus_id="Planned";
+					        			$(nTd).html('<span class="label label-info">Planned</span>');
 									} else if ((oData.oTStatus_id) == '4') {
-										$(nTd).html('<span class="label label-warning" class="search" value="Requested">Requested</span>');
+										oData.oTStatus_id="Requested";
+										$(nTd).html('<span class="label label-warning">Requested</span>');
 									} else if ((oData.oTStatus_id) == '2') {
-										$(nTd).html('<span class="label label-success" class="search">Approved</span>');
+										oData.oTStatus_id="Approved";
+										$(nTd).html('<span class="label label-success">Approved</span>');
 									} else if ((oData.oTStatus_id) == '3') {
-										$(nTd).html('<span class="label label-danger" class="search">Rejected</span>');
+										oData.oTStatus_id="Rejected";
+										$(nTd).html('<span class="label label-danger">Rejected</span>');
 									}
 					             }
 					        },
