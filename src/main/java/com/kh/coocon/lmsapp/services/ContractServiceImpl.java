@@ -30,9 +30,7 @@ public class ContractServiceImpl implements ContractService {
 	@Override
 	public List<Contract> listContract() {
 		String sql="select contract_id, contract_name,weekly_duration,daily_duration, started_date,end_date from lms_contracts";
-		System.out.println("start SQL");
 		try {
-			System.out.println("try block");
 			Connection cnn= dataSource.getConnection();
 			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -58,9 +56,22 @@ public class ContractServiceImpl implements ContractService {
 	}
 
 	@Override
-	public void addContract(Contract contrast) {
-		// TODO Auto-generated method stub
+	public int addContract(Contract contrast) {
+		String sql="insert into lms_contracts(contract_id ,contract_name,started_date,end_date) values(nextval('ctSerialID1'),?,?,?)";
 		
+		try {
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
+			preparedStatement.setString(1, contrast.getContractName());
+			preparedStatement.setString(2, contrast.getStartedDate());
+			preparedStatement.setString(3, contrast.getEndDate());
+			return preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getStackTrace());
+			System.out.println(e.getMessage());
+		}
+		return 0;
 	}
 
 	@Override

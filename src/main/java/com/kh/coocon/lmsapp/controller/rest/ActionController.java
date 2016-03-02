@@ -12,10 +12,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -470,13 +472,30 @@ public class ActionController {
 		}
 		
 		@RequestMapping(value="/lms_adm_d017", method=RequestMethod.POST)
-		public Map<String,Object> deleteContrast(@RequestParam(value="dID") int id){
-			contractService.deleteContract(id);
-			return listContract();
-		}
-		@RequestMapping(value="/lms_adm_c017", method=RequestMethod.POST)
-		public Map<String,Object> createContrast(){
+		public Map<String,Object> deleteContract(@RequestParam(value="dID") int id){
+			try {
+				contractService.deleteContract(id);
+				return listContract();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
 			return null;
+		}
+		@RequestMapping(value="/lms_adm_c017", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> createContract(@RequestBody() Contract ctObj){
+			try {
+				if(contractService.addContract(ctObj) == 1 ){
+					return listContract();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				System.out.println(e.getMessage());
+				// TODO: handle exception
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "add false");
+			return map;
 		}
 		
 		private String getPrincipal(){
