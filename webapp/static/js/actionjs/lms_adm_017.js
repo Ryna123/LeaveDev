@@ -1,20 +1,17 @@
 var contractManagment={};
 var table;
 $(document).ready(function(){
-	$("#txtStart,#txtEnd").daterangepicker({ 
+	$("#txtStart,#txtEnd,#txtCStart,#txtCEnd").daterangepicker({ 
 		  singleDatePicker: true,
 		        showDropdowns: true,
 		        format:'DD/MM/YYYY'
 	});
 	
 	contractManagment.listContractInfo();
-	
-	
-	/*$('.btnEdit').on('click',function(){alert("message")});*/
+	/*$('#btnCreate').click(function(){
+		contractManagment.createContract();
+	});*/
 });
-/*contractManagment.getRow = function(){
-	alert("messgae");
-}*/
 
 contractManagment.listContractInfo = function(){
 	loading(true);
@@ -54,8 +51,7 @@ contractManagment.listContractInfo = function(){
 contractManagment.clickEvent=function(){
 	$('#ctTable tbody tr td a.btnDelete').click(function(){
 		/*alert($(this).data('index'));*/
-		var dID=$(this).data('index');
-		
+		var dID=$(this).data('index');	
 		if(confirm('Do you want to delete record: ')+dID){
 			$.ajax({
 				url:"../action/service/lms_adm_d017",
@@ -82,5 +78,23 @@ contractManagment.clickEvent=function(){
 	} );
 	$('#ctTable tbody tr td a.btnView').click(function() {
 
+	});
+}
+
+contractManagment.createContract=function(){
+	var name = $('#txtCName').val();
+	var start = $('#txtCStart').val();
+	var end = $('#txtCEnd').val();
+	
+	var values={"name":name,"start":start,"end":end};
+	$.ajax({
+		url:"../action/service/lms_adm_c017",
+		type:"POST",
+		dataType:"JSON",
+		data:values,
+		success:function(data){
+			console.log(data);
+			//contractManagment.clickEvent();
+		}
 	});
 }

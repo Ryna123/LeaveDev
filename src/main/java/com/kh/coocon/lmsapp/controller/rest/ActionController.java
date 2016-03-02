@@ -474,6 +474,10 @@ public class ActionController {
 			contractService.deleteContract(id);
 			return listContract();
 		}
+		@RequestMapping(value="/lms_adm_c017", method=RequestMethod.POST)
+		public Map<String,Object> createContrast(){
+			return null;
+		}
 		
 		private String getPrincipal(){
 	    	 String userName = null;
