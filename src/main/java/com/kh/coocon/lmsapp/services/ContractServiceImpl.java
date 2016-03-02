@@ -3,9 +3,11 @@ package com.kh.coocon.lmsapp.services;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.standard.PresentationDirection;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +65,20 @@ public class ContractServiceImpl implements ContractService {
 
 	@Override
 	public void deleteContract(int id) {
-		// TODO Auto-generated method stub
-		
+		String sql="delete from lms_contracts where contract_id=?";
+		try {
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			if(preparedStatement.executeUpdate()==1){
+				sql="delete from lms_entitleddays where contract_id=?";
+				preparedStatement.setInt(1, id);
+				preparedStatement.execute();
+			}
+			
+		} catch (SQLException e) {
+			e.getStackTrace();
+		}
 	}
 
 	@Override

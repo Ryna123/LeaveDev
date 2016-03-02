@@ -27,9 +27,9 @@ contractManagment.listContractInfo = function(){
 				         {"data":"id", "bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        			 $(nTd).html("<div class='fa-hover col-md-3 col-sm-4 col-xs-12'>" +
-				        			 		"<a href='#/trash-o'><i class='fa fa-trash-o'><input type='hidden' value="+sData+"></i></a>" +
-				        			 		" </div>" + "<div class='fa-hover col-md-3 col-sm-4 col-xs-12'><a class='btnEdit' href='#'><i class='fa fa-pencil' data-toggle='modal' ></i><input type='hidden' class='inputEdit'></a></div>"+
-				        			 		"<div class='fa-hover col-md-3 col-sm-4 col-xs-12'><a><i class='fa fa-signal'></i></a></div>");
+				        			 		"<a href='#/trash-o' class='btnDelete' data-index="+sData+"><i class='fa fa-trash-o'></i></a>" +
+				        			 		" </div>" + "<div class='fa-hover col-md-3 col-sm-4 col-xs-12'><a class='btnEdit' href='#' data-index="+sData+"><i class='fa fa-pencil' data-toggle='modal' ></i><input type='hidden' class='inputEdit'></a></div>"+
+				        			 		"<div class='fa-hover col-md-3 col-sm-4 col-xs-12'><a class='btnView' data-index="+sData+"><i class='fa fa-signal'></i></a></div>");
 				             }
 				        },
 				         {"data":"id"},
@@ -46,7 +46,31 @@ contractManagment.listContractInfo = function(){
 }
 
 contractManagment.clickEvent=function(){
+	$('#ctTable tbody tr td a.btnDelete').click(function(){
+		/*alert($(this).data('index'));*/
+		var dID=$(this).data('index');
+		
+		if(confirm('Do you want to delete record: ')+dID){
+			$.ajax({
+				url:"../action/service/lms_adm_d017",
+				type:"POST",
+				dataType:"JSON",
+				data:{"dID":dID},
+				success:function(data){
+					alert("Record is deleted!");
+					console.log(data);
+					table.clear().draw();
+					table.rows.add(data.contractList);
+					table.columns.adjust().draw();
+					contractManagment.clickEvent();
+				}
+			});
+		}
+	});
 	$('#ctTable tbody tr td a.btnEdit').click(function () {
-		console.log( table.row( this ).data() );
+		/*console.log( table.row( this ).data() );*/
 	} );
+	$('#ctTable tbody tr td a.btnView').click(function() {
+
+	});
 }

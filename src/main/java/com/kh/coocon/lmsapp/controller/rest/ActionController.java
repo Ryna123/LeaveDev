@@ -469,6 +469,12 @@ public class ActionController {
 			return map;	
 		}
 		
+		@RequestMapping(value="/lms_adm_d017", method=RequestMethod.POST)
+		public Map<String,Object> deleteContrast(@RequestParam(value="dID") int id){
+			contractService.deleteContract(id);
+			return listContract();
+		}
+		
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
