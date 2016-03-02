@@ -73,60 +73,8 @@
                                         
 
                                     <tbody role="alert" aria-live="polite" aria-relevant="all">
-                                    	<tr class="pointer odd">                                                
-                                                <td class=" ">
-                                                	 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/trash-o"><i class="fa fa-trash-o"></i></a> </div>
-                                           			  <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/pencil"><i class="fa fa-pencil" data-toggle="modal" data-target="#lms_adm_018p_Modal" ></i></a></div>
-                                           			 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/signal"><i class="fa fa-signal"></i></a></div>
-                                                </td>
-                                                <td class=" ">001 </td>
-                                                <td class=" ">Employee term </td>
-                                                <td class=" ">01/01</td>
-                                                <td class=" ">12/31</td>                                                
-                                                </td>
-                                         </tr>
-                                         <tr class="pointer even">
-                                                
-                                               <td class=" ">
-                                                	 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/trash-o"><i class="fa fa-trash-o"></i></a></div>
-                                           			  <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/pencil"><i class="fa fa-pencil"></i></a></div>
-                                           			 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/signal"><i class="fa fa-signal"></i></a></div>
-                                                </td>
-                                                <td class=" ">002</td>
-                                                <td class=" ">Manager Term </td>
-                                                <td class=" ">01/01</td>
-                                                <td class=" ">12/31</td>
-                                                
-                                                </td>                                           
-                                          </tr>
-                                          <tr class="pointer odd">                                                
-                                                <td class=" ">
-                                                	 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/trash-o"><i class="fa fa-trash-o"></i></a> </div>
-                                           			  <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/pencil"><i class="fa fa-pencil"></i></a></div>
-                                           			 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/signal"><i class="fa fa-signal"></i></a></div>
-                                                </td>
-                                                <td class=" ">001 </td>
-                                                <td class=" ">Employee term </td>
-                                                <td class=" ">01/01</td>
-                                                <td class=" ">12/31</td>
-                                                
-                                                </td>
-                                         </tr>
-                                         <tr class="pointer even">
-                                                
-                                               <td class=" ">
-                                                	 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/trash-o"><i class="fa fa-trash-o"></i></a></div>
-                                           			  <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/pencil"><i class="fa fa-pencil"></i></a></div>
-                                           			 <div class="fa-hover col-md-3 col-sm-4 col-xs-12"><a href="#/signal"><i class="fa fa-signal"></i></a></div>
-                                                </td>
-                                                <td class=" ">002</td>
-                                                <td class=" ">Manager Term </td>
-                                                <td class=" ">01/01</td>
-                                                <td class=" ">12/31</td>
-                                                
-                                                </td>                                           
-                                          </tr>
-                                         </tbody>
+                                  
+                                    </tbody>
                                             
                                   </table>
                                     
@@ -226,8 +174,8 @@
 			               <div class="ln_solid"></div>
 			                   <div class="form-group">
 			                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="text-align:center;">
-			                   		<button type="submit" class="btn btn-primary" style="width:70px;">  OK  </button>
-			                       	<button type="submit" class="btn btn-success" style="width: 70px;">Cancel</button>
+			                   		<button type="submit" class="btn btn-primary" style="width:70px;" id="btnCreate">  Create  </button>
+			                       	<button type="submit" class="btn btn-success" style="width: 70px;" data-dismiss="modal">Cancel</button>
 			                      
 			                   </div>
 			               </div>
@@ -255,7 +203,6 @@
 			                    <ul class="nav navbar-right panel_toolbox" style="min-width: 0;">			                       
 			                       <li style="float:right;"><a href="#"><i class="fa fa-close" data-dismiss="modal"></i></a>  
 			                         </li>
-			                       
 			                    </ul>
 			                    <div class="clearfix"></div>
 			            </div>
@@ -265,20 +212,20 @@
 							<div class="form-group">
 			                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Name : </label>
 			                   <div class="col-md-6 col-sm-6 col-xs-12">
-			                       <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" data-parsley-id="4786" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-4786"></ul>
+			                       <input id="txtName" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" data-parsley-id="4786" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-4786"></ul>
 			                   </div>
 			               </div>
 							
 							<div class="form-group">
 			                    	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Start date: </label>
 			                        	<div class="col-md-6 col-sm-6 col-xs-12">
-			                                	<input type="date" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
+			                                	<input type="text" id="txtStart" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="1224" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-1224"></ul>
 			                            </div>
 			                </div>
 			                <div class="form-group">
 			                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">End date: </label>
 			                    <div class="col-md-6 col-sm-6 col-xs-12">
-			                        <input type="date" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="3556" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
+			                        <input type="text" id="txtEnd" name="last-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="3556" style="width: 240px;"><ul class="parsley-errors-list" id="parsley-id-3556"></ul>
 			                    </div>
 			                </div>
 			                                        
@@ -287,9 +234,8 @@
 			               <div class="ln_solid"></div>
 			                   <div class="form-group">
 			                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="text-align:center;">
-			                   		<button type="submit" class="btn btn-primary" style="width:70px;">  OK  </button>
-			                       	<button type="submit" class="btn btn-success" style="width: 70px;">Cancel</button>
-			                      
+			                   		<button type="submit" class="btn btn-primary" style="width:70px;" id="btnOK">  OK  </button>
+			                       	<button type="submit" class="btn btn-success" style="width: 70px;" id="cancel" data-dismiss="modal" >Cancel</button>
 			                   </div>
 			               </div>
 			        	</form>

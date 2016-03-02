@@ -1,6 +1,12 @@
 var contractManagment={};
 var table;
 $(document).ready(function(){
+	$("#txtStart,#txtEnd").daterangepicker({ 
+		  singleDatePicker: true,
+		        showDropdowns: true,
+		        format:'DD/MM/YYYY'
+	});
+	
 	contractManagment.listContractInfo();
 	
 	
@@ -24,7 +30,7 @@ contractManagment.listContractInfo = function(){
 				"pagingType": "full_numbers",
 				data:values["data"],
 				columns:[
-				         {"data":"id", "bSearchable": false,
+				         {"data":"id", className:"dataRow", "bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        			 $(nTd).html("<div class='fa-hover col-md-3 col-sm-4 col-xs-12'>" +
 				        			 		"<a href='#/trash-o' class='btnDelete' data-index="+sData+"><i class='fa fa-trash-o'></i></a>" +
@@ -68,7 +74,11 @@ contractManagment.clickEvent=function(){
 		}
 	});
 	$('#ctTable tbody tr td a.btnEdit').click(function () {
-		/*console.log( table.row( this ).data() );*/
+		var row = table.row($(this).closest('tr')).data();
+		$('#txtName').val(row.contractName);
+		$('#txtStart').val(row.startedDate);
+		$('#txtEnd').val(row.endDate);
+		$('#lms_adm_018p_Modal').modal('toggle');
 	} );
 	$('#ctTable tbody tr td a.btnView').click(function() {
 
