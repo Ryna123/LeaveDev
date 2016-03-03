@@ -84,15 +84,16 @@ contractManagment.clickEvent=function(){
 			});
 		}
 	});
+	
 	$('#ctTable tbody tr td a.btnEdit').click(function () {
 		var row = table.row($(this).closest('tr')).data();
-		console.log(row);
 		$('#txtName').val(row.contractName);
 		$('#txtStart').val(row.startedDate);
 		$('#txtEnd').val(row.endDate);
 		$('#txtName').data('index',row.id);
 		$('#lms_adm_018p_Modal').modal('toggle');
 	} );
+	
 	$('#ctTable tbody tr td a.btnView').click(function() {
 		var id = $(this).data('index');
 		var url= '../admin/lms_adm_019?'+id;
