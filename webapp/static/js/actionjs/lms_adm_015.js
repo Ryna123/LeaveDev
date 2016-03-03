@@ -9,7 +9,7 @@ $(document).ready(function() {
 });
 lms_adm_015. loadData = function(){
 	$.ajax({
-		url : "../action/service/lms_adm_015",
+		url : "../action/service/lms_adm_r015",
 		dataType : "JSON",
 		type : "POST",
 		//data :a,
