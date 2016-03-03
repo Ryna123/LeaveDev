@@ -94,7 +94,9 @@ contractManagment.clickEvent=function(){
 		$('#lms_adm_018p_Modal').modal('toggle');
 	} );
 	$('#ctTable tbody tr td a.btnView').click(function() {
-
+		var id = $(this).data('index');
+		var url= '../admin/lms_adm_019?'+id;
+		$(location).attr('href',url);
 	});
 }
 

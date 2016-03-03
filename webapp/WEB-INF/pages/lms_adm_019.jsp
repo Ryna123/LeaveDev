@@ -1,6 +1,15 @@
 <%@include file="/static/include/assetheader.jsp" %>
+
+<script
+	src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="../static/js/actionjs/lms_adm_019.js" />"></script>
+
 <%@include file="lms_adm_019p.jsp" %>
 <%@include file="lms_adm_020p.jsp" %>
+
+
+
 <body class="nav-md">
 
     <div class="container body">
