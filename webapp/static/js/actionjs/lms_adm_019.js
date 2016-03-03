@@ -51,7 +51,38 @@ entitledDays.clickEvent=function(){
 		
 	});
 	$('#tblEDC tbody tr td a.btnEdit').click(function(){
-		alert("edit");
+		var row = table.row($(this).closest('tr')).data();
+		console.log(row);
+		$('#txtStart').data('index',row.id);
+		$('#txtStart').val(row.start);
+		$('#txtEnd').val(row.end);
+		$('#txtDays').val(row.days);
+		$('#txtDescript').val(row.descript);
+		$('#lms_adm_020p').modal('toggle');
 	});
 }
-
+entitledDays.editEDC=function(){
+	var entitledDCObj={
+			"id":$('#txtStart').data('index'),
+			"start":$('#txtStart').val(),
+			"end":$('#txtEnd').val(),
+			"leaveType":$('#lsbLT').val(),
+			"days":$('#txtDays').val(),
+			"descript":$('#txtDescript').val()
+			};
+	console.log(entitledDCObj);
+	/*$.ajax({
+		url:"../action/service/lms_adm_e017",
+		dataType:"JSON",
+		headers:{"Accept":"application/json","Content-Type":"application/json"},
+		type:"POST",
+		data:JSON.stringify(contrastObj),
+		success:function(data){
+			console.log(data);
+			table.clear().draw();
+			table.rows.add(data.contractList);
+			table.columns.adjust().draw();
+			contractManagment.clickEvent();
+		}
+	});*/
+}
