@@ -34,6 +34,7 @@
     <link href="<c:url value='/static/js/formvalidate/jquery-ui-1.10.3.custom.min.css' />"rel="stylesheet"> 
     <link href="<c:url value='/static/js/formvalidate/validationEngine.jquery.css' />"rel="stylesheet"> 
     <link href="<c:url value='/static/js/loading/loading.css' />"rel="stylesheet"> 
+   <link href="<c:url value='/static/js/jstree/themes/default/style.css' />"rel="stylesheet"> 
     <!-- That's all -->
 	
     <!-- Borint -->
@@ -44,6 +45,7 @@
 	 <script src="<c:url value="/static/js/jquery-ui-1.10.3.custom.min.js" />"></script>
      <script src="<c:url value="/static/js/jquery.min.js" />"> </script> 
      <script src="<c:url value="/static/js/jquery-ui-1.10.2.nonwidget.min.js" />"> </script> 
+      <script src="<c:url value="/static/js/jstree/jstree.js" />"> </script> 
     
 
     <!--[if lt IE 9]>

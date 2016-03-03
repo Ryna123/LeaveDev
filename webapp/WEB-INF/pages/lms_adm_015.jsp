@@ -54,83 +54,8 @@
 
                                 <!-- Tree -->                                
                                 
-                                <ul id="tree1">
-								    <li><a href="#">KOSIGN</a>
-								
-								        <ul>								            
-								            <li>Account Center
-								                <ul>
-								                    <li>GM
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>
-								            <li>Business Center
-								                <ul>
-								                    <li>Network
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                   <!--  <li>Employee Maint.</li> -->
-								                </ul>
-								            </li>
-								            <li>Coocon Center
-								                <ul>
-								                    <li>Scraping Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Web Team
-								                       <!--  <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>								            
-								            <li>R & D Center
-								                <ul>
-								                    <li>Fintech Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Bizplay Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Smart Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>
-								            
-								            <!-- <li>Human Resources</li> -->
-								        </ul>
-								    </li>
+                                <ul id="treeData">
+								   
 								    
 								</ul>
                                 <!-- /Tree -->
@@ -790,7 +715,8 @@
         </div>
         
     </div>  
-    <%@include file="/static/include/assetfooter.jsp" %>t>
+    <%@include file="/static/include/assetfooter.jsp" %>
+    <script src="<c:url value="/static/js/actionjs/lms_adm_015.js" />"></script>
 </div>
 </body>
 
