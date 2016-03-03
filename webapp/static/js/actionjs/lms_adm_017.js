@@ -14,6 +14,9 @@ $(document).ready(function(){
 	$('#btnOK').click(function(){
 		contractManagment.editContract();
 	});
+	$('#txtSearch').keyup(function(){
+	      table.search($(this).val()).draw() ;
+	});
 });
 
 contractManagment.listContractInfo = function(){
@@ -62,7 +65,8 @@ contractManagment.clickEvent=function(){
 	$('#ctTable tbody tr td a.btnDelete').click(function(){
 		/*alert($(this).data('index'));*/
 		var dID=$(this).data('index');	
-		if(confirm('Do you want to delete record: ')+dID){
+		var alertText='Do you want to delete record: '+dID;
+		if(confirm(alertText)){
 			$.ajax({
 				url:"../action/service/lms_adm_d017",
 				type:"POST",

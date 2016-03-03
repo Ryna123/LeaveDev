@@ -53,7 +53,7 @@ $(document).ready(function(){
 	
 	$('#txtSearch').keyup(function(){
 	      table.search($(this).val()).draw() ;
-	})
+	});
 	/*$('#btnExport').on('click',function(){
 		alert('export fail');
 	});*/

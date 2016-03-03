@@ -83,12 +83,20 @@ public class ContractServiceImpl implements ContractService {
 			preparedStatement.setInt(1, id);
 			if(preparedStatement.executeUpdate()==1){
 				sql="delete from lms_entitleddays where contract_id=?";
-				preparedStatement.setInt(1, id);
-				preparedStatement.execute();
-			}
-			
+				try {
+					System.out.println(id);
+					cnn=dataSource.getConnection();
+					preparedStatement=cnn.prepareStatement(sql);
+					preparedStatement.setInt(1, id);
+					preparedStatement.execute();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+					System.out.println(e.getStackTrace());
+				}
+				
+			}	
 		} catch (SQLException e) {
-			e.getStackTrace();
+			System.out.println(e.getStackTrace());
 		}
 	}
 
