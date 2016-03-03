@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.coocon.lmsapp.entities.Contract;
+import com.kh.coocon.lmsapp.entities.EntitledDayContract;
 import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.ListUser;
@@ -32,6 +33,7 @@ import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
 import com.kh.coocon.lmsapp.services.EntitleService;
+import com.kh.coocon.lmsapp.services.EntitledDaysContract;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
@@ -45,7 +47,8 @@ import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 @RequestMapping("/action/service")
 public class ActionController {
 	
-	
+	@Autowired
+	EntitledDaysContract entitledDaysContrastService;
 	@Autowired
 	EntitleService entitleService;
 	@Autowired
@@ -525,6 +528,23 @@ public class ActionController {
 			}
 			Map<String,Object> map = new HashMap<>();
 			map.put("Message", "Edit False");
+			return map;
+		}
+		@RequestMapping(value="/lms_adm_r019",method=RequestMethod.GET)
+		public Map<String, Object> listEntitledDays(@RequestParam(value="id")int id){
+			Map<String, Object> map = new HashMap<>();
+			try {
+				List<EntitledDayContract> listEDC = entitledDaysContrastService.listEntitleDaysContract(id);
+				if(listEDC.isEmpty() || listEDC == null){
+					map.put("Message","Empty");
+				}else{
+					map.put("Message", "Exist");
+					map.put("listEDC", listEDC);
+				}
+			} catch (Exception e) {
+				map.put("Message", e.getMessage());
+				e.printStackTrace();
+			}
 			return map;
 		}
 		private String getPrincipal(){
