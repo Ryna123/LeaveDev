@@ -11,6 +11,9 @@ $(document).ready(function(){
 	$('#btnCreate').click(function(){
 		contractManagment.createContract();
 	});
+	$('#btnOK').click(function(){
+		contractManagment.editContract();
+	});
 });
 
 contractManagment.listContractInfo = function(){
@@ -26,8 +29,15 @@ contractManagment.listContractInfo = function(){
 			table = $("#ctTable").DataTable({
 				"pagingType": "full_numbers",
 				data:values["data"],
+				"dom": '<"top"i>rt<"bottom"lp>',
 				columns:[
-				         {"data":"id", className:"dataRow", "bSearchable": false,
+				         {"data":"id", 
+				        	 //disable sort 
+				        	 "orderable": false, 
+				        	 //set ClassName to this td
+				        	 className:"dataRow", 
+				        	 //Disable search on this column
+				        	 "bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        			 $(nTd).html("<div class='fa-hover col-md-3 col-sm-4 col-xs-12'>" +
 				        			 		"<a href='#/trash-o' class='btnDelete' data-index="+sData+"><i class='fa fa-trash-o'></i></a>" +
@@ -61,6 +71,7 @@ contractManagment.clickEvent=function(){
 				success:function(data){
 					alert("Record is deleted!");
 					console.log(data);
+					//Redraw Table
 					table.clear().draw();
 					table.rows.add(data.contractList);
 					table.columns.adjust().draw();
@@ -71,9 +82,11 @@ contractManagment.clickEvent=function(){
 	});
 	$('#ctTable tbody tr td a.btnEdit').click(function () {
 		var row = table.row($(this).closest('tr')).data();
+		console.log(row);
 		$('#txtName').val(row.contractName);
 		$('#txtStart').val(row.startedDate);
 		$('#txtEnd').val(row.endDate);
+		$('#txtName').data('index',row.id);
 		$('#lms_adm_018p_Modal').modal('toggle');
 	} );
 	$('#ctTable tbody tr td a.btnView').click(function() {
@@ -104,6 +117,31 @@ contractManagment.createContract=function(){
 		data: JSON.stringify(contrastObj),
 		success:function(data){
 			$('#lms_adm_017p_Modal').modal('toggle');
+			table.clear().draw();
+			table.rows.add(data.contractList);
+			table.columns.adjust().draw();
+			contractManagment.clickEvent();
+		}
+	});
+}
+
+contractManagment.editContract=function(){
+	var contrastObj={
+			"id":$('#txtName').data('index'),
+			"contractName":$('#txtName').val(),
+			"weeklyDuration":"",
+			"dailyDuration":"",
+			"startedDate":$('#txtStart').val(),
+			"endDate":$('#txtEnd').val()
+			};
+	$.ajax({
+		url:"../action/service/lms_adm_e017",
+		dataType:"JSON",
+		headers:{"Accept":"application/json","Content-Type":"application/json"},
+		type:"POST",
+		data:JSON.stringify(contrastObj),
+		success:function(data){
+			console.log(data);
 			table.clear().draw();
 			table.rows.add(data.contractList);
 			table.columns.adjust().draw();

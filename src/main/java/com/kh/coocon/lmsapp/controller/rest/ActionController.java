@@ -497,7 +497,15 @@ public class ActionController {
 			map.put("Message", "add false");
 			return map;
 		}
-		
+		@RequestMapping(value="/lms_adm_e017", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String, Object> editContract(@RequestBody() Contract ctObj){
+			if(contractService.editContract(ctObj)==1){
+				return listContract();
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "Edit False");
+			return map;
+		}
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

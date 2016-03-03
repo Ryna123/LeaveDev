@@ -93,9 +93,21 @@ public class ContractServiceImpl implements ContractService {
 	}
 
 	@Override
-	public void editContract(Contract contrast) {
-		// TODO Auto-generated method stub
-		
+	public int editContract(Contract contrast) {
+		String sql="update lms_contracts set contract_name=?,started_date=?,end_date=? where contract_id=?";
+		try {
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
+			preparedStatement.setString(1, contrast.getContractName());
+			preparedStatement.setString(2,contrast.getStartedDate());
+			preparedStatement.setString(3, contrast.getEndDate());
+			preparedStatement.setInt(4, contrast.getId());
+			return preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getStackTrace());
+			System.out.println(e.getMessage());
+		}
+		return 0;
 	}
 
 

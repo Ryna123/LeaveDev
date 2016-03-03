@@ -62,8 +62,8 @@
                                         <thead>
                                             <tr class="headings" role="row">                                            
                                                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Invoice : activate to sort column ascending" style="width: 150px;">Action </th>
-                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Invoice Date : activate to sort column ascending" style="width: 80px;">ID </th>
-                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Order : activate to sort column ascending" style="width: 450px;">Name </th>
+                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Invoice Date : activate to sort column ascending" style="width: 120px;">ID </th>
+                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Order : activate to sort column ascending" style="width: 350px;">Name </th>
                                                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Bill to Name : activate to sort column ascending" style="width: 156px;">Start Period </th>
                                                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Status : activate to sort column ascending" style="width: 156px;">End Period </th>
                                                 

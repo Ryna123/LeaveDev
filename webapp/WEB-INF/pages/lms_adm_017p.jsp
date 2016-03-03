@@ -56,7 +56,7 @@
 								style="text-align: center;">
 								<button type="button" class="btn btn-primary"
 									style="width: 70px;" id="btnCreate">Create</button>
-								<button type="submit" class="btn btn-success"
+								<button type="button" class="btn btn-success"
 									style="width: 70px;" data-dismiss="modal">Cancel</button>
 
 							</div>

@@ -8,5 +8,5 @@ public interface ContractService {
 	List<Contract> listContract();
 	int addContract(Contract contrast);
 	void deleteContract(int id);
-	void editContract(Contract contrast);
+	int editContract(Contract contrast);
 }

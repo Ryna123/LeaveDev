@@ -54,9 +54,9 @@
 						<div class="form-group">
 							<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"
 								style="text-align: center;">
-								<button type="submit" class="btn btn-primary"
-									style="width: 70px;" id="btnOK">OK</button>
-								<button type="submit" class="btn btn-success"
+								<button type="button" data-dismiss="modal" class="btn btn-primary"
+									style="width: 70px;" id="btnOK">Alter</button>
+								<button type="button" class="btn btn-success"
 									style="width: 70px;" id="cancel" data-dismiss="modal">Cancel</button>
 							</div>
 						</div>
