@@ -4,12 +4,12 @@ public class EntitledDayContract {
 	private int id;
 	private int contractId;
 	//private int employeeId;
-	private String Start;
-	private String End;
+	private String start;
+	private String end;
 	private int days;
 	private String leaveType;
 	private int leaveTypeId;
-	private String Descript;
+	private String descript;
 	
 	public int getLeaveTypeId() {
 		return leaveTypeId;
@@ -31,16 +31,16 @@ public class EntitledDayContract {
 		this.contractId = contractId;
 	}
 	public String getStart() {
-		return Start;
+		return start;
 	}
 	public void setStart(String start) {
-		Start = start;
+		this.start = start;
 	}
 	public String getEnd() {
-		return End;
+		return end;
 	}
 	public void setEnd(String end) {
-		End = end;
+		this.end = end;
 	}
 	public int getDays() {
 		return days;
@@ -55,10 +55,10 @@ public class EntitledDayContract {
 		this.leaveType = leaveType;
 	}
 	public String getDescript() {
-		return Descript;
+		return descript;
 	}
 	public void setDescript(String descript) {
-		Descript = descript;
+		this.descript = descript;
 	}
 	
 }

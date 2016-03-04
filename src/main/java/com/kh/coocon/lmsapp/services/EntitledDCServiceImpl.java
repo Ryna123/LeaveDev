@@ -59,6 +59,7 @@ public class EntitledDCServiceImpl implements EntitledDCService {
 	@Override
 	public int addEntitleDaysContract(EntitledDayContract obj) {
 		// TODO Auto-generated method stub
+		String sql="";
 		return 0;
 	}
 

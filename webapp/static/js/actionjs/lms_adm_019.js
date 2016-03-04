@@ -113,7 +113,7 @@ entitledDays.addEDC=function(){
 			'Content-Type': 'application/json'
 		},
 		url:"../action/service/lms_adm_c019",
-		data:entitledDCObj,
+		data:JSON.stringify(entitledDCObj),
 		type:"POST",
 		dataType:"JSON",
 		success:function(data){

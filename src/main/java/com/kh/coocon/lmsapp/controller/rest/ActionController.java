@@ -446,7 +446,6 @@ public class ActionController {
 		//List all employee in human resource menu
 		@RequestMapping(value={"/lms_adm_r014"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String, Object> hrListAllEmp(){
-			
 			Map<String, Object> map = new HashMap<>();
 			try{
 				List<HrManagement> hrManagements = humanResourceService.getAllEmp();
@@ -573,7 +572,8 @@ public class ActionController {
 		}
 		@RequestMapping(value="/lms_adm_c019", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String,Object> createEntitledDC(@RequestBody() EntitledDayContract entitledDCObj){
-			try {
+			System.out.println(entitledDCObj.getContractId());
+			/*try {
 				if(entitledDaysContrastService.addEntitleDaysContract(entitledDCObj) == 1 ){
 					return listEntitledDays(entitledDCObj.getContractId());
 				}
@@ -581,7 +581,7 @@ public class ActionController {
 				System.out.println(e.getStackTrace());
 				System.out.println(e.getMessage());
 				// TODO: handle exception
-			}
+			}*/
 			Map<String,Object> map = new HashMap<>();
 			map.put("Message", "add false");
 			return map;
