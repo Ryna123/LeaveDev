@@ -36,9 +36,9 @@
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<select id="lbsLT" class="form-control" required=""
 								data-parsley-id="0188">
-								<option value="">Annual leave</option>
-								<option value="press">Special leave</option>
-								<option value="net">Sick leave</option>
+								<option value="0">Annual leave</option>
+								<option value="2">Special leave</option>
+								<option value="1">Sick leave</option>
 							</select>
 						</div>
 					</div>

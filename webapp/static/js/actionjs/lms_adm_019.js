@@ -2,20 +2,19 @@ var entitledDays={};
 var table;
 $(document).ready(function(){
 	loading(true);
+	$("#txtStart,#txtEnd,#txtCStart,#txtCEnd").daterangepicker({ 
+		  singleDatePicker: true,
+		        showDropdowns: true,
+		        format:'DD/MM/YYYY'
+	});
 	var url=document.location.href.split("?");
 	var id = url[1];
 	entitledDays.listEntities(id);
-	$("#btnAdd").click(function(id){
-		var entitledDCObj={
-				"contractId":$('#txtCStart').data('index'),
-				"start":$('#txtCStart').val(),
-				"end":$('#txtCEnd').val(),
-				"leaveType":$('#lsbCLT').val(),
-				"days":$('#txtCDays').val(),
-				"descript":$('#txtCDescript').val()
-				};
-		console.log(entitledDCObj);
+	$('#txtCStart').data('index',id);
+	$("#btnAdd").click(function(){
+		entitledDays.addEDC();
 	});
+		
 	loading(false);
 });
 
@@ -97,6 +96,33 @@ entitledDays.editEDC=function(){
 		}
 	});*/
 }
-entitledDays.addEDC=function(id){
-	
+entitledDays.addEDC=function(){
+	var entitledDCObj={
+			"contractId":$('#txtCStart').data('index'),
+			"start":$('#txtCStart').val(),
+			"end":$('#txtCEnd').val(),
+			"leaveTypeId":$('#lbsCLT').val(),
+			"days":$('#txtCDays').val(),
+			"descript":$('#txtCDescript').val()
+			};
+	console.log(entitledDCObj);
+	$('#lms_adm_019p').modal('toggle');
+	$.ajax({
+		headers:{
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		url:"../action/service/lms_adm_c019",
+		data:entitledDCObj,
+		type:"POST",
+		dataType:"JSON",
+		success:function(data){
+			console.log(data);
+			$('#lms_adm_019p_Modal').modal('toggle');
+			/*table.clear().draw();
+			table.rows.add(data.contractList);
+			table.columns.adjust().draw();
+			contractManagment.clickEvent();*/
+		}
+	});
 }

@@ -8,8 +8,15 @@ public class EntitledDayContract {
 	private String End;
 	private int days;
 	private String leaveType;
+	private int leaveTypeId;
 	private String Descript;
 	
+	public int getLeaveTypeId() {
+		return leaveTypeId;
+	}
+	public void setLeaveTypeId(int leaveTypeId) {
+		this.leaveTypeId = leaveTypeId;
+	}
 	
 	public int getId() {
 		return id;
