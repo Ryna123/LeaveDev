@@ -33,7 +33,7 @@ import com.kh.coocon.lmsapp.entities.UserProfile;
 import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
 import com.kh.coocon.lmsapp.services.EntitleService;
-import com.kh.coocon.lmsapp.services.EntitledDaysContract;
+import com.kh.coocon.lmsapp.services.EntitledDCService;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
@@ -49,7 +49,7 @@ import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 public class ActionController {
 	
 	@Autowired
-	EntitledDaysContract entitledDaysContrastService;
+	EntitledDCService entitledDaysContrastService;
 	@Autowired
 	EntitleService entitleService;
 	@Autowired
