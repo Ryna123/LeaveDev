@@ -545,7 +545,7 @@ public class ActionController {
 			map.put("Message", "add false");
 			return map;
 		}
-		@RequestMapping(value="/lms_adm_e017", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+		@RequestMapping(value="/lms_adm_u017", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String, Object> editContract(@RequestBody() Contract ctObj){
 			if(contractService.editContract(ctObj)==1){
 				return listContract();
@@ -569,6 +569,21 @@ public class ActionController {
 				map.put("Message", e.getMessage());
 				e.printStackTrace();
 			}
+			return map;
+		}
+		@RequestMapping(value="/lms_adm_c019", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> createEntitledDC(@RequestBody() EntitledDayContract entitledDCObj){
+			try {
+				if(entitledDaysContrastService.addEntitleDaysContract(entitledDCObj) == 1 ){
+					return listEntitledDays(entitledDCObj.getContractId());
+				}
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				System.out.println(e.getMessage());
+				// TODO: handle exception
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "add false");
 			return map;
 		}
 		private String getPrincipal(){

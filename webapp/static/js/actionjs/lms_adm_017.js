@@ -142,7 +142,7 @@ contractManagment.editContract=function(){
 			"endDate":$('#txtEnd').val()
 			};
 	$.ajax({
-		url:"../action/service/lms_adm_e017",
+		url:"../action/service/lms_adm_u017",
 		dataType:"JSON",
 		headers:{"Accept":"application/json","Content-Type":"application/json"},
 		type:"POST",

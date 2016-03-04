@@ -57,19 +57,19 @@ public class EntitledDCServiceImpl implements EntitledDCService {
 	}
 
 	@Override
-	public int addEntitleDaysContract() {
+	public int addEntitleDaysContract(EntitledDayContract obj) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteEntitleDaysContract() {
+	public int deleteEntitleDaysContract(int id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateEntitleDaysContract() {
+	public int updateEntitleDaysContract(EntitledDayContract obj) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
