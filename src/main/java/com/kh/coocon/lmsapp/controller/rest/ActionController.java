@@ -39,6 +39,7 @@ import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
 import com.kh.coocon.lmsapp.services.ListUserService;
 import com.kh.coocon.lmsapp.services.OrgService;
+import com.kh.coocon.lmsapp.services.OrgUserService;
 import com.kh.coocon.lmsapp.services.OverTimeService;
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
@@ -59,6 +60,9 @@ public class ActionController {
 	LeaveTypeService leaveTypeService;
 	@Autowired
 	OrgService orgService;
+	
+	@Autowired
+	OrgUserService orgUseService;
 	@Autowired
 	OverTimeService overTimeService;
 	
@@ -475,7 +479,27 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
-		
+		// list specific user in each departments
+		@RequestMapping(value = { "/lms_adm_016"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getOrgUserList(
+				@RequestParam("orgId") int orgId,
+				@RequestParam("managerId") int managerId) {
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			System.out.println("Dept"+orgId+"managerId"+managerId);
+			listData.put("USR_REC", orgUseService.getOrgUserList(orgId, managerId));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			//System.out.println("console is "+ userService.findBySso(getPrincipal()).getId());
+			//return null;
+		}
 		
 		@RequestMapping(value={"/lms_adm_r017"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String,Object> listContract(){
