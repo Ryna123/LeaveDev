@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kh.coocon.lmsapp.entities.EntitledDayContract;
 
-public interface EntitledDaysContract {
+public interface EntitledDCService {
 	List<EntitledDayContract> listEntitleDaysContract(int id);
 	int addEntitleDaysContract();
 	int deleteEntitleDaysContract();

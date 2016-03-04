@@ -5,6 +5,17 @@ $(document).ready(function(){
 	var url=document.location.href.split("?");
 	var id = url[1];
 	entitledDays.listEntities(id);
+	$("#btnAdd").click(function(id){
+		var entitledDCObj={
+				"contractId":$('#txtCStart').data('index'),
+				"start":$('#txtCStart').val(),
+				"end":$('#txtCEnd').val(),
+				"leaveType":$('#lsbCLT').val(),
+				"days":$('#txtCDays').val(),
+				"descript":$('#txtCDescript').val()
+				};
+		console.log(entitledDCObj);
+	});
 	loading(false);
 });
 
@@ -66,7 +77,7 @@ entitledDays.editEDC=function(){
 			"id":$('#txtStart').data('index'),
 			"start":$('#txtStart').val(),
 			"end":$('#txtEnd').val(),
-			"leaveType":$('#lsbLT').val(),
+			"leaveType":$('#lbsLT').val(),
 			"days":$('#txtDays').val(),
 			"descript":$('#txtDescript').val()
 			};
@@ -85,4 +96,7 @@ entitledDays.editEDC=function(){
 			contractManagment.clickEvent();
 		}
 	});*/
+}
+entitledDays.addEDC=function(id){
+	
 }

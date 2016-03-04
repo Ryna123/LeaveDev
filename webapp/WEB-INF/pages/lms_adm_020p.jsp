@@ -14,7 +14,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12"
 							for="first-name">Start date: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="date" id="first-name" required="required"
+							<input type="text" id="txtStart" required="required"
 								class="form-control col-md-7 col-xs-12" data-parsley-id="1224">
 							<ul class="parsley-errors-list" id="parsley-id-1224"></ul>
 						</div>
@@ -23,7 +23,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12"
 							for="last-name">End date: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="date" id="last-name" name="last-name"
+							<input type="text" id="txtEnd" name="last-name"
 								required="required" class="form-control col-md-7 col-xs-12"
 								data-parsley-id="3556">
 							<ul class="parsley-errors-list" id="parsley-id-3556"></ul>
@@ -34,7 +34,7 @@
 							class="control-label col-md-3 col-sm-3 col-xs-12">Leave
 							type: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<select id="heard" class="form-control" required=""
+							<select id="lbsLT" class="form-control" required=""
 								data-parsley-id="0188">
 								<option value="">Annual leave</option>
 								<option value="press">Special leave</option>
@@ -46,7 +46,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Days:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtDays"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>
@@ -56,7 +56,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Description:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtDescript"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>

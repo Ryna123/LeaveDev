@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import com.kh.coocon.lmsapp.entities.EntitledDayContract;
 
 @Service("entitledDaysContrastService")
-public class EntitledDaysContractImpl implements EntitledDaysContract {
+public class EntitledDCServiceImpl implements EntitledDCService {
 	
 	@Autowired DataSource dataSource;
 	

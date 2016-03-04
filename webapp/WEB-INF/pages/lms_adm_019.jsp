@@ -80,17 +80,7 @@
                             				</thead>
 
                             				<tbody>
-                                  				<tr class="even pointer">
-                                    				<td class="a-center ">
-                                    					<a href="#/trash"><i class="fa fa-trash"></i></a>
-                                    					<a href="#/pencil" data-toggle="modal" data-target="#lms_adm_020p"><i class="fa fa-pencil"></i></a>
-                                    				</td>
-                                    				<td class=" ">10/12/2015</td>
-                                    				<td class=" ">12/12/2015</td>
-                                    				<td class=" ">2</td>
-                                    				<td class=" ">Sick leave</td>
-                                    				<td class=" ">Sick leave for employee only 7 days</td>
-                              			  		</tr>         
+                                   
                          					</tbody>
 										</table>
 					

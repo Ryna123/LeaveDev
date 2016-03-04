@@ -15,7 +15,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12"
 							for="first-name">Start date: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="date" id="first-name" required="required"
+							<input type="text" id="txtCStart" required="required"
 								class="form-control col-md-7 col-xs-12" data-parsley-id="1224">
 							<ul class="parsley-errors-list" id="parsley-id-1224"></ul>
 						</div>
@@ -24,7 +24,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12"
 							for="last-name">End date: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="date" id="last-name" name="last-name"
+							<input type="text" id="txtCEnd" name="last-name"
 								required="required" class="form-control col-md-7 col-xs-12"
 								data-parsley-id="3556">
 							<ul class="parsley-errors-list" id="parsley-id-3556"></ul>
@@ -35,7 +35,7 @@
 							class="control-label col-md-3 col-sm-3 col-xs-12">Leave
 							type: </label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<select id="heard" class="form-control" required=""
+							<select id="lbsCLT" class="form-control" required=""
 								data-parsley-id="0188">
 								<option value="">Annual leave</option>
 								<option value="press">Special leave</option>
@@ -48,7 +48,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Days:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtCDays"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>
@@ -58,7 +58,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Description:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtCDescript"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>
@@ -70,8 +70,8 @@
 			<div class="modal-footer">
 				<div class="form-group">
 					<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						<button type="submit" class="btn btn-success" style="width: 70px;">OK</button>
-						<button type="submit" class="btn btn-primary">Cancel</button>
+						<button type="submit" id="btnAdd" class="btn btn-success" style="width: 70px;">Add</button>
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
