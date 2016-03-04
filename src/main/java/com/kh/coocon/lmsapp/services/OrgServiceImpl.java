@@ -43,6 +43,7 @@ public  class OrgServiceImpl implements OrgService {
 					Organization org = null;
 					while (rs.next()) {
 						org = new Organization();
+						org.setSupervisor(rs.getInt("supervisor"));
 						org.setId(rs.getInt("organization_id"));
 						org.setParent_id(rs.getInt("parent_id"));
 						org.setName(rs.getString("name"));

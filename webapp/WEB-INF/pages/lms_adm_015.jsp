@@ -112,107 +112,14 @@
                                                 <th class="column-title">ID </th>
                                                 <th class="column-title">First Name </th>
                                                 <th class="column-title">Last Name </th>
+                                                <th class="column-title">Phone </th>
                                                 <th class="column-title">E-mail </th>
                                                 
                             			    </tr>
                            			</thead>
-                             		<tbody>
-                               			<tr class="even pointer">
-				                        	<td class="a-center "><input type="checkbox" id=""></td>
-				                            <td class=" ">001</td>
-				                            <td class=" ">Sunleng </td>
-				                            <td class=" ">Lao </td>
-				                            <td class=" ">sunlenglao@yahoo.com</td>
-                                
-                                		   </tr>
-                                            <tr class="odd pointer">
-                                               <td class="a-center "><input type="checkbox" id=""></td>
-                                               <td class=" ">002</td>
-				                               <td class=" ">Gechleng </td>
-				                               <td class=" ">Ngor </td>
-				                               <td class=" ">jexl@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">003</td>
-				                               <td class=" ">Bunna </td>
-				                               <td class=" ">Long </td>
-				                               <td class=" ">longbunna@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                               <td class=" ">004</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">005</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">006</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                               
-                                            </tr>
-                                            <tr class="even pointer">
-                                               <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">005</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">006</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                               
-                                            </tr>
-                                            <tr class="even pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">005</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                                
-                                            </tr>
-                                            <tr class="odd pointer">
-                                                <td class="a-center ">
-				                               <input type="checkbox" id=""> 
-				                               </td>
-                                                <td class=" ">006</td>
-				                               <td class=" ">Sunleng </td>
-				                               <td class=" ">Lao </td>
-				                               <td class=" ">sunlenglao@yahoo.com</td>
-                                               
-                                            </tr>
+                             		<tbody id ="userArea">
+                               			
+                                           
                                             
                                        </tbody>
 
@@ -717,6 +624,17 @@
     </div>  
     <%@include file="/static/include/assetfooter.jsp" %>
     <script src="<c:url value="/static/js/actionjs/lms_adm_015.js" />"></script>
+    <script type="text/x-jquery-tmpl" id="userTamplate" >
+   
+        <tr class="even pointer">
+			<td class="a-center "><input type="checkbox" value= {{= ID}}></td>
+			<td class=" ">{{= IDENTIFIER}}</td>
+		    <td class=" ">{{= FIRSTNM}}</td>
+			<td class=" ">{{= LASTNM}}</td>
+ 			<td class=" ">{{= PHONE}}</td>
+			<td class=" ">{{= EMAIL}}</td>
+       </tr>
+   </script>
 </div>
 </body>
 

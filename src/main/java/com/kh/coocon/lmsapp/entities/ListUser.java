@@ -2,12 +2,21 @@ package com.kh.coocon.lmsapp.entities;
 
 public class ListUser {
 	private int id;
+	private String identifier;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String username;
 	private String role;
 	private int phone;
+	private int managerId;
+	public int getManagerId() {
+		return managerId;
+	}
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
 	private String managername;
 	public int getId() {
 		return id;
@@ -57,7 +66,12 @@ public class ListUser {
 	public void setManagername(String managername) {
 		this.managername = managername;
 	}
-	
+	public String getIdentifier() {
+		return identifier;
+	}
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
 	
 	
 
