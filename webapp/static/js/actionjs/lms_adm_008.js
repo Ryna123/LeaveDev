@@ -1,7 +1,6 @@
 
 $(window).load(function(){
 });
-
 var userInfo = {
 		"firstName":"jatret",
 		"lastName":"Chitra",
@@ -27,16 +26,15 @@ $(document).ready(function(){
 	$("#btnCreate").click(function(){
 		alert($("#userProfile").val());
 		
-		userInfo.firstName 			= $("#firstName").val();
-		userInfo.lastName 			= $("#lastName").val();
-		userInfo.ssoId 				= $("#userName").val();
-		userInfo.email 				= $("#email").val();
-		userInfo.password			= $("#password").val()
-		userInfo.userProfiles[0].id	= $("#userProfile").val();	
-		userInfo.userProfiles[0].type = $("#userProfile option:selected").text();
+		userInfo.firstName 				= $("#firstName").val();
+		userInfo.lastName 				= $("#lastName").val();
+		userInfo.ssoId 					= $("#userName").val();
+		userInfo.email 					= $("#email").val();
+		userInfo.password				= $("#password").val()
+		userInfo.userProfiles[0].id		= $("#userProfile").val();	
+		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
+		userInfo.manager_id 			= manager_id;
 		console.log(userInfo);
-		alert();
-		alert(userInfo.manager_id);
 		user.createUser();
 		
 	});
@@ -51,7 +49,7 @@ $(document).ready(function(){
 			return false;
 		}		
 		$("#txtManager").val(firstName+" "+lastName);
-		userInfo.manager_id=0;
+		manager_id=0;
 		
 	});
 	

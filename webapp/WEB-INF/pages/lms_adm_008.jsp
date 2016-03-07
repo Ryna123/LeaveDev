@@ -132,9 +132,9 @@
 									</div>
 									
 									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
+										<label  class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
+                                        	<input id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
                                         </div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Identifier :</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
