@@ -9,9 +9,9 @@
 	        	</div>
 	        	<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                       <div class="input-group">
-                           <input class="form-control" placeholder="Search for..." type="text">
+                           <input class="form-control"  id="txtInput" placeholder="Search for..." type="text">
                             <span class="input-group-btn">
-                            	<button class="btn btn-default" type="button">Go!</button>
+                            	<button  id="btn_search" class="btn btn-default" type="button">Go!</button>
                         	</span>
                       </div>
                  </div> 
@@ -45,6 +45,19 @@
 	$(document).ready(function(){
 		lms_adm_009p.loadData();
 		
+		
+		// Search Department
+		var to = false;
+		  $('#btn_search').click(function () {
+		    if(to) { 
+		    	clearTimeout(to); 
+		    }
+		    to = setTimeout(function () {
+		      var value = $('#txtInput').val();
+		      $('#treeData').jstree(true).search(value);
+		    }, 250);
+		  });
+		
 	});
 	lms_adm_009p.loadData = function(){
 		
@@ -74,7 +87,7 @@
 				     'tie_selection': false,
 				     'whole_node': false // click on checkBox
 					},
-					"plugins": ["type","radio", "json_data"],
+					"plugins": ["type","radio", "json_data","search"],
 					'core' : {
 				    'data' : data,
 				    "themes":{

@@ -7,6 +7,18 @@ var _managerId = '';
 
 $(document).ready(function() {
 	lms_adm_015.loadData ();
+	
+	// Search Department
+	var to = false;
+	  $('#btn_search').click(function () {
+	    if(to) { 
+	    	clearTimeout(to); 
+	    }
+	    to = setTimeout(function () {
+	      var value = $('#txtInput').val();
+	      $('#treeData').jstree(true).search(value);
+	    }, 250);
+	  });
 });
 lms_adm_015.loadData = function(){
 	$.ajax({
@@ -37,7 +49,7 @@ lms_adm_015.loadData = function(){
 			     'tie_selection': false,
 			     'whole_node': false // click on checkBox
 				},
-				"plugins": ["type","checkbox", "json_data"],
+				"plugins": ["type","checkbox", "json_data","search"],
 				'core' : {
 			    'data' : data,
 			    "themes":{
