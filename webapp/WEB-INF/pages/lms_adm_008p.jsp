@@ -38,8 +38,7 @@
                                              <tr class="headings">
                                              	<th>Select<!-- <input type="checkbox" id="check-all" class="flat"/> --></th>
                                                 <th>ID</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
+                                                <th>Full Name</th>
                                                 <th>Email</th>
                                             </tr>
                                         </thead>
@@ -86,8 +85,8 @@
                 
                 
 				<div id="ok_btn">
-					<a class="btn btn btn-primary"><i class="fa fa-check"></i>OK</a>
-					<a class="btn btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>Cancel</a>
+					<a id="btnSelectManager" href="javascript:" class="btn btn btn-primary"><i class="fa fa-check"></i>OK</a>
+					<a href="javascript:" class="btn btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>Cancel</a>
 				</div>
 				
             </div>
@@ -99,10 +98,9 @@
 	<!-- End Modal select Manager-->
 	 <script type="text/x-jquery-tmpl" id="lmsAdm006p">
 		<tr>			
-			<td class="a-center "><input type="radio" class="flat" name="table_records"/></td>			
-             <td scope="row">{{= ID}}</th>												
-             <td>{{= FIRSTNAME}}</td>
-             <td>{{= LASTNAME}}</td> 
+			<td class="a-center "><input type="radio" value="{{= ID}}" class="flat" name="table_records"/></td>			
+             <td scope="row" class="manager_id">{{= ID}}</th>												
+             <td class="manager_name">{{= FIRSTNAME}} {{= LASTNAME}}</td>
 			 <td>{{= EMAIL}}</td>
        	</tr>
 	</script>
@@ -115,6 +113,25 @@
 	
 	
 	$(document).ready(function(){
+		/**
+		*On click or update button
+		*/
+		$("#btnSelectManager").click(function(){
+			if($("input:radio:checked").val()== undefined){
+				alert("Please select the manager!");
+				return false;
+			}else{
+				manager_id = $("input:radio:checked").val();
+				
+				
+				//var test = $("input:radio:checked").parent().next().next().css( "background-color", "red" );
+				var manager_name = $("input:radio:checked").parent().next().next().text();
+				$("#txtManager").val(manager_name)
+				
+				$("#select_manager").modal("toggle");
+			}
+			
+		});
 		/************************************************************************************************
 		 * Select Manger
 		 */
