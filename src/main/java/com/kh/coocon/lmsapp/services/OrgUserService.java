@@ -10,6 +10,4 @@ import com.kh.coocon.lmsapp.entities.ListUser;
 public interface OrgUserService {
 	public List<ListUser> getOrgUserList(int orgId, int managerId);
 
-
-	
 }

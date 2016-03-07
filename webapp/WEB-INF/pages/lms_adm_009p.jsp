@@ -19,82 +19,8 @@
                  	<form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 					<!-- Tree -->                                
                     	<div style="padding:40px 50px;">   
-                                <ul id="tree1">
-								    <li><a href="#">KOSIGN</a>
-								        <ul>								            
-								            <li>Account Center
-								                <ul>
-								                    <li>GM
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>
-								            <li>Business Center
-								                <ul>
-								                    <li>Network
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                   <!--  <li>Employee Maint.</li> -->
-								                </ul>
-								            </li>
-								            <li>Coocon Center
-								                <ul>
-								                    <li>Scraping Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Web Team
-								                       <!--  <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>								            
-								            <li>R & D Center
-								                <ul>
-								                    <li>Fintech Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Bizplay Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    <li>Smart Team
-								                        <!-- <ul>
-								                            <li>Report1</li>
-								                            <li>Report2</li>
-								                            <li>Report3</li>
-								                        </ul> -->
-								                    </li>
-								                    
-								                </ul>
-								            </li>
-								            
-								            <!-- <li>Human Resources</li> -->
-								        </ul>
-								    </li>
+                                <ul id="treeData">
+								   
 								    
 								</ul>
                                
@@ -111,6 +37,56 @@
 	    </div>
 	</div>
 	<!-- End Modal select department-->
+	<script>
+	
+	 var lms_adm_009p ={};
+	$(document).ready(function(){
+		lms_adm_009p.loadData();
+		
+	});
+	lms_adm_009p.loadData = function(){
+		
+		$.ajax({
+			url : "../action/service/lms_adm_r015",
+			dataType : "JSON",
+			type : "POST",
+			//data :a,
+			success : function(dat) {
+				var data =[]
+				 console.log(dat.RESP_DATA['ORG_REC']);      
+				$.each(dat.RESP_DATA['ORG_REC'], function(i, v) {
+					if(dat.RESP_DATA['ORG_REC'][i].parent_id == "-1"){
+						v['parent'] = "#";
+					}else{
+						v['parent'] = dat.RESP_DATA['ORG_REC'][i].parent_id;
+					};
+					v['id'] = dat.RESP_DATA['ORG_REC'][i].id;
+					v['supervisor'] = dat.RESP_DATA['ORG_REC'][i].supervisor;
+					v['text'] = dat.RESP_DATA['ORG_REC'][i].name;
+//					v[i] = data;
+					console.log(v);
+					data.push(v);
+					
+				});
+				$('#treeData').jstree({
+					'checkbox': {
+					 'keep_selected_style': true,
+				     'tie_selection': false,
+				     'whole_node': false // click on checkBox
+					},
+					"plugins": ["type","checkbox", "json_data"],
+					'core' : {
+				    'data' : data,
+				    "themes":{
+			         "icons":true,
+				    }			           
+				}})		
+			}
+		});
+	}     
+				
+
+	</script>
 	
 	
 	
