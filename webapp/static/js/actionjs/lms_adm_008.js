@@ -18,15 +18,22 @@ $(document).ready(function(){
 		userInfo.email 				= $("#email").val();
 		userInfo.password			= $("#password").val()
 		userInfo.manager_Id			= manager_id;
-		userInfo.userProfiles[0].id	= $("#userProfile").val();
-		
+		//userInfo.userProfiles[0].id	= $("#userProfile").val();		
+		alert(userInfo.manager_Id);
 		user.createUser();
+		
 	});
 	/**
 	 * 
 	 */
 	$("#btnSelf").click(function(){
-		$("#txtManager").val($("#firstName").val()+" "+$("#lastName").val());
+		var firstName = $("#firstName").val();
+		var lastName = $("#lastName").val();
+		if(validation.isEmpty(firstName) || validation.isEmpty(lastName)){
+			alert("Please enter First Name and Last Name!")
+			return false;
+		}		
+		$("#txtManager").val(firstName+" "+lastName);
 		userInfo.manager_id=0;
 		
 	});
@@ -37,10 +44,11 @@ var userInfo = {
 		"lastName":"Chitra",
 		"ssoId":"11111bd0fsadfsdafsdf",
 		"email":"mail@mail.com",
-		"password":"123456",
+		"password":"123456",/*,
 		"userProfiles":[{
 			"id":1
-		}]
+		}],*/
+		"manager_id":0
 };
 var user = {
 		createUser: function(){
@@ -164,3 +172,12 @@ var optionSelection = {
 			$("#userRole").html(selectionOption);
 		}	
 }
+
+var validation = {
+		// For checking if a string is empty, null or undefined
+	isEmpty: function(str){
+		return (!str || 0 === str.length);
+		
+	}	
+		
+};
