@@ -15,43 +15,70 @@ lms_adm_002.listLeaveRequest=function(){
 		type : "POST",
 		data :a,
 		success : function(data) {
-			console.log(data.RESP_DATA);
-				var res = data.RESP_DATA['LEAVES_REC'];
-				if(res.length<=0) {
-					$("tfoot#leaveFooter").show();
-				} else {
-					$.each(res,function(i,v){
-						
-						var data = {};
-						data['LD']  = res[i].leavesDuration;
-						data['LED']  = res[i].leavesEnddate;
-						data['LR']  = res[i].leavesReason;
-						data['LSD'] = res[i].leavesStartdate;
-						data['LS'] = res[i].leavesStatus;
-						data['LT'] = res[i].leavesType;
-						if((data['LT'])=='0') {
-							(data['LT'])='Annual Leave';
-						} else if((data['LT'])=='1') {
-							(data['LT'])='Sick Leave';
-						} else if((data['LT'])=='2') {
-							(data['LT'])='Special Leave';
-						}
-						data['ID'] = i+1;
-						data['LID']=res[i].id;
-						if((data['LS'])=='2') {
-							(data['LS'])='<span class="label label-success">Approve</span>';
-						} else if((data['LS'])=='3') {
-							(data['LS'])='<span class="label label-danger">Reject</span>';
-						} else if((data['LS'])=='4') {
-							(data['LS'])='<span class="label label-warning">Requested</span>';
-						}else {
-							(data['LS'])='<span class="label label-info">Plan</span>';
-						}
-						data['LEDT'] = res[i].leavesendDateType;
-						$("#lmsAdm002").tmpl(data).appendTo("tbody#leaveBalanced").html();
-					
-					})
-				}
+			var listData=data.RESP_DATA['LEAVES_REC'];
+			var values={"data":listData};
+			var count = 1;
+			
+			table = $('#leaveRequestDataTable').DataTable({
+				"order": [[ 1, "desc" ]],
+				"pagingType": "full_numbers",
+				data:values["data"],
+				"aoColumnDefs": [ { "bSortable": false, "aTargets": [ 0, 0 ] } ] ,
+				 "dom": 'rt<"bottom"lp>',//"dom": '<"top"i>rt<"bottom"lp>',
+				columns:[
+				        {"data":"id","bSearchable": false,
+				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		$(nTd).html("<a href='javascrip:' id='viewBtn'>" +
+				        				"<input type='hidden' value="+sData+">"+
+				        				"<span class='fa fa-eye' title='View' data-original-title='View'>" +
+				        				"</span>" +
+				        				"</a>");
+				             }
+				        },
+				        {"data":"id","bSearchable": false,
+				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		 $(nTd).html("<span>"+(count++)+
+					        				"</span>");
+					             }
+				        },
+				        {"data":"leavesStartdate","bSearchable": false},
+				        {"data":"leavesEnddate","bSearchable": false},
+				        {"data":"leavesDuration","bSearchable": false},
+				        {"data":"leavesReason"},
+				        {"data":"leavesType",
+				        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		if ((oData.leavesType) == '0') {
+				        			oData.leavesType="Annual Leave";
+				        			$(nTd).html('Annual Leave');
+								} else if ((oData.leavesType) == '1') {
+									oData.leavesType="Sick Leave";
+									$(nTd).html('Sick Leave');
+								} else if ((oData.leavesType) == '2') {
+									oData.leavesType="Special Leave";
+									$(nTd).html('Special Leave');
+								}
+				             }
+				        },
+				        {"data":"leavesStatus",
+				        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		if ((oData.leavesStatus) == '1') {
+				        			oData.leavesStatus="Planned";
+				        			$(nTd).html('<span class="label label-info">Planned</span>');
+								} else if ((oData.leavesStatus) == '4') {
+									oData.leavesStatus="Requested";
+									$(nTd).html('<span class="label label-warning">Requested</span>');
+								} else if ((oData.leavesStatus) == '2') {
+									oData.leavesStatus="Approved";
+									$(nTd).html('<span class="label label-success">Approved</span>');
+								} else if ((oData.leavesStatus) == '3') {
+									oData.leavesStatus="Rejected";
+									$(nTd).html('<span class="label label-danger">Rejected</span>');
+								}
+				             }
+				        },
+				        
+				],
+			});
 				lms_adm_002.clickEvent();
 				loading(false);
 			},
@@ -62,10 +89,13 @@ lms_adm_002.listLeaveRequest=function(){
 		});
 }
 
+$('#SearchBox').keyup(function(){
+	table.search($(this).val()).draw() ;
+})
+
 lms_adm_002.clickEvent=function(){
-	$("a#leaveId").click(function(){
+	$("a#viewBtn").click(function(){
 		var leaveId=$(this).find("input").val();
-		console.log("**********leaveid: "+leaveId);
 		lms_adm_002.readLeaveOneRecord(leaveId);
 		$('#leaveRequestModal').modal('toggle');
 	});
@@ -81,7 +111,6 @@ lms_adm_002.readLeaveOneRecord = function (LeaveId) {
 		type : "POST",
 		data :aa,
 		success : function(data) {
-			console.log("**********data.RESP_DATA: "+data.RESP_DATA);
 			var res = data.RESP_DATA['LEAVE_REC'];
 			$.each(res,function(i,v){ 
 				$("#startDateType").val(res[i].leavesStartDateType);
@@ -93,7 +122,6 @@ lms_adm_002.readLeaveOneRecord = function (LeaveId) {
 				$("#selectLeaveType").val(res[i].leavesType);
 				$("#selectSt").val(res[i].leavesStatus);
 			});
-			console.log("*******res: "+res);
 		}
 	})
 	loading(false);

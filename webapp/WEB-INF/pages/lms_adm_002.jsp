@@ -1,5 +1,19 @@
 <%@include file="/static/include/assetheader.jsp" %>
+<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 
+<style type="text/css">
+
+		#SearchBox{
+			border-radius: 25px 25px 25px 25px;
+		} 
+		#otDataTable_length select{
+			min-height: 30px;
+		}
+		.paginate_button.current{
+		    background-color: rgba(38, 185, 154, 0.59) !important;
+    		border-color: rgba(38, 185, 154, 0.59) !important;
+		}
+</style>
 
 <body class="nav-md">
 
@@ -37,7 +51,7 @@
                         <div class="title_right">
                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <input type="text" class="form-control" placeholder="Search for..." id="SearchBox">
                                     <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Go!</button>
                         </span>
@@ -71,7 +85,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="leaveRequestDataTable">
                                         <thead>
                                             <tr>
 												<th>View</th>
@@ -87,15 +101,15 @@
                                         <tbody id="leaveBalanced">
 											                                
                                         </tbody>
-										<tfoot id="leaveFooter" style="display:none;">
+										<!-- <tfoot id="leaveFooter" style="display:none;">
 										    <tr align="center">
 										      <td colspan="8">There aren't any leaves requested</td>
 										    </tr>
-									  </tfoot>
+									  </tfoot> -->
                                     </table>
                                     
-									<div id="example_length" class="dataTables_length"><label>Show <select size="1" style="width: 56px;padding: 6px;" name="example_length" aria-controls="example"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> </label></div>
-									<div class="dataTables_paginate paging_full_numbers" id="example_paginate"><a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a><a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a><span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a><a tabindex="0" class="paginate_button">4</a></span><a tabindex="0" class="next paginate_button" id="example_next">Next</a><a tabindex="0" class="last paginate_button" id="example_last">Last</a></div>
+									<!-- <div id="example_length" class="dataTables_length"><label>Show <select size="1" style="width: 56px;padding: 6px;" name="example_length" aria-controls="example"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> </label></div>
+									<div class="dataTables_paginate paging_full_numbers" id="example_paginate"><a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a><a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a><span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a><a tabindex="0" class="paginate_button">4</a></span><a tabindex="0" class="next paginate_button" id="example_next">Next</a><a tabindex="0" class="last paginate_button" id="example_last">Last</a></div> -->
 									<div class="clearfix"></div>
                                 </div>
                             </div>
@@ -120,7 +134,7 @@
 
     <%@include file="/static/include/assetfooter.jsp" %>
      <script src="<c:url value="/static/js/actionjs/lms_adm_002.js" />"></script>
-     <script type="text/x-jquery-tmpl" id="lmsAdm002">
+     <!--  <script type="text/x-jquery-tmpl" id="lmsAdm002">
 		<tr>   
 			<th scope="row">
 				<a href="javascrip:void(0)" id="leaveId"><input type='hidden' value="{{= LID}}"><span class="fa fa-eye" title="" data-original-title="View" ></span></a>
@@ -136,7 +150,7 @@
 			</td>
    			   
 		</tr>
-	</script>
+	</script>-->
 	
     <script id="selectLeaveTypeTmpl" type="text/html">
     	<option value="{{= leaveTypeId}}">{{= leaveTypeName}}</option> 
