@@ -40,6 +40,8 @@
 	<script>
 	
 	 var lms_adm_009p ={};
+	 var _orgid = '';
+	 var _managerId = '';
 	$(document).ready(function(){
 		lms_adm_009p.loadData();
 		
@@ -80,7 +82,12 @@
 				    "themes":{
 			         "icons":true,
 				    }			           
-				}})		
+				}})	
+				.bind("select_node.jstree", function (event, data) {
+					_orgid = data.node.id;
+					_managerId = data.node.original.supervisor;
+					alert("DeptId:"+ _orgid +" / "+"ManangerId:"+ _managerId);
+				})
 			}
 		});
 	}     
