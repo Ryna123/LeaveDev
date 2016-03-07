@@ -5,14 +5,19 @@ $(document).ready(function(){
 	$("#txtStart,#txtEnd,#txtCStart,#txtCEnd").daterangepicker({ 
 		  singleDatePicker: true,
 		        showDropdowns: true,
-		        format:'DD/MM/YYYY'
+		        format:'DD-MM-YYYY'
 	});
 	var url=document.location.href.split("?");
 	var id = url[1];
 	entitledDays.listEntities(id);
 	$('#txtCStart').data('index',id);
+	
 	$("#btnAdd").click(function(){
 		entitledDays.addEDC();
+	});
+	
+	$('#btnEdit').click(function(){
+		entitledDays.editEDC();
 	});
 		
 	loading(false);
@@ -76,25 +81,26 @@ entitledDays.editEDC=function(){
 			"id":$('#txtStart').data('index'),
 			"start":$('#txtStart').val(),
 			"end":$('#txtEnd').val(),
-			"leaveType":$('#lbsLT').val(),
+			"leaveTypeId":$('#lbsLT').val(),
 			"days":$('#txtDays').val(),
 			"descript":$('#txtDescript').val()
 			};
 	console.log(entitledDCObj);
-	/*$.ajax({
-		url:"../action/service/lms_adm_e017",
+	$.ajax({
+		url:"../action/service/lms_adm_u019",
 		dataType:"JSON",
 		headers:{"Accept":"application/json","Content-Type":"application/json"},
 		type:"POST",
-		data:JSON.stringify(contrastObj),
+		data:JSON.stringify(entitledDCObj),
 		success:function(data){
 			console.log(data);
+			$('#lms_adm_020p_Modal').modal('toggle');
 			table.clear().draw();
-			table.rows.add(data.contractList);
+			table.rows.add(data.listEDC);
 			table.columns.adjust().draw();
-			contractManagment.clickEvent();
+			entitledDays.clickEvent();
 		}
-	});*/
+	});
 }
 entitledDays.addEDC=function(){
 	var entitledDCObj={
@@ -119,10 +125,10 @@ entitledDays.addEDC=function(){
 		success:function(data){
 			console.log(data);
 			$('#lms_adm_019p_Modal').modal('toggle');
-			/*table.clear().draw();
-			table.rows.add(data.contractList);
+			table.clear().draw();
+			table.rows.add(data.listEDC);
 			table.columns.adjust().draw();
-			contractManagment.clickEvent();*/
+			entitledDays.clickEvent();
 		}
 	});
 }
