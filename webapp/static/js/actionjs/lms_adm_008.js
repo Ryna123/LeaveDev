@@ -17,6 +17,7 @@ $(document).ready(function(){
 		userInfo.ssoId 				= $("#userName").val();
 		userInfo.email 				= $("#email").val();
 		userInfo.password			= $("#password").val()
+		userInfo.manager_Id			= manager_id;
 		userInfo.userProfiles[0].id	= $("#userProfile").val();
 		
 		user.createUser();
@@ -25,16 +26,16 @@ $(document).ready(function(){
 	 * 
 	 */
 	$("#btnSelf").click(function(){
-		alert($(this).text());
 		$("#txtManager").val($("#firstName").val()+" "+$("#lastName").val());
+		userInfo.manager_id=0;
 		
 	});
 	
 });
 var userInfo = {
-		"firstName":"",
-		"lastName":"",
-		"ssoId":"11111bd0fsa",
+		"firstName":"jatret",
+		"lastName":"Chitra",
+		"ssoId":"11111bd0fsadfsdafsdf",
 		"email":"mail@mail.com",
 		"password":"123456",
 		"userProfiles":[{
