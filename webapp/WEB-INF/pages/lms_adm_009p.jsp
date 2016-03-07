@@ -64,7 +64,6 @@
 					v['supervisor'] = dat.RESP_DATA['ORG_REC'][i].supervisor;
 					v['text'] = dat.RESP_DATA['ORG_REC'][i].name;
 //					v[i] = data;
-					console.log(v);
 					data.push(v);
 					
 				});
@@ -74,7 +73,7 @@
 				     'tie_selection': false,
 				     'whole_node': false // click on checkBox
 					},
-					"plugins": ["type","checkbox", "json_data"],
+					"plugins": ["type","radio", "json_data"],
 					'core' : {
 				    'data' : data,
 				    "themes":{
