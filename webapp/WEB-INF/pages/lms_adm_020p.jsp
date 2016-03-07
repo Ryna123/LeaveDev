@@ -67,8 +67,8 @@
 			<div class="modal-footer">
 				<div class="form-group">
 					<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						<button type="submit" class="btn btn-success" style="width: 70px;">OK</button>
-						<button type="submit" class="btn btn-primary">Cancel</button>
+						<button type="submit" class="btn btn-success" id="btnEdit" style="width: 70px;">Modify</button>
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
