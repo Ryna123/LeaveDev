@@ -79,6 +79,7 @@ entitledDays.clickEvent=function(){
 entitledDays.editEDC=function(){
 	var entitledDCObj={
 			"id":$('#txtStart').data('index'),
+			"contractId":$('#txtCStart').data('index'),
 			"start":$('#txtStart').val(),
 			"end":$('#txtEnd').val(),
 			"leaveTypeId":$('#lbsLT').val(),
@@ -87,14 +88,14 @@ entitledDays.editEDC=function(){
 			};
 	console.log(entitledDCObj);
 	$.ajax({
-		url:"../action/service/lms_adm_u019",
+		url:"../action/service/lms_adm_u19",
 		dataType:"JSON",
 		headers:{"Accept":"application/json","Content-Type":"application/json"},
 		type:"POST",
 		data:JSON.stringify(entitledDCObj),
 		success:function(data){
 			console.log(data);
-			$('#lms_adm_020p_Modal').modal('toggle');
+			$('#lms_adm_020p').modal('toggle');
 			table.clear().draw();
 			table.rows.add(data.listEDC);
 			table.columns.adjust().draw();

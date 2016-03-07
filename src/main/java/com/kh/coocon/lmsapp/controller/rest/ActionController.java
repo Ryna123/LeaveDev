@@ -590,7 +590,7 @@ public class ActionController {
 		@RequestMapping(value="/lms_adm_c019", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String,Object> createEntitledDC(@RequestBody() EntitledDayContract entitledDCObj){
 			System.out.println(entitledDCObj.getContractId());
-			/*try {
+			try {
 				if(entitledDaysContrastService.addEntitleDaysContract(entitledDCObj) == 1 ){
 					return listEntitledDays(entitledDCObj.getContractId());
 				}
@@ -598,7 +598,23 @@ public class ActionController {
 				System.out.println(e.getStackTrace());
 				System.out.println(e.getMessage());
 				// TODO: handle exception
-			}*/
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "add false");
+			return map;
+		}
+		
+		@RequestMapping(value="/lms_adm_u19", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> editEntitledDC(@RequestBody() EntitledDayContract entitledDCObj){
+			try {
+				if(entitledDaysContrastService.updateEntitleDaysContract(entitledDCObj) == 1 ){
+					return listEntitledDays(entitledDCObj.getContractId());
+				}
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				System.out.println(e.getMessage());
+				// TODO: handle exception
+			}
 			Map<String,Object> map = new HashMap<>();
 			map.put("Message", "add false");
 			return map;

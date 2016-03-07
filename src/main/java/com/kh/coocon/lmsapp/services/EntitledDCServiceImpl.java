@@ -100,7 +100,6 @@ public class EntitledDCServiceImpl implements EntitledDCService {
 			preparedStatement.setInt(4, obj.getDays());
 			preparedStatement.setString(5, obj.getDescript());
 			preparedStatement.setInt(6, obj.getId());
-			System.out.println(preparedStatement);
 			return preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
