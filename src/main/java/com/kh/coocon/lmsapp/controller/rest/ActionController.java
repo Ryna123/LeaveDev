@@ -169,7 +169,7 @@ public class ActionController {
 			User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("LEAVE_REC", leaveService.selectOneRecord(lId, user.getId()));
+			listData.put("LEAVE_REC", leaveService.selectOneRecordUser(lId, user.getId()));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
