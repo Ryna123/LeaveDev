@@ -19,6 +19,7 @@ $(document).ready(function(){
 	contract.listContrac();
 	position.listPosition();
 	
+	
 	/**
 	 * When user click the create button
 	 */
@@ -48,6 +49,7 @@ $(document).ready(function(){
 		userInfo.manager_id=0;
 		
 	});
+	
 	
 });
 var user = {
