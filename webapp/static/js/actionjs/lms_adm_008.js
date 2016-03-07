@@ -2,8 +2,19 @@
 $(window).load(function(){
 });
 
-$(document).ready(function(){
+var userInfo = {
+		"firstName":"jatret",
+		"lastName":"Chitra",
+		"ssoId":"11111bd0fsadfsdafsdf",
+		"email":"mail@mail.com",
+		"password":"123456",
+		"userProfiles":[{
+			"id":1
+		}],
+		"manager_id":0
+};
 
+$(document).ready(function(){
 	userProfile.listUserProfiles();
 	contract.listContrac();
 	position.listPosition();
@@ -39,17 +50,6 @@ $(document).ready(function(){
 	});
 	
 });
-var userInfo = {
-		"firstName":"jatret",
-		"lastName":"Chitra",
-		"ssoId":"11111bd0fsadfsdafsdf",
-		"email":"mail@mail.com",
-		"password":"123456",/*,
-		"userProfiles":[{
-			"id":1
-		}],*/
-		"manager_id":0
-};
 var user = {
 		createUser: function(){
 			$.ajax({
@@ -178,6 +178,10 @@ var validation = {
 	isEmpty: function(str){
 		return (!str || 0 === str.length);
 		
-	}	
+	},
+	//For checking if a string is blank, null or undefined
+	isBlank: function(str){
+		return (!str || /^\s*$/.test(str));
+	}
 		
 };
