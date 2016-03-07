@@ -616,9 +616,25 @@ public class ActionController {
 				// TODO: handle exception
 			}
 			Map<String,Object> map = new HashMap<>();
-			map.put("Message", "add false");
+			map.put("Message", "update false");
 			return map;
 		}
+		@RequestMapping(value="/lms_adm_d019", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> deleteEntitledDC(@RequestParam(value="dID") int id,@RequestParam(value="contractID")int cid){
+			System.out.println(id + "  " + cid);
+			
+			try {
+				if(entitledDaysContrastService.deleteEntitleDaysContract(id)==1)
+					return listEntitledDays(cid);
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getStackTrace());
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "delete false");
+			return map;
+		}
+	
 		private String getPrincipal(){
 	    	 String userName = null;
 	         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

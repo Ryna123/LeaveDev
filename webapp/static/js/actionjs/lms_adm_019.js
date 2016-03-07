@@ -62,8 +62,29 @@ entitledDays.listEntities=function(id){
 	});
 }
 entitledDays.clickEvent=function(){
-	$('#tblEDC tbody tr td a.btnDelete').click(function(){
-		
+	$('#tblEDC tbody tr td a.btnDelete').click(function(){		
+		var dID=$(this).data('index');
+		var alertText='Do you want to delete record: '+dID;
+		if(confirm(alertText)){
+			var data={
+					"dID":dID,
+					"contractID":$('#txtCStart').data('index')
+			}
+			$.ajax({
+				url:"../action/service/lms_adm_d019",
+				type:"POST",
+				dataType:"JSON",
+				data:data,
+				success:function(data){
+					alert("Record is deleted!");
+					console.log(data);
+					table.clear().draw();
+					table.rows.add(data.listEDC);
+					table.columns.adjust().draw();
+					entitledDays.clickEvent();
+				}
+			});
+		}
 	});
 	$('#tblEDC tbody tr td a.btnEdit').click(function(){
 		var row = table.row($(this).closest('tr')).data();

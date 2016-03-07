@@ -82,7 +82,16 @@ public class EntitledDCServiceImpl implements EntitledDCService {
 
 	@Override
 	public int deleteEntitleDaysContract(int id) {
-		// TODO Auto-generated method stub
+		String sql="delete from lms_entitleddays where id = ?";
+		try {
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement preparedStatement = cnn.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			return preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
 		return 0;
 	}
 
