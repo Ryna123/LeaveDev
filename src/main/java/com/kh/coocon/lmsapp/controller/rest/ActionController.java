@@ -443,6 +443,7 @@ public class ActionController {
 		public Map<String, Object> addNew(@RequestBody() User user){
 			Map<String,Object> map = new HashMap<String, Object>();
 			user.setState(State.ACTIVE.getState());
+			user.setManager_Id(user.getId());
 			System.out.println(user.getUserProfiles());
 			try{
 				userService.save(user);

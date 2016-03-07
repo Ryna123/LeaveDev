@@ -183,19 +183,6 @@ public class User {
 	public void setOrganizationId(int organization_Id) {
 		this.organization_Id = organization_Id;
 	}
-
-	
-
-	
-
-	public int getManagerId() {
-		return manager_Id;
-	}
-
-	public void setManagerId(int manager_Id) {
-		this.manager_Id = manager_Id;
-	}
-
 	public Date getDateHired() {
 		return dateHired;
 	}
