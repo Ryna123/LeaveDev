@@ -40,6 +40,8 @@
 	<script>
 	
 	 var lms_adm_009p ={};
+	 var _orgid = '';
+	 var _managerId = '';
 	$(document).ready(function(){
 		lms_adm_009p.loadData();
 		
@@ -53,7 +55,6 @@
 			//data :a,
 			success : function(dat) {
 				var data =[]
-				 console.log(dat.RESP_DATA['ORG_REC']);      
 				$.each(dat.RESP_DATA['ORG_REC'], function(i, v) {
 					if(dat.RESP_DATA['ORG_REC'][i].parent_id == "-1"){
 						v['parent'] = "#";
@@ -79,7 +80,12 @@
 				    "themes":{
 			         "icons":true,
 				    }			           
-				}})		
+				}})	
+				.bind("select_node.jstree", function (event, data) {
+					_orgid = data.node.id;
+					_managerId = data.node.original.supervisor;
+					alert("DeptId:"+ _orgid +" / "+"ManangerId:"+ _managerId);
+				})
 			}
 		});
 	}     
