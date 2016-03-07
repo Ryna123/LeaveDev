@@ -37,7 +37,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
 	public void save(User user) {
-		user.setState(State.INACTIVE.getState());
 		persist(user);
 	}
 
