@@ -42,7 +42,7 @@ public class User {
 	private String country;
 	private String calendar;
 	
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
  
     
