@@ -168,8 +168,10 @@
 									<div class="ln_solid"></div>
 									<!-- Buttons -->
 									<div class="form-group">
+										
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3" style="margin-left:63%;">
-											<button id="btnCreate" class="btn btn-info"><span class="fa fa-check-circle" aria-hidden="true"></span>Create User</button>
+											
+											<input type="button" id="btnCreate" class="btn btn-info"/>
 											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
 										</div>
 									</div>

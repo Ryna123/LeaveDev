@@ -443,6 +443,7 @@ public class ActionController {
 		public Map<String, Object> addNew(@RequestBody() User user){
 			Map<String,Object> map = new HashMap<String, Object>();
 			user.setState(State.ACTIVE.getState());
+			System.out.println(user.getUserProfiles());
 			try{
 				userService.save(user);
 				if(user.getUserProfiles()!=null){
@@ -455,7 +456,7 @@ public class ActionController {
 				map.put("Message", e.getMessage());
 				e.printStackTrace();
 				
-			}	
+			}
 			
 			return map;
 		}

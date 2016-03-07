@@ -9,7 +9,8 @@ var userInfo = {
 		"email":"mail@mail.com",
 		"password":"123456",
 		"userProfiles":[{
-			"id":1
+			"id":1,
+			"type":""
 		}],
 		"manager_id":0
 };
@@ -23,19 +24,23 @@ $(document).ready(function(){
 	 * When user click the create button
 	 */
 	$("#btnCreate").click(function(){
+		alert($("#userProfile").val());
+		
 		userInfo.firstName 			= $("#firstName").val();
 		userInfo.lastName 			= $("#lastName").val();
 		userInfo.ssoId 				= $("#userName").val();
 		userInfo.email 				= $("#email").val();
 		userInfo.password			= $("#password").val()
-		userInfo.manager_Id			= manager_id;
-		//userInfo.userProfiles[0].id	= $("#userProfile").val();		
-		alert(userInfo.manager_Id);
+		userInfo.userProfiles[0].id	= $("#userProfile").val();	
+		userInfo.userProfiles[0].type = $("#userProfile option:selected").text();
+		console.log(userInfo);
+		alert();
+		alert(userInfo.manager_id);
 		user.createUser();
 		
 	});
 	/**
-	 * 
+	 * When the user click on the select Self 
 	 */
 	$("#btnSelf").click(function(){
 		var firstName = $("#firstName").val();
@@ -62,7 +67,6 @@ var user = {
 				url		: "../action/service/lms_adm_c008",
 				success	: function(resp){
 					console.log(resp);
-					alert("Success!")
 				}
 			});
 		}

@@ -68,7 +68,7 @@ public class User {
     @Column(name="STATE", nullable=false)
     private String state=State.ACTIVE.getState();
  
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "LMS_USER_ROLES", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
