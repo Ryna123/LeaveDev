@@ -38,7 +38,7 @@ lms_adm_002.listLeaveRequest=function(){
 				        {"data":"id","bSearchable": false,
 				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        		 $(nTd).html("<span>"+(count++)+
-					        				"</span>");
+					        				"</span>"); 
 					             }
 				        },
 				        {"data":"leavesStartdate","bSearchable": false},

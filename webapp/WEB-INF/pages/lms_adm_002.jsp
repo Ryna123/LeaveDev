@@ -35,7 +35,7 @@
             <!-- /top navigation -->
 
             <!-- page content -->
-            <div class="right_col" role="main">
+            <div class="right_col" role="main"> 
 				<div class="">
 
                     <div class="page-title">
