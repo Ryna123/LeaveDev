@@ -1,7 +1,18 @@
+var _employeeManagement = {};
+var _table;
 
 $(document).ready(function(){
 	loading(true);
-	var table;
+	
+	_employeeManagement.loadEmpData();
+	
+	loading(false);
+	$('#txtSearch').keyup(function(){
+	      _table.search($(this).val()).draw() ;
+	});
+});
+
+_employeeManagement.loadEmpData=function(){
 	$.ajax({
 		url:"../action/service/lms_adm_r014",
 		dataType: "JSON",
@@ -18,7 +29,7 @@ $(document).ready(function(){
 			//var dd=JSON.parse(dataSet);
 			//console.log(values);
 			//$('#hrTable tbody tr').remove();
-			table = $('#hrTable').DataTable({
+			_table = $('#hrTable').DataTable({
 				"pagingType": "full_numbers",
 				data:values["data"],
 				 "dom": '<"top"i>rt<"bottom"lp>',
@@ -49,33 +60,6 @@ $(document).ready(function(){
 			});
 		}
 	});
-	loading(false);
+}
 	
-	$('#txtSearch').keyup(function(){
-	      table.search($(this).val()).draw() ;
-	});
-	/*$('#btnExport').on('click',function(){
-		alert('export fail');
-	});*/
-	/*$('#hrTable tbody').on( 'click', 'tr', function () {
-		alert(1);
-	    var data = table.row( this ).data();
-	    var myData = {
-	    		'id': data['id'],
-	    		'status': data['active']
-	    		
-	    }
-	    console.log(data.active);
-	    console.log(myData);
-	    //var values={"data":data};
-	    console.log(data);
-	    $.ajax({
-	    	type: "PUT",
-	    	url:"../action/service/lms_adm_014active",
-	    	data: myData
-	    });
-	} );
-	$('#hrTable tbody tr td span').on('click',function(){
-		alert(1);
-	});*/
-});
+	

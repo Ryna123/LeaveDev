@@ -1,5 +1,5 @@
-var entitledDays={};
-var table;
+var _entitledDays={};
+var _table;
 $(document).ready(function(){
 	loading(true);
 	$("#txtStart,#txtEnd,#txtCStart,#txtCEnd").daterangepicker({ 
@@ -9,21 +9,21 @@ $(document).ready(function(){
 	});
 	var url=document.location.href.split("?");
 	var id = url[1];
-	entitledDays.listEntities(id);
+	_entitledDays.listEntities(id);
 	$('#txtCStart').data('index',id);
 	
 	$("#btnAdd").click(function(){
-		entitledDays.addEDC();
+		_entitledDays.addEDC();
 	});
 	
 	$('#btnEdit').click(function(){
-		entitledDays.editEDC();
+		_entitledDays.editEDC();
 	});
 		
 	loading(false);
 });
 
-entitledDays.listEntities=function(id){
+_entitledDays.listEntities=function(id){
 	$.ajax({
 		type:"GET",
 		dataType:"JSON",
@@ -33,7 +33,7 @@ entitledDays.listEntities=function(id){
 		success:function(data){
 			console.log(data['listEDC']);
 			/*$("tblEDC").DataTable(data["listEDC"]);*/
-			table = $("#tblEDC").DataTable({
+			_table = $("#tblEDC").DataTable({
 				"pagingType": "full_numbers",
 				data:data.listEDC,
 				"dom": '<"top"i>rt<"bottom"lp>',
@@ -57,11 +57,11 @@ entitledDays.listEntities=function(id){
 				         {"data":"leaveType"},
 				         {"data":"descript"}]
 			});
-			entitledDays.clickEvent();
+			_entitledDays.clickEvent();
 		}
 	});
 }
-entitledDays.clickEvent=function(){
+_entitledDays.clickEvent=function(){
 	$('#tblEDC tbody tr td a.btnDelete').click(function(){		
 		var dID=$(this).data('index');
 		var alertText='Do you want to delete record: '+dID;
@@ -78,16 +78,16 @@ entitledDays.clickEvent=function(){
 				success:function(data){
 					alert("Record is deleted!");
 					console.log(data);
-					table.clear().draw();
-					table.rows.add(data.listEDC);
-					table.columns.adjust().draw();
-					entitledDays.clickEvent();
+					_table.clear().draw();
+					_table.rows.add(data.listEDC);
+					_table.columns.adjust().draw();
+					_entitledDays.clickEvent();
 				}
 			});
 		}
 	});
 	$('#tblEDC tbody tr td a.btnEdit').click(function(){
-		var row = table.row($(this).closest('tr')).data();
+		var row = _table.row($(this).closest('tr')).data();
 		console.log(row);
 		$('#txtStart').data('index',row.id);
 		$('#txtStart').val(row.start);
@@ -97,7 +97,7 @@ entitledDays.clickEvent=function(){
 		$('#lms_adm_020p').modal('toggle');
 	});
 }
-entitledDays.editEDC=function(){
+_entitledDays.editEDC=function(){
 	var entitledDCObj={
 			"id":$('#txtStart').data('index'),
 			"contractId":$('#txtCStart').data('index'),
@@ -117,14 +117,14 @@ entitledDays.editEDC=function(){
 		success:function(data){
 			console.log(data);
 			$('#lms_adm_020p').modal('toggle');
-			table.clear().draw();
-			table.rows.add(data.listEDC);
-			table.columns.adjust().draw();
-			entitledDays.clickEvent();
+			_table.clear().draw();
+			_table.rows.add(data.listEDC);
+			_table.columns.adjust().draw();
+			_entitledDays.clickEvent();
 		}
 	});
 }
-entitledDays.addEDC=function(){
+_entitledDays.addEDC=function(){
 	var entitledDCObj={
 			"contractId":$('#txtCStart').data('index'),
 			"start":$('#txtCStart').val(),
@@ -147,10 +147,10 @@ entitledDays.addEDC=function(){
 		success:function(data){
 			console.log(data);
 			$('#lms_adm_019p_Modal').modal('toggle');
-			table.clear().draw();
-			table.rows.add(data.listEDC);
-			table.columns.adjust().draw();
-			entitledDays.clickEvent();
+			_table.clear().draw();
+			_table.rows.add(data.listEDC);
+			_table.columns.adjust().draw();
+			_entitledDays.clickEvent();
 		}
 	});
 }
