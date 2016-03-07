@@ -11,7 +11,7 @@ var userInfo = {
 			"id":1,
 			"type":""
 		}],
-		"manager_id":0
+		"manager_Id":0
 };
 
 $(document).ready(function(){
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		userInfo.password				= $("#password").val()
 		userInfo.userProfiles[0].id		= $("#userProfile").val();	
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
-		userInfo.manager_id 			= manager_id;
+		userInfo.manager_Id 			= manager_Id;
 		console.log(userInfo);
 		user.createUser();
 		
@@ -49,7 +49,7 @@ $(document).ready(function(){
 			return false;
 		}		
 		$("#txtManager").val(firstName+" "+lastName);
-		manager_id=0;
+		manager_Id=0;
 		
 	});
 	

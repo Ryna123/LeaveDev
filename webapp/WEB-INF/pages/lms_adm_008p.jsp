@@ -121,7 +121,7 @@
 				alert("Please select the manager!");
 				return false;
 			}else{
-				manager_id = $("input:radio:checked").val();
+				manager_Id = $("input:radio:checked").val();
 				
 				
 				//var test = $("input:radio:checked").parent().next().next().css( "background-color", "red" );
