@@ -123,7 +123,7 @@
      <script type="text/x-jquery-tmpl" id="lmsAdm002">
 		<tr>   
 			<th scope="row">
-				<a href="javascrip:void(0)"><span class="fa fa-eye" data-toggle="modal" data-target="#myModal" data-placement="top" title="" data-original-title="View"></span></a>
+				<a href="javascrip:void(0)" id="leaveId"><input type='hidden' value="{{= LID}}"><span class="fa fa-eye" title="" data-original-title="View" ></span></a>
             </th>  
 			<td>{{= ID}}</td>                            											
 			<td>{{= LSD}}</td>
@@ -137,5 +137,9 @@
    			   
 		</tr>
 	</script>
-     
+	
+    <script id="selectLeaveTypeTmpl" type="text/html">
+    	<option value="{{= leaveTypeId}}">{{= leaveTypeName}}</option> 
+   	</script> 
+
      
