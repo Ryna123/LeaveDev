@@ -21,4 +21,22 @@ public class PositionServiceImpl implements PositionService{
 		return this.positionDao.listPosition();
 	}
 
+	@Override
+	public int addPosition(Position pos) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deletePosition(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int EditPosition(Position pos) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
