@@ -55,7 +55,6 @@
 			//data :a,
 			success : function(dat) {
 				var data =[]
-				 console.log(dat.RESP_DATA['ORG_REC']);      
 				$.each(dat.RESP_DATA['ORG_REC'], function(i, v) {
 					if(dat.RESP_DATA['ORG_REC'][i].parent_id == "-1"){
 						v['parent'] = "#";
