@@ -15,7 +15,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Name:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtCName"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>
@@ -25,7 +25,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Description:
 						</label>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<input id="birthday"
+							<input id="txtCDescript"
 								class="date-picker form-control col-md-7 col-xs-12"
 								required="required" type="text" data-parsley-id="4786">
 							<ul class="parsley-errors-list" id="parsley-id-4786"></ul>
@@ -36,8 +36,8 @@
 			<div class="modal-footer">
 				<div class="form-group">
 					<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						<button type="submit" class="btn btn-success">Create</button>
-						<button type="submit" class="btn btn-primary">Cancel</button>
+						<button type="submit" id="btnCreate" class="btn btn-success">Create</button>
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>

@@ -70,90 +70,18 @@
 
 								<div class="x_content">
 									<div class="title_right"></div>
-									<table
+									<table id="tblPosition"
 										class="table table-striped responsive-utilities jambo_table bulk_action">
 										<thead>
 											<tr class="headings">
-												<th class="column-title">Act</th>
-												<th class="column-title">ID</th>
-												<th class="column-title">Name</th>
+												<th class="column-title col-md-2">Act</th>
+												<th class="column-title col-md-3">ID</th>
+												<th class="column-title col-md-3">Name</th>
 												<th class="column-title">Description</th>
 											</tr>
 										</thead>
 
 										<tbody>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">1</td>
-												<td class=" ">CEO</td>
-												<td class=" ">The head quater</td>
-											</tr>
-											<tr class="odd pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">2</td>
-												<td class=" ">General Manager</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">3</td>
-												<td class=" ">Manager</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">4</td>
-												<td class=" ">Researcher</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="odd pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">5</td>
-												<td class=" ">Assistand Researcher</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">6</td>
-												<td class=" ">General worker</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">7</td>
-												<td class=" ">Internship</td>
-												<td class=" "></td>
-											</tr>
-											<tr class="even pointer">
-												<td class="a-center "><a href="#/trash"><i
-														class="fa fa-trash"></i></a> <a href="#/pencil"
-													data-toggle="modal" data-target="#lms_adm_022p"><i
-														class="fa fa-pencil"></i></a></td>
-												<td class=" ">7</td>
-												<td class=" ">Internship0</td>
-												<td class=" "></td>
-											</tr>
 											<tr class="even pointer">
 												<td class="a-center "><a href="#/trash"><i
 														class="fa fa-trash"></i></a> <a href="#/pencil"
@@ -175,7 +103,7 @@
 										</tbody>
 									</table>
 
-									<select size="1" style="width: 56px; padding: 6px;"
+									<!-- <select size="1" style="width: 56px; padding: 6px;"
 										name="example_length" aria-controls="example">
 										<option value="10">10</option>
 										<option value="25">15</option>
@@ -196,7 +124,7 @@
 											class="next paginate_button" id="example_next">Next</a><a
 											tabindex="0" class="last paginate_button" id="example_last">Last</a>
 									</div>
-									<div>
+									<div> -->
 										<div
 											class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
 											<div

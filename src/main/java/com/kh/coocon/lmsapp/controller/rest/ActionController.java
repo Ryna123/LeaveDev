@@ -27,6 +27,7 @@ import com.kh.coocon.lmsapp.entities.HrManagement;
 import com.kh.coocon.lmsapp.entities.Leaves;
 import com.kh.coocon.lmsapp.entities.ListUser;
 import com.kh.coocon.lmsapp.entities.OverTime;
+import com.kh.coocon.lmsapp.entities.Position;
 import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
 import com.kh.coocon.lmsapp.entities.UserProfile;
@@ -41,6 +42,7 @@ import com.kh.coocon.lmsapp.services.ListUserService;
 import com.kh.coocon.lmsapp.services.OrgService;
 import com.kh.coocon.lmsapp.services.OrgUserService;
 import com.kh.coocon.lmsapp.services.OverTimeService;
+import com.kh.coocon.lmsapp.services.PositionService;
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
@@ -70,6 +72,9 @@ public class ActionController {
 	private HumanResurceService humanResourceService;
 	@Autowired
 	private ContractService contractService;
+	
+	@Autowired
+	private PositionService positionService;
 	
 	@Autowired 
 	
@@ -624,11 +629,76 @@ public class ActionController {
 		}
 		@RequestMapping(value="/lms_adm_d019", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String,Object> deleteEntitledDC(@RequestParam(value="dID") int id,@RequestParam(value="contractID")int cid){
-			System.out.println(id + "  " + cid);
-			
 			try {
 				if(entitledDaysContrastService.deleteEntitleDaysContract(id)==1)
 					return listEntitledDays(cid);
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getStackTrace());
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "delete false");
+			return map;
+		}
+		
+		@RequestMapping(value="/lms_adm_r021",method=RequestMethod.GET)
+		public Map<String, Object> listPosition(){
+			Map<String, Object> map = new HashMap<>();
+			try {
+				List<Position> listPos = positionService.listPosition();
+				if(listPos.isEmpty() || listPos == null){
+					map.put("Message","Empty");
+				}else{
+					map.put("Message", "Exist");
+					map.put("listPos", listPos);
+				}
+			} catch (Exception e) {
+				map.put("Message", e.getMessage());
+				System.out.println(e.getStackTrace());
+			}
+			return map;
+		}
+		
+		@RequestMapping(value="/lms_adm_c021", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> createPosition(@RequestBody() Position posObj){
+			System.out.println(posObj.getDescription());
+			try {
+				if(positionService.addPosition(posObj) == 1 ){
+					return listPosition();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				System.out.println(e.getMessage());
+				// TODO: handle exception
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "add false");
+			return map;
+		}
+		
+		@RequestMapping(value="/lms_adm_u021", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> updatePos(@RequestBody() Position posObj){
+			try {
+				if(positionService.EditPosition(posObj) == 1 ){
+					return listPosition();
+				}
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				System.out.println(e.getMessage());
+				// TODO: handle exception
+			}
+			Map<String,Object> map = new HashMap<>();
+			map.put("Message", "update false");
+			return map;
+		}
+		
+		@RequestMapping(value="/lms_adm_d021", method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+		public Map<String,Object> deletePos(@RequestParam(value="dID") int id){
+			System.out.println(id+"*****");
+			
+			try {
+				if(positionService.deletePosition(id)==1)
+					return listPosition();
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println(e.getStackTrace());
