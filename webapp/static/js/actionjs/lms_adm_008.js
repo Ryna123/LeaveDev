@@ -110,7 +110,7 @@ var user = {
 				url			: "../action/service/lms_adm_c008",
 				success		: function(resp){
 					console.log(resp);
-					if(resp["MESSAGE"]=="Success"){						
+					if(resp["SUCCESS"]==true){						
 						location.href = "../admin/lms_adm_006";
 					}
 				},
