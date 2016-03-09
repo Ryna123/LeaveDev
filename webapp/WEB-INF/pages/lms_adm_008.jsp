@@ -171,8 +171,10 @@
 										
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3" style="margin-left:63%;">
 											
-											<input type="button" id="btnCreate" class="btn btn-info"/>
-											<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
+											<input value="Create" type="button" id="btnCreate" class="btn btn-info"/>
+											<input value="Cancel" type="button" id="btnClear" class="btn btn-danger"/>
+											<!-- <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
+										 -->
 										</div>
 									</div>
 

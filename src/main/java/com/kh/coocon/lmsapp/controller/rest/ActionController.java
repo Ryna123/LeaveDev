@@ -12,12 +12,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -449,7 +447,9 @@ public class ActionController {
 		@RequestMapping(value = { "/lms_adm_c008"}, method = RequestMethod.POST ,produces=MediaType.APPLICATION_JSON_VALUE )
 		public Map<String, Object> addNew(@RequestBody() User user){
 			Map<String,Object> map = new HashMap<String, Object>();
+			
 			user.setState(State.ACTIVE.getState());
+			
 			
 			
 			System.out.println(user.getUserProfiles()+"*************"+user.getId()+"****"+user.getManager_Id());
@@ -461,7 +461,9 @@ public class ActionController {
 		    		}
 		    	}
 				map.put("Message", "User "+user.getSsoId()+ " added successfully!");
+				map.put("SCCESS", true);
 			}catch(Exception e){
+				map.put("SCCESS", false);
 				map.put("Message", e.getMessage());
 				e.printStackTrace();
 				

@@ -12,7 +12,8 @@ var userInfo = {
 			"id":1,
 			"type":""
 		}],
-		"manager_Id":0
+		"manager_Id":0,
+		"position":{"id":2}
 };
 
 $(document).ready(function(){
@@ -39,6 +40,7 @@ $(document).ready(function(){
 		userInfo.password				= $("#password").val()
 		userInfo.userProfiles[0].id		= $("#userProfile").val();	
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
+		userInfo.position.id			= $("#position").val();
 		userInfo.manager_Id 			= manager_Id;
 		console.log(userInfo);
 		user.createUser();
@@ -97,18 +99,23 @@ var user = {
 			
 		},
 		createUser: function(){
+			loading(true);
 			$.ajax({
 				headers:{
 					'Accept': 'application/json',
 					'Content-Type': 'application/json'
 				},
-				type	: "POST",
-				data	: JSON.stringify(userInfo), 
-				url		: "../action/service/lms_adm_c008",
-				success	: function(resp){
+				type		: "POST",
+				data		: JSON.stringify(userInfo), 
+				url			: "../action/service/lms_adm_c008",
+				success		: function(resp){
 					console.log(resp);
-				}
+					if(resp["MESSAGE"]=="Success"){						
+						location.href = "../admin/lms_adm_006";
+					}
+				},
 			});
+			loading(false);
 		}
 }
 /**
