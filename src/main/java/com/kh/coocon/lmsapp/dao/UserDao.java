@@ -13,6 +13,7 @@ public interface UserDao {
     List<User> findByPosition(int limit, int offset);
     List<User> findAllUser();
     long countRecord(String position);
+    List<User> findLastId();
     
     void save(User user);
      
