@@ -54,6 +54,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 				.add(Projections.property("u.firstName"),"firstName")
 				.add(Projections.property("u.lastName"), "lastName")
 				.add(Projections.property("u.email"),"email")
+				.add(Projections.property("u.identifier"),"identifier")
 				.add(Projections.property("position"),"position")
 				);
 		crit.add(Restrictions.eq("position.name", "Manager"));

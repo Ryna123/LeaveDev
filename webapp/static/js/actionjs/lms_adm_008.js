@@ -2,6 +2,7 @@
 $(window).load(function(){
 });
 var userInfo = {
+		"identifier":"KS00000",
 		"firstName":"jatret",
 		"lastName":"Chitra",
 		"ssoId":"11111bd0fsadfsdafsdf",
@@ -66,9 +67,31 @@ var user = {
 				type	: 'GET',
 				url		: '../action/service/listLastId',
 				success	: function(resp){
-					console.log(resp);
+					var myNumber = 0;
 					userInfo.manager_Id = resp['LIST'][0].id + 1;
-					alert(userInfo.manager_Id)
+					var identifier = resp["LIST"][0].identifier;
+					
+					var str = identifier.substr(2);
+					var strArray = str.split("");
+					if(strArray[0]=="0" && strArray[1]=="0" && strArray[2]=="0"){
+						myNumber = Number(strArray[3]) + 1;
+						userInfo.identifier 	= "KS000"+myNumber;						
+					}else if(strArray[0]=="0" && strArray[1]=="0"){
+						myNumber = Number(strArray[2]+strArray[3]) + 1;
+						userInfo.identifier 	= "KS00"+myNumber;
+					}else if (strArray[0]=="0") {
+						myNumber = Number(strArray[1]+strArray[2]+strArray[3]) + 1;
+						userInfo.identifier 	= "KS0"+myNumber;
+					}else{
+						myNumber = Number(strArray[0]+strArray[1]+strArray[2]+strArray[3]) + 1;
+						userInfo.identifier 	= "KS"+myNumber;
+					}
+					$("#txtIdentifier").val(userInfo.identifier);
+					
+			
+					
+					
+					
 				}
 			});
 			
