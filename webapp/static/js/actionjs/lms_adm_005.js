@@ -195,7 +195,3 @@ lms_adm_005.readOtOfUser  = function (input) {
 	})
 	loading(false);
 }
-			
-
-
-			

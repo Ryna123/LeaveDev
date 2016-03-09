@@ -209,7 +209,7 @@
 		<div id="notif-group" class="tabbed_notifications"></div>
 	</div>
 
-	<%@include file="/static/include/assetfooter.jsp"%>
+	<%@include file="/static/include/assetfooter.jsp"%> 
 
 
 
