@@ -1,5 +1,6 @@
 <%@include file="/static/include/assetheader.jsp" %>
-
+<script
+	src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 <body class="nav-md">
 
     <div class="container body">
@@ -101,7 +102,7 @@
                             	</div>                                
                                 <!-- /Search  -->                                
                                  <!-- table  -->                                
-                                 <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                 <table id="tblOrg" class="table table-striped responsive-utilities jambo_table bulk_action">
                                     <thead>
                                             <tr class="headings">
                                                 <th>
@@ -126,29 +127,29 @@
                                   </table>
                                     
                                      <!-- Combo  -->
-                                  <div id="example_length" class="dataTables_length">
+                                  <!-- <div id="example_length" class="dataTables_length">
                                   	<label>Show <select size="1" style="width: 56px;padding: 6px;" name="example_length" aria-controls="example">
 	                                  <option value="10">10</option>
 	                                  <option value="25">25</option>
 	                                  <option value="50">50</option>	                                  
 	                                  </select> entries</label>
                                   </div>
-                                  <!-- /Combo  -->
+                                  /Combo 
                                   
-                                  <!--   Pagination  -->
+                                    Pagination 
                                   <div class="dataTables_paginate paging_full_numbers" id="example_paginate" style="float: right;">
 	                                  <a tabindex="0" class="first paginate_button paginate_button_disabled" id="example_first">First</a>
 	                                  <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="example_previous">Previous</a>
 	                                  <span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a>
 	                                  <a tabindex="0" class="paginate_button">3</a></span><a tabindex="0" class="next paginate_button" id="example_next">Next</a>
 	                                  <a tabindex="0" class="last paginate_button" id="example_last">Last</a>
-                                  </div>
+                                  </div> -->
                                   
                                   <!--  / Pagination  -->
                                  <br/><br/><br/>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="float: right;">
-                                           <button type="submit" class="btn btn-success" style="float: right">Delete an Employee</button>
-                                           <button type="submit" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#lms_adm_016p_Modal" >Add an Employee</button>
+                                           <button type="button" class="btn btn-success" style="float: right">Delete an Employee</button>
+                                           <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#lms_adm_016p_Modal" >Add an Employee</button>
                                            
                                  </div>   
                             <!-- </div> -->

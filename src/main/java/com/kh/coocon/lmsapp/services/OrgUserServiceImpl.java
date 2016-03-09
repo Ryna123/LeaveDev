@@ -23,44 +23,43 @@ public  class OrgUserServiceImpl implements OrgUserService {
 	
 	@Override
 	public List<ListUser> getOrgUserList(int orgId, int managerId) {
-		String sql	="SELECT id,identifier,first_name,last_name,email, phone,manager_id FROM lms_users"
-				+" WHERE organization_id = ?  AND manager_id = ? ";
+		String sql = "";
+		try {
+			Connection cnn = dataSource.getConnection();
+			PreparedStatement ps;
+			if (orgId == 0) {
+				sql="SELECT id,identifier,first_name,last_name,email, phone,manager_id "
+						+ "FROM lms_users";
+				ps = cnn.prepareStatement(sql);
+			} else {
+				sql = "SELECT id,identifier,first_name,last_name,email, phone,manager_id FROM lms_users"
+						+ " WHERE organization_id = ?  AND manager_id = ? ";
+				ps = cnn.prepareStatement(sql);
+				ps.setInt(1, orgId);
+				ps.setInt(2, managerId);
+			}
 			
-	
-			
-			try (
-				
-				Connection cnn = dataSource.getConnection();
-				PreparedStatement ps = cnn.prepareStatement(sql);
-				
-			)
-			{
-				ps.setInt(1,orgId);
-				ps.setInt(2,managerId);
-				System.out.println("HELOO"+ sql);
-				ResultSet rs = ps.executeQuery();
-				ArrayList<ListUser> userlist = new ArrayList<ListUser>();
-				ListUser lu = null;
-				while (rs.next()) {
-					lu = new ListUser();
-					lu.setId(rs.getInt("id"));
-					lu.setManagerId(rs.getInt("manager_id"));
-					lu.setIdentifier(rs.getString("identifier"));
-					lu.setFirstName(rs.getString("first_name"));
-					lu.setLastName(rs.getString("last_name"));
-					lu.setEmail(rs.getString("email"));
-					lu.setPhone(rs.getInt("phone"));
-					
-					
-					userlist.add(lu);
-				}
-				return userlist;
-			} catch (SQLException e) {
-				System.out.println(e);
-			} 
-			return null;
+			System.out.println("HELOO" + sql);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<ListUser> userlist = new ArrayList<ListUser>();
+			ListUser lu = null;
+			while (rs.next()) {
+				lu = new ListUser();
+				lu.setId(rs.getInt("id"));
+				lu.setManagerId(rs.getInt("manager_id"));
+				lu.setIdentifier(rs.getString("identifier"));
+				lu.setFirstName(rs.getString("first_name"));
+				lu.setLastName(rs.getString("last_name"));
+				lu.setEmail(rs.getString("email"));
+				lu.setPhone(rs.getInt("phone"));
+
+				userlist.add(lu);
+			}
+			return userlist;
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return null;
 	}
-
-
 
 }
