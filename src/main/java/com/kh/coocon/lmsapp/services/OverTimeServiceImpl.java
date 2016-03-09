@@ -96,7 +96,7 @@ public  class OverTimeServiceImpl implements OverTimeService {
 	}
 
 	@Override
-	public List<OverTime> getAllOverTimeAdmin(int empId, String frstNm, String lstNm) {
+	public List<OverTime> getAllOverTimeAdmin(int empId) {
 		String sql = " SELECT								      "
 				+ "  a.id as otId,"
 				+ "	CONCAT_WS(' ',b.first_name,b.last_name) as full_name,"
@@ -109,7 +109,7 @@ public  class OverTimeServiceImpl implements OverTimeService {
 				+ "	from  lms_overtime a"
 				+ "	left join lms_users b on a.employee_id = b.id"
 				+ "	left join lms_status c on a.status_id =  c.status_id"
-				+ "	where manager_id = ? AND first_name like ? OR last_name like ? " 
+				+ "	where manager_id = ? " 
 				+ "	order by startdate desc";
 		
 	
@@ -120,8 +120,6 @@ public  class OverTimeServiceImpl implements OverTimeService {
 		) {
             
 			ps.setInt(1,empId);
-			ps.setString(2, frstNm);
-			ps.setString(3, lstNm);
 			System.out.println("sql  query " + ps);
 			ResultSet rs = ps.executeQuery();
 			ArrayList<OverTime> lot = new ArrayList<OverTime>();
