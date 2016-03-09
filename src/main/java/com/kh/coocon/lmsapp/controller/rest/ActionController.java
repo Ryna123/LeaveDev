@@ -43,6 +43,7 @@ import com.kh.coocon.lmsapp.services.OrgService;
 import com.kh.coocon.lmsapp.services.OrgUserService;
 import com.kh.coocon.lmsapp.services.OverTimeService;
 import com.kh.coocon.lmsapp.services.PositionService;
+import com.kh.coocon.lmsapp.services.ReportBalanceService;
 import com.kh.coocon.lmsapp.services.UserService;
 import com.kh.coocon.lmsapp.utils.SSOIdUtil;
 
@@ -62,7 +63,8 @@ public class ActionController {
 	LeaveTypeService leaveTypeService;
 	@Autowired
 	OrgService orgService;
-	
+	@Autowired
+	ReportBalanceService  reportBalanceService;
 	@Autowired
 	OrgUserService orgUseService;
 	@Autowired
@@ -707,6 +709,25 @@ public class ActionController {
 			map.put("Message", "delete false");
 			return map;
 		}
+		
+		
+		// report balance of all employees
+		@RequestMapping(value = { "/lms_adm_r023"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getListUsersReBalance() {
+			//List<Entitledays> Mylist = userService.list();
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			listData.put("REP_BAL", reportBalanceService.getListUsersReBalance());
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
+		
 	
 		private String getPrincipal(){
 	    	 String userName = null;

@@ -11,13 +11,37 @@ public class ListUser {
 	private String role;
 	private int phone;
 	private int managerId;
+	private String deptNm;
+	private String position;
+	private String hiredDate;
+	private String managername;
+	
+	public String getDeptNm() {
+		return deptNm;
+	}
+	public void setDeptNm(String deptNm) {
+		this.deptNm = deptNm;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	public String getHiredDate() {
+		return hiredDate;
+	}
+	public void setHiredDate(String hiredDate) {
+		this.hiredDate = hiredDate;
+	}
+
 	public int getManagerId() {
 		return managerId;
 	}
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
-	private String managername;
+	
 	public int getId() {
 		return id;
 	}
