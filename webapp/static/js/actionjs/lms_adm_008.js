@@ -19,6 +19,11 @@ $(document).ready(function(){
 	contract.listContrac();
 	position.listPosition();
 	
+	/**
+	 * Display the last id;
+	 */
+	user.list_last_id();
+	
 	
 	/**
 	 * When user click the create button
@@ -49,13 +54,25 @@ $(document).ready(function(){
 			return false;
 		}		
 		$("#txtManager").val(firstName+" "+lastName);
-		manager_Id=0;
+		manager_Id=userInfo.manager_Id;
 		
 	});
 	
 	
 });
 var user = {
+		list_last_id: function(){
+			$.ajax({
+				type	: 'GET',
+				url		: '../action/service/listLastId',
+				success	: function(resp){
+					console.log(resp);
+					userInfo.manager_Id = resp['LIST'][0].id + 1;
+					alert(userInfo.manager_Id)
+				}
+			});
+			
+		},
 		createUser: function(){
 			$.ajax({
 				headers:{
