@@ -13,7 +13,8 @@ var userInfo = {
 			"type":""
 		}],
 		"manager_Id":0,
-		"position":{"id":2}
+		"position":{"id":0},
+		"contract":{"id":0}
 };
 
 $(document).ready(function(){
