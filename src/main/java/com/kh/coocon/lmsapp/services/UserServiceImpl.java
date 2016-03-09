@@ -51,5 +51,10 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return this.dao.countRecord(position);
 	}
+
+	@Override
+	public List<User> findLastId() {
+		return dao.findLastId();
+	}
  
 }

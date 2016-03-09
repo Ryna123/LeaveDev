@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
@@ -100,6 +101,22 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 			crit.add(Restrictions.eq("position.name", position));
 		}
 		return (long)crit.uniqueResult();
+	}
+
+	@Override
+	public List<User> findLastId() {
+		Criteria crit = getSession().createCriteria(User.class,"u");
+		
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("u.id"),"id")
+				.add(Projections.property("u.identifier"),"identifier")
+				);
+		crit.addOrder(Order.desc("u.id"));
+		crit.setMaxResults(1);
+		
+		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
+		
+		return null;
 	}
  
      

@@ -24,6 +24,10 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
+	@RequestMapping(value="listLastId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> listLastId(){
+		
+	}
 
 	@RequestMapping(value="listUserByPosition", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> listUserByPosition(

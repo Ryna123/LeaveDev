@@ -13,6 +13,7 @@ public interface UserService {
     List<User> listUserByPosition(int limit, int offset);
     List<User> findAllUser();
     long countRecord(String position);
+    List<User> findLastId();
     
     void save(User user);    
    

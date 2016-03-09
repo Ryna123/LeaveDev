@@ -30,7 +30,7 @@ public class User {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateHired;
-	private String identifirer;
+	private String identifier;
 	private String phone;
 	private String emergency;
 	
@@ -191,13 +191,7 @@ public class User {
 		this.dateHired = dateHired;
 	}
 
-	public String getIdentifirer() {
-		return identifirer;
-	}
 
-	public void setIdentifirer(String identifirer) {
-		this.identifirer = identifirer;
-	}
 
 	public String getPhone() {
 		return phone;
@@ -271,6 +265,14 @@ public class User {
                 + ", firstName=" + firstName + ", lastName=" + lastName
                 + ", email=" + email + ", state=" + state + ", userProfiles=" + userProfiles +"]";
     }
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
  
      
 }
