@@ -1,5 +1,5 @@
 myData = {
-		'numberOfRecord': $("#numberOfRecord").val(),
+		'numberOfRecord':10, //$("#numberOfRecord").val(),
 		'pageCount':1
 	};
 $(document).ready(function() {

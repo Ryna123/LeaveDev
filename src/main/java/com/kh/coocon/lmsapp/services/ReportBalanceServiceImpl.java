@@ -18,7 +18,7 @@ public   class ReportBalanceServiceImpl implements ReportBalanceService{
 	@Autowired
 	private DataSource dataSource;
 	@Override
-	public List<ListUser> getListUsersReBalance() {
+	public List<ListUser> getListUsersReBalance(int offset, int limit) {
 		String sql	= "SELECT "
 				+ " 	a.identifier,  " 
 				+ "		a.first_name," 
@@ -33,7 +33,11 @@ public   class ReportBalanceServiceImpl implements ReportBalanceService{
 				+ "		LEFT JOIN lms_positions c on a.position_id = c.position_id"
 				+ "		LEFT JOIN lms_contracts d on d.contract_id = a.contract_id "
 				+ "		LEFT JOIN lms_entitleddays e on e.contract_id = d.contract_id  "
-				+ "		LEFT JOIN lms_types f on f.type_id = e.type_id";	
+				+ "		LEFT JOIN lms_types f on f.type_id = e.type_id"
+				+ "		ORDER BY first_name DESC"
+				+ "		LIMIT ?"
+				+ "		OFFSET ?"				
+				+ "		" ;	
 				
 				System.out.println(sql);
 				try (
@@ -43,6 +47,8 @@ public   class ReportBalanceServiceImpl implements ReportBalanceService{
 					
 				)
 				{
+					ps.setInt(1, offset);
+					ps.setInt(2, limit);
 					ResultSet rs = ps.executeQuery();
 					ArrayList<ListUser> ll = new ArrayList<ListUser>();
 					ListUser lu = null;
@@ -65,6 +71,11 @@ public   class ReportBalanceServiceImpl implements ReportBalanceService{
 				return null;
 
 
+	}
+	@Override
+	public long CountRecord(String name) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

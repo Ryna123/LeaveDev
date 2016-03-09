@@ -713,11 +713,31 @@ public class ActionController {
 		
 		// report balance of all employees
 		@RequestMapping(value = { "/lms_adm_r023"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> getListUsersReBalance() {
+		public ResponseEntity<Map<String, Object>> getListUsersReBalance(
+				@RequestParam("pageCount") int pageCount,
+				@RequestParam("numberOfRecord") int numberOfRecord) {
+			
+			int offset = (pageCount-1)*numberOfRecord;	
 			//List<Entitledays> Mylist = userService.list();
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
-			listData.put("REP_BAL", reportBalanceService.getListUsersReBalance());
+			
+			try{
+				System.out.println(numberOfRecord+offset);
+				List<ListUser> user = reportBalanceService.getListUsersReBalance(numberOfRecord,offset);
+				//List<User> user = userService.findAllUser();
+				//long totalRecord = user.size();
+				
+				listData.put("REP_BAL", user);
+				listData.put("TOTAL_REC", userService.countRecord("name"));
+			//	listData.put("TOTAL_REC", reportBalanceService.CountRecord("name"));
+			}catch(Exception e){
+				listData.put("REP_BAL", e.getMessage());
+				e.printStackTrace();
+			}
+			
+			
+	//		listData.put("REP_BAL", reportBalanceService.getListUsersReBalance(numberOfRecord,offset));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
