@@ -26,6 +26,18 @@ public class UserController {
 	
 	@RequestMapping(value="listLastId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Object> listLastId(){
+		Map<String, Object> map = new HashMap<>();
+		try{
+			List<User> users = service.findLastId();
+			map.put("MESSAGE", "SUCCESS");
+			map.put("LIST", users);
+		}catch(Exception e){
+			map.put("MESSAGE", "ERROR");
+			map.put("ERROR", e.getMessage());
+			e.printStackTrace();		
+		}
+		
+		return map;
 		
 	}
 

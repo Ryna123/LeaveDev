@@ -116,7 +116,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		
 		crit.setResultTransformer(new AliasToBeanResultTransformer(User.class));
 		
-		return null;
+		return (List<User>) crit.list();
 	}
  
      
