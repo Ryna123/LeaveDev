@@ -183,7 +183,7 @@
 				                
 								<div id="create_new_type_btn">
 									<a class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
-									<a class="btn btn btn-primary" href="lms_adm_008.jsp"><i class="fa fa-plus-circle"></i>Create a new user</a>
+									<a class="btn btn btn-primary" href="<c:url value="/admin/lms_adm_008"/>"><i class="fa fa-plus-circle"></i>Create a new user</a>
 								</div>
                             </div>
                         </div>
