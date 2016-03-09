@@ -304,12 +304,12 @@ public class ActionController {
 		
 		//List overTime for manager
 		@RequestMapping(value = { "/lms_adm_r005"}, method = RequestMethod.POST)
-		public ResponseEntity<Map<String, Object>> getAllOverTimeAdmin(@RequestParam("empId") int empId,@RequestParam("frstNm") String frstNm,@RequestParam("lstNm") String lstNm ) {
+		public ResponseEntity<Map<String, Object>> getAllOverTimeAdmin(@RequestParam("empId") int empId ) {
 			User user = userService.findBySso(getPrincipal());		
 			Map<String, Object> map = new HashMap<String, Object>();
 			Map<String, Object> listData = new HashMap<String, Object>();
 			System.out.println("@@@@@@@@@"+user.getId());
-			listData.put("OVERTIME_LIST", overTimeService.getAllOverTimeAdmin(user.getId(),frstNm,lstNm));
+			listData.put("OVERTIME_LIST", overTimeService.getAllOverTimeAdmin(user.getId()));
 			if (listData.isEmpty()) {
 				map.put("MESSAGE", "No data");
 				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
