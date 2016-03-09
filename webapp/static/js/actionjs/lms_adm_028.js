@@ -3,6 +3,7 @@
  */
 
 var lms_adm_028 = {};
+var count=1;
 $(document).ready(function() {
 	lms_adm_028.listOverTime();
 	
@@ -31,9 +32,11 @@ lms_adm_028.listOverTime = function() {
 			
 			var values={"data":listData};
 			console.log(values);
-			var count = Object.keys(listData).length;
+			//var count = Object.keys(listData).length;
 			console.log(count);
 				table = $('#otDataTable').DataTable({
+					"order": [[ 1, "desc" ]],
+					"aoColumnDefs": [{ "bSortable": false, "aTargets": [0]}],
 					"pagingType": "full_numbers",
 					data:values["data"],
 					 "dom": 'rt<"bottom"lp>',//"dom": '<"top"i>rt<"bottom"lp>',
@@ -49,7 +52,7 @@ lms_adm_028.listOverTime = function() {
 					        },
 					        {"data":"id","bSearchable": false,
 					        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-					        		 $(nTd).html("<span>"+(count--)+
+					        		 $(nTd).html("<span>"+(count++)+
 						        				"</span>");
 						             }
 					        },
@@ -94,6 +97,7 @@ lms_adm_028.listOverTime = function() {
 			lms_adm_028.CallOtOneRecord();
 			lms_adm_028.callUpdateOt();
 			loading(false);
+			count=1;
 		},
 		error : function(data) {
 			console.log(data);
