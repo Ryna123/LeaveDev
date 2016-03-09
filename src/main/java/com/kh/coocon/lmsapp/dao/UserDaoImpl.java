@@ -11,8 +11,6 @@ import org.hibernate.sql.JoinType;
 import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.springframework.stereotype.Repository;
 
-
-import com.kh.coocon.lmsapp.entities.State;
 import com.kh.coocon.lmsapp.entities.User;
  
 

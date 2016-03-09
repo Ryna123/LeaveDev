@@ -21,6 +21,7 @@ public  class ListUserServiceImpl implements ListUserService{
 	public List<ListUser> getListUsers(int offset, int limit) {
 		String sql	= "SELECT "
 				+ " 	this_.id as id,  " 
+				+ " 	this_.identifier as identifier,  " 
 				+ "		this_.first_name as firstName," 
 				+ "		this_.last_name as lastName," 
 				+ "		this_.sso_id as username," 
@@ -64,7 +65,7 @@ public  class ListUserServiceImpl implements ListUserService{
 						lu.setRole(rs.getString("role"));
 						lu.setPhone(rs.getInt("phone"));
 						lu.setManagername(rs.getString("manager_name"));
-						
+						lu.setIdentifier(rs.getString("identifier"));
 						ll.add(lu);
 					}
 					return ll;

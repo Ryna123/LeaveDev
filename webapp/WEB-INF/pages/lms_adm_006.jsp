@@ -222,8 +222,7 @@
 					<td>{{= EMAIL}}</td>
                     <td>{{= PHONE}}</td>
 					<td>{{= ROLE}}</td>
-					<td>{{= MANAGERNAME}}</td>
-					
+					<td>{{= MANAGERNAME}}</td>					
                    
         </tr>
 	</script>
