@@ -90,127 +90,8 @@
                                                 </tr>
                             				</thead>
 
-                            				<tbody>
-                                				<tr class="even pointer">
-                                    				<td class=" ">KS001</td>
-                                    				<td class=" ">Kim</td>
-                                    				<td class=" ">Wansu</td>
-                                    				<td class=" ">Coocon center</td>
-                                   				 	<td class=" ">General Manager</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 454 545</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="odd pointer">
-                                                	<td class=" ">KS002</td>
-                                    				<td class=" ">Choi</td>
-                                    				<td class=" ">Siwan</td>
-                                    				<td class=" ">R&D center</td>
-                                   				 	<td class=" ">General Manager</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 454 545</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="even pointer">
-                                    				<td class=" ">KS003</td>
-                                    				<td class=" ">Long</td>
-                                    				<td class=" ">Bunna</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" " style=" color:red;">-2</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="even pointer">
-                                    				<td class=" ">KS004</td>
-                                    				<td class=" ">Yon</td>
-                                    				<td class=" ">Ryna</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" "style=" color:red;">-1</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="odd pointer">
-                                               	 	<td class=" ">KS005</td>
-                                    				<td class=" ">Pheng</td>
-                                    				<td class=" ">Tola</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="even pointer">
-                                    				<td class=" ">KS005</td>
-                                    				<td class=" ">Song</td>
-                                    				<td class=" ">Dararathana</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                               				 	<tr class="even pointer">
-                                    				<td class=" ">KS005</td>
-                                    				<td class=" ">Ngor</td>
-                                    				<td class=" ">Gechleng</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="odd pointer">
-                                                	<td class=" ">KS005</td>
-                                    				<td class=" ">Lao</td>
-                                    				<td class=" ">Sunleng</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                                				</tr>
-                                				<tr class="even pointer">
-                                    				<td class=" ">KS005</td>
-                                    				<td class=" ">Vang</td>
-                                    				<td class=" ">Muny</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                               				 	</tr>
-                                  				<tr class="even pointer">
-                                    				<td class=" ">KS005</td>
-                                    				<td class=" ">Tang</td>
-                                    				<td class=" ">Borith	</td>
-                                    				<td class=" ">Coocon Center</td>
-                                   				 	<td class=" ">Assistant Researcher</td>
-                                   				 	<td class=" ">10/12/2015</td>
-                                    				<td class=" ">012 30 30 20</td>
-                                    				<td class=" ">13</td>
-                                    				<td class=" ">7</td>
-                                   				 	<td class=" ">7</td>
-                              			  		</tr>         
+                            				<tbody id= "reportBal" >
+                                				
                          					</tbody>
 										</table>
 					
@@ -242,3 +123,19 @@
     </div>
 
    <%@include file="/static/include/assetfooter.jsp" %>
+   <script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_023.js" />"></script>
+   <script type="text/x-jquery-tmpl" id="ReportBalTemplate">
+    <tr class="even pointer">
+    				<td class=" ">{{= IDENTITIER}}</td>
+    				<td class=" ">{{= FIRSTNAME}}</td>
+    				<td class=" ">{{= LASTNAME}}</td>
+    				<td class=" ">{{= DEPARTMENT}}</td>
+   				 	<td class=" ">{{= POSTION}}</td>
+   				 	<td class=" ">{{= HIREDDATE}}</td>
+    				<td class=" ">{{= PHONE}}</td>
+    				<td class=" "></td>
+    				<td class=" "></td>
+   				 	<td class=" "></td>
+	</tr>
+  </script>
+
