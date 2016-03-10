@@ -475,6 +475,23 @@ public class ActionController {
 			return map;
 		}
 		
+		@RequestMapping(value="/lms_adm_r009p",method=RequestMethod.GET)
+		public Map<String, Object> listEmpByOrg(@RequestParam(value="orgId")int orgId){
+			Map<String, Object> map = new HashMap<>();
+			try{
+				List<HrManagement> hrManagements = humanResourceService.getEmpByOrg(orgId);
+				if(hrManagements.isEmpty() || hrManagements == null){
+					map.put("Message", "Empty");
+				}else{
+					map.put("Message", "Exist");
+					map.put("List", hrManagements);
+				}
+			}catch(Exception e){
+				map.put("Message", e.getMessage());
+			}
+			return map;
+		}
+		
 		//List all employee in human resource menu
 		@RequestMapping(value={"/lms_adm_r014"}, method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 		public Map<String, Object> hrListAllEmp(){
