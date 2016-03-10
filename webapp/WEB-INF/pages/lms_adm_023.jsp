@@ -129,6 +129,9 @@
                             				<tbody id= "reportBal" >
                                 				
                          					</tbody>
+                         					<tfoot id="noData"style="display:none;text-align: center;">
+                         					<tr><td colspan="10">There are no records match</td>
+                         					</tfoot>
 										</table>
 					
 <!-- 						<select size="1" style="width: 56px;padding: 6px;" name="example_length" aria-controls="example"> -->
