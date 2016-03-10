@@ -48,7 +48,11 @@ _contractManagment.listContractInfo = function(){
 				        			 		"<div class='fa-hover col-md-3 col-sm-4 col-xs-12'><a class='btnView' data-index="+sData+"><i class='fa fa-signal'></i></a></div>");
 				             }
 				        },
-				         {"data":"id"},
+				         {"data":"id",
+				        	 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+				        		 $(nTd).html(sData+1);
+				        	 }
+				         },
 				         {"data":"contractName"},
 				         {"data":"startedDate"},
 				         {"data":"endDate"}
