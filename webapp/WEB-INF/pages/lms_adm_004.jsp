@@ -1,17 +1,20 @@
 <%@include file="/static/include/assetheader.jsp"%>
-<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
+<script
+	src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 
 <style type="text/css">
-		#SearchBox{
-			border-radius: 25px 25px 25px 25px;
-		} 
-		#leaveAdminDataTable_length select{
-			min-height: 30px;
-		}
-		.paginate_button.current{
-		    background-color: rgba(38, 185, 154, 0.59) !important;
-    		border-color: rgba(38, 185, 154, 0.59) !important;
-		}
+#SearchBox {
+	border-radius: 25px 25px 25px 25px;
+}
+
+#leaveAdminDataTable_length select {
+	min-height: 30px;
+}
+
+.paginate_button.current {
+	background-color: rgba(38, 185, 154, 0.59) !important;
+	border-color: rgba(38, 185, 154, 0.59) !important;
+}
 </style>
 
 <body class="nav-md">
@@ -55,8 +58,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12 input-group">
 								<input type="text" class="form-control"
 									placeholder="Search for..." id="SearchBox"> <span
-									class="input-group-btn">
-									<!-- <button class="btn btn-default" type="button">Go!</button> -->
+									class="input-group-btn"> <!-- <button class="btn btn-default" type="button">Go!</button> -->
 								</span>
 							</div>
 						</div>
@@ -163,12 +165,10 @@
 									<!-- Buttons -->
 									<div class="form-group pull-right">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<a class="btn btn-default" id="test"
-												style="border-radius: 15px; !important">Export</a> <a
-												class="btn btn-default"
-												style="border-radius: 15px; !important">All Requests</a> <a
-												class="btn btn-default"
-												style="border-radius: 15px; !important">Pending requests</a>
+											<a class="btn btn-success" href="${pageContext.request.contextPath}/action/service/lAdminExport"><i
+												class="fa fa-send"></i> Export</a> 
+											<a class="btn btn-primary">All Requests</a> 
+											<a class="btn btn-default">Pending requests</a>
 										</div>
 									</div>
 
@@ -214,7 +214,7 @@
    			   
 		</tr>
 	</script> -->
-	
+
 	<script id="selectLeaveTypeTmpl" type="text/html">
     	<option value="{{= leaveTypeId}}">{{= leaveTypeName}}</option> 
-   	</script> 
+   	</script>

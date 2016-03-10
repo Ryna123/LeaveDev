@@ -4,8 +4,8 @@ package com.kh.coocon.lmsapp.entities;
 public class Leaves {
 	private int id;
 	private int leaveEmployeeId;
-	private String leavesStatus;
-	private String leavesType;
+	private int leavesStatus;
+	private int leavesType;
 	private String leavesStartdate;
 	private String leavesEnddate;
 	private String leavesReason;
@@ -32,16 +32,16 @@ public class Leaves {
 	public void setLeaveEmployeeId(int leaveEmployeeId) {
 		this.leaveEmployeeId = leaveEmployeeId;
 	}
-	public String getLeavesStatus() {
+	public int getLeavesStatus() {
 		return leavesStatus;
 	}
-	public void setLeavesStatus(String leavesStatus) {
+	public void setLeavesStatus(int leavesStatus) {
 		this.leavesStatus = leavesStatus;
 	}
-	public String getLeavesType() {
+	public int getLeavesType() {
 		return leavesType;
 	}
-	public void setLeavesType(String leavesType) {
+	public void setLeavesType(int leavesType) {
 		this.leavesType = leavesType;
 	}
 	public String getLeavesStartdate() {
