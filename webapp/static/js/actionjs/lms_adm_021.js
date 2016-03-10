@@ -7,11 +7,15 @@ $(document).ready(function(){
 	$('#btnCreate').click(function(){
 		loading(true);
 		_positionManagement.createPos();
+		$('#lms_adm_021p').modal('hide');
+		$('#txtCName').val('');
+		$('#txtCDescript').val('');
 		loading(false);
 	});
 	$('#btnUpdate').click(function(){
 		loading(true);
 		_positionManagement.updatePos();
+		$('#lms_adm_022p').modal('hide');
 		loading(false);
 	});
 });
@@ -44,15 +48,19 @@ _positionManagement.loadData=function(){
 				         {"data":"id"},
 				         {"data":"name"},
 				         {"data":"description"}
-				]
+				],
+				"fnDrawCallback":function(){
+					_positionManagement.clickEvent();
+				}
 			});
-			_positionManagement.clickEvent();
+			
 		}
 		
 	});
 }
 
 _positionManagement.clickEvent=function(){
+	
 	$('#tblPosition tbody tr td a.btnDelete').click(function(){
 		var dID=$(this).data('index');	
 		var alertText='Do you want to delete record: '+dID;
@@ -68,7 +76,7 @@ _positionManagement.clickEvent=function(){
 					_table.clear().draw();
 					_table.rows.add(data.listPos);
 					_table.columns.adjust().draw();
-					_positionManagement.clickEvent();
+					//_positionManagement.clickEvent();
 				}
 			});
 		}
@@ -78,7 +86,7 @@ _positionManagement.clickEvent=function(){
 		$('#txtName').data('index',row.id);
 		$('#txtName').val(row.name);
 		$('#txtDescript').val(row.description);
-		$('#lms_adm_022p').modal('toggle');
+		$('#lms_adm_022p').modal('show');
 	});
 }
 _positionManagement.createPos=function(){
@@ -97,13 +105,10 @@ _positionManagement.createPos=function(){
 		type:"POST",
 		data: JSON.stringify(data),
 		success:function(data){
-			$('#lms_adm_021p').modal('toggle');
-			$('#txtCName').val('');
-			$('#txtCDescript').val('');
 			_table.clear().draw();
 			_table.rows.add(data.listPos);
 			_table.columns.adjust().draw();
-			_positionManagement.clickEvent();
+			//_positionManagement.clickEvent();
 		}
 	});
 }
@@ -120,11 +125,10 @@ _positionManagement.updatePos=function(){
 		type:"POST",
 		data:JSON.stringify(data),
 		success:function(data){
-			$('#lms_adm_022p').modal('toggle');
 			_table.clear().draw();
 			_table.rows.add(data.listPos);
 			_table.columns.adjust().draw();
-			_positionManagement.clickEvent();
+			//_positionManagement.clickEvent();
 		}
 	});
 }
