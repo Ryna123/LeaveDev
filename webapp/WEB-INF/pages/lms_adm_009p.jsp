@@ -30,8 +30,8 @@
         			</form>
                 </div>
 	        	<div class="modal-footer">
-	        		<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check"></i>&nbsp;&nbsp;OK</button>
-	          		<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;&nbsp;Cancel</button>
+	        		<button type="button" id="btnSelectDept"class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check"></i>&nbsp;&nbsp;OK</button>
+	          		<button type="button" id="btnCacelDept"class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;&nbsp;Cancel</button>
 	        	</div>
 	      	</div>
 	    </div>
@@ -57,6 +57,16 @@
 		      $('#treeData').jstree(true).search(value);
 		    }, 250);
 		  });
+		  
+		// set data to select department
+		  $("#btnSelectDept").click(function(){
+					var deprtment = _departNm;
+					var departmentId = _orgid;
+					$("#txtDepartment").val(deprtment)
+					$("#valDepartment").val(departmentId);
+					$("#select_manager").modal("toggle");
+				
+			});  
 		
 	});
 	lms_adm_009p.loadData = function(){
@@ -97,6 +107,7 @@
 				.bind("select_node.jstree", function (event, data) {
 					_orgid = data.node.id;
 					_managerId = data.node.original.supervisor;
+					_departNm = data.node.original.name
 					alert("DeptId:"+ _orgid +" / "+"ManangerId:"+ _managerId);
 				})
 			}

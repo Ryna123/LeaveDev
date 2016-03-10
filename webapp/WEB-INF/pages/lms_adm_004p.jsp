@@ -1,6 +1,6 @@
 
 <!-- page content -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="lms_adm_004p" tabindex="-1" role="dialog">
   <div class="AddDelegate">
     <div class="modal-dialog modal-sg" ><!-- style="width: 45%" -->
       <div class="modal-content">
@@ -23,9 +23,9 @@
               </div>
               <!-- combo box -->
               <div class="col-md-3 col-sm-3">
-                <select data-parsley-id="4308" id="heard" class="form-control" required="" disabled>
-                  <option value="Morning">Morning</option>
-                  <option value="Afternoon">Afternoon</option>
+                <select data-parsley-id="4308" id="startDateType" class="form-control" required="" disabled>
+                  <option value="morning">Morning</option>
+                  <option value="afternoon">Afternoon</option>
                 </select>
               </div>
             </div>
@@ -38,9 +38,9 @@
               </div>
               <!-- combo box -->
               <div class="col-md-3 col-sm-3">
-                <select data-parsley-id="4308" id="heard" class="form-control" required="" disabled>
-                  <option value="Morning">Morning</option>
-                  <option value="Afternoon">Afternoon</option>		
+                <select data-parsley-id="4308" id="endDateType" class="form-control" required="" disabled>
+                  <option value="morning">Morning</option>
+                  <option value="afternoon">Afternoon</option>		
                 </select>
               </div>
             </div>
@@ -57,9 +57,9 @@
               <label class="control-label col-md-2 col-sm-2">Leave Type:</label> 
               <label class="control-label control-label col-md-1 col-sm-1"></label>
               <div class="col-md-5 col-sm-5">
-                <select data-parsley-id="4308" id="heard" class="form-control" required="" disabled>
-                  <option value="plan">Annual Leave</option>
-                  <option value="unplan">Option</option>
+                <select data-parsley-id="4308" id="selectLeaveType" class="form-control" required="" disabled>
+                  <!-- <option value="plan">Annual Leave</option>
+                  <option value="unplan">Option</option> -->
                 </select>
               </div>
             </div>
@@ -75,9 +75,11 @@
               <label class="control-label col-md-2 col-sm-2">Status:</label>
               <label class="control-label control-label col-md-1 col-sm-1"></label>
               <div class="col-md-5 col-sm-5">
-                <select data-parsley-id="4308" id="heard" class="form-control" required="" disabled>
-                  <option value="Plan">Planned</option>
-                  <option value="Request" selected>Requested</option>
+                <select data-parsley-id="4308" id="selectSt" class="form-control" required="" disabled>
+                  <option value="1">Planned</option>
+                  <option value="2">Approved</option>
+                  <option value="3">Rejected</option>
+                  <option value="4">Requested</option>
                 </select>
               </div>
             </div>
@@ -87,7 +89,7 @@
             <div class="col-md-11">
               <!-- <button type="submit" class="btn btn-success">Accept</button>
               <button type="submit" class="btn">Edit</button> -->
-              <button type="submit" class="btn">Back to list</button>
+              <button type="submit" class="btn" data-dismiss="modal">Back to list</button>
             </div>
           </div>
         </div>

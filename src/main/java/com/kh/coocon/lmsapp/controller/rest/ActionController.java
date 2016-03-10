@@ -1,11 +1,14 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.HibernateException;
+import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -463,7 +466,7 @@ public class ActionController {
 				map.put("Message", "User "+user.getSsoId()+ " added successfully!");
 				map.put("SUCCESS", true);
 			}catch(Exception e){
-				map.put("SUCESS", false);
+				map.put("SUCCESS", false);
 				map.put("Message", e.getMessage());
 				e.printStackTrace();
 				
@@ -750,6 +753,42 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		
+		// report balance of all employees findBy manager
+		@RequestMapping(value = { "/lms_adm_l023"}, method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> getEntity(
+				@RequestParam("pageCount") int pageCount,
+				@RequestParam("numberOfRecord") int numberOfRecord,
+				@RequestParam("managerId") int managerId) {
+			
+			int offset = (pageCount-1)*numberOfRecord;	
+			//List<Entitledays> Mylist = userService.list();
+			Map<String, Object> map = new HashMap<String, Object>();
+			Map<String, Object> listData = new HashMap<String, Object>();
+			
+			try{
+				System.out.println(managerId);
+				List<ListUser> user = reportBalanceService.getListUsersReBalanceFindByManager(managerId,numberOfRecord,offset);
+				//List<User> user = userService.findAllUser();
+				//long totalRecord = user.size();
+				listData.put("REP_BAL", user);
+				listData.put("TOTAL_REC", userService.countRecord("name"));
+			//	listData.put("TOTAL_REC", reportBalanceService.CountRecord("name"));
+			}catch(Exception e){
+				listData.put("REP_BAL", e.getMessage());
+				e.printStackTrace();
+			}
+			
+			
+	//		listData.put("REP_BAL", reportBalanceService.getListUsersReBalance(numberOfRecord,offset));
+			if (listData.isEmpty()) {
+				map.put("MESSAGE", "No data");
+				return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NO_CONTENT);
+			}
+			map.put("CODE",LmsMsg.RSLT_CD.getmsg() );
+			map.put("MESSAGE",LmsMsg.RSLT_MSG.getmsg() );
+			map.put("RESP_DATA", listData);
+			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+		}
 	
 		private String getPrincipal(){
 	    	 String userName = null;
