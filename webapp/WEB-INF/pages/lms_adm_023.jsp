@@ -95,14 +95,15 @@
 	              						<form class="form-inline">
 											 <div class="form-group">
 											    <label for="exampleInputName2">Select department</label>
-											    <input type="text" class="form-control" id="exampleInputName2" placeholder="Department">
+											    <input type="text" class="form-control" id="txtDepartment" placeholder="Department">
+											     <input type="hidden" class="form-control" id="valDepartment">
 											 </div>
 											 <button type="button" id= "btn_selDept" class="btn btn-success">Select</button>
 											 <label>
                                     			<input type="checkbox" value=""> Include sub-department
                                     		 </label>
 											 <div class="navbar-right">
-											 	<button type="submit" class="btn btn-success">Launch</button>
+											 	<button type="button" id="btn_ShowEmp"class="btn btn-success">Launch</button>
 											 	<button type="submit" class="btn btn-success">
 											 		<i class="fa fa-file-excel-o"></i> Export
 											 	</button>
