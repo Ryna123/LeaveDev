@@ -68,8 +68,8 @@ public class LeaveServiceImpl implements LeaveService  {
 			leave.setLeavesStartDateType(rs.getString("startdatetype"));
 			leave.setLeavesendDateType(rs.getString("enddatetype"));
 			leave.setLeavesDuration(rs.getDouble("duration"));
-			leave.setLeavesStatus(rs.getString("status_id"));
-			leave.setLeavesType(rs.getString("type_id"));
+			leave.setLeavesStatus(rs.getInt("status_id"));
+			leave.setLeavesType(rs.getInt("type_id"));
 			ll.add(leave);
 		}
 		return ll;
@@ -109,8 +109,8 @@ public class LeaveServiceImpl implements LeaveService  {
 			Date date = new Date();
 			ps.setString(10, dateFormat.format(date));
 			ps.setInt(1, Userid);
-			ps.setInt(2, Integer.parseInt(lo.getLeavesStatus()));
-			ps.setInt(3, Integer.parseInt(lo.getLeavesType()));
+			ps.setInt(2, lo.getLeavesStatus());
+			ps.setInt(3, lo.getLeavesType());
 			ps.setString(4, lo.getLeavesStartdate().replace("/", "-"));
 			ps.setString(5, lo.getLeavesEnddate().replace("/", "-"));
 			ps.setString(6, lo.getLeavesReason());
@@ -181,8 +181,8 @@ public class LeaveServiceImpl implements LeaveService  {
 				leave.setLeavesStartDateType(rs.getString("startdatetype"));
 				leave.setLeavesendDateType(rs.getString("enddatetype"));
 				leave.setLeavesDuration(rs.getDouble("duration"));
-				leave.setLeavesStatus(rs.getString("status_id"));
-				leave.setLeavesType(rs.getString("type_id"));
+				leave.setLeavesStatus(rs.getInt("status_id"));
+				leave.setLeavesType(rs.getInt("type_id"));
 				leave.setLeavesEmpName(rs.getString("employee_name"));;
 				leave.setId(rs.getInt("id"));
 				ll.add(leave);
@@ -277,8 +277,8 @@ public class LeaveServiceImpl implements LeaveService  {
 				leave.setLeavesStartDateType(rs.getString("startdatetype"));
 				leave.setLeavesendDateType(rs.getString("enddatetype"));
 				leave.setLeavesDuration(rs.getDouble("duration"));
-				leave.setLeavesStatus(rs.getString("status_id"));
-				leave.setLeavesType(rs.getString("type_id"));
+				leave.setLeavesStatus(rs.getInt("status_id"));
+				leave.setLeavesType(rs.getInt("type_id"));
 				leave.setLeavesEmpName(rs.getString("employee_name"));;
 				leave.setId(rs.getInt("id"));
 				ll.add(leave);
@@ -335,8 +335,8 @@ public class LeaveServiceImpl implements LeaveService  {
 				leave.setLeavesStartDateType(rs.getString("startdatetype"));
 				leave.setLeavesendDateType(rs.getString("enddatetype"));
 				leave.setLeavesDuration(rs.getDouble("duration"));
-				leave.setLeavesStatus(rs.getString("status_id"));
-				leave.setLeavesType(rs.getString("type_id"));
+				leave.setLeavesStatus(rs.getInt("status_id"));
+				leave.setLeavesType(rs.getInt("type_id"));
 				leave.setLeavesEmpName(rs.getString("employee_name"));;
 				leave.setId(rs.getInt("id"));
 				ll.add(leave);
