@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface HumanResurceService {
 	List<HrManagement> getAllEmp();
+	List<HrManagement> getEmpByOrg(int orgId);
 }
