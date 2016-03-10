@@ -22,8 +22,23 @@ $(document).ready(function(){
 		}else{
 			lms_adm_009p.selectDataTree(orgid);
 		}
-		
 	});
+	
+	$('#btnExport').click(function(){
+		var data=new Array();
+		_table.rows().eq(0).each( function ( index ) {
+		    var row = _table.row( index );
+		    data.push(row.data());
+		});
+		$.ajax({
+			url:"../action/service/hrListExport",
+			dataType:"JSON",
+			headers:{"Accept":"application/json","Content-Type":"application/json"},
+			type:"POST",
+			data:JSON.stringify(data)
+		});
+	});
+	
 });
 
 _employeeManagement.loadEmpData=function(){
@@ -78,7 +93,6 @@ _employeeManagement.loadEmpData=function(){
 					//"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
 				});
 			}
-			
 		}
 	});
 }
