@@ -56,9 +56,11 @@ _contractManagment.listContractInfo = function(){
 				         {"data":"contractName"},
 				         {"data":"startedDate"},
 				         {"data":"endDate"}
-				]
+				],
+				"fnDrawCallback":function(){
+					_contractManagment.clickEvent();
+				}
 			});
-			_contractManagment.clickEvent();
 		}
 	});
 	
@@ -68,7 +70,7 @@ _contractManagment.listContractInfo = function(){
 _contractManagment.clickEvent=function(){
 	$('#ctTable tbody tr td a.btnDelete').click(function(){
 		/*alert($(this).data('index'));*/
-		var dID=$(this).data('index');	
+		var dID=1+$(this).data('index');	
 		var alertText='Do you want to delete record: '+dID;
 		if(confirm(alertText)){
 			$.ajax({
@@ -83,7 +85,6 @@ _contractManagment.clickEvent=function(){
 					_table.clear().draw();
 					_table.rows.add(data.contractList);
 					_table.columns.adjust().draw();
-					_contractManagment.clickEvent();
 				}
 			});
 		}
@@ -95,7 +96,7 @@ _contractManagment.clickEvent=function(){
 		$('#txtStart').val(row.startedDate);
 		$('#txtEnd').val(row.endDate);
 		$('#txtName').data('index',row.id);
-		$('#lms_adm_018p_Modal').modal('toggle');
+		$('#lms_adm_018p_Modal').modal('show');
 	} );
 	
 	$('#ctTable tbody tr td a.btnView').click(function() {
@@ -127,11 +128,10 @@ _contractManagment.createContract=function(){
 		type:"POST",
 		data: JSON.stringify(contrastObj),
 		success:function(data){
-			$('#lms_adm_017p_Modal').modal('toggle');
+			$('#lms_adm_017p_Modal').modal('hide');
 			_table.clear().draw();
 			_table.rows.add(data.contractList);
 			_table.columns.adjust().draw();
-			_contractManagment.clickEvent();
 		}
 	});
 }
@@ -156,7 +156,6 @@ _contractManagment.editContract=function(){
 			_table.clear().draw();
 			_table.rows.add(data.contractList);
 			_table.columns.adjust().draw();
-			_contractManagment.clickEvent();
 		}
 	});
 }
