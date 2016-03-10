@@ -2,19 +2,19 @@
 $(window).load(function(){
 });
 var userInfo = {
-		"identifier":"KS00000",
-		"firstName":"jatret",
-		"lastName":"Chitra",
-		"ssoId":"11111bd0fsadfsdafsdf",
-		"email":"mail@mail.com",
-		"password":"123456",
-		"userProfiles":[{
-			"id":1,
-			"type":""
+		"identifier"	:"",
+		"firstName"		:"",
+		"lastName"		:"",
+		"ssoId"			:"",
+		"email"			:"",
+		"password"		:"",
+		"userProfiles"	:[{
+			"id"	:0,
+			"type"	:""
 		}],
-		"manager_Id":0,
-		"position":{"id":0},
-		"contract":{"id":0}
+		"manager_Id"	:0,
+		"position"		:{"id":0},
+		"contract"		:{"id":0}
 };
 
 $(document).ready(function(){
