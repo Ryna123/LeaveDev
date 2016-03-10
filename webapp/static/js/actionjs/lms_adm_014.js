@@ -141,7 +141,7 @@ lms_adm_009p.loadData = function(){
 }
 
 lms_adm_009p.selectDataTree=function(orgid){
-	$.ajax({
+	/*$.ajax({
 		data:{"orgId":orgid},
 		url:"../action/service/lms_adm_r009p",
 		dataType: "JSON",
@@ -151,7 +151,7 @@ lms_adm_009p.selectDataTree=function(orgid){
 			_table.rows.add(data.List);
 			_table.columns.adjust().draw();
 		}
-	});
+	});*/
 }
 	
 	
