@@ -35,7 +35,10 @@ $(document).ready(function(){
 			dataType:"JSON",
 			headers:{"Accept":"application/json","Content-Type":"application/json"},
 			type:"POST",
-			data:JSON.stringify(data)
+			data:JSON.stringify(data),
+			error:function(e){
+				console.log(e);
+			}
 		});
 	});
 	
@@ -141,7 +144,7 @@ lms_adm_009p.loadData = function(){
 }
 
 lms_adm_009p.selectDataTree=function(orgid){
-	/*$.ajax({
+	$.ajax({
 		data:{"orgId":orgid},
 		url:"../action/service/lms_adm_r009p",
 		dataType: "JSON",
@@ -151,7 +154,7 @@ lms_adm_009p.selectDataTree=function(orgid){
 			_table.rows.add(data.List);
 			_table.columns.adjust().draw();
 		}
-	});*/
+	});
 }
 	
 	

@@ -27,7 +27,7 @@ public class HumanResourceExport extends AbstractExcelView {
 			HttpServletResponse response) throws Exception {
 		//get data model which is passed by the Spring container
 		List<HrManagement> hrManagement = (List<HrManagement>)model.get("hrListExports");
-		
+		System.out.println(hrManagement);
 		//create a new Excel sheet
 		HSSFSheet sheet = workbook.createSheet("Human Resource List");
 		sheet.setDefaultColumnWidth(20);

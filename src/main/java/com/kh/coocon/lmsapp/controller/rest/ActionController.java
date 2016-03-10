@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.hibernate.HibernateException;
 import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,7 @@ import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.EntitledDCService;
+import com.kh.coocon.lmsapp.services.HumanResourceExport;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
@@ -95,8 +98,8 @@ public class ActionController {
 			
 		}*/
 	
-		/*@RequestMapping(value={"/hrListExport"},method=RequestMethod.GET)
-		public ModelAndView getHrListExport(HttpServletResponse response){
+		@RequestMapping(value={"/hrListExport"},method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
+		public ModelAndView getHrListExport(){
 			Map<String, Object> hrMap = new HashMap<>();
 				List<HrManagement> hrManagements = humanResourceService.getAllEmp();
 				if(hrManagements.isEmpty() || hrManagements == null){
@@ -106,8 +109,9 @@ public class ActionController {
 					//hrMap.put("hrListExport", hrManagements);
 					System.out.println("jlkdfjlkdsjfaflkfsdafjsdkfsdfjkdsjlfjsdkjflkjfasdkj"+hrManagements);
 				}
+			System.out.println(hrManagements);
 			return new ModelAndView("hrExcelView","hrListExports",hrManagements);	
-		}*/
+		}
 	
 		@RequestMapping(value = { "/export"}, method = RequestMethod.GET)
 		public ModelAndView getOverTimeViewForResourceBundle(HttpServletResponse response) {

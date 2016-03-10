@@ -204,7 +204,7 @@
                 
 				                <!-- button -->
 								<div id="create_new_type_btn">
-									<a id="btnExport" href="#<%-- ${pageContext.request.contextPath}/action/service/hrListExport --%>" class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
+									<a id="btnExport" href="${pageContext.request.contextPath}/action/service/hrListExport" class="btn btn btn-success"><i class="fa fa-download"></i>Export List</a>
 									<a class="btn btn btn-primary" href="lms_adm_008"><i class="fa fa-plus-circle"></i>Create a new</a>
 								</div>
 				                <!-- End button -->                
