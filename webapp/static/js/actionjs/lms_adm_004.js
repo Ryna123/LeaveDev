@@ -15,7 +15,6 @@ $(document).ready(function() {
 	});
 	*/
 	lms_adm_004.getLeaveType();
-	
 });
 
 
@@ -107,11 +106,11 @@ lms_adm_004.listAdmin = function () {
 				        },
 				        
 				],
+				"fnDrawCallback" : function(oSettings) {
+					lms_adm_004.ClickUpdateLeave();
+					lms_adm_004.CallListId ();
+				}
 			});
-				
-				lms_adm_004.ClickUpdateLeave();
-				lms_adm_004.CallListId ();
-				
 				loading(false);
 			},
 			error : function(data) {
@@ -129,9 +128,8 @@ $('#SearchBox').keyup(function(){
 lms_adm_004.CallListId = function () {
 	$("a#leaveView").click(function() {
 		var lId = ($(this).find('input').val());
-		console.log("*****lId: "+lId);
 		lms_adm_004.readLeaveRecord (lId);
-		$('#lms_adm_004p').modal('toggle');
+		$('#lms_adm_004p').modal('show');
 	});
 }
 
