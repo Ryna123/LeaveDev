@@ -463,7 +463,7 @@ public class ActionController {
 				map.put("Message", "User "+user.getSsoId()+ " added successfully!");
 				map.put("SUCCESS", true);
 			}catch(Exception e){
-				map.put("SUCESS", false);
+				map.put("SUCCESS", false);
 				map.put("Message", e.getMessage());
 				e.printStackTrace();
 				

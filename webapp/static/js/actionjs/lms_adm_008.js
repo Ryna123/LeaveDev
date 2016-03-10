@@ -32,7 +32,19 @@ $(document).ready(function(){
 	 * When user click the create button
 	 */
 	$("#btnCreate").click(function(){
-		alert($("#userProfile").val());
+		if(validation.isEmpty($("#firstName").val())){
+			$("#firstName").focus();
+			alert("Please insert First Name!");
+			return false;
+		}else if(validation.isEmpty($("#lastName").val())){
+			$("#lastName").focus();
+			alert("Please insert Last Name!");
+			return false;
+		}else if(validation.isEmpty($("#userName").val())){
+			$("#userName").focus();
+			alert("Please insert User Name!");
+			return false;
+		}
 		
 		userInfo.firstName 				= $("#firstName").val();
 		userInfo.lastName 				= $("#lastName").val();
@@ -43,7 +55,6 @@ $(document).ready(function(){
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
 		userInfo.position.id			= $("#position").val();
 		userInfo.manager_Id 			= manager_Id;
-		console.log(userInfo);
 		user.createUser();
 		
 	});
@@ -113,6 +124,8 @@ var user = {
 					console.log(resp);
 					if(resp["SUCCESS"]==true){						
 						location.href = "../admin/lms_adm_006";
+					}else if(resp["SUCCESS"]==false){
+						alert(resp["Message"]);
 					}
 				},
 			});
