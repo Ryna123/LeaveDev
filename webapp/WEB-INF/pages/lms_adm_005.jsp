@@ -179,9 +179,9 @@
 									<!-- Buttons -->
 									<div class="form-group pull-right">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<a class="btn btn-default"
+											<a class="btn btn-success"
 												style="border-radius: 15px; !important">Export</a> <a
-												class="btn btn-default"
+												class="btn btn-primary"
 												style="border-radius: 15px; !important">All requests</a> <a
 												class="btn btn-default"
 												style="border-radius: 15px; !important">Pending requests</a>
