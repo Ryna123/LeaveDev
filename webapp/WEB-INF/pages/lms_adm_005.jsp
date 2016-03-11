@@ -179,7 +179,7 @@
 									<!-- Buttons -->
 									<div class="form-group pull-right">
 										<div class="col-md-12 col-sm-12 col-xs-12">
-											<a class="btn btn-success"
+											<a class="btn btn-success" href="${pageContext.request.contextPath}/action/service/otAdminExport"
 												style="border-radius: 15px; !important">Export</a> <a
 												class="btn btn-primary"
 												style="border-radius: 15px; !important">All requests</a> <a

@@ -33,13 +33,16 @@ public class OvertimeExport extends AbstractExcelView{
 		// TODO Auto-generated method stub
 		try {
 
-			List<OverTime> listOT = (List<OverTime>) model.get("listOT");
+			List<OverTime> listOTUser = (List<OverTime>) model.get("listOT");
 
 			// create a new Excel sheet
 			HSSFSheet sheet = workbook.createSheet("Over Time List");
 			// sheet.setDisplayGridlines(false);
 			sheet.setDefaultColumnWidth(15);
-			
+			sheet.setDefaultRowHeightInPoints(15);
+			sheet.setColumnWidth(0, 2000);
+			sheet.setColumnWidth(2, 2000);
+			sheet.setColumnWidth(4, 10000); // set column width to culumn 4 (= Reason column)
 			
 			// create style for header cells
 			CellStyle style = workbook.createCellStyle();
@@ -61,15 +64,16 @@ public class OvertimeExport extends AbstractExcelView{
 			CellStyle topheaderStyle= workbook.createCellStyle();
 			Font topheaderFont= workbook.createFont();
 			topheaderCell.setCellValue("Over Time List");
-			sheet.addMergedRegion(new CellRangeAddress(1,1,1,3)); //sheet.addMergedRegion(rowFrom,rowTo,colFrom,colTo); Merge Cell from B2 to C2
+			sheet.addMergedRegion(new CellRangeAddress(1,1,1,4)); //sheet.addMergedRegion(rowFrom,rowTo,colFrom,colTo); Merge Cell from B2 to C2
 			topheaderStyle.setAlignment(CellStyle.ALIGN_CENTER);
 
-			topheaderFont.setFontHeightInPoints((short)13);
+			topheaderFont.setFontHeightInPoints((short)15);
 			topheaderFont.setFontName("Arial");
 			topheaderFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 			
 			topheaderStyle.setFont(topheaderFont);
 			topheaderCell.setCellStyle(topheaderStyle);//set style to top header
+			topheader.setHeight((short)500); 
 			
 			//create header row
 			HSSFRow header = sheet.createRow(3);
@@ -99,7 +103,7 @@ public class OvertimeExport extends AbstractExcelView{
 			int id=1;
 			String otStatus="";
 			String ottype="";
-			for (OverTime aot : listOT) {
+			for (OverTime aot : listOTUser) {
 				HSSFRow aRow = sheet.createRow(rowCount++);
 
 				// set data to each row
@@ -127,6 +131,10 @@ public class OvertimeExport extends AbstractExcelView{
 					otStatus="Planned";
 				} else if((aot.getoTStatus_id())==4) {
 					otStatus="Requested";
+				} else if((aot.getoTStatus_id())==2) {
+					otStatus="Approved";
+				} else if((aot.getoTStatus_id())==3) {
+					otStatus="Rejected";
 				}
 				aRow.createCell(5).setCellValue(otStatus);
 				aRow.getCell(5).setCellStyle(rowStyle);
