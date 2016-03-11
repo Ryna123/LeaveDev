@@ -7,6 +7,7 @@ var userInfo = {
 		"lastName"		:"",
 		"ssoId"			:"",
 		"email"			:"",
+		"phone"			:"",
 		"password"		:"",
 		"userProfiles"	:[{
 			"id"	:0,
@@ -53,6 +54,7 @@ $(document).ready(function(){
 		userInfo.lastName 				= $("#lastName").val();
 		userInfo.ssoId 					= $("#userName").val();
 		userInfo.email 					= $("#email").val();
+		userInfo.phone					= $("#phoneNumber").val();
 		userInfo.password				= $("#password").val()
 		userInfo.userProfiles[0].id		= $("#userProfile").val();	
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
@@ -109,10 +111,11 @@ var user = {
 					}else if(resp["SUCCESS"]==false){
 						user.list_last_id();
 						alert(resp["Message"]);
+						loading(false);
 					}
+					loading(false);
 				},
 			});
-			loading(false);
 		}
 }
 /**

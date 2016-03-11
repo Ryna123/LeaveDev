@@ -73,26 +73,43 @@
                                 <div class="x_content">
                                 
                                     <form class="form-horizontal form-label-left">
+                                    
+                                    <div class="form-group">                                    	
+										<label class="control-label col-md-3 col-sm-3 col-xs-3">Identifier:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
+                                        	<input type="text" id="txtIdentifier" readonly="readonly" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        </div>                                       
+                                        
+										<label class="control-label col-md-1 col-sm-1 col-xs-1">Status:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3">
+                                        	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        </div>
+                                        
+                                    </div>
 
 									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">First Name :</label>
+										<label class="control-label col-md-3 col-sm-3 col-xs-3">First Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
                                         	<input id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        </div>                                       
+                                        
+										<label class="control-label col-md-1 col-sm-1 col-xs-1">Last Name:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3">
+                                        	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Contract :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3" id="selectContract">
+                                        
+										
+									</div>
+									
+									<div class="form-group">
+									
+									<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Contract:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" id="selectContract">
 											<select data-parsley-id="4308" id="heard" class="form-control">
 											<option value="">Employee Term</option>
 										</select>
 										</div>
-									</div>
-									
-									<div class="form-group">
-										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Last Name :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
-                                        </div>
-                                        <label class="control-label col-md-1 col-sm-1 col-xs-1">Department :</label>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-1">Department:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
@@ -102,14 +119,14 @@
 									</div>
 									
 									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">Role :</label>
+										<label class="control-label col-md-3 col-sm-3 col-xs-3">Role:</label>
 										<div id="userRole" class="col-md-3 col-sm-3 col-xs-3">
 											<select data-parsley-id="4308" class="form-control">
 												<option value="">User</option>
 												<option value="">HR Admin</option>
 											</select>
 										</div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Position :</label>
+										<label class="control-label col-md-1 col-sm-1 col-xs-1">Position:</label>
 										<div id="selectPosition" class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
@@ -119,31 +136,37 @@
 									</div>
 									
 									<div class="form-group">
-										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Username :</label>
+										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Username:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
                                         	<input id="userName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         </div>
-                                        <label class="control-label col-md-1 col-sm-1 col-xs-1">Start Date :</label>
+                                        
+										<label class="control-label col-md-1 col-sm-1 col-xs-1">Password:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
+                                        	<input type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
+                                        </div>
+									</div>
+									
+									<div class="form-group">
+										<label  class="control-label col-md-3 col-sm-3 col-xs-3">Email:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
+                                        	<input id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
+                                        </div>
+										<label  class="control-label col-md-1 col-sm-1 col-xs-1">Phone:</label>
+										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
+                                        	<input id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
+                                        </div>
+									</div>
+
+									<div class="form-group">
+										                                        
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
 											<input type="text" class="form-control has-feedback-left"  aria-describedby="inputSuccess2Status">
 											<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span> <span class="sr-only">(success)
 											</span>
 										</div>
-									</div>
-									
-									<div class="form-group">
-										<label  class="control-label col-md-3 col-sm-3 col-xs-3">Email :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
-                                        </div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Identifier :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="text" id="txtIdentifier" readonly="readonly" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
-                                        </div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">Manager :</label>
+										<label class="control-label col-md-1 col-sm-1 col-xs-1">Manager:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input id="txtManager" readonly="readonly" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
@@ -153,14 +176,7 @@
                                             	<button id="btnManager" type="button" class="btn btn-primary" data-toggle="modal" data-target="#select_manager">Select</button> 
                                         	</span>
                                         </div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-3">Password :</label>
-										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
-                                        </div>
-									</div>
-									
+									</div>									
 									<div class="form-group">
 										<p>If a user has no manager(itself), it can validate its leave request.</p>
 									</div>
