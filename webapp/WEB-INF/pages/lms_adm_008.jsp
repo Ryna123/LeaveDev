@@ -172,7 +172,7 @@
 										<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3" style="margin-left:63%;">
 											
 											<input value="Create" type="button" id="btnCreate" class="btn btn-info"/>
-											<input value="Cancel" type="button" id="btnClear" class="btn btn-danger"/>
+											<a class="btn btn-success" href="<c:url value="/admin/lms_adm_006"/>">List Users</a>
 											<!-- <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Cancel</button>
 										 -->
 										</div>

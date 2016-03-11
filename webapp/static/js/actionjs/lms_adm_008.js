@@ -44,6 +44,9 @@ $(document).ready(function(){
 			$("#userName").focus();
 			alert("Please insert User Name!");
 			return false;
+		}else if(validation.isEmpty($("#txtManager").val())){
+			alert("Please select manager!");
+			return false;
 		}
 		
 		userInfo.firstName 				= $("#firstName").val();
@@ -55,6 +58,7 @@ $(document).ready(function(){
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();
 		userInfo.position.id			= $("#position").val();
 		userInfo.manager_Id 			= manager_Id;
+		userInfo.contract				= $("#contract").val();
 		user.createUser();
 		
 	});
@@ -77,37 +81,15 @@ $(document).ready(function(){
 });
 var user = {
 		list_last_id: function(){
+			loading(true);
 			$.ajax({
 				type	: 'GET',
 				url		: '../action/service/listLastId',
 				success	: function(resp){
-					var myNumber = 0;
-					userInfo.manager_Id = resp['LIST'][0].id + 1;
-					var identifier = resp["LIST"][0].identifier;
-					
-					var str = identifier.substr(2);
-					var strArray = str.split("");
-					if(strArray[0]=="0" && strArray[1]=="0" && strArray[2]=="0"){
-						myNumber = Number(strArray[3]) + 1;
-						userInfo.identifier 	= "KS000"+myNumber;						
-					}else if(strArray[0]=="0" && strArray[1]=="0"){
-						myNumber = Number(strArray[2]+strArray[3]) + 1;
-						userInfo.identifier 	= "KS00"+myNumber;
-					}else if (strArray[0]=="0") {
-						myNumber = Number(strArray[1]+strArray[2]+strArray[3]) + 1;
-						userInfo.identifier 	= "KS0"+myNumber;
-					}else{
-						myNumber = Number(strArray[0]+strArray[1]+strArray[2]+strArray[3]) + 1;
-						userInfo.identifier 	= "KS"+myNumber;
-					}
-					$("#txtIdentifier").val(userInfo.identifier);
-					
-			
-					
-					
-					
+					identifier.convertId(resp);
 				}
 			});
+			loading(false);
 			
 		},
 		createUser: function(){
@@ -125,6 +107,7 @@ var user = {
 					if(resp["SUCCESS"]==true){						
 						location.href = "../admin/lms_adm_006";
 					}else if(resp["SUCCESS"]==false){
+						user.list_last_id();
 						alert(resp["Message"]);
 					}
 				},
@@ -140,6 +123,7 @@ var position = {
 		 * listing position from server
 		 */
 		listPosition: function(){
+			loading(true);
 			$.ajax({
 				type	: 'GET',
 				url		: '../action/service/listPosition',
@@ -147,6 +131,7 @@ var position = {
 					optionSelection.createPosition(resp);
 				}
 			});
+			loading(false);
 		}
 		
 }
@@ -158,6 +143,7 @@ var contract = {
 		 * Listing Contract from server	
 		 */
 		listContrac: function(){
+			loading(true);
 			$.ajax({
 				type	: "GET", 
 				url		: "../action/service/listContract",
@@ -167,6 +153,7 @@ var contract = {
 				}
 				
 			});
+			loading(false);
 		}
 };
 /**
@@ -177,6 +164,7 @@ var userProfile = {
 		 * Get data from userProfiles(Retriving roles of user)
 		 */
 		listUserProfiles: function(){
+			loading(true);
 			$.ajax({
 				type	: "GET",
 				url		: "../action/service/userProfiles",
@@ -184,6 +172,7 @@ var userProfile = {
 					optionSelection.createRoles(resp);
 				}
 			});
+			loading(false);
 		}
 }
 /**
@@ -237,7 +226,30 @@ var optionSelection = {
 			$("#userRole").html(selectionOption);
 		}	
 }
-
+var identifier = {
+		convertId: function(resp){
+			var myNumber = 0;
+			userInfo.manager_Id = resp['LIST'][0].id + 1;
+			var identifier = resp["LIST"][0].identifier;
+			
+			var str = identifier.substr(2);
+			var strArray = str.split("");
+			if(strArray[0]=="0" && strArray[1]=="0" && strArray[2]=="0"){
+				myNumber = Number(strArray[3]) + 1;
+				userInfo.identifier 	= "KS000"+myNumber;						
+			}else if(strArray[0]=="0" && strArray[1]=="0"){
+				myNumber = Number(strArray[2]+strArray[3]) + 1;
+				userInfo.identifier 	= "KS00"+myNumber;
+			}else if (strArray[0]=="0") {
+				myNumber = Number(strArray[1]+strArray[2]+strArray[3]) + 1;
+				userInfo.identifier 	= "KS0"+myNumber;
+			}else{
+				myNumber = Number(strArray[0]+strArray[1]+strArray[2]+strArray[3]) + 1;
+				userInfo.identifier 	= "KS"+myNumber;
+			}
+			$("#txtIdentifier").val(userInfo.identifier);
+		}
+}
 var validation = {
 		// For checking if a string is empty, null or undefined
 	isEmpty: function(str){
