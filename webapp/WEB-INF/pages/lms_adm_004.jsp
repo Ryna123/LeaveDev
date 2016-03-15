@@ -1,6 +1,5 @@
 <%@include file="/static/include/assetheader.jsp"%>
-<script
-	src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
+<script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 
 <style type="text/css">
 #SearchBox {
