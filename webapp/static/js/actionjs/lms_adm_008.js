@@ -26,7 +26,7 @@ $(document).ready(function(){
         format:'YYYY/MM/DD'
 	});
 	
-	$("#phoneNumber").mask("(999) 999-9999");
+	$("#phoneNumber").mask("(999) 99-999-999",{placeholder:"(000) 00-000-000"});
 	
 	userProfile.listUserProfiles();
 	contract.listContrac();
@@ -41,8 +41,14 @@ $(document).ready(function(){
 	/**
 	 * When user click the create button
 	 */
+	$("#btnCreate").validationEngine(gbox.ui.validationEngineOptions);	
 	$("#btnCreate").click(function(){
-		if(validation.isEmpty($("#firstName").val())){
+		if(!$("#btnCreate").validationEngine('validate')) {
+			return false;
+		}
+		//loading(true);
+		
+		/*if(validation.isEmpty($("#firstName").val())){
 			$("#firstName").focus();
 			alert("Please insert First Name!");
 			return false;
@@ -57,7 +63,7 @@ $(document).ready(function(){
 		}else if(validation.isEmpty($("#txtManager").val())){
 			alert("Please select manager!");
 			return false;
-		}
+		}*/
 		
 		userInfo.firstName 				= $("#firstName").val();
 		userInfo.lastName 				= $("#lastName").val();

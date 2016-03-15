@@ -90,7 +90,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">First Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>                                       
                                         
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Last Name:</label>
