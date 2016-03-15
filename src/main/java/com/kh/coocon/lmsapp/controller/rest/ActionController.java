@@ -1,6 +1,7 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,16 +99,19 @@ public class ActionController {
 			
 		}*/
 	
-		@RequestMapping(value={"/hrListExport"},method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
-		public ModelAndView getHrListExport(){
+		@RequestMapping(value={"/hrListExport"},method=RequestMethod.GET)
+		public ModelAndView getHrListExport(@RequestParam(value="orgid") int orgId){
 			Map<String, Object> hrMap = new HashMap<>();
-				List<HrManagement> hrManagements = humanResourceService.getAllEmp();
+			List<HrManagement> hrManagements = new ArrayList<HrManagement>();
+			if(orgId != 0){
+				hrManagements = humanResourceService.getEmpByOrg(orgId);
+			}else{
+				hrManagements = humanResourceService.getAllEmp();
+			}	
 				if(hrManagements.isEmpty() || hrManagements == null){
 					hrMap.put("Message","Empty");
 				}else{
 					hrMap.put("Message","Exist");
-					//hrMap.put("hrListExport", hrManagements);
-					System.out.println("jlkdfjlkdsjfaflkfsdafjsdkfsdfjkdsjlfjsdkjflkjfasdkj"+hrManagements);
 				}
 			System.out.println(hrManagements);
 			return new ModelAndView("hrExcelView","hrListExports",hrManagements);	
