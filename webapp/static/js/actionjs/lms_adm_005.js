@@ -62,7 +62,7 @@ lms_adm_005.listOverTime = function(){
 				        				"<span>Hour(s)</span>");}
 				             }
 				        },
-				        {"data":"oTReason",className:"clnReason",
+				        {"data":"oTReason",
 				        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        		$(nTd).html("<div style='white-space: nowrap;overflow: hidden; text-overflow: ellipsis; width:100px;'>" + sData +
 				        				"</div>");
@@ -87,10 +87,13 @@ lms_adm_005.listOverTime = function(){
 				        },
 				        
 				],
+				"fnDrawCallback" : function(oSettings) {
+					lms_adm_005.clickToUpdateStatusOvertime();
+					lms_adm_005.CallListId();
+				}
 			});
-			lms_adm_005.clickToUpdateStatusOvertime();
-			lms_adm_005.CallListId();
 			count=1;
+			loading(false);
 		}
 	});
 	
