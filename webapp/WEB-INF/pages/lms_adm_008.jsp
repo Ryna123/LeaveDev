@@ -159,12 +159,12 @@
 									</div>
 
 									<div class="form-group">
-										                                        
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
+									
+										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left"  aria-describedby="inputSuccess2Status">
-											<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span> <span class="sr-only">(success)
-											</span>
+											<input type="text" class="form-control has-feedback-left" required="required" data-validation-engine="validate[required,maxSize[10]"  id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
+												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
+											<span id="" class="sr-only">(success)</span>
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Manager:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">

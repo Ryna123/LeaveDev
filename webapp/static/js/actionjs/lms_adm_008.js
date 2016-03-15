@@ -9,6 +9,7 @@ var userInfo = {
 		"email"			:"",
 		"phone"			:"",
 		"password"		:"",
+		"dateHired"		:"yyyy/mm/dd",
 		"userProfiles"	:[{
 			"id"	:0,
 			"type"	:""
@@ -19,6 +20,14 @@ var userInfo = {
 };
 
 $(document).ready(function(){
+	$("#startdate,#enddate").daterangepicker({
+		singleDatePicker: true,
+        showDropdowns: true,
+        format:'YYYY/MM/DD'
+	});
+	
+	$("#phoneNumber").mask("(999) 999-9999");
+	
 	userProfile.listUserProfiles();
 	contract.listContrac();
 	position.listPosition();
@@ -55,6 +64,7 @@ $(document).ready(function(){
 		userInfo.ssoId 					= $("#userName").val();
 		userInfo.email 					= $("#email").val();
 		userInfo.phone					= $("#phoneNumber").val();
+		userInfo.dateHired				= $.trim($("#startdate").val())
 		userInfo.password				= $("#password").val()
 		userInfo.userProfiles[0].id		= $("#userProfile").val();	
 		userInfo.userProfiles[0].type	= $("#userProfile option:selected").text();

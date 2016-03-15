@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
  
 @Entity
 @Table(name="LMS_USERS")
@@ -29,6 +31,7 @@ public class User {
 	
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "YYYY/MM/DD")
 	private Date dateHired;
 	private String identifier;
 	private String phone;
