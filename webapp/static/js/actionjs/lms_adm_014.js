@@ -17,29 +17,43 @@ $(document).ready(function(){
 	});
 	$('#btnOk').click(function(){
 		var orgid = $('#txtOrgId').val();
+		_orgid=orgid;
 		if(orgid==0 || orgid==null){
 			_employeeManagement.loadEmpData();
 		}else{
 			lms_adm_009p.selectDataTree(orgid);
 		}
+		_orgid=orgid;
 	});
 	
 	$('#btnExport').click(function(){
-		var data=new Array();
+		/*var data=new Array();
 		_table.rows().eq(0).each( function ( index ) {
 		    var row = _table.row( index );
 		    data.push(row.data());
-		});
-		$.ajax({
-			url:"../action/service/hrListExport",
+		});*/
+		if(_orgid==0 ||_orgid=='' || _orgid == null){
+			alert("0");
+			_orgid=0;
+		}else{
+			alert(_orgid);
+		}
+		$('#btnExport').attr("href", "../action/service/hrListExport?orgid="+_orgid);
+		
+		/*$.ajax({
+			url:"../action/service/hrListExport?orgid="+_orgid,
 			dataType:"JSON",
-			headers:{"Accept":"application/json","Content-Type":"application/json"},
-			type:"POST",
-			data:JSON.stringify(data),
-			error:function(e){
-				console.log(e);
-			}
-		});
+			type:"GET",
+			success:function(data){
+				alert("dfafa");
+				console.log(data);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+                console.log('submit click failed');
+                console.log('status is ' + textStatus);
+                console.log('error is ' + errorThrown);
+            }
+		});*/
 	});
 	
 });
@@ -139,6 +153,7 @@ lms_adm_009p.loadData = function(){
 			.bind("select_node.jstree", function (event, data) {
 				$('#txtOrgId').val(data.node.id);
 			})
+			
 		}
 	});
 }
