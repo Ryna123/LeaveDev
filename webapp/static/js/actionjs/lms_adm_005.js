@@ -10,6 +10,10 @@ $(document).ready(function() {
 	/*$("#srchBtn").click(function(){
 		//lms_adm_005.listOverTime();
 	});*/
+	$('#srchTxt').keyup(function(){
+		table.search($(this).val()).draw() ;
+	});
+
 });
 
 lms_adm_005.listOverTime = function(){
@@ -71,16 +75,16 @@ lms_adm_005.listOverTime = function(){
 				        {"data":"statusNm",
 				        	"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
 				        		if ((oData.statusNm) == 'Planned') {
-				        			oData.statusNm="Planned";
+				        			//oData.statusNm="Planned";
 				        			$(nTd).html('<span class="label label-info">Planned</span>');
 								} else if ((oData.statusNm) == 'Requested') {
-									oData.statusNm="Requested";
+									//oData.statusNm="Requested";
 									$(nTd).html('<span class="label label-warning">Requested</span>');
 								} else if ((oData.statusNm) == 'Approved') {
-									oData.statusNm="Approved";
+									//oData.statusNm="Approved";
 									$(nTd).html('<span class="label label-success">Approved</span>');
 								} else if ((oData.statusNm) == 'Rejected') {
-									oData.statusNm="Rejected";
+									//oData.statusNm="Rejected";
 									$(nTd).html('<span class="label label-danger">Rejected</span>');
 								}
 				             }
@@ -96,13 +100,8 @@ lms_adm_005.listOverTime = function(){
 			loading(false);
 		}
 	});
-	
-}
 
-$('#srchBtn').click(function(){
-	alert($(this).val);
-	table.search($('#srchTxt').val()).draw() ;
-})
+}
 
 lms_adm_005.clickToUpdateStatusOvertime =function() {
 	// update status use current page

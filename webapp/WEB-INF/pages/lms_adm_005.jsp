@@ -1,4 +1,5 @@
 <%@include file="/static/include/assetheader.jsp"%>
+<script type="text/javascript" src="<c:url value="../static/js/actionjs/lms_adm_005.js" />"></script>
 <script src="<c:url value="/static/js/datatables/js/jquery.dataTables.js" />"></script>
 <%@include file="lms_adm_005p.jsp"%>
 
@@ -30,8 +31,7 @@
 			<%@include file="/static/include/topNav.jsp"%>
 
 			<!-- /top navigation -->
-			<script type="text/javascript"
-				src="<c:url value="../static/js/actionjs/lms_adm_005.js" />"></script>
+			
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="page-title">
@@ -182,7 +182,7 @@
 											<a class="btn btn-success" href="${pageContext.request.contextPath}/action/service/otAdminExport"
 												style="border-radius: 15px; !important">Export</a> <a
 												class="btn btn-primary"
-												style="border-radius: 15px; !important">All requests</a> <a
+												style="border-radius: 15px; !important" id="allRequest">All requests</a> <a
 												class="btn btn-default"
 												style="border-radius: 15px; !important">Pending requests</a>
 										</div>
