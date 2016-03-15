@@ -131,6 +131,15 @@ public class ActionController {
 			return new ModelAndView("LeavesRequestAdminExport", "leavesRequestAdmin", leavesRequestAdmin);
 		}
 		
+		@RequestMapping(value = { "/otAdminExport"}, method = RequestMethod.GET)
+		public ModelAndView getOtAdminExport(HttpServletResponse response) {
+			User user = userService.findBySso(getPrincipal());
+			response.setHeader("Content-Disposition",
+					"attachment; filename=\"Export_Admin_Overtime.xls\"");
+			List<OverTime> otAdmin = overTimeService.getAllOverTimeAdmin(user.getId());
+			return new ModelAndView("otAdminExport", "otAdmin", otAdmin);
+		}
+		
 		@RequestMapping(value = { "/lms_adm_001"}, method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> GetEntitledlist(@RequestParam("statId") int statId) {
 			//List<Entitledays> Mylist = userService.list();
