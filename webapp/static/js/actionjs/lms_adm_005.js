@@ -13,6 +13,10 @@ $(document).ready(function() {
 	$('#srchTxt').keyup(function(){
 		table.search($(this).val()).draw() ;
 	});
+	
+	$("#allRequest").click(function(){
+		location.href= "lms_adm_004";
+	});
 
 });
 
