@@ -1,23 +1,19 @@
 package com.kh.coocon.lmsapp.controller.rest;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.hibernate.HibernateException;
-import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,7 +35,6 @@ import com.kh.coocon.lmsapp.enums.LmsMsg;
 import com.kh.coocon.lmsapp.services.ContractService;
 import com.kh.coocon.lmsapp.services.EntitleService;
 import com.kh.coocon.lmsapp.services.EntitledDCService;
-import com.kh.coocon.lmsapp.services.HumanResourceExport;
 import com.kh.coocon.lmsapp.services.HumanResurceService;
 import com.kh.coocon.lmsapp.services.LeaveService;
 import com.kh.coocon.lmsapp.services.LeaveTypeService;
@@ -213,9 +208,27 @@ public class ActionController {
 			map.put("RESP_DATA", listData);
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
+		//Read User
+		@RequestMapping(value ="/lms_adm_r006/{id}", method = RequestMethod.GET)
+		public Map<String, Object> getSingleUser(
+				@PathVariable("id") int id
+				){
+			Map<String, Object> m = new HashMap<>();
+			
+			try{
+				User user = userService.findById(id);
+				m.put("Success", true);
+				m.put("Record", user);
+			}catch(Exception e){
+				m.put("Success", false);
+				m.put("Message", e.getMessage());
+			}
+			
+			return m;
+		}
 		
 		// list all user
-		@RequestMapping(value = { "/lms_adm_006"}, method = RequestMethod.GET)
+		@RequestMapping(value = { "/lms_adm_l006"}, method = RequestMethod.GET)
 		public ResponseEntity<Map<String, Object>> getEntity(
 				@RequestParam("pageCount") int pageCount,
 				@RequestParam("numberOfRecord") int numberOfRecord

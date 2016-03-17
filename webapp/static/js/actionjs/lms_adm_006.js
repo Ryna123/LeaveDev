@@ -41,8 +41,7 @@ var user = {
 		},
 		find_user_by_id: function(id){
 			$.ajax({
-				url: "../action/service/lms_adm_r006",
-				data: id,
+				url: "../action/service/lms_adm_r006/"+id,
 				type: "GET",
 				success: function(resp){
 					console.log(resp);
