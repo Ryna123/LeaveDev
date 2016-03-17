@@ -205,15 +205,16 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
+    <input type="hidden" />
     
 <%@include file="/static/include/assetfooter.jsp" %>
    <script src="<c:url value="../static/js/actionjs/lms_adm_006.js" />"></script>
     <script type="text/x-jquery-tmpl" id="lmsAdm006">
 		<tr>
-             <th class="userID" scope="row">{{= ID}}</th>
-                   <td>
+             	   <td  scope="row">{{= IDENTIFIER}}</td>
+                   <td> <input class="userID" type="hidden" value="{{= ID}}"/>
 						<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> | 
-						<a href="javascrip:" class="editUser" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
+						<a href="" class="editUser" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
 						<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a> 
 					</td>												
                     <td>{{= FIRSTNAME}}</td>

@@ -40,7 +40,8 @@ var user = {
 							$.each(res,function(i){
 								var data = {};
 								//data['ID'] = i+1; // show auto number on screen
-								data['ID'] 				= res[i].identifier;
+								data['ID']				= res[i].id;
+								data['IDENTIFIER'] 		= res[i].identifier;
 								data['FIRSTNAME'] 		= res[i].firstName;
 								data['LASTNAME']  		= res[i].lastName;
 								data['EMAIL']  			= res[i].email;
@@ -53,7 +54,9 @@ var user = {
 							})
 							paging.createPagination(data.RESP_DATA['TOTAL_REC']);
 							$("a.editUser").click(function(){
-								$(this).parent().css("background","red");
+								var userID = $(this).find(".userID").val();
+								alert(userID);
+							
 							});
 						}
 						loading(false);
