@@ -1,6 +1,7 @@
 
 $(window).load(function(){
 });
+var prefix = "selectBox_"
 var userInfo = {
 		"identifier"	:"",
 		"firstName"		:"",
@@ -35,32 +36,34 @@ $(document).ready(function(){
 	 * Display the last id;
 	 */
 	user.list_last_id();
-	// add the rule here
-	 $.validator.addMethod("valueNotEquals", function(value, element, arg){
-	  return arg != value;
-	 }, "Value must not equal arg.");
-
-	 // configure your validation
-	 $("form").validate({
-	  rules: {
-	   SelectName: { valueNotEquals: "default" }
-	  },
-	  messages: {
-	   SelectName: { valueNotEquals: "Please select an item!" }
-	  }  
-	 });
 	
 	
 	
-	/**
-	 * When user click the create button
-	 */
+	
+	
 	//$("#frmValidate").validationEngine(gbox.ui.validationEngineOptions);	
 	$("#frmValidate").validationEngine('attach', 
 			{
 				promptPosition : "topRight", 
-				scroll: false
+				scroll: false,
+				prettySelect : true,
+				usePrefix: prefix
 			});
+	$("select").selectBox();
+	
+		// By default, selectBox does not create an id to the newly created element - We need to add this manually
+		$('select').each(function(){ 
+			// The jquery validation engine needs an id on the "a" element created by selectBox plugin
+	    $(this).next('a.selectBox')
+	    // Since id needs to be unique, we use a prefix here (can use suffix - up to you)
+	    .attr("id", prefix + this.id )
+	    // By default, all classes are passed on to the new element - Important: We need to remove it
+	    .removeClass("validate[required]");		
+	  });
+		
+		/**
+		 * When user click the create button
+		 */
 	$("#btnCreate").click(function(){
 		if(!$("#frmValidate").validationEngine('validate')) {
 			return false;
@@ -224,8 +227,7 @@ var optionSelection = {
 		createPosition: function(data){
 			var selectionOption = "<select data-parsley-id='4308' id='position' " +
 					"class='form-control validate[required]'>" +
-					"data-validation-engine='validate[required]'" +
-					"<option value='default'>-Please Choose-</option>";
+					"<option value='"+" "+"'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+

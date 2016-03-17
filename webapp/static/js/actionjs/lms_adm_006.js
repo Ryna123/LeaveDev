@@ -19,6 +19,8 @@ $(document).ready(function() {
 		alert(SearchVal);
 	});		
 	
+	
+	
 });
 var user = {
 		loadData: function(){
@@ -50,6 +52,9 @@ var user = {
 								$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");
 							})
 							paging.createPagination(data.RESP_DATA['TOTAL_REC']);
+							$("a.editUser").click(function(){
+								$(this).parent().css("background","red");
+							});
 						}
 						loading(false);
 					}
