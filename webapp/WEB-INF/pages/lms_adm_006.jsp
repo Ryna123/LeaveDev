@@ -212,7 +212,7 @@
     <script type="text/x-jquery-tmpl" id="lmsAdm006">
 		<tr>
              	   <td  scope="row">{{= IDENTIFIER}}</td>
-                   <td> <input class="userID" type="hidden" value="{{= ID}}"/>
+                   <td> <input class="userID" type="text" value="{{= ID}}"/>
 						<a href=""><span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="" data-original-title="Active"></span></a> | 
 						<a href="" class="editUser" data-toggle="modal" data-target="#update_user"><span class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></span></a> | 
 						<a href=""><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></span></a> 

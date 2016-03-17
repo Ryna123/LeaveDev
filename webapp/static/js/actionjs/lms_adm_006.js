@@ -17,17 +17,51 @@ $(document).ready(function() {
 	$("#btn_search").click(function(){
 		var SearchVal= $("#text_search").val();
 		alert(SearchVal);
-	});		
-	
-	
+	});	
 	
 });
 var user = {
+		/**
+		 * put the value into the edit form
+		 */
+		edit_form: function(record){
+			$("#firstName").val(record.firstName);
+			$("#lastName").val(record.lastName);
+			$("#userName").val(record.userName);
+			$("#email").val(val(record.email));
+			$("#phoneNumber").val(record.phoneNumber);
+			$.trim($("#startdate").val(record.startdate))
+			$("#password").val(record.password)
+			$("#userProfile").val(record.userProfile[0].id);	
+			$("#userProfile option:selected").text(record.userProfile[0].type);
+			$("#position").val();
+			$("#managerId").val();
+			$("#contract").val();
+			
+		},
+		find_user_by_id: function(id){
+			$.ajax({
+				url: "../action/service/lms_adm_r006",
+				data: id,
+				type: "GET",
+				success: function(resp){
+					console.log(resp);
+					var record = resp["Record"];
+					if(resp['Success']==true){
+						user.edit_form(resp);						
+					}else{
+						alert(resp["Message"]);
+					}
+					
+				}
+			});
+			
+		},
 		loadData: function(){
 			$("tbody#listUser").empty();
 			loading(true);
 			$.ajax({
-				url : "../action/service/lms_adm_006",		
+				url : "../action/service/lms_adm_l006",		
 				dataType : "JSON",
 				data: myData,
 				type : "GET",				
@@ -53,10 +87,11 @@ var user = {
 								$("#lmsAdm006").tmpl(data).appendTo("tbody#listUser");
 							})
 							paging.createPagination(data.RESP_DATA['TOTAL_REC']);
+							//Edit user
 							$("a.editUser").click(function(){
-								var userID = $(this).find(".userID").val();
-								alert(userID);
-							
+								var userID = $(this).parent().find(".userID").val();
+								user.find_user_by_id(userID);
+								
 							});
 						}
 						loading(false);
