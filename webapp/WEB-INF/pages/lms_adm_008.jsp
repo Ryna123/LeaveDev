@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="x_content">
                                 
-                                    <form class="form-horizontal form-label-left">
+                                    <form class="form-horizontal form-label-left" id="frmValidate">
                                     
                                     <div class="form-group">                                    	
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Identifier:</label>
@@ -95,7 +95,7 @@
                                         
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Last Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-                                        	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
                                         
 										
@@ -105,13 +105,13 @@
 									
 									<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Contract:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" id="selectContract">
-											<select data-parsley-id="4308" id="heard" class="form-control">
+											<select required="required" data-validation-engine="validate[required,maxSize[15]" data-parsley-id="4308" id="heard" class="form-control">
 											<option value="">Employee Term</option>
 										</select>
 										</div>
                                         <label class="control-label col-md-1 col-sm-1 col-xs-1">Department:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
-                                        	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
                                             	<button type="button" id="btn_selectDept"class="btn btn-primary" data-toggle="modal" data-target="#select_dept">Select</button> 
                                         	</span>
@@ -138,23 +138,23 @@
 									<div class="form-group">
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Username:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="userName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="userName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         </div>
                                         
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Password:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
                                         </div>
 									</div>
 									
 									<div class="form-group">
 										<label  class="control-label col-md-3 col-sm-3 col-xs-3">Email:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
                                         </div>
 										<label  class="control-label col-md-1 col-sm-1 col-xs-1">Phone:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
                                         </div>
 									</div>
 
@@ -168,7 +168,7 @@
 										</div>
 										<label class="control-label col-md-1 col-sm-1 col-xs-1">Manager:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
-                                        	<input id="txtManager" readonly="readonly" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="txtManager" readonly="readonly" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
                                             	<button id="btnSelf" type="button" class="btn btn-primary">Self</button> 
                                         	</span>

@@ -41,9 +41,10 @@ $(document).ready(function(){
 	/**
 	 * When user click the create button
 	 */
-	$("#btnCreate").validationEngine(gbox.ui.validationEngineOptions);	
+	//$("#frmValidate").validationEngine(gbox.ui.validationEngineOptions);	
+	$("#frmValidate").validationEngine();
 	$("#btnCreate").click(function(){
-		if(!$("#btnCreate").validationEngine('validate')) {
+		if(!$("#frmValidate").validationEngine('validate')) {
 			return false;
 		}
 		//loading(true);
