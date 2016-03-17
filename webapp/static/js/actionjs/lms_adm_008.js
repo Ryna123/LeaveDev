@@ -30,12 +30,26 @@ $(document).ready(function(){
 	
 	userProfile.listUserProfiles();
 	contract.listContrac();
-	position.listPosition();
-	
+	position.listPosition();	
 	/**
 	 * Display the last id;
 	 */
 	user.list_last_id();
+	// add the rule here
+	 $.validator.addMethod("valueNotEquals", function(value, element, arg){
+	  return arg != value;
+	 }, "Value must not equal arg.");
+
+	 // configure your validation
+	 $("form").validate({
+	  rules: {
+	   SelectName: { valueNotEquals: "default" }
+	  },
+	  messages: {
+	   SelectName: { valueNotEquals: "Please select an item!" }
+	  }  
+	 });
+	
 	
 	
 	/**
@@ -44,7 +58,7 @@ $(document).ready(function(){
 	//$("#frmValidate").validationEngine(gbox.ui.validationEngineOptions);	
 	$("#frmValidate").validationEngine('attach', 
 			{
-				promptPosition : "topLeft", 
+				promptPosition : "topRight", 
 				scroll: false
 			});
 	$("#btnCreate").click(function(){
@@ -208,8 +222,10 @@ var optionSelection = {
 		 * @param data
 		 */
 		createPosition: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='position' class='form-control'>" +
-					"<option value='null'>-Please Choose-</option>";
+			var selectionOption = "<select data-parsley-id='4308' id='position' " +
+					"class='form-control validate[required]'>" +
+					"data-validation-engine='validate[required]'" +
+					"<option value='default'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
@@ -224,8 +240,9 @@ var optionSelection = {
 		 * @param data
 		 */
 		createContract: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='contract' class='form-control'>" +
-			"<option value='null'>-Please Choose-</option>";
+			var selectionOption = "<select data-parsley-id='4308' id='contract' " +
+					"class='form-control validate[required]'>" +
+					"<option value='default'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
@@ -241,8 +258,9 @@ var optionSelection = {
 		 * @param data
 		 */
 		createRoles: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='userProfile' class='form-control'>" +
-			"<option value='null'>-Please Choose-</option>";
+			var selectionOption = "<select data-parsley-id='4308' id='userProfile' " +
+					"class='form-control validate[required]'>" +
+					"<option value='default'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+

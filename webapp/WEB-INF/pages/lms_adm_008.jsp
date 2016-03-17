@@ -90,12 +90,12 @@
 									<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-3">First Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        	<input required="required" data-validation-engine="validate[required,minSize[3],maxSize[15]" id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>                                       
                                         
 										<label class="control-label col-md-2 col-sm-2 col-xs-2">Last Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
-                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
+                                        	<input required="required" data-validation-engine="validate[required,minSize[3],maxSize[15]" id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
                                         
 										
@@ -159,7 +159,7 @@
                                         </div>
 										<label  class="control-label col-md-2 col-sm-2 col-xs-2">Phone:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
+                                        	<input required="required" data-validation-engine="validate[required,maxSize[10],minSize[9]" id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
                                         </div>
 									</div>
 
@@ -167,7 +167,7 @@
 									
 										<label class="control-label control-label col-md-3 col-sm-3 col-xs-3">Start Date:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-											<input type="text" class="form-control has-feedback-left" required="required" data-validation-engine="validate[required,maxSize[10]"  id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
+											<input type="text" class="form-control has-feedback-left" required="required" data-validation-engine="validate[required,custom[date]"  id="startdate" name="daterang1" aria-describedby="inputSuccess2Status">
 												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
 											<span id="" class="sr-only">(success)</span>
 										</div>

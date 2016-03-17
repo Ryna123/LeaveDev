@@ -29,6 +29,8 @@
 	<script type="text/javascript" src="<c:url value="/static/js/toas/toas.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/static/js/toas/jquery.toaster.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/static/js/input_mask/jquery.maskedinput.js" />"></script>
+	<!-- Select Box -->
+	<script type="text/javascript" src="<c:url value="/static/js/selectBox/jquery.selectBox.js" />"></script>
    <!-- Please adn end tage body and html on your own page because i need to include my oun js  -->
 <!-- </body>
 </html> -->
