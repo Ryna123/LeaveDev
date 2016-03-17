@@ -80,7 +80,7 @@
                                         	<input type="text" id="txtIdentifier" readonly="readonly" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         </div>                                       
                                         
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Status:</label>
+										<label class="control-label col-md-2 col-sm-2 col-xs-2">Status:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
                                         	<input id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
@@ -93,7 +93,7 @@
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="firstName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>                                       
                                         
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Last Name:</label>
+										<label class="control-label col-md-2 col-sm-2 col-xs-2">Last Name:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3">
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="lastName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" ></ul>
                                         </div>
@@ -109,7 +109,7 @@
 											<option value="">Employee Term</option>
 										</select>
 										</div>
-                                        <label class="control-label col-md-1 col-sm-1 col-xs-1">Department:</label>
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-2">Department:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
@@ -126,7 +126,7 @@
 												<option value="">HR Admin</option>
 											</select>
 										</div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Position:</label>
+										<label class="control-label col-md-2 col-sm-2 col-xs-2">Position:</label>
 										<div id="selectPosition" class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">
@@ -141,7 +141,7 @@
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="userName" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         </div>
                                         
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Password:</label>
+										<label class="control-label col-md-2 col-sm-2 col-xs-2">Password:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" type="password" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="password"></ul>
                                         </div>
@@ -150,9 +150,14 @@
 									<div class="form-group">
 										<label  class="control-label col-md-3 col-sm-3 col-xs-3">Email:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
-                                        	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="email" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="email"></ul>
+                                        	<input data-validation-engine="validate[required,custom[email]]"
+												    data-errormessage-value-missing="Email is required!" 
+												    data-errormessage-custom-error="Let me give you a hint: someone@nowhere.com" 
+												    data-errormessage="This is the fall-back error message." 
+												    id="email" type="text" class="form-control col-md-7 col-xs-3">
+										<ul class="parsley-errors-list" id="email"></ul>
                                         </div>
-										<label  class="control-label col-md-1 col-sm-1 col-xs-1">Phone:</label>
+										<label  class="control-label col-md-2 col-sm-2 col-xs-2">Phone:</label>
 										<div class="col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback">
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="phoneNumber" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="phoneNumber"></ul>
                                         </div>
@@ -166,7 +171,7 @@
 												<span class="fa fa-calendar-o form-control-feedback left"aria-hidden="true"></span>
 											<span id="" class="sr-only">(success)</span>
 										</div>
-										<label class="control-label col-md-1 col-sm-1 col-xs-1">Manager:</label>
+										<label class="control-label col-md-2 col-sm-2 col-xs-2">Manager:</label>
 										<div class="input-group col-md-3 col-sm-3 col-xs-3 xdisplay_inputx form-group has-feedback" style="padding-left:10px;">
                                         	<input required="required" data-validation-engine="validate[required,maxSize[15]" id="txtManager" readonly="readonly" type="text" class="form-control col-md-7 col-xs-3"><ul class="parsley-errors-list" id="parsley-id-7168"></ul>
                                         	<span class="input-group-btn">

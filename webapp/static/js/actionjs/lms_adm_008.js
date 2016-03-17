@@ -42,7 +42,11 @@ $(document).ready(function(){
 	 * When user click the create button
 	 */
 	//$("#frmValidate").validationEngine(gbox.ui.validationEngineOptions);	
-	$("#frmValidate").validationEngine();
+	$("#frmValidate").validationEngine('attach', 
+			{
+				promptPosition : "topLeft", 
+				scroll: false
+			});
 	$("#btnCreate").click(function(){
 		if(!$("#frmValidate").validationEngine('validate')) {
 			return false;
@@ -204,7 +208,8 @@ var optionSelection = {
 		 * @param data
 		 */
 		createPosition: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='position' class='form-control'>";
+			var selectionOption = "<select data-parsley-id='4308' id='position' class='form-control'>" +
+					"<option value='null'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
@@ -219,7 +224,8 @@ var optionSelection = {
 		 * @param data
 		 */
 		createContract: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='contract' class='form-control'>";
+			var selectionOption = "<select data-parsley-id='4308' id='contract' class='form-control'>" +
+			"<option value='null'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
@@ -235,7 +241,8 @@ var optionSelection = {
 		 * @param data
 		 */
 		createRoles: function(data){
-			var selectionOption = "<select data-parsley-id='4308' id='userProfile' class='form-control'>";
+			var selectionOption = "<select data-parsley-id='4308' id='userProfile' class='form-control'>" +
+			"<option value='null'>-Please Choose-</option>";
 			for(i=0; i< data['LIST'].length; i++){
 				selectionOption += "<option value='"+
 										data.LIST[i].id+"'>"+
