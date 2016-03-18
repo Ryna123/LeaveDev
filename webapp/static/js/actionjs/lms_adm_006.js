@@ -3,6 +3,14 @@ myData = {
 		'pageCount':1
 	};
 $(document).ready(function() {
+	
+
+	$("#startdate,#enddate").daterangepicker({
+		singleDatePicker: true,
+        showDropdowns: true,
+        format:'YYYY/MM/DD'
+	});
+	$("#phoneNumber").mask("(999) 99-999-999",{placeholder:"(000) 00-000-000"});
 	user.loadData();
 	
 	/**
@@ -20,12 +28,66 @@ $(document).ready(function() {
 	});	
 	
 });
+/**
+ * Position
+ */
+var position = {
+		/**
+		 * listing position from server
+		 */
+		listPosition: function(id,name){
+			$.ajax({
+				type	: 'GET',
+				url		: '../action/service/listPosition',
+				success	: function(resp){
+					optionSelection.createPosition(id,name,resp);
+				}
+			});
+		}
+		
+}
+/**
+ * User Profiles
+ */
+var userProfile = {
+		/**
+		 * Get data from userProfiles(Retriving roles of user)
+		 */
+		listUserProfiles: function(id, type){
+			$.ajax({
+				type	: "GET",
+				url		: "../action/service/userProfiles",
+				success	: function(resp){
+					optionSelection.createRoles(id, type, resp);
+				}
+			});
+		}
+}
+var contract = {
+		/**
+		 * Listing Contract from server	
+		 */
+		listContrac: function(id, contractName){
+			$.ajax({
+				type	: "GET", 
+				url		: "../action/service/listContract",
+				success	: function(resp){
+					optionSelection.createContract(id, contractName, data)
+					
+				}
+				
+			});
+		}
+};
 var user = {
 		/**
 		 * put the value into the edit form
 		 */
 		edit_form: function(record){
 			if(record.length!=null || record.length!=1){
+				position.listPosition(record.position.id, record.position.name);
+				userProfile.listUserProfiles(record.userProfiles[0].id, record.userProfiles[0].type)
+				//contract.listContrac(record.contract.id, record.contract.contractName)
 				$("#txtIdentifier").val(record.identifier);
 				$("#firstName").val(record.firstName);
 				$("#lastName").val(record.lastName);
@@ -34,10 +96,9 @@ var user = {
 				$("#phoneNumber").val(record.phone);
 				$("#startdate").val(record.startdate);
 				$("#userProfile").val(record.userProfiles[0].id);	
-				$("#userProfile option:selected").text(record.userProfiles[0].type);
-				$("#position").val(record.position.name);
+				//$("#userProfile option:selected").text(record.userProfiles[0].type);
+				//$("#position").val(record.position.name);
 				$("#managerId").val();
-				$("#contract").val();	
 				loading(false);
 			}
 			
@@ -190,4 +251,61 @@ var paging = {
 			}
 			
 		},
+}
+/**
+ * Creating the selection option
+ */
+var optionSelection = {
+		/**
+		 * Create select option position
+		 * @param data
+		 */
+		createPosition: function(id,name,data){
+			var selectionOption = "<select data-parsley-id='4308' id='position' " +
+					"class='form-control validate[required]'>" +
+					"<option value='"+id+"'>"+name+"</option>";
+			for(i=0; i< data['LIST'].length; i++){
+				selectionOption += "<option value='"+
+										data.LIST[i].id+"'>"+
+										data.LIST[i].name+
+									"</option>";
+			}
+			selectionOption +="</select>";
+			$("#selectPosition").html(selectionOption);
+		},
+		/**
+		 * Create select option Contract
+		 * @param data
+		 */
+		createContract: function(id, contractName, data){
+			var selectionOption = "<select data-parsley-id='4308' id='contract' " +
+					"class='form-control validate[required]'>" +
+					"<option value='"+id+"'>"+contractName+"</option>";
+			for(i=0; i< data['LIST'].length; i++){
+				selectionOption += "<option value='"+
+										data.LIST[i].id+"'>"+
+										data.LIST[i].contractName+
+									"</option>";
+			}
+			selectionOption +="</select>";
+			$("#selectContract").html(selectionOption);
+			
+		},
+		/**
+		 * Create Select option Roles
+		 * @param data
+		 */
+		createRoles: function(id, type,data){
+			var selectionOption = "<select data-parsley-id='4308' id='userProfile' " +
+					"class='form-control validate[required]'>" +
+					"<option value='"+id+"'>"+type+"</option>";
+			for(i=0; i< data['LIST'].length; i++){
+				selectionOption += "<option value='"+
+										data.LIST[i].id+"'>"+
+										data.LIST[i].type+
+									"</option>";
+			}
+			selectionOption +="</select>";
+			$("#userRole").html(selectionOption);
+		}	
 }

@@ -29,13 +29,12 @@ $(document).ready(function(){
 	
 	$("#phoneNumber").mask("(999) 99-999-999",{placeholder:"(000) 00-000-000"});
 	
+	loading(true);
 	userProfile.listUserProfiles();
 	contract.listContrac();
-	position.listPosition();	
-	/**
-	 * Display the last id;
-	 */
+	position.listPosition();
 	user.list_last_id();
+	loading(false);
 	
 	
 	
@@ -49,7 +48,7 @@ $(document).ready(function(){
 				prettySelect : true,
 				usePrefix: prefix
 			});
-	$("select").selectBox();
+/*	$("select").selectBox();
 	
 		// By default, selectBox does not create an id to the newly created element - We need to add this manually
 		$('select').each(function(){ 
@@ -59,13 +58,15 @@ $(document).ready(function(){
 	    .attr("id", prefix + this.id )
 	    // By default, all classes are passed on to the new element - Important: We need to remove it
 	    .removeClass("validate[required]");		
-	  });
+	  });*/
 		
 		/**
 		 * When user click the create button
 		 */
 	$("#btnCreate").click(function(){
+		loading(true);
 		if(!$("#frmValidate").validationEngine('validate')) {
+			loading(false);
 			return false;
 		}
 		//loading(true);
@@ -121,7 +122,6 @@ $(document).ready(function(){
 });
 var user = {
 		list_last_id: function(){
-			loading(true);
 			$.ajax({
 				type	: 'GET',
 				url		: '../action/service/listLastId',
@@ -129,11 +129,9 @@ var user = {
 					identifier.convertId(resp);
 				}
 			});
-			loading(false);
 			
 		},
 		createUser: function(){
-			loading(true);
 			$.ajax({
 				headers:{
 					'Accept': 'application/json',
@@ -149,11 +147,10 @@ var user = {
 					}else if(resp["SUCCESS"]==false){
 						user.list_last_id();
 						alert(resp["Message"]);
-						loading(false);
 					}
-					loading(false);
 				},
 			});
+			loading(false);
 		}
 }
 /**
@@ -164,7 +161,6 @@ var position = {
 		 * listing position from server
 		 */
 		listPosition: function(){
-			loading(true);
 			$.ajax({
 				type	: 'GET',
 				url		: '../action/service/listPosition',
@@ -172,7 +168,6 @@ var position = {
 					optionSelection.createPosition(resp);
 				}
 			});
-			loading(false);
 		}
 		
 }
@@ -184,7 +179,6 @@ var contract = {
 		 * Listing Contract from server	
 		 */
 		listContrac: function(){
-			loading(true);
 			$.ajax({
 				type	: "GET", 
 				url		: "../action/service/listContract",
@@ -194,7 +188,6 @@ var contract = {
 				}
 				
 			});
-			loading(false);
 		}
 };
 /**
@@ -205,7 +198,6 @@ var userProfile = {
 		 * Get data from userProfiles(Retriving roles of user)
 		 */
 		listUserProfiles: function(){
-			loading(true);
 			$.ajax({
 				type	: "GET",
 				url		: "../action/service/userProfiles",
@@ -213,7 +205,6 @@ var userProfile = {
 					optionSelection.createRoles(resp);
 				}
 			});
-			loading(false);
 		}
 }
 /**
@@ -295,6 +286,8 @@ var identifier = {
 				userInfo.identifier 	= "KS"+myNumber;
 			}
 			$("#txtIdentifier").val(userInfo.identifier);
+
+			//loading(false);
 		}
 }
 var validation = {
