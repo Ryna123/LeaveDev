@@ -209,6 +209,10 @@ public class ActionController {
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 		}
 		//Read User
+		/**
+		 * @param id
+		 * @return
+		 */
 		@RequestMapping(value ="/lms_adm_r006/{id}", method = RequestMethod.GET)
 		public Map<String, Object> getSingleUser(
 				@PathVariable("id") int id
@@ -217,6 +221,7 @@ public class ActionController {
 			
 			try{
 				User user = userService.findById(id);
+				user.setPassword("");
 				m.put("Success", true);
 				m.put("Record", user);
 			}catch(Exception e){
