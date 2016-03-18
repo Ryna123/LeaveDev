@@ -25,21 +25,26 @@ var user = {
 		 * put the value into the edit form
 		 */
 		edit_form: function(record){
-			$("#firstName").val(record.firstName);
-			$("#lastName").val(record.lastName);
-			$("#userName").val(record.userName);
-			$("#email").val(val(record.email));
-			$("#phoneNumber").val(record.phoneNumber);
-			$.trim($("#startdate").val(record.startdate))
-			$("#password").val(record.password)
-			$("#userProfile").val(record.userProfile[0].id);	
-			$("#userProfile option:selected").text(record.userProfile[0].type);
-			$("#position").val();
-			$("#managerId").val();
-			$("#contract").val();
+			if(record.length!=null || record.length!=1){
+				$("#txtIdentifier").val(record.identifier);
+				$("#firstName").val(record.firstName);
+				$("#lastName").val(record.lastName);
+				$("#userName").val(record.ssoId);
+				$("#email").val(record.email);
+				$("#phoneNumber").val(record.phone);
+				$("#startdate").val(record.startdate);
+				$("#userProfile").val(record.userProfiles[0].id);	
+				$("#userProfile option:selected").text(record.userProfiles[0].type);
+				$("#position").val(record.position.name);
+				$("#managerId").val();
+				$("#contract").val();	
+				loading(false);
+			}
+			
 			
 		},
 		find_user_by_id: function(id){
+			loading(true);
 			$.ajax({
 				url: "../action/service/lms_adm_r006/"+id,
 				type: "GET",
@@ -47,9 +52,11 @@ var user = {
 					console.log(resp);
 					var record = resp["Record"];
 					if(resp['Success']==true){
-						user.edit_form(resp);						
+						user.edit_form(record);						
 					}else{
+						loading(false);
 						alert(resp["Message"]);
+						
 					}
 					
 				}
